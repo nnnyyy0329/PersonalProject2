@@ -1,0 +1,171 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="CFile">
+      <UniqueIdentifier>{68058c5f-2a3f-4d8b-be3b-1f046757f8a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode">
+      <UniqueIdentifier>{4ce51a7e-f318-486e-8c4c-78ccba7c918f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="App">
+      <UniqueIdentifier>{b2153cf9-c23c-45c9-9b1d-929fe1d90b7c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="math">
+      <UniqueIdentifier>{e5016951-0486-4249-8d7e-240d0362dfdd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager">
+      <UniqueIdentifier>{63e6ccdf-544b-439b-806d-1e932e23f655}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\Component">
+      <UniqueIdentifier>{e2d5dff1-1578-4f71-ad91-6fe0837b0092}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Server">
+      <UniqueIdentifier>{662623ac-6fcc-4c94-83b4-49a6d0f569b3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Server\Resource">
+      <UniqueIdentifier>{c3e18e48-654c-41ff-9b0a-11a27eb89afb}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Server\Effect">
+      <UniqueIdentifier>{09993c2b-44e7-449b-9c0a-bf9ec57d3c9f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Vector">
+      <UniqueIdentifier>{5a6ded67-76b3-46e3-b038-62209afcda57}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Server\Sound">
+      <UniqueIdentifier>{e23f687b-19ea-4472-861b-d107208df316}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Manager\Input">
+      <UniqueIdentifier>{8777042d-11c4-47a3-9507-7b0749d4b0cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="draw">
+      <UniqueIdentifier>{d86d2fdb-700d-4520-874a-752409425a23}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="source\CFile\CFile.cpp">
+      <Filter>CFile</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Mode\ModeBase.cpp">
+      <Filter>Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Mode\ModeServer.cpp">
+      <Filter>Mode</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Application\ApplicationBase.cpp">
+      <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Application\WinMain.cpp">
+      <Filter>App</Filter>
+    </ClCompile>
+    <ClCompile Include="source\math\mymath.cpp">
+      <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Server\EffectServer.cpp">
+      <Filter>Server\Effect</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Server\ResourceServer.cpp">
+      <Filter>Server\Resource</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Vector\Vecto3D.cpp">
+      <Filter>Vector</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Server\SoundServer.cpp">
+      <Filter>Server\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Server\SoundBase.cpp">
+      <Filter>Server\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Server\SoundBgm.cpp">
+      <Filter>Server\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Server\SoundOneshot.cpp">
+      <Filter>Server\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Server\SoundSe.cpp">
+      <Filter>Server\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Server\SoundStatic.cpp">
+      <Filter>Server\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Server\SoundStream.cpp">
+      <Filter>Server\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Server\SoundVoice.cpp">
+      <Filter>Server\Sound</Filter>
+    </ClCompile>
+    <ClCompile Include="source\InputManager.cpp" />
+    <ClCompile Include="source\InputManager.cpp">
+      <Filter>Manager\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Manager\input\InputManager.cpp">
+      <Filter>Manager\Input</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="source\CFile\CFile.h">
+      <Filter>CFile</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Mode\ModeBase.h">
+      <Filter>Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Mode\ModeServer.h">
+      <Filter>Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Application\ApplicationBase.h">
+      <Filter>App</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Application\UtilMacro.h">
+      <Filter>App</Filter>
+    </ClInclude>
+    <ClInclude Include="source\math\mymath.h">
+      <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Manager\ComponentManager.h">
+      <Filter>Manager\Component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\appframe.h" />
+    <ClInclude Include="source\Server\EffectServer.h">
+      <Filter>Server\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Server\ResourceServer.h">
+      <Filter>Server\Resource</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Vector\Vecto3D.h">
+      <Filter>Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Server\SoundServer.h">
+      <Filter>Server\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Server\SoundBase.h">
+      <Filter>Server\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Server\SoundBgm.h">
+      <Filter>Server\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Server\SoundOneshot.h">
+      <Filter>Server\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Server\SoundSe.h">
+      <Filter>Server\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Server\SoundStatic.h">
+      <Filter>Server\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Server\SoundStream.h">
+      <Filter>Server\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Server\SoundVoice.h">
+      <Filter>Server\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\InputManager.h" />
+    <ClInclude Include="source\InputManager.h">
+      <Filter>Manager\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="source\draw\mydraw.h">
+      <Filter>draw</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Manager\input\InputManager.h">
+      <Filter>Manager\Input</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
