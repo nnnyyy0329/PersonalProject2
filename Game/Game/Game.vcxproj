@@ -153,6 +153,7 @@
     <ClCompile Include="source\Bullet.cpp" />
     <ClCompile Include="source\BulletManager.cpp" />
     <ClCompile Include="source\GeometryUtility.cpp" />
+    <ClCompile Include="source\ModeGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Animation\AnimManager.h" />
@@ -161,6 +162,7 @@
     <ClInclude Include="source\Bullet.h" />
     <ClInclude Include="source\BulletManager.h" />
     <ClInclude Include="source\GeometryUtility.h" />
+    <ClInclude Include="source\ModeGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -1,8 +1,6 @@
 #include "appframe.h"
 #include "ApplicationMain.h"
-#include "../Mode/loading/ModeLoading.h"
 #include "ApplicationGlobal.h"
-#include "../Mode/logo/ModeLogo.h"
 
 
 

@@ -19,6 +19,7 @@
     <ClCompile Include="source\Application\ApplicationMain.cpp">
       <Filter>Application</Filter>
     </ClCompile>
+    <ClCompile Include="source\ModeGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -39,6 +40,7 @@
     <ClInclude Include="source\Application\ApplicationMain.h">
       <Filter>Application</Filter>
     </ClInclude>
+    <ClInclude Include="source\ModeGame.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Application">
@@ -52,6 +54,9 @@
     </Filter>
     <Filter Include="Utility">
       <UniqueIdentifier>{8672d866-e05c-4c31-a16a-c411684426f0}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode">
+      <UniqueIdentifier>{17c20df4-c5d4-41ff-b1f1-ab6abf71e86b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
