@@ -40,6 +40,9 @@
     <Filter Include="draw">
       <UniqueIdentifier>{d86d2fdb-700d-4520-874a-752409425a23}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{ffecd66a-804f-4b37-a1b5-75be90b98eea}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\CFile\CFile.cpp">
@@ -93,12 +96,14 @@
     <ClCompile Include="source\Server\SoundVoice.cpp">
       <Filter>Server\Sound</Filter>
     </ClCompile>
-    <ClCompile Include="source\InputManager.cpp" />
     <ClCompile Include="source\InputManager.cpp">
       <Filter>Manager\Input</Filter>
     </ClCompile>
     <ClCompile Include="source\Manager\input\InputManager.cpp">
       <Filter>Manager\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Utility\GeometryUtility.cpp">
+      <Filter>Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -157,7 +162,6 @@
     <ClInclude Include="source\Server\SoundVoice.h">
       <Filter>Server\Sound</Filter>
     </ClInclude>
-    <ClInclude Include="source\InputManager.h" />
     <ClInclude Include="source\InputManager.h">
       <Filter>Manager\Input</Filter>
     </ClInclude>
@@ -166,6 +170,9 @@
     </ClInclude>
     <ClInclude Include="source\Manager\input\InputManager.h">
       <Filter>Manager\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Utility\GeometryUtility.h">
+      <Filter>Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

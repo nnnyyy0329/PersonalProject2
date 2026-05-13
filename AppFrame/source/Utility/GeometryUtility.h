@@ -6,7 +6,17 @@
 ******************************************/
 
 #pragma once
-#include "appframe.h"
+#include "DxLib.h"
+#include <cmath>
+
+// 計算用マクロ
+#define	PI	(3.1415926535897932386f)
+#define	DEG2RAD(x)			( ((x) / 180.0f ) * PI )
+#define	RAD2DEG(x)			( ((x) * 180.0f ) / PI )
+
+// degreeとradianの変換
+static constexpr auto DEGREE_TO_RADIAN = DX_PI_F / 180.0f;
+static constexpr auto RADIAN_TO_DEGREE = 180.0f / DX_PI_F;
 
 /// @brief 扇形の基本データ構造体
 struct SectorData
