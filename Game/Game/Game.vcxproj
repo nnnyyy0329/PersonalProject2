@@ -156,7 +156,13 @@
     <ClCompile Include="source\BulletManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="source\Character.cpp" />
+    <ClCompile Include="source\GameCamera.cpp" />
+    <ClCompile Include="source\Map.cpp" />
     <ClCompile Include="source\ModeGame.cpp" />
+    <ClCompile Include="source\ModeLoading.cpp" />
+    <ClCompile Include="source\ObjectLogic.cpp" />
+    <ClCompile Include="source\ObjectRenderSystem.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Animation\AnimManager.h" />
@@ -168,7 +174,14 @@
     <ClInclude Include="source\BulletManager.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="source\Character.h" />
+    <ClInclude Include="source\GameCamera.h" />
+    <ClInclude Include="source\Map.h" />
     <ClInclude Include="source\ModeGame.h" />
+    <ClInclude Include="source\ModeLoading.h" />
+    <ClInclude Include="source\ObjectData.h" />
+    <ClInclude Include="source\ObjectLogic.h" />
+    <ClInclude Include="source\ObjectRenderSystem.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

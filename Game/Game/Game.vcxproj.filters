@@ -16,8 +16,26 @@
     <ClCompile Include="source\ApplicationMain.cpp">
       <Filter>Application</Filter>
     </ClCompile>
+    <ClCompile Include="source\ObjectLogic.cpp">
+      <Filter>ObjectBase</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ObjectRenderSystem.cpp">
+      <Filter>ObjectBase</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Character.cpp">
+      <Filter>ObjectBase\Character</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GameCamera.cpp">
+      <Filter>ObjectBase\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Map.cpp">
+      <Filter>Map</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ModeLoading.cpp">
+      <Filter>Mode\Load</Filter>
+    </ClCompile>
     <ClCompile Include="source\ModeGame.cpp">
-      <Filter>Mode</Filter>
+      <Filter>Mode\Game</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -36,8 +54,29 @@
     <ClInclude Include="source\ApplicationMain.h">
       <Filter>Application</Filter>
     </ClInclude>
+    <ClInclude Include="source\ObjectLogic.h">
+      <Filter>ObjectBase</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ObjectRenderSystem.h">
+      <Filter>ObjectBase</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Character.h">
+      <Filter>ObjectBase\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="source\GameCamera.h">
+      <Filter>ObjectBase\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Map.h">
+      <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ObjectData.h">
+      <Filter>ObjectBase</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ModeLoading.h">
+      <Filter>Mode\Load</Filter>
+    </ClInclude>
     <ClInclude Include="source\ModeGame.h">
-      <Filter>Mode</Filter>
+      <Filter>Mode\Game</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -52,6 +91,24 @@
     </Filter>
     <Filter Include="Application">
       <UniqueIdentifier>{90cdff77-7faf-434a-87b2-6565a6b2ebb3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ObjectBase">
+      <UniqueIdentifier>{37d7d984-bd86-40db-940d-942d6b12d4d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ObjectBase\Camera">
+      <UniqueIdentifier>{7e601687-8263-4220-aa8c-162c99d96dbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ObjectBase\Character">
+      <UniqueIdentifier>{5820b922-17bc-4a6c-9b30-9d9c5536ff90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Map">
+      <UniqueIdentifier>{04c1e752-21b7-477f-9138-ea9f0c35915b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\Game">
+      <UniqueIdentifier>{b4aa099d-fe04-48a6-a7b9-df082da5af9e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Mode\Load">
+      <UniqueIdentifier>{00b98995-9ee9-479a-ab89-ab85833787bb}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
