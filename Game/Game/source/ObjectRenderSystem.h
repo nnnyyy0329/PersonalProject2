@@ -1,7 +1,8 @@
 #pragma once
 #include "ObjectData.h"
+#include "Map.h"
 
-/// @brief ゲーム内のオブジェクトの描画を管理するクラス
+/// @brief ゲーム内のオブジェクトの描画クラス
 class ObjectRenderSystem
 {
 public:
@@ -9,8 +10,17 @@ public:
 	ObjectRenderSystem();
 	virtual ~ObjectRenderSystem();
 
-	/* 基本関数 */
-	virtual bool Render() = 0;	/// @brief 描画関数
+	/*描画関数 */
+
+    /// @brief オブジェクト描画
+    /// 
+    /// @param data オブジェクトデータ
+    void ObjectRender(const ObjectData& data);
+
+    /// @brief マップ描画
+    /// 
+    /// @param map マップ
+    void MapRender(const Map& map);
 
 protected:
 
