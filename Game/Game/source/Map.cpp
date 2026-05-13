@@ -28,9 +28,3 @@ bool Map::Terminate()
 
 	return true;
 }
-
-MapData& Map::GetMapData()
-{
-	// マップデータを返す
-	return m_mapData;
-}

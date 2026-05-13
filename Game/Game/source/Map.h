@@ -33,7 +33,7 @@ public:
 	/// @brief マップデータ取得
 	/// 
 	/// @return マップデータ
-	MapData& GetMapData();
+	const MapData& GetMapData() const { return m_mapData; }
 
 protected:
 
