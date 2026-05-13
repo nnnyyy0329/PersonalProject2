@@ -6,7 +6,11 @@ bool ModeGame::Initialize()
 {
 	if(!base::Initialize()) { return false; }
 
-	
+	// マップの初期化
+	m_map.Initialize();
+
+	// カメラの初期化
+	m_camera.Initialize();
 
 	return true;
 }
@@ -24,6 +28,9 @@ bool ModeGame::Process()
 
 	// オブジェクトの更新処理
 	for(auto& obj : m_objects) { obj->Process(); }
+
+	// カメラの更新処理
+	m_camera.Process();
 
 	return true;
 }

@@ -1,8 +1,8 @@
 #include "appframe.h"
+#include "ObjectLogic.h"
 #include "ObjectRenderSystem.h"
 #include "Map.h"
-
-class ObjectLogic;
+#include "GameCamera.h"
 
 /// @brief ゲームモードクラス
 class ModeGame : public ModeBase
@@ -21,8 +21,9 @@ protected:
 
 private:
 
-	std::vector<std::unique_ptr<ObjectLogic>> m_objects;	/// ゲーム内のオブジェクトのロジッククラスのリスト
-	ObjectRenderSystem m_render;							/// ゲーム内のオブジェクトの描画クラス
-	Map m_map;												/// ゲーム内のマップクラス
+	std::vector<std::unique_ptr<ObjectLogic>>	m_objects;	/// ゲーム内のオブジェクトのロジッククラスのリスト
+	ObjectRenderSystem							m_render;	/// ゲーム内のオブジェクトの描画クラス
+	Map											m_map;		/// ゲーム内のマップクラス
+	GameCamera									m_camera;	/// ゲーム内のカメラクラス
 
 }; 
