@@ -1,4 +1,8 @@
 #include "appframe.h"
+#include "ObjectRenderSystem.h"
+#include "Map.h"
+
+class ObjectLogic;
 
 /// @brief ゲームモードクラス
 class ModeGame : public ModeBase
@@ -15,5 +19,10 @@ public:
 protected:
 
 
+private:
+
+	std::vector<std::unique_ptr<ObjectLogic>> m_objects;	/// ゲーム内のオブジェクトのロジッククラスのリスト
+	ObjectRenderSystem m_render;							/// ゲーム内のオブジェクトの描画クラス
+	Map m_map;												/// ゲーム内のマップクラス
 
 }; 
