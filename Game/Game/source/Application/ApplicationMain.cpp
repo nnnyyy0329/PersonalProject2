@@ -7,15 +7,16 @@
 // 実体
 ApplicationMain				g_oApplicationMain;
 
-bool ApplicationMain::Initialize(HINSTANCE hInstance) {
+bool ApplicationMain::Initialize(HINSTANCE hInstance)
+{
 	if (!base::Initialize(hInstance)) { return false; }
 
 	// アプリケーショングローバルの初期化
 	gGlobal.Init();
 
 	// モードの登録
-	// タイトルモードを登録
-	ModeServer::GetInstance()->Add(new ModeLogo(), 100, "logo");
+	// ゲームモードを登録
+	ModeServer::GetInstance()->Add(new ModeGame(), 100, "game");
 
 	return true;
 }

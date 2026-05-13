@@ -1,7 +1,6 @@
 
 #include "appframe.h"
 
-
 class ApplicationMain : public ApplicationBase
 {
 	typedef ApplicationBase base;
