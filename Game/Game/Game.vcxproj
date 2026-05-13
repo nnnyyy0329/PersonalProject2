@@ -148,20 +148,26 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="source\Animation\AnimManager.cpp" />
-    <ClCompile Include="source\Application\ApplicationGlobal.cpp" />
-    <ClCompile Include="source\Application\ApplicationMain.cpp" />
-    <ClCompile Include="source\Bullet.cpp" />
-    <ClCompile Include="source\BulletManager.cpp" />
-    <ClCompile Include="source\GeometryUtility.cpp" />
+    <ClCompile Include="source\ApplicationGlobal.cpp" />
+    <ClCompile Include="source\ApplicationMain.cpp" />
+    <ClCompile Include="source\Bullet.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
+    <ClCompile Include="source\BulletManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="source\ModeGame.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Animation\AnimManager.h" />
-    <ClInclude Include="source\Application\ApplicationGlobal.h" />
-    <ClInclude Include="source\Application\ApplicationMain.h" />
-    <ClInclude Include="source\Bullet.h" />
-    <ClInclude Include="source\BulletManager.h" />
-    <ClInclude Include="source\GeometryUtility.h" />
+    <ClInclude Include="source\ApplicationGlobal.h" />
+    <ClInclude Include="source\ApplicationMain.h" />
+    <ClInclude Include="source\Bullet.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
+    <ClInclude Include="source\BulletManager.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="source\ModeGame.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

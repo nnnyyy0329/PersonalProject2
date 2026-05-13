@@ -7,19 +7,18 @@
     <ClCompile Include="source\BulletManager.cpp">
       <Filter>Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="source\GeometryUtility.cpp">
-      <Filter>Utility</Filter>
-    </ClCompile>
     <ClCompile Include="source\Animation\AnimManager.cpp">
       <Filter>Animation</Filter>
     </ClCompile>
-    <ClCompile Include="source\Application\ApplicationGlobal.cpp">
+    <ClCompile Include="source\ApplicationGlobal.cpp">
       <Filter>Application</Filter>
     </ClCompile>
-    <ClCompile Include="source\Application\ApplicationMain.cpp">
+    <ClCompile Include="source\ApplicationMain.cpp">
       <Filter>Application</Filter>
     </ClCompile>
-    <ClCompile Include="source\ModeGame.cpp" />
+    <ClCompile Include="source\ModeGame.cpp">
+      <Filter>Mode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -28,35 +27,31 @@
     <ClInclude Include="source\BulletManager.h">
       <Filter>Bullet</Filter>
     </ClInclude>
-    <ClInclude Include="source\GeometryUtility.h">
-      <Filter>Utility</Filter>
-    </ClInclude>
     <ClInclude Include="source\Animation\AnimManager.h">
       <Filter>Animation</Filter>
     </ClInclude>
-    <ClInclude Include="source\Application\ApplicationGlobal.h">
+    <ClInclude Include="source\ApplicationGlobal.h">
       <Filter>Application</Filter>
     </ClInclude>
-    <ClInclude Include="source\Application\ApplicationMain.h">
+    <ClInclude Include="source\ApplicationMain.h">
       <Filter>Application</Filter>
     </ClInclude>
-    <ClInclude Include="source\ModeGame.h" />
+    <ClInclude Include="source\ModeGame.h">
+      <Filter>Mode</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <Filter Include="Application">
-      <UniqueIdentifier>{87c0314d-652a-4329-9004-ec2304255003}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Bullet">
       <UniqueIdentifier>{dbd2dd3d-1e6f-4956-b6b1-3c0631975688}</UniqueIdentifier>
     </Filter>
     <Filter Include="Animation">
       <UniqueIdentifier>{8a4cbfe7-fc06-4c1c-94bf-2ce3a31c6539}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Utility">
-      <UniqueIdentifier>{8672d866-e05c-4c31-a16a-c411684426f0}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Mode">
       <UniqueIdentifier>{17c20df4-c5d4-41ff-b1f1-ab6abf71e86b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Application">
+      <UniqueIdentifier>{90cdff77-7faf-434a-87b2-6565a6b2ebb3}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

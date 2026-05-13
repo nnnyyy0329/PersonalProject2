@@ -1,4 +1,3 @@
-#pragma once
 #include "appframe.h"
 
 class ApplicationGlobal
@@ -9,8 +8,9 @@ public:
 
 	bool Init();
 
-	int _cgCursor;
-};
+public:
+	int		_cgCursor;
+}; 
 
-extern ApplicationGlobal gGlobal;
-
+// 他のソースでgGlobalを使えるように
+extern ApplicationGlobal		gGlobal;
