@@ -14,6 +14,11 @@ public:
 	virtual bool Terminate() = 0;	///	@brief 終了関数
 	virtual bool Process() = 0;		///	@brief 更新関数
 
+	/// @brief オブジェクトデータ取得
+	/// 
+	/// @return オブジェクトデータ
+	const ObjectData& GetData() const { return m_data; }
+
 protected:
 
 	ObjectData m_data;	/// @brief オブジェクトのデータ
