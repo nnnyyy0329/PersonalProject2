@@ -1,0 +1,26 @@
+#pragma once
+#include "Character.h"
+
+/// @brief プレイヤークラス
+class Player : public Character
+{
+public:
+
+	Player();
+	virtual ~Player();
+
+	/* 基本関数 */
+
+	/// @brief 初期化関数
+	virtual bool Initialize() override;
+
+	/// @brief 終了関数
+	virtual bool Terminate() override;
+
+	/// @brief 更新関数
+	virtual bool Process() override;
+
+protected:
+
+};
+

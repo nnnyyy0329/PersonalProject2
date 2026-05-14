@@ -10,6 +10,21 @@ ObjectRenderSystem::~ObjectRenderSystem()
 
 }
 
+void ObjectRenderSystem::BeginRender()
+{
+	// 3D基本設定
+	{
+		SetUseZBuffer3D(TRUE);
+		SetWriteZBuffer3D(TRUE);
+		SetUseBackCulling(TRUE);
+	}
+}
+
+void ObjectRenderSystem::EndRender()
+{
+	
+}
+
 void ObjectRenderSystem::ObjectRender(const ObjectData& data)
 {
 	// オブジェクト位置設定 

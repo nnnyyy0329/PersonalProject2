@@ -40,6 +40,10 @@
     <ClCompile Include="source\Light.cpp">
       <Filter>Light</Filter>
     </ClCompile>
+    <ClCompile Include="source\ObjectFactory.cpp" />
+    <ClCompile Include="source\Player.cpp">
+      <Filter>ObjectBase\Character\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -84,6 +88,10 @@
     <ClInclude Include="source\Light.h">
       <Filter>Light</Filter>
     </ClInclude>
+    <ClInclude Include="source\ObjectFactory.h" />
+    <ClInclude Include="source\Player.h">
+      <Filter>ObjectBase\Character\Player</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -118,6 +126,9 @@
     </Filter>
     <Filter Include="Light">
       <UniqueIdentifier>{c7768099-bd8a-46e3-ba10-78d7be80ca29}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ObjectBase\Character\Player">
+      <UniqueIdentifier>{a049f421-f065-41af-b566-a7728cb32dd4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
