@@ -33,3 +33,18 @@ void ObjectRenderSystem::MapRender(const Map& map)
 	// マップ描画
 	MV1DrawModel(mapData.handle);
 }
+
+void ObjectRenderSystem::LightRender(const Light& light)
+{
+	// ライト設定
+	SetUseLighting(TRUE);
+
+	// ライトデータ取得
+	auto lightData = light.GetLightData();
+
+	// 平行ライト
+	{
+		SetGlobalAmbientLight(GetColorF(0.f, 0.f, 0.f, 0.f));
+		ChangeLightTypeDir(lightData.direction);
+	}
+}

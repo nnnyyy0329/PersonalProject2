@@ -1,6 +1,7 @@
 #pragma once
 #include "ObjectData.h"
 #include "Map.h"
+#include "Light.h"
 
 /// @brief ゲーム内のオブジェクトの描画クラス
 class ObjectRenderSystem
@@ -21,6 +22,11 @@ public:
     /// 
     /// @param map マップ
     void MapRender(const Map& map);
+
+	/// @brief ライト描画
+	///
+	/// @param light ライト
+	void LightRender(const Light& light);
 
 protected:
 
