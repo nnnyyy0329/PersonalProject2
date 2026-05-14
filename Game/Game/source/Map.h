@@ -7,7 +7,7 @@ struct MapData
 	VECTOR pos;	/// @brief マップの位置
 	int handle;	/// @brief マップのグラフィックハンドル
 
-	/// @brief コンストラクタ
+	/// @brief マップデータコンストラクタ
 	MapData()
 	{
 		pos = { 0.0f, 0.0f, 0.0f };
@@ -28,7 +28,7 @@ public:
 	bool Terminate();	/// @brief 終了関数
 
 
-	/* 固有関数 */
+	/* 内部関数 */
 
 	/// @brief マップデータ取得
 	/// 
