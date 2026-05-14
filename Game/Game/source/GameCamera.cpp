@@ -12,8 +12,6 @@ GameCamera::~GameCamera()
 
 bool GameCamera::Initialize()
 {
-	m_pos		= VGet(0.0f, 0.0f, 0.0f);
-	m_target	= VGet(0.0f, 0.0f, 0.0f);
 	m_clipNear	= 2.0f;
 	m_clipFar	= 10000.0f;
 
@@ -27,8 +25,13 @@ bool GameCamera::Terminate()
 
 bool GameCamera::Process()
 {
+	return true;
+}
+
+bool GameCamera::SetUpCamera() const
+{
 	// カメラの位置と注視点を設定
-	SetCameraPositionAndTarget_UpVecY(m_pos, m_target);
+	SetCameraPositionAndTarget_UpVecY(m_cameraData.pos, m_cameraData.target);
 
 	// カメラの近クリップ距離と遠クリップ距離を設定
 	SetCameraNearFar(m_clipNear, m_clipFar);

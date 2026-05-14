@@ -7,6 +7,14 @@ struct CameraData
 	VECTOR pos;	
 	VECTOR target;
 	VECTOR upVec;
+
+	/// @brief カメラデータコンストラクタ
+	CameraData()
+	{
+		pos = { 0.0f, 0.0f, 0.0f };
+		target = { 0.0f, 0.0f, 0.0f };
+		upVec = { 0.0f, 1.0f, 0.0f };
+	}
 };
 
 /// @brief ゲームカメラクラス
@@ -22,23 +30,33 @@ public:
 	bool Terminate();	/// @brief 終了関数
 	bool Process();		/// @brief 更新関数
 
+
+	/* 内部関数 */
+
+	/// @brief カメラの設定を行う関数
+	bool SetUpCamera() const;
+
+	/// @brief カメラデータ取得
+	///
+	/// @return カメラデータ
+	const CameraData& GetCameraData() const { return m_cameraData; }
+
+
 	/* アクセッサ */
 
 	/// @brief カメラの位置を設定
 	///
 	/// @param pos カメラの位置
-	void SetPos(const VECTOR& pos) { m_pos = pos; }
+	void SetPos(const VECTOR& pos) { m_cameraData.pos = pos; }
 
 	/// @brief カメラの注視点を設定
 	///
 	/// @param target カメラの注視点
-	void SetTarget(const VECTOR& target) { m_target = target; }
+	void SetTarget(const VECTOR& target) { m_cameraData.target = target; }
 
 private:
 
 	CameraData m_cameraData;	/// @brief カメラデータ
-	VECTOR	m_pos;				/// @brief カメラの位置
-	VECTOR	m_target;			/// @brief カメラの注視点
 	float	m_clipNear;			/// @brief カメラの近クリップ距離
 	float	m_clipFar;			/// @brief カメラの遠クリップ距離
 
