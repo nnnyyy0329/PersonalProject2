@@ -1,15 +1,8 @@
 #pragma once
 #include "appframe.h"
-#include "ObjectLogic.h"
-
-/// @brief ゲーム内のオブジェクトの種類
-enum class OBJECT_TYPE
-{
-	PLAYER,	///< プレイヤー
-	ENEMY,	///< 敵
-};
 
 /* 前方宣言 */
+class ObjectLogic;
 class Player;
 
 /// @brief ゲーム内のオブジェクトの生成クラス
@@ -17,12 +10,25 @@ class ObjectFactory
 {
 public:
 
-	/// @brief オブジェクト生成関数
+	/// @brief オブジェクト生成関数の型を定義
+	using CreateFunc = std::function<std::unique_ptr<ObjectLogic>()>;
+
+	/// @brief オブジェクトの登録関数
 	///
-	/// @param type 生成するオブジェクトの種類
+	/// @param name オブジェクトの名前
+	/// @param func オブジェクトの生成関数
+	void RegisterObject(const std::string& name, CreateFunc func);
+
+	/// @brief オブジェクトの生成関数
+	///
+	/// @param name オブジェクトの名前
 	/// 
 	/// @return 生成されたオブジェクトのロジッククラスのユニークポインタ
-	static std::unique_ptr<ObjectLogic> CreateObject(OBJECT_TYPE type);
+	std::unique_ptr<ObjectLogic> CreateObject(const std::string& name);
+
+private:
+	
+	std::unordered_map<std::string, CreateFunc> m_objectCreators;	/// @brief オブジェクトの登録マップ
 
 };
 

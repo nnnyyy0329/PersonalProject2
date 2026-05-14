@@ -8,8 +8,7 @@ bool ModeGame::Initialize()
 	if(!base::Initialize()) { return false; }
 
 	// オブジェクトの生成
-	auto player = ObjectFactory::CreateObject(OBJECT_TYPE::PLAYER);
-	m_objects.push_back(std::move(player));
+	RegisterObjectCreators();
 
 	// マップの初期化
 	m_map.Initialize();
@@ -57,4 +56,10 @@ bool ModeGame::Render()
 	m_render.MapRender(m_map);
 
 	return true;
+}
+
+void ModeGame::RegisterObjectCreators() const
+{
+	// プレイヤーの生成関数を登録
+	m_factory.RegisterObject("Player", []() { return std::make_unique<Player>(); });
 }

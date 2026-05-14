@@ -1,28 +1,24 @@
 #include "ObjectFactory.h"
+#include "ObjectLogic.h"
 #include "Player.h"
 
-std::unique_ptr<ObjectLogic> ObjectFactory::CreateObject(OBJECT_TYPE type)
+void ObjectFactory::RegisterObject(const std::string& name, CreateFunc func)
 {
-	// 生成されたオブジェクトのロジッククラスのユニークポインタ
-	std::unique_ptr<ObjectLogic> obj;
+	m_objectCreators[name] = func;
+}
 
-	// オブジェクトの種類に応じて生成
-	switch (type)
+std::unique_ptr<ObjectLogic> ObjectFactory::CreateObject(const std::string& name)
+{
+	// 登録された生成関数を検索
+	auto objects = m_objectCreators.find(name);
+
+	// 登録された生成関数が見つかった場合
+	if(objects != m_objectCreators.end())
 	{
-		case OBJECT_TYPE::PLAYER:	// プレイヤーオブジェクトの生成
-		{
-			obj = std::make_unique<Player>();
-			break;
-		}
-
-		case OBJECT_TYPE::ENEMY:	// 敵オブジェクトの生成
-		{
-			break;
-		}
-			
-		default:
-			break;
+		// 登録された生成関数を呼び出してオブジェクトを生成
+		return objects->second();	
 	}
 
-	return obj;
+	// 登録されていない場合はnullptrを返す
+	return nullptr;	
 }
