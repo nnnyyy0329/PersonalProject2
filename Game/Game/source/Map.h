@@ -24,8 +24,12 @@ public:
 	virtual ~Map();
 
 	/* 基本関数 */
-	bool Initialize();	/// @brief 初期化関数
-	bool Terminate();	/// @brief 終了関数
+
+	/// @brief 初期化関数
+	bool Initialize();	
+
+	/// @brief 終了関数
+	bool Terminate();	
 
 
 	/* 内部関数 */

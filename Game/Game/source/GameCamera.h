@@ -26,9 +26,15 @@ public:
 	~GameCamera();
 
 	/* 基本関数 */
-	bool Initialize();	/// @brief 初期化関数
-	bool Terminate();	/// @brief 終了関数
-	bool Process();		/// @brief 更新関数
+
+	/// @brief 初期化関数
+	bool Initialize();
+
+	/// @brief 終了関数
+	bool Terminate();
+
+	/// @brief 更新関数
+	bool Process();
 
 
 	/* 内部関数 */

@@ -8,10 +8,18 @@ class ModeLoading : public ModeBase
 public:
 
 	/* 基本関数 */
-	virtual bool Initialize();	/// @brief 初期化関数
-	virtual bool Terminate();	/// @brief 終了関数
+
+	/// @brief 初期化関数
+	virtual bool Initialize() override;
+
+	/// @brief 終了関数
+	virtual bool Terminate() override;
+
+	/// @brief 更新関数
+	virtual bool Process() override;
 
 protected:
 
+	bool m_isLoadStarted = false;	/// ロード開始したか
 };
 

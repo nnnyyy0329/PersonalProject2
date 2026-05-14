@@ -10,9 +10,18 @@ public:
 	virtual ~ObjectLogic();
 
 	/* 基本関数 */
-	virtual bool Initialize() = 0;	/// @brief 初期化関数
-	virtual bool Terminate() = 0;	///	@brief 終了関数
-	virtual bool Process() = 0;		///	@brief 更新関数
+
+	/// @brief 初期化関数
+	virtual bool Initialize() = 0;
+
+	/// @brief 終了関数
+	virtual bool Terminate() = 0;
+
+	/// @brief 更新関数
+	virtual bool Process() = 0;
+
+
+	/* 内部関数 */
 
 	/// @brief オブジェクトデータ取得
 	/// 

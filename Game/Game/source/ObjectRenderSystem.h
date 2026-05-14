@@ -13,6 +13,12 @@ public:
 
 	/*描画関数 */
 
+	/// @brief 描画開始
+	void BeginRender();
+
+	/// @brief 描画終了
+	void EndRender();
+
     /// @brief オブジェクト描画
     /// 
     /// @param data オブジェクトデータ
