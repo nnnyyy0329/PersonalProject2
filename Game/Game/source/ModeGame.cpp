@@ -29,15 +29,22 @@ bool ModeGame::Process()
 	// オブジェクトの更新処理
 	for(auto& obj : m_objects) { obj->Process(); }
 
-	// カメラの更新処理
-	m_camera.Process();
-
 	return true;
 }
 
 bool ModeGame::Render()
 {
 	base::Render();
+
+	// 3D基本設定
+	{
+		SetUseZBuffer3D(TRUE);
+		SetWriteZBuffer3D(TRUE);
+		SetUseBackCulling(TRUE);
+	}
+
+	// カメラセットアップ
+	m_camera.SetUpCamera();
 
 	// オブジェクトの描画
 	for(auto& obj : m_objects) { m_render.ObjectRender(obj->GetData()); }
