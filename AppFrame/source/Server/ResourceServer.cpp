@@ -82,6 +82,8 @@ void ResourceServer::StartLoadAsync()
 			res.handle = handle;
 		}
 	}
+
+	// 3 非同期ロードフラグを元に戻す
 	SetUseASyncLoadFlag(FALSE);
 }
 
