@@ -157,6 +157,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="source\Character.cpp" />
+    <ClCompile Include="source\DebugFps.cpp" />
+    <ClCompile Include="source\DebugManager.cpp" />
+    <ClCompile Include="source\DebugParameter.cpp" />
     <ClCompile Include="source\GameCamera.cpp" />
     <ClCompile Include="source\Light.cpp" />
     <ClCompile Include="source\Map.cpp" />
@@ -178,6 +181,9 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
     <ClInclude Include="source\Character.h" />
+    <ClInclude Include="source\DebugFps.h" />
+    <ClInclude Include="source\DebugManager.h" />
+    <ClInclude Include="source\DebugParameter.h" />
     <ClInclude Include="source\GameCamera.h" />
     <ClInclude Include="source\Light.h" />
     <ClInclude Include="source\Map.h" />

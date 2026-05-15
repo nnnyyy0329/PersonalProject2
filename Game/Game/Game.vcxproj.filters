@@ -46,6 +46,15 @@
     <ClCompile Include="source\ObjectFactory.cpp">
       <Filter>ObjectBase</Filter>
     </ClCompile>
+    <ClCompile Include="source\DebugManager.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DebugFps.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="source\DebugParameter.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -96,6 +105,15 @@
     <ClInclude Include="source\ObjectFactory.h">
       <Filter>ObjectBase</Filter>
     </ClInclude>
+    <ClInclude Include="source\DebugManager.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DebugFps.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DebugParameter.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -136,6 +154,9 @@
     </Filter>
     <Filter Include="ObjectBase">
       <UniqueIdentifier>{a678d3ba-d371-44f5-a5b7-9c1c624cc2bf}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Debug">
+      <UniqueIdentifier>{78a0a7c6-33b5-4ede-a0ed-91b18160a93f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
