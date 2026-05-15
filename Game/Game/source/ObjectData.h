@@ -4,15 +4,14 @@
 /// @brief オブジェクトデータ構造体
 struct ObjectData
 {
-	VECTOR pos; /// @brief オブジェクトの位置
-	VECTOR rot; /// @brief オブジェクトの回転
-	int handle;	/// @brief オブジェクトのグラフィックハンドル
+	VECTOR pos; ///< オブジェクトの位置
+	VECTOR rot; ///< オブジェクトの回転
+	int handle;	///< オブジェクトのグラフィックハンドル
 
-	/// @brief コンストラクタ
 	ObjectData()
 	{
-		pos = { 0.0f, 0.0f, 0.0f };
-		rot = { 0.0f, 0.0f, 0.0f };
-		handle = -1;
+		pos		= { 0.0f, 0.0f, 0.0f };
+		rot		= { 0.0f, 0.0f, 0.0f };
+		handle	= -1;
 	}
 };

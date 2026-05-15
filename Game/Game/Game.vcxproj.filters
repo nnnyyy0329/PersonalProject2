@@ -16,17 +16,11 @@
     <ClCompile Include="source\ApplicationMain.cpp">
       <Filter>Application</Filter>
     </ClCompile>
-    <ClCompile Include="source\ObjectLogic.cpp">
-      <Filter>ObjectBase</Filter>
-    </ClCompile>
-    <ClCompile Include="source\ObjectRenderSystem.cpp">
-      <Filter>ObjectBase</Filter>
-    </ClCompile>
     <ClCompile Include="source\Character.cpp">
-      <Filter>ObjectBase\Character</Filter>
+      <Filter>Object\Character</Filter>
     </ClCompile>
     <ClCompile Include="source\GameCamera.cpp">
-      <Filter>ObjectBase\Camera</Filter>
+      <Filter>Object\Camera</Filter>
     </ClCompile>
     <ClCompile Include="source\Map.cpp">
       <Filter>Map</Filter>
@@ -40,9 +34,17 @@
     <ClCompile Include="source\Light.cpp">
       <Filter>Light</Filter>
     </ClCompile>
-    <ClCompile Include="source\ObjectFactory.cpp" />
     <ClCompile Include="source\Player.cpp">
-      <Filter>ObjectBase\Character\Player</Filter>
+      <Filter>Object\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ObjectLogic.cpp">
+      <Filter>ObjectBase</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ObjectRenderSystem.cpp">
+      <Filter>ObjectBase</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ObjectFactory.cpp">
+      <Filter>ObjectBase</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -61,23 +63,14 @@
     <ClInclude Include="source\ApplicationMain.h">
       <Filter>Application</Filter>
     </ClInclude>
-    <ClInclude Include="source\ObjectLogic.h">
-      <Filter>ObjectBase</Filter>
-    </ClInclude>
-    <ClInclude Include="source\ObjectRenderSystem.h">
-      <Filter>ObjectBase</Filter>
-    </ClInclude>
     <ClInclude Include="source\Character.h">
-      <Filter>ObjectBase\Character</Filter>
+      <Filter>Object\Character</Filter>
     </ClInclude>
     <ClInclude Include="source\GameCamera.h">
-      <Filter>ObjectBase\Camera</Filter>
+      <Filter>Object\Camera</Filter>
     </ClInclude>
     <ClInclude Include="source\Map.h">
       <Filter>Map</Filter>
-    </ClInclude>
-    <ClInclude Include="source\ObjectData.h">
-      <Filter>ObjectBase</Filter>
     </ClInclude>
     <ClInclude Include="source\ModeLoading.h">
       <Filter>Mode\Load</Filter>
@@ -88,9 +81,20 @@
     <ClInclude Include="source\Light.h">
       <Filter>Light</Filter>
     </ClInclude>
-    <ClInclude Include="source\ObjectFactory.h" />
     <ClInclude Include="source\Player.h">
-      <Filter>ObjectBase\Character\Player</Filter>
+      <Filter>Object\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ObjectData.h">
+      <Filter>ObjectBase</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ObjectLogic.h">
+      <Filter>ObjectBase</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ObjectRenderSystem.h">
+      <Filter>ObjectBase</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ObjectFactory.h">
+      <Filter>ObjectBase</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -106,15 +110,6 @@
     <Filter Include="Application">
       <UniqueIdentifier>{90cdff77-7faf-434a-87b2-6565a6b2ebb3}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ObjectBase">
-      <UniqueIdentifier>{37d7d984-bd86-40db-940d-942d6b12d4d5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ObjectBase\Camera">
-      <UniqueIdentifier>{7e601687-8263-4220-aa8c-162c99d96dbd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="ObjectBase\Character">
-      <UniqueIdentifier>{5820b922-17bc-4a6c-9b30-9d9c5536ff90}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Map">
       <UniqueIdentifier>{04c1e752-21b7-477f-9138-ea9f0c35915b}</UniqueIdentifier>
     </Filter>
@@ -127,8 +122,20 @@
     <Filter Include="Light">
       <UniqueIdentifier>{c7768099-bd8a-46e3-ba10-78d7be80ca29}</UniqueIdentifier>
     </Filter>
-    <Filter Include="ObjectBase\Character\Player">
+    <Filter Include="Object">
+      <UniqueIdentifier>{37d7d984-bd86-40db-940d-942d6b12d4d5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Camera">
+      <UniqueIdentifier>{7e601687-8263-4220-aa8c-162c99d96dbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Character">
+      <UniqueIdentifier>{5820b922-17bc-4a6c-9b30-9d9c5536ff90}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Character\Player">
       <UniqueIdentifier>{a049f421-f065-41af-b566-a7728cb32dd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="ObjectBase">
+      <UniqueIdentifier>{a678d3ba-d371-44f5-a5b7-9c1c624cc2bf}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

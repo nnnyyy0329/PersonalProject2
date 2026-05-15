@@ -4,9 +4,9 @@
 /// @brief カメラデータ構造体
 struct CameraData
 {
-	VECTOR pos;	
-	VECTOR target;
-	VECTOR upVec;
+	VECTOR pos;		///< カメラの位置
+	VECTOR target;	///< カメラの注視点
+	VECTOR upVec;	///< カメラのアップベクトル
 };
 
 /// @brief ゲームカメラクラス
@@ -67,10 +67,16 @@ public:
 
 private:
 
-	CameraData m_cameraData;	/// @brief カメラデータ
+	//===========================================================================
+	// メンバ変数
+	//===========================================================================
+
+
+	CameraData m_cameraData;		/// @brief カメラデータ
 
 	float	m_clipNear	= 2.0f;		/// @brief カメラの近クリップ距離
 	float	m_clipFar	= 10000.0f;	/// @brief カメラの遠クリップ距離
+
 
 protected:
 
