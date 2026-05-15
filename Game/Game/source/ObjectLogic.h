@@ -30,8 +30,6 @@ public:
 	virtual bool Terminate() = 0;
 
 	/// @brief 更新関数
-	///
-	/// @return 成功しているならtrue、失敗しているならfalse
 	/// 
 	/// @note この純粋仮想関数は、派生クラスでオーバーライドされる必要があります。
 	virtual void Process() = 0;

@@ -27,7 +27,7 @@ bool ModeLoading::Terminate()
 	return true;
 }
 
-void ModeLoading::Process()
+bool ModeLoading::Process()
 {
 	base::Process();
 

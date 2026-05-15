@@ -16,9 +16,13 @@ public:
 
 
 	/// @brief 初期化関数
+	///
+	/// @return 成功しているならtrue、失敗しているならfalse
 	virtual bool Initialize() override;
 
 	/// @brief 終了関数
+	///
+	/// @return 成功しているならtrue、失敗しているならfalse
 	virtual bool Terminate() override;
 
 	/// @brief 更新関数

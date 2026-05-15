@@ -27,14 +27,10 @@ public:
 	virtual bool Terminate() override;
 
 	/// @brief 更新関数
-	///
-	/// @return 成功しているならtrue、失敗しているならfalse
-	virtual void Process() override;
+	virtual bool Process() override;
 
 	/// @brief 描画関数
-	///
-	/// @return 成功しているならtrue、失敗しているならfalse
-	virtual void Render() override;
+	virtual bool Render() override;
 
 
 protected:

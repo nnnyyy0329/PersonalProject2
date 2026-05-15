@@ -23,9 +23,13 @@ public:
 	//==========================================================================
 
 	/// @brief 初期化関数
+	///
+	/// @return 成功しているならtrue、失敗しているならfalse
 	bool Initialize();
 
 	/// @brief 終了関数
+	///
+	///	@return 成功しているならtrue、失敗しているならfalse
 	bool Terminate();
 
 	/// @brief 更新関数

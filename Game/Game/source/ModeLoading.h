@@ -26,7 +26,7 @@ public:
 	/// @brief 更新関数
 	///
 	/// @return 成功しているならtrue、失敗しているならfalse
-	virtual void Process() override;
+	virtual bool Process() override;
 
 
 protected:
