@@ -13,18 +13,21 @@ Map::~Map()
 
 bool Map::Initialize()
 {
-
 	// リソースサーバーのインスタンスを取得
 	auto rs = ResourceServer::GetInstance();
-	m_mapData.handle = rs->GetHandle("Map");
+
+	// マップのグラフィックハンドル取得
+	m_mapData.mapHandle = rs->GetHandle("Map");
+	m_mapData.skyHandle = rs->GetHandle("Sky");
 
 	return true;
 }
 
 bool Map::Terminate()
 {
-	// マップのグラフィックハンドル解放
-	MV1DeleteModel(m_mapData.handle);
+	// グラフィックハンドル解放
+	MV1DeleteModel(m_mapData.mapHandle);
+	MV1DeleteModel(m_mapData.skyHandle);
 
 	return true;
 }

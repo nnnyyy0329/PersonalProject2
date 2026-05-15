@@ -39,14 +39,16 @@ void ObjectRenderSystem::ObjectRender(const ObjectData& data)
 
 void ObjectRenderSystem::MapRender(const Map& map)
 {
-	// マップ描画
+	// マップデータ取得
 	const MapData& mapData = map.GetMapData();
 
-	// マップ位置設定 
-	MV1SetPosition(mapData.handle, mapData.pos);
+	// マップ位置設定 & 描画
+	MV1SetPosition(mapData.mapHandle, mapData.pos);
+	MV1DrawModel(mapData.mapHandle);
 
-	// マップ描画
-	MV1DrawModel(mapData.handle);
+	// スカイ位置設定 & 描画
+	MV1SetPosition(mapData.skyHandle, mapData.pos);
+	MV1DrawModel(mapData.skyHandle);
 }
 
 void ObjectRenderSystem::LightRender(const Light& light)

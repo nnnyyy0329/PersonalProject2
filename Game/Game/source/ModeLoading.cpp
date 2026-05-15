@@ -13,6 +13,10 @@ bool ModeLoading::Initialize()
 	rs->Register("Map", "res/Dungeon/Dungeon.mv1", RESOURCE_TYPE::Model, 1.0f);
 	rs->Register("Player", "res/Player/SK_player_04_multimotion.mv1", RESOURCE_TYPE::Model, 1.0f);
 
+
+	
+	rs->Register("Sky", "res/SkySphere/skysphere.mv1", RESOURCE_TYPE::Model, 1.0f);
+
 	return true;
 }
 
