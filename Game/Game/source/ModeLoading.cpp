@@ -27,7 +27,7 @@ bool ModeLoading::Terminate()
 	return true;
 }
 
-bool ModeLoading::Process()
+void ModeLoading::Process()
 {
 	base::Process();
 
@@ -45,6 +45,4 @@ bool ModeLoading::Process()
 		ModeServer::GetInstance()->Add(new ModeGame(), 10, "game");
 		ModeServer::GetInstance()->Del(this);
 	}
-
-	return true;
 }

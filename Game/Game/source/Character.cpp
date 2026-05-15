@@ -20,7 +20,7 @@ bool Character::Terminate()
 	return true;
 }
 
-bool Character::Process()
+void Character::Process()
 {
-	return true;
+
 }

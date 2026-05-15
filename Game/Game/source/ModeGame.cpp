@@ -27,17 +27,15 @@ bool ModeGame::Terminate()
 	return true;
 }
 
-bool ModeGame::Process()
+void ModeGame::Process()
 {
 	base::Process();
 
 	// オブジェクトの更新処理
 	for(auto& obj : m_objects) { obj->Process(); }
-
-	return true;
 }
 
-bool ModeGame::Render()
+void ModeGame::Render()
 {
 	base::Render();
 
@@ -52,8 +50,6 @@ bool ModeGame::Render()
 
 	// マップの描画
 	m_render.MapRender(m_map);
-
-	return true;
 }
 
 void ModeGame::RegisterObjectCreators()

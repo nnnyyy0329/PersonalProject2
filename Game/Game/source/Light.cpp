@@ -20,7 +20,7 @@ bool Light::Terminate()
 	return true;
 }
 
-bool Light::Process()
+void Light::Process()
 {
-	return true;
+	
 }

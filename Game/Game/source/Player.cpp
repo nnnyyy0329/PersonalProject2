@@ -27,7 +27,7 @@ bool Player::Terminate()
 	return true;
 }
 
-bool Player::Process()
+void Player::Process()
 {
-	return true;
+
 }

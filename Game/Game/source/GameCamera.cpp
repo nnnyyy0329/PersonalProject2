@@ -36,25 +36,17 @@ bool GameCamera::Terminate()
 	return true;
 }
 
-bool GameCamera::Process()
+void GameCamera::Process()
 {
 	auto offset = VGet(0.0f, 10.0f, -20.0f);
 	m_cameraData.pos.y += offset.y;
-
-	return true;
 }
 
-bool GameCamera::SetUpCamera() const
+void GameCamera::SetUpCamera() const
 {
-	/*SetCameraPositionAndTarget_UpVecY(VGet(73.636536f, 86.688026f, -140.440582f), VGet(-12.230986f, 59.101776f, -15.002045f));
-	SetCameraNearFar(2.376863f, 594.215820f);*/
-
-
 	// カメラの位置と注視点を設定
 	SetCameraPositionAndTarget_UpVecY(m_cameraData.pos, m_cameraData.target);
 
 	// カメラの近クリップ距離と遠クリップ距離を設定
 	SetCameraNearFar(m_clipNear, m_clipFar);
-
-	return true;
 }

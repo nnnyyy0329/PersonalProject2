@@ -16,13 +16,25 @@ public:
 
 
 	/// @brief 初期化関数
+	///
+	/// @return 成功しているならtrue、失敗しているならfalse
+	/// 
+	/// @note この純粋仮想関数は、派生クラスでオーバーライドされる必要があります。
 	virtual bool Initialize() = 0;
 
 	/// @brief 終了関数
+	///
+	/// @return 成功しているならtrue、失敗しているならfalse
+	/// 
+	/// @note この純粋仮想関数は、派生クラスでオーバーライドされる必要があります。
 	virtual bool Terminate() = 0;
 
 	/// @brief 更新関数
-	virtual bool Process() = 0;
+	///
+	/// @return 成功しているならtrue、失敗しているならfalse
+	/// 
+	/// @note この純粋仮想関数は、派生クラスでオーバーライドされる必要があります。
+	virtual void Process() = 0;
 
 
 	//===========================================================================

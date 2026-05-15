@@ -22,7 +22,7 @@ public:
 	virtual bool Terminate() override;
 
 	/// @brief 更新関数
-	virtual bool Process() override;
+	virtual void Process() override;
 
 
 	//===========================================================================

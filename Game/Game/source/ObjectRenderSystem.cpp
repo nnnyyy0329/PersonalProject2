@@ -22,7 +22,7 @@ void ObjectRenderSystem::BeginRender()
 
 void ObjectRenderSystem::EndRender()
 {
-	
+
 }
 
 void ObjectRenderSystem::ObjectRender(const ObjectData& data)
