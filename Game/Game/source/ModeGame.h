@@ -1,10 +1,9 @@
 #include "appframe.h"
 #include "ObjectLogic.h"
 #include "ObjectRenderSystem.h"
+#include "ObjectFactory.h"
 #include "Map.h"
 #include "GameCamera.h"
-
-class ObjectFactory;
 
 /// @brief ゲームモードクラス
 class ModeGame : public ModeBase
@@ -30,7 +29,7 @@ public:
 	/* 内部関数 */
 
 	/// @brief オブジェクト生成関数の登録関数
-	void RegisterObjectCreators() const;
+	void RegisterObjectCreators();
 
 
 protected:

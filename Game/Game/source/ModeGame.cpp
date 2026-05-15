@@ -1,7 +1,5 @@
-#include "appframe.h"
 #include "ModeGame.h"
-#include "ObjectLogic.h"
-#include "ObjectFactory.h"
+#include "Player.h"
 
 bool ModeGame::Initialize()
 {
@@ -58,8 +56,9 @@ bool ModeGame::Render()
 	return true;
 }
 
-void ModeGame::RegisterObjectCreators() const
+void ModeGame::RegisterObjectCreators()
 {
 	// プレイヤーの生成関数を登録
-	m_factory.RegisterObject("Player", []() { return std::make_unique<Player>(); });
+	m_factory.RegisterObject("Player", []() -> std::unique_ptr<ObjectLogic> { return std::make_unique<Player>(); });
+	m_objects.push_back(m_factory.CreateObject("Player"));
 }
