@@ -45,4 +45,6 @@ bool ModeLoading::Process()
 		ModeServer::GetInstance()->Add(new ModeGame(), 10, "game");
 		ModeServer::GetInstance()->Del(this);
 	}
+
+	return true;
 }
