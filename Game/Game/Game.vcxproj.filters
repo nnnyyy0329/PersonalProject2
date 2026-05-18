@@ -55,6 +55,9 @@
     <ClCompile Include="source\DebugParameter.cpp">
       <Filter>Debug</Filter>
     </ClCompile>
+    <ClCompile Include="source\CameraBase.cpp">
+      <Filter>Object\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -113,6 +116,12 @@
     </ClInclude>
     <ClInclude Include="source\DebugParameter.h">
       <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="CameraData.h">
+      <Filter>Object\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CameraBase.h">
+      <Filter>Object\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

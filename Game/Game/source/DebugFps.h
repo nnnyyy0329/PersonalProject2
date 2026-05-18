@@ -21,9 +21,9 @@ private:
 	// メンバ変数
 	//===========================================================================
 
-	int m_frameCount = 0;	/// フレームカウント
-	int m_startTime = 0;	/// 計測開始時間
-	float m_fps = 0.0f;		/// FPS値
+	int m_frameCount	= 0;	/// フレームカウント
+	int m_startTime		= 0;	/// 計測開始時間
+	float m_fps			= 0.0f;	/// FPS値
 		
 };
 

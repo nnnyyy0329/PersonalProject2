@@ -20,7 +20,7 @@ bool ModeGame::Initialize()
 	return true;
 }
 
-bool ModeGame::Terminate() 
+bool ModeGame::Terminate()
 {
 	base::Terminate();
 

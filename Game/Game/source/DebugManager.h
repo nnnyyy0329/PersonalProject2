@@ -8,11 +8,9 @@ class DebugManager
 {
 public:
 
-
 	//===========================================================================
 	// シングルトンインスタンス取得関数
 	//===========================================================================
-	
 
 	/// @brief デバッグマネージャーのシングルトンインスタンス取得関数
 	static DebugManager& GetInstance()
@@ -61,6 +59,7 @@ protected:
 
 	DebugFps		m_debugFps;			/// デバッグ用FPS表示クラス
 	DebugParameter	m_debugParameter;	/// デバッグ用パラメーター表示クラス
+
 
 	bool m_isDebugMode = false;	/// デバッグモードかどうか
 

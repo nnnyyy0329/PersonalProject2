@@ -1,5 +1,5 @@
 #pragma once
-#include "appframe.h"
+#include "DxLib.h"
 
 /// @brief オブジェクトデータ構造体
 struct ObjectData
