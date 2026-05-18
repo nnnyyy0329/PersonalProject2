@@ -28,8 +28,6 @@ public:
 		_components.push_back(std::move(component));	
 	}
 
-	// 特定の型のコンポーネントを取得
-
 	/// @brief 特定の型のコンポーネントを取得
 	///
 	/// @tparam T 取得するコンポーネントの型
@@ -93,8 +91,6 @@ public:
 		// 全てのコンポーネントを返す
 		return _components;
 	}
-
-	// コンポーネントを削除
 
 	/// @brief 特定の型のコンポーネントを削除
 	///
