@@ -161,6 +161,7 @@
     <ClCompile Include="source\DebugFps.cpp" />
     <ClCompile Include="source\DebugManager.cpp" />
     <ClCompile Include="source\DebugParameter.cpp" />
+    <ClCompile Include="source\FollowCamera.cpp" />
     <ClCompile Include="source\GameCamera.cpp" />
     <ClCompile Include="source\Light.cpp" />
     <ClCompile Include="source\Map.cpp" />
@@ -187,6 +188,7 @@
     <ClInclude Include="source\DebugFps.h" />
     <ClInclude Include="source\DebugManager.h" />
     <ClInclude Include="source\DebugParameter.h" />
+    <ClInclude Include="source\FollowCamera.h" />
     <ClInclude Include="source\GameCamera.h" />
     <ClInclude Include="source\Light.h" />
     <ClInclude Include="source\Map.h" />

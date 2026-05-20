@@ -19,9 +19,6 @@
     <ClCompile Include="source\Character.cpp">
       <Filter>Object\Character</Filter>
     </ClCompile>
-    <ClCompile Include="source\GameCamera.cpp">
-      <Filter>Object\Camera</Filter>
-    </ClCompile>
     <ClCompile Include="source\Map.cpp">
       <Filter>Map</Filter>
     </ClCompile>
@@ -58,6 +55,12 @@
     <ClCompile Include="source\CameraBase.cpp">
       <Filter>Object\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="source\GameCamera.cpp">
+      <Filter>Object\Camera</Filter>
+    </ClCompile>
+    <ClCompile Include="source\FollowCamera.cpp">
+      <Filter>Object\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -77,9 +80,6 @@
     </ClInclude>
     <ClInclude Include="source\Character.h">
       <Filter>Object\Character</Filter>
-    </ClInclude>
-    <ClInclude Include="source\GameCamera.h">
-      <Filter>Object\Camera</Filter>
     </ClInclude>
     <ClInclude Include="source\Map.h">
       <Filter>Map</Filter>
@@ -121,6 +121,12 @@
       <Filter>Object\Camera</Filter>
     </ClInclude>
     <ClInclude Include="source\CameraBase.h">
+      <Filter>Object\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="source\GameCamera.h">
+      <Filter>Object\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="source\FollowCamera.h">
       <Filter>Object\Camera</Filter>
     </ClInclude>
   </ItemGroup>
