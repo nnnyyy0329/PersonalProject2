@@ -4,9 +4,14 @@
 /// @brief カメラデータ構造体
 struct CameraData
 {
-	VECTOR pos;		///< カメラの位置
-	VECTOR target;	///< カメラの注視点
-	VECTOR upVec;	///< カメラのアップベクトル
+	/// カメラの位置
+	VECTOR pos;
+
+	/// カメラの注視点
+	VECTOR target;
+
+	/// カメラのアップベクトル
+	VECTOR upVec;
 
 	CameraData()
 	{

@@ -34,7 +34,8 @@ private:
 	// メンバ変数
 	//===========================================================================
 
-	std::unique_ptr<CameraBase> m_currentCamera;	/// 現在のカメラ
+	/// 現在のカメラ
+	std::unique_ptr<CameraBase> m_currentCamera;
 
 };
 

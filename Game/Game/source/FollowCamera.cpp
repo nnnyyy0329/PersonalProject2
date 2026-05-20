@@ -8,10 +8,10 @@ namespace
 }
 
 FollowCamera::FollowCamera(const ObjectData& target)
-	: m_targetObject(target)	// 追従対象のオブジェクトデータへの参照を設定
-	, m_offset(OFFSET)			// オブジェクトからのオフセットを設定
+	: m_targetObject(target)
+	, m_offset(OFFSET)
 {
-	m_cameraData.upVec = VGet(0.0f, 1.0f, 0.0f);	// カメラのアップベクトルを設定
+	m_cameraData.upVec = VGet(0.0f, 1.0f, 0.0f);	
 }
 
 FollowCamera::~FollowCamera()
