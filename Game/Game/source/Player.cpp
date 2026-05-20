@@ -27,7 +27,7 @@ bool Player::Terminate()
 	return true;
 }
 
-void Player::Process()
+void Player::Update()
 {
-	m_data.pos = VAdd(m_data.pos, VGet(0.0f, 0.0f, 1.0f));	// プレイヤーを前方に移動させる例
+	m_data.pos = VAdd(m_data.pos, VGet(0.0f, 0.0f, 1.0f));	// プレイヤーを前方に移動させる
 }

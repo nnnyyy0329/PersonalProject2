@@ -20,7 +20,7 @@ bool ObjectLogic::Terminate()
 	return true;
 }
 
-void ObjectLogic::Process()
+void ObjectLogic::Update()
 {
 	
 }

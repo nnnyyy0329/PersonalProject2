@@ -24,7 +24,7 @@ public:
 	virtual bool Terminate() override;
 
 	/// @brief 更新関数
-	virtual void Process() override;
+	virtual void Update() override;
 
 	//===========================================================================
 	// 内部関数

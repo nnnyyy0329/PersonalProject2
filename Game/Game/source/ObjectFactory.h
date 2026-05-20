@@ -1,8 +1,8 @@
 #pragma once
 #include "appframe.h"
 
-class ObjectLogic;
-class Player;
+class ObjectLogic;	/// オブジェクトのロジッククラス
+class Player;		/// プレイヤークラス
 
 /// @brief ゲーム内のオブジェクトの生成クラス
 class ObjectFactory
