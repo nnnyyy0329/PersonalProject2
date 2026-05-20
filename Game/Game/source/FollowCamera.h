@@ -1,8 +1,7 @@
 #pragma once
 #include "CameraBase.h"
 
-/// @brief オブジェクトデータ構造体の前方宣言
-struct ObjectData;
+struct ObjectData;	/// オブジェクトデータ構造体
 
 /// @brief 追従カメラクラス
 class FollowCamera : public CameraBase
@@ -18,6 +17,10 @@ public:
 
 	/// @brief 更新関数
 	void Update() override;
+
+	//==========================================================================
+	// 内部関数
+	//==========================================================================
 
 	/// @brief カメラの設定を行う関数
 	void SetUpCamera() const override;
