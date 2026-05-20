@@ -15,10 +15,9 @@ namespace
 }
 
 GameCamera::GameCamera()
+	: m_cameraData{ Default::CAMERA_POS, Default::CAMERA_TARGET, Default::CAMERA_UPVEC }
 {
-	m_cameraData.pos	= Default::CAMERA_POS;
-	m_cameraData.target = Default::CAMERA_TARGET;
-	m_cameraData.upVec	= Default::CAMERA_UPVEC;
+	
 }
 
 GameCamera::~GameCamera()

@@ -70,10 +70,14 @@ private:
 	// メンバ変数
 	//===========================================================================
 
-	CameraData m_cameraData;		/// カメラデータ
+	/// カメラデータ
+	CameraData m_cameraData;
 
-	float	m_clipNear	= 2.0f;		/// カメラの近クリップ距離
-	float	m_clipFar	= 10000.0f;	/// カメラの遠クリップ距離
+	/// カメラの近クリップ距離
+	float	m_clipNear	= 2.0f;		
+
+	/// カメラの遠クリップ距離
+	float	m_clipFar	= 10000.0f;	
 
 protected:
 
