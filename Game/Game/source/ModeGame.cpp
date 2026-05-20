@@ -1,21 +1,27 @@
 #include "ModeGame.h"
+
 #include "Player.h"
+
+#include "FollowCamera.h"
+
+ModeGame::ModeGame() = default;
+ModeGame::~ModeGame() = default;
 
 bool ModeGame::Initialize()
 {
 	if(!base::Initialize()) { return false; }
 
-	// オブジェクトの生成
-	RegisterObjectCreators();
+	// マネージャークラスの生成
+	CreateManagers();
+
+	// オブジェクトの初期化
+	m_objectManager->Initialize();
+
+	// カメラの生成
+	CreateCamera();
 
 	// マップの初期化
 	m_map.Initialize();
-
-	// カメラの初期化
-	m_camera.Initialize();
-
-	// オブジェクトの初期化
-	for(auto& obj : m_objects) { obj->Initialize(); }
 
 	return true;
 }
@@ -32,7 +38,10 @@ bool ModeGame::Process()
 	base::Process();
 
 	// オブジェクトの更新処理
-	for(auto& obj : m_objects) { obj->Process(); }
+	m_objectManager->Update();
+	
+	// カメラマネージャーの更新
+	m_cameraManager->Update();
 
 	return true;
 }
@@ -42,23 +51,37 @@ bool ModeGame::Render()
 	base::Render();
 
 	// 描画開始
-	m_render.BeginRender();
+	m_objectRender.BeginRender();
 
 	// カメラセットアップ
-	m_camera.SetUpCamera();
+	m_cameraManager->SetUpCamera();
 
 	// オブジェクトの描画
-	for(auto& obj : m_objects) { m_render.ObjectRender(obj->GetObjectData()); }
+	m_objectManager->Render(m_objectRender);
 
 	// マップの描画
-	m_render.MapRender(m_map);
+	m_objectRender.MapRender(m_map);
 
 	return true;
 }
 
-void ModeGame::RegisterObjectCreators()
+void ModeGame::CreateManagers()
 {
-	// プレイヤーの生成関数を登録
-	m_factory.RegisterObject("Player", []() -> std::unique_ptr<ObjectLogic> { return std::make_unique<Player>(); });
-	m_objects.push_back(m_factory.CreateObject("Player"));
+	// カメラマネージャーの生成
+	m_cameraManager = std::make_unique<CameraManager>();
+
+	// オブジェクトマネージャーの生成
+	m_objectManager = std::make_unique<ObjectManager>();
+}
+
+void ModeGame::CreateCamera()
+{
+	// プレイヤーオブジェクトの取得
+	Player* player = m_objectManager->GetPlayer();
+
+	// 追従カメラを生成
+	auto followCamera = std::make_unique<FollowCamera>(player->GetObjectData());
+
+	// プレイヤーの位置をカメラの注視点に設定
+	m_cameraManager->ChangeCamera(std::move(followCamera));
 }

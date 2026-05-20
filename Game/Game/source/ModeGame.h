@@ -1,15 +1,23 @@
+#pragma once
 #include "appframe.h"
-#include "ObjectLogic.h"
+//#include "ObjectLogic.h"
 #include "ObjectRenderSystem.h"
-#include "ObjectFactory.h"
+//#include "ObjectFactory.h"
 #include "Map.h"
-#include "GameCamera.h"
+
+#include "CameraManager.h"
+#include "ObjectManager.h"
+
+class Player;	/// プレイヤークラス
 
 /// @brief ゲームモードクラス
 class ModeGame : public ModeBase
 {
 	typedef ModeBase base;
 public:
+
+	ModeGame();
+	virtual ~ModeGame();
 
 	//===========================================================================
 	// 基本関数
@@ -40,19 +48,20 @@ private:
 	// 内部関数
 	//===========================================================================
 
-	/// @brief オブジェクト生成関数の登録関数
-	void RegisterObjectCreators();
+	/// @brief マネージャーの生成関数
+	void CreateManagers();
+
+	/// @brief カメラの生成関数
+	void CreateCamera();
 
 	//===========================================================================
 	// メンバ変数
 	//===========================================================================
 
-	std::vector<std::unique_ptr<ObjectLogic>>	m_objects;	/// ゲーム内のオブジェクトのロジッククラスのリスト
-	ObjectRenderSystem							m_render;	/// ゲーム内のオブジェクトの描画クラス
-	ObjectFactory								m_factory;	/// ゲーム内のオブジェクトの生成クラス
+	std::unique_ptr<ObjectManager>				m_objectManager;	/// オブジェクトマネージャークラス
+	ObjectRenderSystem							m_objectRender;		/// オブジェクトの描画クラス
+	Map											m_map;				/// マップクラス
 
-	Map											m_map;		/// ゲーム内のマップクラス
-	GameCamera									m_camera;	/// ゲーム内のカメラクラス
-	
+	std::unique_ptr<CameraManager>				m_cameraManager;	/// カメラマネージャークラス
 
 }; 

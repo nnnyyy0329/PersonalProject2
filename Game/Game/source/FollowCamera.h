@@ -22,6 +22,9 @@ public:
 	// 内部関数
 	//==========================================================================
 
+	/// @brief カメラの位置を更新する関数
+	void UpdateCameraPosition();
+
 	/// @brief カメラの設定を行う関数
 	void SetUpCamera() const override;
 
@@ -31,8 +34,10 @@ private:
 	// メンバ変数
 	//==========================================================================
 
-	const ObjectData& m_targetObject;	/// 追従対象のオブジェクトデータへの参照
-	VECTOR m_offset;					/// 追従するオブジェクトからのオフセット
+	/// 追従対象のオブジェクトデータへの参照
+	const ObjectData& m_targetObject;
 
+	/// 追従するオブジェクトからのオフセット
+	VECTOR m_offset;
 };
 

@@ -170,6 +170,7 @@
     <ClCompile Include="source\ModeLoading.cpp" />
     <ClCompile Include="source\ObjectFactory.cpp" />
     <ClCompile Include="source\ObjectLogic.cpp" />
+    <ClCompile Include="source\ObjectManager.cpp" />
     <ClCompile Include="source\ObjectRenderSystem.cpp" />
     <ClCompile Include="source\Player.cpp" />
   </ItemGroup>
@@ -199,6 +200,7 @@
     <ClInclude Include="source\ObjectData.h" />
     <ClInclude Include="source\ObjectFactory.h" />
     <ClInclude Include="source\ObjectLogic.h" />
+    <ClInclude Include="source\ObjectManager.h" />
     <ClInclude Include="source\ObjectRenderSystem.h" />
     <ClInclude Include="source\Player.h" />
   </ItemGroup>
