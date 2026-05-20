@@ -35,7 +35,7 @@ private:
 	// メンバ変数
 	//===========================================================================
 
-	std::unordered_map<std::string, CreateFunc> m_objectCreators;	/// @brief オブジェクトの登録マップ
+	std::unordered_map<std::string, CreateFunc> m_objectCreators;	/// オブジェクトの登録マップ
 
 };
 

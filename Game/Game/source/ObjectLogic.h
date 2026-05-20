@@ -45,7 +45,7 @@ public:
 	/// @brief オブジェクトデータ取得
 	/// 
 	/// @return オブジェクトデータ
-	const ObjectData& GetData() const { return m_data; }
+	const ObjectData& GetObjectData() const { return m_data; }
 
 	//===========================================================================
 	// セッター
@@ -59,7 +59,7 @@ protected:
 	// メンバ変数
 	//===========================================================================
 
-	ObjectData m_data;	/// @brief オブジェクトのデータ
+	ObjectData m_data;	/// オブジェクトのデータ
 
 };
 

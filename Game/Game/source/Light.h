@@ -90,7 +90,7 @@ protected:
 	//===========================================================================
 
 
-	LightData m_lightData;	/// @brief ライトデータ
+	LightData m_lightData;	/// ライトデータ
 
 };
 

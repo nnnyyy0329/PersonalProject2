@@ -1,5 +1,6 @@
 #pragma once
 #include "ObjectLogic.h"
+#include "appframe.h"
 
 /// @brief キャラクタークラス
 class Character : public ObjectLogic

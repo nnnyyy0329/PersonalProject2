@@ -48,7 +48,7 @@ bool ModeGame::Render()
 	m_camera.SetUpCamera();
 
 	// オブジェクトの描画
-	for(auto& obj : m_objects) { m_render.ObjectRender(obj->GetData()); }
+	for(auto& obj : m_objects) { m_render.ObjectRender(obj->GetObjectData()); }
 
 	// マップの描画
 	m_render.MapRender(m_map);
