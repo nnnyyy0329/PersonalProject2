@@ -67,6 +67,12 @@
     <ClCompile Include="source\ObjectManager.cpp">
       <Filter>ObjectBase</Filter>
     </ClCompile>
+    <ClCompile Include="source\Pad.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
+    <ClCompile Include="source\InputManager.cpp">
+      <Filter>input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -141,6 +147,12 @@
     <ClInclude Include="source\ObjectManager.h">
       <Filter>ObjectBase</Filter>
     </ClInclude>
+    <ClInclude Include="source\Pad.h">
+      <Filter>input</Filter>
+    </ClInclude>
+    <ClInclude Include="source\InputManager.h">
+      <Filter>input</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -184,6 +196,9 @@
     </Filter>
     <Filter Include="Debug">
       <UniqueIdentifier>{78a0a7c6-33b5-4ede-a0ed-91b18160a93f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="input">
+      <UniqueIdentifier>{7fe9eb86-b37a-4f2e-844a-d42b99744f19}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
