@@ -29,6 +29,9 @@ bool ModeGame::Terminate()
 {
 	base::Terminate();
 
+	// オブジェクトの解放処理
+	m_objectManager->Terminate();
+
 	return true;
 }
 
@@ -38,6 +41,23 @@ bool ModeGame::Process()
 
 	// 入力の更新
 	InputManager::GetInstance().Update();
+
+
+
+	//const Pad& pad = InputManager::GetInstance().GetPad(0);
+	//// --- スティック入力のテスト ---
+	//if(pad.IsConnected())
+	//{
+	//	double lx = pad.GetLeftStickX();
+	//	double ly = pad.GetLeftStickY();
+	//	printfDx("Left Stick: X=%.2f, Y=%.2f\n", lx, ly);
+
+	//	double rx = pad.GetRightStickX();
+	//	double ry = pad.GetRightStickY();
+	//	printfDx("Right Stick: X=%.2f, Y=%.2f\n", rx, ry);
+	//}
+
+
 
 	// オブジェクトの更新処理
 	m_objectManager->Update();

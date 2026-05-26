@@ -3,7 +3,7 @@
 
 namespace
 {
-	/// 追従するオブジェクトからのオフセット
+	// 追従するオブジェクトからのオフセット
 	const VECTOR OFFSET = VGet(0.0f, 300.0f, -150.0f);	
 }
 
@@ -11,7 +11,7 @@ FollowCamera::FollowCamera(const ObjectData& target)
 	: m_targetObject(target)
 	, m_offset(OFFSET)
 {
-	m_cameraData.upVec = VGet(0.0f, 1.0f, 0.0f);	
+	m_cameraData.upVec = VGet(0.0f, 1.0f, 0.0f);
 }
 
 FollowCamera::~FollowCamera()
