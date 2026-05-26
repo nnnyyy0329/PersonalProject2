@@ -60,8 +60,8 @@ bool Pad::isHold(PadButton button) const
 	// std::to_underlying() を使用して、PadButton列挙型の値を整数に変換
 	int buttonState = std::to_underlying(button);
 
-	// 現在の状態でボタンが押されていて、前の状態でも押されている場合はホールドと判断
-	return (m_currentState & buttonState) && (m_previousState & buttonState);
+	// 現在の状態でボタンが押されている場合はホールドと判断
+	return (m_currentState & buttonState);
 }
 
 bool Pad::isRelease(PadButton button) const

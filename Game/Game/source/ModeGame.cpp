@@ -1,8 +1,7 @@
 #include "ModeGame.h"
-
-#include "Player.h"
-
 #include "FollowCamera.h"
+#include "Player.h"
+#include "InputManager.h"
 
 ModeGame::ModeGame() = default;
 ModeGame::~ModeGame() = default;
@@ -36,6 +35,9 @@ bool ModeGame::Terminate()
 bool ModeGame::Process()
 {
 	base::Process();
+
+	// 入力の更新
+	InputManager::GetInstance().Update();
 
 	// オブジェクトの更新処理
 	m_objectManager->Update();

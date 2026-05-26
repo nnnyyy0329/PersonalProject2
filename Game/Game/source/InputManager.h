@@ -28,10 +28,10 @@ public:
 
 	/// @brief パッドの取得関数
 	///
-	/// @param index パッド番号(0から始まる)
+	/// @param padIndex パッド番号(0から始まる)
 	/// 
 	/// @return パッドの定数参照
-	const Pad& GetPad(int index) const;
+	const Pad& GetPad(int padIndex) const;
 
 private:
 
