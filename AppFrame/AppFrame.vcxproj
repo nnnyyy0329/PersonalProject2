@@ -159,7 +159,9 @@
     <ClCompile Include="source\CFile\CFile.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="source\Manager\input\InputManager.cpp" />
+    <ClCompile Include="source\Manager\input\InputManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="source\math\mymath.cpp" />
     <ClCompile Include="source\Mode\ModeBase.cpp" />
     <ClCompile Include="source\Mode\ModeServer.cpp" />
@@ -189,7 +191,9 @@
     </ClInclude>
     <ClInclude Include="source\draw\mydraw.h" />
     <ClInclude Include="source\Manager\ComponentManager.h" />
-    <ClInclude Include="source\Manager\input\InputManager.h" />
+    <ClInclude Include="source\Manager\input\InputManager.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="source\math\mymath.h" />
     <ClInclude Include="source\Mode\ModeBase.h" />
     <ClInclude Include="source\Mode\ModeServer.h" />

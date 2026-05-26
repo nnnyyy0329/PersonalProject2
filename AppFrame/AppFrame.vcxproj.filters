@@ -96,11 +96,11 @@
     <ClCompile Include="source\Server\SoundVoice.cpp">
       <Filter>Server\Sound</Filter>
     </ClCompile>
-    <ClCompile Include="source\Manager\input\InputManager.cpp">
-      <Filter>Manager\Input</Filter>
-    </ClCompile>
     <ClCompile Include="source\Utility\GeometryUtility.cpp">
       <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Manager\input\InputManager.cpp">
+      <Filter>Manager\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -162,11 +162,11 @@
     <ClInclude Include="source\draw\mydraw.h">
       <Filter>draw</Filter>
     </ClInclude>
-    <ClInclude Include="source\Manager\input\InputManager.h">
-      <Filter>Manager\Input</Filter>
-    </ClInclude>
     <ClInclude Include="source\Utility\GeometryUtility.h">
       <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Manager\input\InputManager.h">
+      <Filter>Manager\Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
