@@ -1,7 +1,12 @@
 #pragma once
 #include <memory>
+#include <vector>
 #include "ObjectLogic.h"
 #include "ICharacterAction.h"
+#include "IComponent.h"
+
+/// コンポーネントの基底クラスのエイリアス
+using ComponentBase = IComponent<Character>;
 
 /// @brief キャラクタークラス
 class Character : public ObjectLogic
@@ -29,7 +34,7 @@ public:
 	virtual void Update() override;
 
 	//===========================================================================
-	// 内部関数
+	// アクション管理関数
 	//===========================================================================
 
 	/// @brief アクションの設定関数
@@ -38,16 +43,34 @@ public:
 	void SetAction(std::unique_ptr<ICharacterAction> newAction);
 
 	//===========================================================================
-	// ゲッター
+	// コンポーネント管理関数
 	//===========================================================================
 
+	/// @brief コンポーネントの追加関数
+	///
+	/// @param component 追加するコンポーネント
+	void AddComponent(std::unique_ptr<ComponentBase> component);
 
+	/// @brief コンポーネントの取得関数
+	///
+	/// @tparam T 取得したいコンポーネントの型
+	/// 
+	/// @return 取得したいコンポーネントのポインタ。見つからない場合はnullptr
+	template<typename T>
+	T* GetComponent()
+	{
+		for(const auto& component : m_components)
+		{
+			// 型変換(dynamic_cast)を試みる
+			T* target = dynamic_cast<T*>(component.get());
 
-	//===========================================================================
-	// セッター
-	//===========================================================================
+			// 目的の型のコンポーネントが見つかった場合、変換したポインタを返す
+			if(target) { return target; }
+		}
 
-
+		// 目的の型のコンポーネントが見つからなかった場合、nullptrを返す
+		return nullptr;
+	}
 
 protected:
 
@@ -57,6 +80,9 @@ protected:
 
 	/// 現在実行しているアクション
 	std::unique_ptr<ICharacterAction> m_currentAction;
+
+	/// キャラクターのコンポーネントを格納するベクター
+	std::vector<std::unique_ptr<ComponentBase>> m_components;
 
 };
 

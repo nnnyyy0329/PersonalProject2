@@ -1,6 +1,7 @@
 #include "Player.h"
 #include "InputManager.h"
 #include "ActionMove.h"
+#include "HealthComponent.h"
 
 Player::Player() = default;
 
@@ -12,8 +13,14 @@ bool Player::Initialize()
 	auto rs = ResourceServer::GetInstance();
 	m_data.handle = rs->GetHandle("Player");
 
+	// プレイヤーの体力コンポーネントを追加
+	AddComponent(std::make_unique<HealthComponent<Character>>(200.0f));
+
 	// 初期状態のアクションとして移動を設定
 	SetAction(std::make_unique<ActionMove>());
+
+	// 基底クラスの初期化処理を呼び、全てのコンポーネントを初期化する
+	Character::Initialize();
 
 	// ハンドルが有効かどうか
 	return m_data.handle != -1;
@@ -29,6 +36,16 @@ bool Player::Terminate()
 
 void Player::Update()
 {
+	if(InputManager::GetInstance().GetPad(0).isTrigger(PadButton::X))
+	{
+		auto healthComponent = GetComponent<HealthComponent<Character>>();
+
+		if(healthComponent)
+		{
+			healthComponent->ApplyDamage(10.0f);
+		}
+	}
+
 	// 基底クラスの更新処理を呼び出す
 	Character::Update();
 }

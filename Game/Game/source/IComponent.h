@@ -19,11 +19,11 @@ public:
 	/// @param owner 初期化処理を行うキャラクター
 	///
 	/// @return 成功しているならtrue、失敗しているならfalse
-	virtual bool Initialize(Character& owner) {};
+	virtual bool Initialize(TOwner& owner) { return true; }
 
 	/// @brief 更新関数
 	///
 	/// @param owner 更新処理を行うキャラクター
-	virtual void Update(Character& owner) {};
+	virtual void Update(TOwner& owner) {};
 };
 
