@@ -2,6 +2,7 @@
 #include "FollowCamera.h"
 #include "Player.h"
 #include "InputManager.h"
+#include "DebugManager.h"
 
 ModeGame::ModeGame() = default;
 
@@ -66,6 +67,9 @@ bool ModeGame::Process()
 	// カメラマネージャーの更新
 	m_cameraManager->Update();
 
+	// デバッグ表示の更新
+	DebugManager::GetInstance().Update();
+
 	return true;
 }
 
@@ -84,6 +88,9 @@ bool ModeGame::Render()
 
 	// マップの描画
 	m_objectRender.MapRender(m_map);
+
+	// デバッグ表示
+	DebugManager::GetInstance().Render();
 
 	return true;
 }

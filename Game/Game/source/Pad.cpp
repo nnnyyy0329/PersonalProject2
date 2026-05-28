@@ -212,7 +212,7 @@ double Pad::NormalizeStickInput(int inputValue, bool isXinput, bool isYAxis) con
 	if(isYAxis)
 	{
 		// Y軸の値を反転
-		normalized *= -1.0;
+		//normalized *= -1.0;
 	}
 
 	// デッドゾーン内の場合

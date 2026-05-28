@@ -19,32 +19,32 @@ public:
 	// 基本関数
 	//===========================================================================
 
-
 	/// @brief 初期化関数
-	void Process();
+	void Update();
 
 	/// @brief 描画関数
 	void Render();
-
 
 	//=======================================================================
 	// 内部関数
 	//=======================================================================
 
+	/// @brief デバッグモードの切り替え関数
+	void ToggleDebugMode() { m_isDebugMode = !m_isDebugMode; }
 
-
-
+	/// @brief デバッグモードかどうかの取得関数
+	///
+	/// @return デバッグモードならtrue、そうでないならfalse
+	bool IsDebugMode() const { return m_isDebugMode; }	
 
 	//=======================================================================
 	// ゲッター
 	//=======================================================================
-
 	
 	/// @brief デバッグパラメーター機能取得関数
 	///
 	/// @return デバッグパラメーター参照
 	DebugParameter& GetDebugParameter() { return m_debugParameter; }
-
 
 protected:
 
@@ -54,11 +54,7 @@ protected:
 
 	DebugFps		m_debugFps;			/// デバッグ用FPS表示クラス
 	DebugParameter	m_debugParameter;	/// デバッグ用パラメーター表示クラス
-
-
-	bool m_isDebugMode = false;	/// デバッグモードかどうか
-
-
+	bool m_isDebugMode = false;			/// デバッグモードかどうか
 
 private:
 

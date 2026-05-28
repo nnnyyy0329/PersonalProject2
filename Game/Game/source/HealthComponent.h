@@ -1,5 +1,7 @@
 #pragma once
 #include "IComponent.h"
+#include "DebugManager.h"
+#include <string>
 
 /// @brief キャラクターの体力を管理するコンポーネントクラス
 template<typename TOwner>
@@ -7,7 +9,7 @@ class HealthComponent : public IComponent<TOwner>
 {
 public:
 
-	HealthComponent() = default;
+	HealthComponent(float maxLife) : m_maxLife(maxLife), m_life(maxLife) {}
 	virtual ~HealthComponent() = default;
 
 	//===========================================================================
@@ -21,10 +23,13 @@ public:
 	/// @return 成功しているならtrue、失敗しているならfalse
 	virtual bool Initialize(TOwner& owner) override
 	{
-		m_maxLife = 100.0f;
-		m_life = m_maxLife;
+		auto& debugParam = DebugManager::GetInstance().GetDebugParameter();
 
-		return true;
+		// ラムダ式を使用して、体力のデバッグパラメーターを追加
+		debugParam.AddItem("Player/Health", [this]() { return std::to_string(m_life); });
+		debugParam.AddItem("Player/MaxHealth", [this]() { return std::to_string(m_maxLife); });
+
+		return true; 
 	}
 
 	//===========================================================================
