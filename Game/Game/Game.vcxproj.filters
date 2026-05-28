@@ -74,7 +74,7 @@
       <Filter>input</Filter>
     </ClCompile>
     <ClCompile Include="source\ActionMove.cpp">
-      <Filter>Object\Character\Action</Filter>
+      <Filter>InterfaceAction</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -157,10 +157,16 @@
       <Filter>input</Filter>
     </ClInclude>
     <ClInclude Include="source\ActionMove.h">
-      <Filter>Object\Character\Action</Filter>
+      <Filter>InterfaceAction</Filter>
     </ClInclude>
     <ClInclude Include="source\ICharacterAction.h">
-      <Filter>Object\Character\Action</Filter>
+      <Filter>InterfaceAction</Filter>
+    </ClInclude>
+    <ClInclude Include="source\IComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\HealthComponent.h">
+      <Filter>Component</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -209,8 +215,11 @@
     <Filter Include="input">
       <UniqueIdentifier>{7fe9eb86-b37a-4f2e-844a-d42b99744f19}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Character\Action">
+    <Filter Include="InterfaceAction">
       <UniqueIdentifier>{cc319f1c-d75b-435d-b041-20e2ae84c1d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component">
+      <UniqueIdentifier>{acbfcb25-6735-4a27-912c-16eace56eb6d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

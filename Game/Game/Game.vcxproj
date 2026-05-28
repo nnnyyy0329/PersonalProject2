@@ -202,7 +202,9 @@
     <ClInclude Include="source\GameCamera.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="source\HealthComponent.h" />
     <ClInclude Include="source\ICharacterAction.h" />
+    <ClInclude Include="source\IComponent.h" />
     <ClInclude Include="source\InputManager.h" />
     <ClInclude Include="source\Pad.h" />
     <ClInclude Include="source\Light.h" />

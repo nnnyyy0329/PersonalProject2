@@ -1,8 +1,6 @@
 #pragma once
 #include "appframe.h"
-//#include "ObjectLogic.h"
 #include "ObjectRenderSystem.h"
-//#include "ObjectFactory.h"
 #include "Map.h"
 
 #include "CameraManager.h"
