@@ -4,6 +4,7 @@
 #include "InputManager.h"
 
 ModeGame::ModeGame() = default;
+
 ModeGame::~ModeGame() = default;
 
 bool ModeGame::Initialize()

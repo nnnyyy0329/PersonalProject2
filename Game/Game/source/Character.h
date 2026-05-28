@@ -1,6 +1,7 @@
 #pragma once
+#include <memory>
 #include "ObjectLogic.h"
-#include "appframe.h"
+#include "ICharacterAction.h"
 
 /// @brief キャラクタークラス
 class Character : public ObjectLogic
@@ -31,7 +32,10 @@ public:
 	// 内部関数
 	//===========================================================================
 
-
+	/// @brief アクションの設定関数
+	///
+	/// @param newAction 新しいアクション
+	void SetAction(std::unique_ptr<ICharacterAction> newAction);
 
 	//===========================================================================
 	// ゲッター
@@ -51,7 +55,8 @@ protected:
 	// メンバ変数
 	//===========================================================================
 
-
+	/// 現在実行しているアクション
+	std::unique_ptr<ICharacterAction> m_currentAction;
 
 };
 

@@ -142,7 +142,7 @@ double Pad::GetLeftStickX() const
 	}
 
 	// DirectInputの左スティックのX軸の値を正規化して返す
-	return NormalizeStickInput(m_dInputState.X, false, false);
+	//return NormalizeStickInput(m_dInputState.X, false, false);
 }
 
 double Pad::GetLeftStickY() const
@@ -157,7 +157,7 @@ double Pad::GetLeftStickY() const
 	}
 
 	// DirectInputの左スティックのY軸の値を正規化して返す
-	return NormalizeStickInput(m_dInputState.Y, false, true);
+	//return NormalizeStickInput(m_dInputState.Y, false, true);
 }
 
 double Pad::GetRightStickX() const
@@ -172,7 +172,7 @@ double Pad::GetRightStickX() const
 	}
 
 	// DirectInputの右スティックのX軸の値を正規化して返す
-	return NormalizeStickInput(m_dInputState.Rx, false, false);
+	//return NormalizeStickInput(m_dInputState.Rx, false, false);
 }
 
 double Pad::GetRightStickY() const
@@ -187,7 +187,7 @@ double Pad::GetRightStickY() const
 	}
 
 	// DirectInputの右スティックのY軸の値を正規化して返す
-	return NormalizeStickInput(m_dInputState.Ry, false, true);
+	//return NormalizeStickInput(m_dInputState.Ry, false, true);
 }
 
 double Pad::NormalizeStickInput(int inputValue, bool isXinput, bool isYAxis) const

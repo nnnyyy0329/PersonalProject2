@@ -1,4 +1,5 @@
 #pragma once
+#include "appframe.h"
 #include "Character.h"
 
 /// @brief プレイヤークラス

@@ -1,14 +1,10 @@
 #include "Player.h"
+#include "InputManager.h"
+#include "ActionMove.h"
 
-Player::Player()
-{
+Player::Player() = default;
 
-}
-
-Player::~Player()
-{
-	Terminate();
-}
+Player::~Player() = default;
 
 bool Player::Initialize()
 {
@@ -16,7 +12,11 @@ bool Player::Initialize()
 	auto rs = ResourceServer::GetInstance();
 	m_data.handle = rs->GetHandle("Player");
 
-	return true;
+	// 初期状態のアクションとして移動を設定
+	SetAction(std::make_unique<ActionMove>());
+
+	// ハンドルが有効かどうか
+	return m_data.handle != -1;
 }
 
 bool Player::Terminate()
@@ -29,6 +29,6 @@ bool Player::Terminate()
 
 void Player::Update()
 {
-	// プレイヤーを前方に移動させる
-	m_data.pos = VAdd(m_data.pos, VGet(0.0f, 0.0f, 1.0f));	
+	// 基底クラスの更新処理を呼び出す
+	Character::Update();
 }

@@ -51,7 +51,10 @@ public:
 	// セッター
 	//===========================================================================
 
-
+	/// @brief オブジェクトデータ設定
+	///
+	/// @param data 設定するオブジェクトデータ
+	void SetObjectData(const ObjectData& data) { m_data = data; }
 
 protected:
 

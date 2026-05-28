@@ -10,17 +10,6 @@ void ActionMove::Execute(Character& character)
 
 void ActionMove::PlayerMove(Character& character)
 {
-	//// 1Pのパッド情報取得
-	//const auto& pad_1 = InputManager::GetInstance().GetPad(0);
-
-	//if(pad_1.IsConnected())
-	//{
-	//	ObjectData data = character.GetObjectData();
-	//	data.pos = VAdd(data.pos, VGet(1.0f, 0.0f, 0.0f));
-	//	character.SetObjectData(data);
-	//}
-
-
 	// 1Pのパッド情報取得
 	const auto& pad_1 = InputManager::GetInstance().GetPad(0);
 

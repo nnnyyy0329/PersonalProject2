@@ -4,6 +4,7 @@
 #include "Player.h"
 
 ObjectManager::ObjectManager() = default;
+
 ObjectManager::~ObjectManager() = default;
 
 bool ObjectManager::Initialize()
