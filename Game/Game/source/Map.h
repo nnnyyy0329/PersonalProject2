@@ -1,5 +1,6 @@
 #pragma once
-#include "appframe.h"
+#include "DxLib.h"
+#include "Server/ResourceServer.h"
 
 /// @brief マップデータ構造体
 struct MapData

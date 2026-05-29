@@ -2,6 +2,7 @@
 #include "ObjectLogic.h"
 #include "ObjectRenderSystem.h"
 #include "Player.h"
+#include "Enemy.h"
 
 ObjectManager::ObjectManager() = default;
 
@@ -60,7 +61,12 @@ void ObjectManager::RegisterCreators()
 {
 	// プレイヤーの生成関数を登録
 	m_objectFactory.RegisterObject("Player", []() -> std::unique_ptr<ObjectLogic> { return std::make_unique<Player>(); });
-	//m_objects.push_back(m_objectFactory.CreateObject("Player"));
+	//m_objects.emplace_back(m_objectFactory.CreateObject("Player"));
+
+
+	// 敵の生成関数を登録
+	m_objectFactory.RegisterObject("Enemy", []() -> std::unique_ptr<ObjectLogic> { return std::make_unique<Enemy>(); });
+	m_objects.emplace_back(m_objectFactory.CreateObject("Enemy"));
 
 }
 

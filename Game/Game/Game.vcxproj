@@ -164,6 +164,7 @@
     <ClCompile Include="source\DebugFps.cpp" />
     <ClCompile Include="source\DebugManager.cpp" />
     <ClCompile Include="source\DebugParameter.cpp" />
+    <ClCompile Include="source\Enemy.cpp" />
     <ClCompile Include="source\FollowCamera.cpp" />
     <ClCompile Include="source\GameCamera.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -198,6 +199,7 @@
     <ClInclude Include="source\DebugFps.h" />
     <ClInclude Include="source\DebugManager.h" />
     <ClInclude Include="source\DebugParameter.h" />
+    <ClInclude Include="source\Enemy.h" />
     <ClInclude Include="source\FollowCamera.h" />
     <ClInclude Include="source\GameCamera.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>

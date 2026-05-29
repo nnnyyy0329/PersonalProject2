@@ -7,6 +7,7 @@
 class ObjectLogic;			/// オブジェクトのロジッククラス
 class ObjectRenderSystem;	/// オブジェクトの描画クラス
 class Player;				/// プレイヤークラス
+class Enemy;				/// 敵クラス
 
 /// @brief オブジェクトを管理するクラス
 class ObjectManager

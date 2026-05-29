@@ -1,6 +1,5 @@
 #include "ObjectFactory.h"
 #include "ObjectLogic.h"
-#include "Player.h"
 
 void ObjectFactory::RegisterObject(const std::string& name, CreateFunc func)
 {

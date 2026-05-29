@@ -1,5 +1,4 @@
 #pragma once
-#include "appframe.h"
 #include "DebugFps.h"
 #include "DebugParameter.h"
 

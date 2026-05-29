@@ -2,7 +2,6 @@
 #include "appframe.h"
 
 class ObjectLogic;	/// オブジェクトのロジッククラス
-class Player;		/// プレイヤークラス
 
 /// @brief ゲーム内のオブジェクトの生成クラス
 class ObjectFactory

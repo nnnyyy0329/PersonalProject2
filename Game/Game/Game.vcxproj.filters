@@ -76,6 +76,9 @@
     <ClCompile Include="source\ActionMove.cpp">
       <Filter>InterfaceAction</Filter>
     </ClCompile>
+    <ClCompile Include="source\Enemy.cpp">
+      <Filter>Object\Character\Enemy</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -168,6 +171,9 @@
     <ClInclude Include="source\HealthComponent.h">
       <Filter>Component</Filter>
     </ClInclude>
+    <ClInclude Include="source\Enemy.h">
+      <Filter>Object\Character\Enemy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -220,6 +226,9 @@
     </Filter>
     <Filter Include="Component">
       <UniqueIdentifier>{acbfcb25-6735-4a27-912c-16eace56eb6d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Character\Enemy">
+      <UniqueIdentifier>{31b74fa4-1afb-4fa1-831b-908ffff4e931}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -11,9 +11,10 @@ bool ModeLoading::Initialize()
 	/* ロードするリソースを登録 */
 
 	rs->Register("Map", "res/Dungeon/Dungeon.mv1", RESOURCE_TYPE::Model, 1.0f);
+
 	rs->Register("Player", "res/Player/SK_player_04_multimotion.mv1", RESOURCE_TYPE::Model, 1.0f);
 
-
+	rs->Register("Enemy", "res/Enemy/SK_enemy_01_multimotion.mv1", RESOURCE_TYPE::Model, 1.0f);
 	
 	rs->Register("Sky", "res/SkySphere/skysphere.mv1", RESOURCE_TYPE::Model, 1.0f);
 
