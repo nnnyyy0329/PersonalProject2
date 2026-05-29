@@ -79,6 +79,9 @@
     <ClCompile Include="source\Enemy.cpp">
       <Filter>Object\Character\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="source\PlayerMoveComponent.cpp">
+      <Filter>Object\Character\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -173,6 +176,12 @@
     </ClInclude>
     <ClInclude Include="source\Enemy.h">
       <Filter>Object\Character\Enemy</Filter>
+    </ClInclude>
+    <ClInclude Include="source\MoveComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerMoveComponent.h">
+      <Filter>Object\Character\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

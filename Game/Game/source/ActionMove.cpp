@@ -1,29 +1,26 @@
 #include "ActionMove.h"
 #include "Character.h"
-#include "InputManager.h"
+#include "MoveComponent.h"
 
 void ActionMove::Execute(Character& character)
 {
-	// プレイヤーの移動処理を実行
-	PlayerMove(character);
-}
+	// キャラクターの移動コンポーネントを取得
+	auto moveComponent = character.GetComponent<MoveComponent<Character>>();
+	if(!moveComponent) { return; }
 
-void ActionMove::PlayerMove(Character& character)
-{
-	// 1Pのパッド情報取得
-	const auto& pad_1 = InputManager::GetInstance().GetPad(0);
+	// コンポーネントから移動ベクトルを取得
+	VECTOR moveVector = moveComponent->GetMoveVector();
 
-	if(pad_1.IsConnected())
+	// 移動ベクトルの大きさが0より大きい場合
+	if(VSize(moveVector) > 0.0f)
 	{
-		float moveX = static_cast<float>(pad_1.GetLeftStickX());
-		float moveZ = static_cast<float>(pad_1.GetLeftStickY());
-		VECTOR moveVector = VGet(moveX, 0.0f, moveZ);
+		// キャラクターのオブジェクトデータを取得
+		ObjectData data = character.GetObjectData();
 
-		if(VSize(moveVector) > 0.0f)
-		{
-			ObjectData data = character.GetObjectData();
-			data.pos = VAdd(data.pos, moveVector);
-			character.SetObjectData(data);
-		}
+		// 移動ベクトルをキャラクターの位置に加算
+		data.pos = VAdd(data.pos, moveVector);
+
+		// 更新されたオブジェクトデータをキャラクターに設定
+		character.SetObjectData(data);
 	}
 }

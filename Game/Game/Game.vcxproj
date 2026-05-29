@@ -180,6 +180,7 @@
     <ClCompile Include="source\ObjectManager.cpp" />
     <ClCompile Include="source\ObjectRenderSystem.cpp" />
     <ClCompile Include="source\Player.cpp" />
+    <ClCompile Include="source\PlayerMoveComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ActionMove.h" />
@@ -219,6 +220,8 @@
     <ClInclude Include="source\ObjectManager.h" />
     <ClInclude Include="source\ObjectRenderSystem.h" />
     <ClInclude Include="source\Player.h" />
+    <ClInclude Include="source\PlayerMoveComponent.h" />
+    <ClInclude Include="source\MoveComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
