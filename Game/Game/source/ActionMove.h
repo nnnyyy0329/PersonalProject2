@@ -1,6 +1,5 @@
 #pragma once
 #include "ICharacterAction.h"
-#include "ObjectData.h"
 
 /// @brief キャラクターの移動アクションクラス
 class ActionMove : public ICharacterAction

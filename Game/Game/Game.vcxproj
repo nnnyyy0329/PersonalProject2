@@ -149,7 +149,9 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="source\ActionMove.cpp" />
-    <ClCompile Include="source\Animation\AnimManager.cpp" />
+    <ClCompile Include="source\Animation\AnimManager.cpp">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClCompile>
     <ClCompile Include="source\ApplicationGlobal.cpp" />
     <ClCompile Include="source\ApplicationMain.cpp" />
     <ClCompile Include="source\Bullet.cpp">
@@ -184,7 +186,9 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ActionMove.h" />
-    <ClInclude Include="source\Animation\AnimManager.h" />
+    <ClInclude Include="source\Animation\AnimManager.h">
+      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
+    </ClInclude>
     <ClInclude Include="source\ApplicationGlobal.h" />
     <ClInclude Include="source\ApplicationMain.h" />
     <ClInclude Include="source\Bullet.h">

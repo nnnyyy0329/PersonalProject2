@@ -29,7 +29,7 @@ public:
 		debugParam.AddItem("Player/Health", [this]() { return std::to_string(m_life); });
 		debugParam.AddItem("Player/MaxHealth", [this]() { return std::to_string(m_maxLife); });
 
-		return true; 
+		return true;
 	}
 
 	//===========================================================================
