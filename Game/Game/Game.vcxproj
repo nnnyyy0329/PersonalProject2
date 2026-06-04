@@ -204,6 +204,7 @@
     <ClInclude Include="source\DebugFps.h" />
     <ClInclude Include="source\DebugManager.h" />
     <ClInclude Include="source\DebugParameter.h" />
+    <ClInclude Include="source\DxLibAnimationComponent.h" />
     <ClInclude Include="source\Enemy.h" />
     <ClInclude Include="source\FollowCamera.h" />
     <ClInclude Include="source\GameCamera.h">

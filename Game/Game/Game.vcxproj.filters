@@ -183,6 +183,9 @@
     <ClInclude Include="source\PlayerMoveComponent.h">
       <Filter>Object\Character\Player</Filter>
     </ClInclude>
+    <ClInclude Include="source\DxLibAnimationComponent.h">
+      <Filter>Component</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
