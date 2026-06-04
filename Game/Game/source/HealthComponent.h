@@ -4,6 +4,8 @@
 #include <string>
 
 /// @brief キャラクターの体力を管理するコンポーネントクラス
+///
+/// @tparam TOwner コンポーネントを所有するクラスの型
 template<typename TOwner>
 class HealthComponent : public IComponent<TOwner>
 {

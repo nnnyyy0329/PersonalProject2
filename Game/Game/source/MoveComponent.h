@@ -3,6 +3,8 @@
 #include "DxLib.h"
 
 /// @brief キャラクターの移動を管理するコンポーネントクラス
+///
+/// @tparam TOwner コンポーネントを所有するクラスの型
 template<typename TOwner>
 class MoveComponent : public IComponent<TOwner>
 {
