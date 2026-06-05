@@ -20,8 +20,8 @@ bool Player::Initialize()
 	// コンポーネントの設定
 	SetUpComponents();
 
-	// 初期状態のアクションとして移動を設定
-	SetAction(std::make_unique<ActionMove>());
+	// アクションの設定
+	SetUpActions();
 
 	// 基底クラスの初期化処理を呼び、全てのコンポーネントを初期化する
 	Character::Initialize();
@@ -40,7 +40,7 @@ bool Player::Terminate()
 
 void Player::Update()
 {
-	if(InputManager::GetInstance().GetPad(0).isTrigger(PadButton::X))
+	/*if(InputManager::GetInstance().GetPad(0).isTrigger(PadButton::X))
 	{
 		auto healthComponent = GetComponent<HealthComponent<Character>>();
 
@@ -48,7 +48,7 @@ void Player::Update()
 		{
 			healthComponent->ApplyDamage(10.0f);
 		}
-	}
+	}*/
 
 	// 基底クラスの更新処理を呼び出す
 	Character::Update();
@@ -62,21 +62,15 @@ void Player::SetUpComponents()
 	// プレイヤーの移動アクションを追加
 	AddComponent(std::make_unique<PlayerMoveComponent>());
 
-	// プレイヤーのアニメーションの登録
-	using AnimComp = DxLibAnimationComponent<Character>;
-	auto animComponent = std::make_unique<AnimComp>();
-	animComponent->RegisterAnimation("Nchange_attack_00", m_data.handle);
-	animComponent->RegisterAnimation("Nchange_attack_01", m_data.handle);
-	animComponent->RegisterAnimation("Nchange_attack_02", m_data.handle);
-	animComponent->RegisterAnimation("Nchange_attack_03", m_data.handle);
-	animComponent->RegisterAnimation("Nchange_attack_04", m_data.handle);
-	animComponent->RegisterAnimation("player_idle_01", m_data.handle);
-	animComponent->RegisterAnimation("player_walk_01", m_data.handle);
-	animComponent->RegisterAnimation("player_jog_01", m_data.handle);
-
 	// アニメーションコンポーネントを追加
-	AddComponent(std::move(animComponent));
+	AddComponent(std::make_unique<DxLibAnimationComponent<Character>>());
 
 	// プレイヤーのアニメーションコンポーネントを追加
 	AddComponent(std::make_unique<PlayerAnimationComponent>());
+}
+
+void Player::SetUpActions()
+{
+	// 初期状態のアクションとして移動を設定
+	SetAction(std::make_unique<ActionMove>());
 }

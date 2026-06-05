@@ -17,6 +17,9 @@ bool PlayerAnimationComponent::Initialize(Character& owner)
 	m_moveComponent = owner.GetComponent<MoveComponent<Character>>();
 	if(!m_moveComponent) { return false; }
 
+	// プレイヤーのアニメーションを登録
+	RegisterPlayerAnimations(owner);
+
 	return true;
 }
 
@@ -52,4 +55,19 @@ void PlayerAnimationComponent::ChangeAnimByMovement()
 	{
 		m_animationComponent->PlayAnimation("player_idle_01", {});
 	}
+}
+
+void PlayerAnimationComponent::RegisterPlayerAnimations(Character& owner)
+{
+	if(!m_animationComponent) { return; }
+
+	// プレイヤーのアニメーションを登録
+	m_animationComponent->RegisterAnimation("Nchange_attack_00", owner.GetModelHandle());
+	m_animationComponent->RegisterAnimation("Nchange_attack_01", owner.GetModelHandle());
+	m_animationComponent->RegisterAnimation("Nchange_attack_02", owner.GetModelHandle());
+	m_animationComponent->RegisterAnimation("Nchange_attack_03", owner.GetModelHandle());
+	m_animationComponent->RegisterAnimation("Nchange_attack_04", owner.GetModelHandle());
+	m_animationComponent->RegisterAnimation("player_idle_01", owner.GetModelHandle());
+	m_animationComponent->RegisterAnimation("player_walk_01", owner.GetModelHandle());
+	m_animationComponent->RegisterAnimation("player_jog_01", owner.GetModelHandle());
 }
