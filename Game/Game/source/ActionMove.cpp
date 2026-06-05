@@ -24,4 +24,8 @@ void ActionMove::Execute(Character& character)
 		// 更新されたオブジェクトデータをキャラクターに設定
 		character.SetObjectData(data);
 	}
+	else
+	{
+
+	}
 }

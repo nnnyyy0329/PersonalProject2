@@ -4,12 +4,13 @@
 #include <string>
 #include <unordered_map>
 #include <stdexcept>
+#include <algorithm>
 
 /// アニメーション関連の定数
 namespace Anim
 {
 	constexpr float FPS = 60.0f;				// アニメーションのフレームレート
-	constexpr float FRAME_RATE = 1.0f / FPS;	// アニメーションのフレーム時間
+	constexpr float FRAME_RATE = 1.0f/* / FPS*/;	// アニメーションのフレーム時間
 }
 
 /// @brief キャラクターのアニメーションを管理するコンポーネントクラス
@@ -25,8 +26,8 @@ private:
 	/// @brief アニメーションのデータ構造	
 	struct AnimationData
 	{
-		int handle = -1;		/// アニメーションのハンドル
-		float totalTime = 0.0f;	/// アニメーションの総再生時間
+		int handle = -1;			/// アニメーションのハンドル
+		float totalTime = -1.0f;	/// アニメーションの総再生時間
 	};
 
 public:
@@ -63,11 +64,8 @@ public:
 		// モデルのハンドルを取得して保存
 		m_modelHandle = owner.GetModelHandle();
 
-		// ハンドルが無効なら失敗
-		if(m_modelHandle == -1) { return false; }
-
-		// ハンドルが有効
-		return true;
+		// ハンドルが有効かどうか
+		return m_modelHandle != -1;
 	}
 
 	/// @brief 更新関数
@@ -82,6 +80,7 @@ public:
 
 		// アニメーションの総再生時間を取得
 		float totalTime = m_animations.at(m_currentAnimName).totalTime;
+		if(totalTime <= 0.0f) { return; }
 
 		// 無限ループ
 		if(m_loopCount == 0)
@@ -113,9 +112,8 @@ public:
 		if(animHandle == -1) { return; }
 
 		AnimationData data;
-		data.handle				= animHandle;						// アニメーションのハンドルを保存
-		data.totalTime			= MV1GetAnimTotalTime(animHandle);	// アニメーションの総再生時間を取得して保存
-		m_animations[animName]	= data;								// アニメーションの情報をマップに保存
+		data.handle				= animHandle;	// アニメーションのハンドルを保存
+		m_animations[animName]	= data;			// アニメーションの情報をマップに保存
 	}
 
 	/// @brief アニメーションを再生する関数
@@ -127,8 +125,14 @@ public:
 		// アニメーションが存在しない場合は例外を投げる
 		if(m_animations.find(animName) == m_animations.end())
 		{
-			// アニメーションが見つからない
 			throw std::runtime_error("アニメーションがなかった: " + animName);
+		}
+
+		// アニメーションのインデックスを取得する
+		int animIndex = MV1GetAnimIndex(m_modelHandle, animName.c_str());
+		if(animIndex == -1)
+		{
+			throw std::runtime_error("アニメーションが見つからなかった: " + animName);
 		}
 
 		// 既に同じアニメーションが同じループ回数で再生されている場合
@@ -147,15 +151,32 @@ public:
 			MV1DetachAnim(m_modelHandle, m_currentAnimAttachIndex);
 		}
 
-		// 新しいアニメーションをアタッチする
-		const auto& data = m_animations.at(animName);
-		m_currentAnimAttachIndex = MV1AttachAnim(m_modelHandle, data.handle, -1, FALSE);
+		auto& data = m_animations.at(animName);
+
+		// アニメーションをアタッチする
+		m_currentAnimAttachIndex = MV1AttachAnim(m_modelHandle, animIndex, -1, FALSE);
+
+		// アタッチに失敗した場合は例外を投げる
+		if(m_currentAnimAttachIndex == -1)
+		{
+			throw std::runtime_error("アニメーションのアタッチに失敗: " + animName);
+		}
+
+		// アニメーションの総再生時間が保存されていない場合は、アタッチしてから取得する
+		if(data.totalTime < 0.0f)
+		{
+			// アニメーションの総再生時間を取得して保存する
+			data.totalTime = MV1GetAttachAnimTotalTime(m_modelHandle, m_currentAnimAttachIndex);
+		}
 
 		// ブレンド時間が指定されている場合
 		if(params.blendTime > 0.0f)
 		{
+			/*float progress = params.blendTime / data.totalTime;
+			float clamp = std::clamp(progress, 0.0f, 1.0f);*/
+
 			// ブレンド時間を設定する
-			MV1SetAttachAnimBlendRate(m_modelHandle, m_currentAnimAttachIndex, params.blendTime);
+			MV1SetAttachAnimBlendRate(m_modelHandle, m_currentAnimAttachIndex, 1.0f);
 		}
 
 		// 状態を更新する
@@ -214,7 +235,7 @@ private:
 	std::unordered_map<std::string, AnimationData> m_animations;
 
 	/// 現在再生中のアニメーション名
-	std::string m_currentAnimName;
+	std::string m_currentAnimName = "";
 
 	/// モデルのハンドル
 	int m_modelHandle = -1;

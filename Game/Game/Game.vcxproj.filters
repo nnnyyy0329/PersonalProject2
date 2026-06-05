@@ -44,13 +44,13 @@
       <Filter>ObjectBase</Filter>
     </ClCompile>
     <ClCompile Include="source\DebugManager.cpp">
-      <Filter>Debug</Filter>
+      <Filter>Component\Debug</Filter>
     </ClCompile>
     <ClCompile Include="source\DebugFps.cpp">
-      <Filter>Debug</Filter>
+      <Filter>Component\Debug</Filter>
     </ClCompile>
     <ClCompile Include="source\DebugParameter.cpp">
-      <Filter>Debug</Filter>
+      <Filter>Component\Debug</Filter>
     </ClCompile>
     <ClCompile Include="source\CameraBase.cpp">
       <Filter>Object\Camera</Filter>
@@ -130,13 +130,13 @@
       <Filter>ObjectBase</Filter>
     </ClInclude>
     <ClInclude Include="source\DebugManager.h">
-      <Filter>Debug</Filter>
+      <Filter>Component\Debug</Filter>
     </ClInclude>
     <ClInclude Include="source\DebugFps.h">
-      <Filter>Debug</Filter>
+      <Filter>Component\Debug</Filter>
     </ClInclude>
     <ClInclude Include="source\DebugParameter.h">
-      <Filter>Debug</Filter>
+      <Filter>Component\Debug</Filter>
     </ClInclude>
     <ClInclude Include="source\CameraBase.h">
       <Filter>Object\Camera</Filter>
@@ -227,9 +227,6 @@
     <Filter Include="ObjectBase">
       <UniqueIdentifier>{a678d3ba-d371-44f5-a5b7-9c1c624cc2bf}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Debug">
-      <UniqueIdentifier>{78a0a7c6-33b5-4ede-a0ed-91b18160a93f}</UniqueIdentifier>
-    </Filter>
     <Filter Include="input">
       <UniqueIdentifier>{7fe9eb86-b37a-4f2e-844a-d42b99744f19}</UniqueIdentifier>
     </Filter>
@@ -241,6 +238,9 @@
     </Filter>
     <Filter Include="Object\Character\Enemy">
       <UniqueIdentifier>{31b74fa4-1afb-4fa1-831b-908ffff4e931}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Debug">
+      <UniqueIdentifier>{78a0a7c6-33b5-4ede-a0ed-91b18160a93f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
