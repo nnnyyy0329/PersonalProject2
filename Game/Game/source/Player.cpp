@@ -5,6 +5,7 @@
 #include "HealthComponent.h"
 #include "PlayerMoveComponent.h"
 #include "DxLibAnimationComponent.h"
+#include "PlayerAnimationComponent.h"
 
 Player::Player() = default;
 
@@ -16,26 +17,8 @@ bool Player::Initialize()
 	auto rs = ResourceServer::GetInstance();
 	m_data.handle = rs->GetHandle("Player");
 
-	// プレイヤーの体力コンポーネントを追加
-	AddComponent(std::make_unique<HealthComponent<Character>>(200.0f));
-
-	// プレイヤーの移動アクションを追加
-	AddComponent(std::make_unique<PlayerMoveComponent>());
-
-	// プレイヤーのアニメーションの追加登録
-	using AnimComp = DxLibAnimationComponent<Character>;
-	auto animComponent = std::make_unique<AnimComp>();
-	animComponent->RegisterAnimation("Nchange_attack_00", m_data.handle);
-	animComponent->RegisterAnimation("Nchange_attack_01", m_data.handle);
-	animComponent->RegisterAnimation("Nchange_attack_02", m_data.handle);
-	animComponent->RegisterAnimation("Nchange_attack_03", m_data.handle);
-	animComponent->RegisterAnimation("Nchange_attack_04", m_data.handle);
-	animComponent->RegisterAnimation("player_idle_01", m_data.handle);
-	animComponent->RegisterAnimation("player_walk_01", m_data.handle);
-	animComponent->RegisterAnimation("player_jog_01", m_data.handle);
-
-	// アニメーションコンポーネントを追加
-	AddComponent(std::move(animComponent));
+	// コンポーネントの設定
+	SetUpComponents();
 
 	// 初期状態のアクションとして移動を設定
 	SetAction(std::make_unique<ActionMove>());
@@ -69,4 +52,31 @@ void Player::Update()
 
 	// 基底クラスの更新処理を呼び出す
 	Character::Update();
+}
+
+void Player::SetUpComponents()
+{
+	// プレイヤーの体力コンポーネントを追加
+	AddComponent(std::make_unique<HealthComponent<Character>>(200.0f));
+
+	// プレイヤーの移動アクションを追加
+	AddComponent(std::make_unique<PlayerMoveComponent>());
+
+	// プレイヤーのアニメーションの登録
+	using AnimComp = DxLibAnimationComponent<Character>;
+	auto animComponent = std::make_unique<AnimComp>();
+	animComponent->RegisterAnimation("Nchange_attack_00", m_data.handle);
+	animComponent->RegisterAnimation("Nchange_attack_01", m_data.handle);
+	animComponent->RegisterAnimation("Nchange_attack_02", m_data.handle);
+	animComponent->RegisterAnimation("Nchange_attack_03", m_data.handle);
+	animComponent->RegisterAnimation("Nchange_attack_04", m_data.handle);
+	animComponent->RegisterAnimation("player_idle_01", m_data.handle);
+	animComponent->RegisterAnimation("player_walk_01", m_data.handle);
+	animComponent->RegisterAnimation("player_jog_01", m_data.handle);
+
+	// アニメーションコンポーネントを追加
+	AddComponent(std::move(animComponent));
+
+	// プレイヤーのアニメーションコンポーネントを追加
+	AddComponent(std::make_unique<PlayerAnimationComponent>());
 }

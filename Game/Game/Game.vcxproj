@@ -182,6 +182,7 @@
     <ClCompile Include="source\ObjectManager.cpp" />
     <ClCompile Include="source\ObjectRenderSystem.cpp" />
     <ClCompile Include="source\Player.cpp" />
+    <ClCompile Include="source\PlayerAnimationComponent.cpp" />
     <ClCompile Include="source\PlayerMoveComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -225,6 +226,7 @@
     <ClInclude Include="source\ObjectManager.h" />
     <ClInclude Include="source\ObjectRenderSystem.h" />
     <ClInclude Include="source\Player.h" />
+    <ClInclude Include="source\PlayerAnimationComponent.h" />
     <ClInclude Include="source\PlayerMoveComponent.h" />
     <ClInclude Include="source\MoveComponent.h" />
   </ItemGroup>

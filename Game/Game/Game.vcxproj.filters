@@ -82,6 +82,9 @@
     <ClCompile Include="source\PlayerMoveComponent.cpp">
       <Filter>Object\Character\Player</Filter>
     </ClCompile>
+    <ClCompile Include="source\PlayerAnimationComponent.cpp">
+      <Filter>Object\Character\Player</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -185,6 +188,9 @@
     </ClInclude>
     <ClInclude Include="source\DxLibAnimationComponent.h">
       <Filter>Component</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerAnimationComponent.h">
+      <Filter>Object\Character\Player</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
