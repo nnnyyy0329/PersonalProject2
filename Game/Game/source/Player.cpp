@@ -1,6 +1,5 @@
 #include "Player.h"
 #include "Server/ResourceServer.h"
-#include "InputManager.h"
 #include "ActionMove.h"
 #include "HealthComponent.h"
 #include "PlayerMoveComponent.h"

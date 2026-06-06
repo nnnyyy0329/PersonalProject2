@@ -44,13 +44,13 @@
       <Filter>ObjectBase</Filter>
     </ClCompile>
     <ClCompile Include="source\DebugManager.cpp">
-      <Filter>Component\Debug</Filter>
+      <Filter>Debug</Filter>
     </ClCompile>
     <ClCompile Include="source\DebugFps.cpp">
-      <Filter>Component\Debug</Filter>
+      <Filter>Debug</Filter>
     </ClCompile>
     <ClCompile Include="source\DebugParameter.cpp">
-      <Filter>Component\Debug</Filter>
+      <Filter>Debug</Filter>
     </ClCompile>
     <ClCompile Include="source\CameraBase.cpp">
       <Filter>Object\Camera</Filter>
@@ -74,7 +74,7 @@
       <Filter>input</Filter>
     </ClCompile>
     <ClCompile Include="source\ActionMove.cpp">
-      <Filter>InterfaceAction</Filter>
+      <Filter>Action</Filter>
     </ClCompile>
     <ClCompile Include="source\Enemy.cpp">
       <Filter>Object\Character\Enemy</Filter>
@@ -84,6 +84,9 @@
     </ClCompile>
     <ClCompile Include="source\PlayerAnimationComponent.cpp">
       <Filter>Object\Character\Player</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EnemyAnimationComponent.cpp">
+      <Filter>Object\Character\Enemy</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -133,13 +136,13 @@
       <Filter>ObjectBase</Filter>
     </ClInclude>
     <ClInclude Include="source\DebugManager.h">
-      <Filter>Component\Debug</Filter>
+      <Filter>Debug</Filter>
     </ClInclude>
     <ClInclude Include="source\DebugFps.h">
-      <Filter>Component\Debug</Filter>
+      <Filter>Debug</Filter>
     </ClInclude>
     <ClInclude Include="source\DebugParameter.h">
-      <Filter>Component\Debug</Filter>
+      <Filter>Debug</Filter>
     </ClInclude>
     <ClInclude Include="source\CameraBase.h">
       <Filter>Object\Camera</Filter>
@@ -166,10 +169,10 @@
       <Filter>input</Filter>
     </ClInclude>
     <ClInclude Include="source\ActionMove.h">
-      <Filter>InterfaceAction</Filter>
+      <Filter>Action</Filter>
     </ClInclude>
     <ClInclude Include="source\ICharacterAction.h">
-      <Filter>InterfaceAction</Filter>
+      <Filter>Action</Filter>
     </ClInclude>
     <ClInclude Include="source\IComponent.h">
       <Filter>Component</Filter>
@@ -191,6 +194,9 @@
     </ClInclude>
     <ClInclude Include="source\PlayerAnimationComponent.h">
       <Filter>Object\Character\Player</Filter>
+    </ClInclude>
+    <ClInclude Include="source\EnemyAnimationComponent.h">
+      <Filter>Object\Character\Enemy</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -236,17 +242,17 @@
     <Filter Include="input">
       <UniqueIdentifier>{7fe9eb86-b37a-4f2e-844a-d42b99744f19}</UniqueIdentifier>
     </Filter>
-    <Filter Include="InterfaceAction">
-      <UniqueIdentifier>{cc319f1c-d75b-435d-b041-20e2ae84c1d8}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component">
       <UniqueIdentifier>{acbfcb25-6735-4a27-912c-16eace56eb6d}</UniqueIdentifier>
     </Filter>
     <Filter Include="Object\Character\Enemy">
       <UniqueIdentifier>{31b74fa4-1afb-4fa1-831b-908ffff4e931}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Component\Debug">
+    <Filter Include="Debug">
       <UniqueIdentifier>{78a0a7c6-33b5-4ede-a0ed-91b18160a93f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Action">
+      <UniqueIdentifier>{cc319f1c-d75b-435d-b041-20e2ae84c1d8}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

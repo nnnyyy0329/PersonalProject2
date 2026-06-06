@@ -16,27 +16,27 @@ public:
 	/// @brief 初期化関数
 	///
 	/// @return 成功しているならtrue、失敗しているならfalse
-	bool Initialize() override;
+	virtual bool Initialize() override;
 
 	/// @brief 終了関数
 	///
 	/// @return 成功しているならtrue、失敗しているならfalse
-	bool Terminate() override;
+	virtual bool Terminate() override;
 
 	/// @brief 更新関数
-	void Update() override;
+	virtual void Update() override;
+
+private:
 
 	//===========================================================================
 	// 内部関数
 	//===========================================================================
 
-protected:
+	/// @brief コンポーネントの設定関数
+	void SetUpComponents();
 
-	//===========================================================================
-	// メンバ変数
-	//===========================================================================
-
-
+	/// @brief アクションの設定関数
+	void SetUpActions();
 
 };
 
