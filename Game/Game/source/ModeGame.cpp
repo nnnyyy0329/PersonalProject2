@@ -4,10 +4,6 @@
 #include "InputManager.h"
 #include "DebugManager.h"
 
-ModeGame::ModeGame() = default;
-
-ModeGame::~ModeGame() = default;
-
 bool ModeGame::Initialize()
 {
 	if(!base::Initialize()) { return false; }

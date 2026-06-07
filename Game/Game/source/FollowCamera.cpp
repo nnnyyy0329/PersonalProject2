@@ -14,11 +14,6 @@ FollowCamera::FollowCamera(const ObjectData& target)
 	m_cameraData.upVec = VGet(0.0f, 1.0f, 0.0f);
 }
 
-FollowCamera::~FollowCamera()
-{
-
-}
-
 void FollowCamera::Update()
 {
 	// カメラの位置を更新

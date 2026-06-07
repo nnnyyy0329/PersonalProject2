@@ -4,10 +4,6 @@
 #include "Player.h"
 #include "Enemy.h"
 
-ObjectManager::ObjectManager() = default;
-
-ObjectManager::~ObjectManager() = default;
-
 bool ObjectManager::Initialize()
 {
 	// オブジェクトの生成

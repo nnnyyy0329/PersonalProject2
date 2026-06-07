@@ -14,8 +14,8 @@ class ObjectManager
 {
 public:
 
-	ObjectManager();
-	virtual ~ObjectManager();
+	ObjectManager() = default;
+	virtual ~ObjectManager() = default;
 
 	//===========================================================================
 	// 基本関数

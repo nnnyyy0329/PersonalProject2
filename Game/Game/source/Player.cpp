@@ -6,10 +6,6 @@
 #include "DxLibAnimationComponent.h"
 #include "PlayerAnimationComponent.h"
 
-Player::Player() = default;
-
-Player::~Player() = default;
-
 bool Player::Initialize()
 {
 	// リソースサーバーのインスタンスを取得

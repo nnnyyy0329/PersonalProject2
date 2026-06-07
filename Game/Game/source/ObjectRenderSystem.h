@@ -8,8 +8,8 @@ class ObjectRenderSystem
 {
 public:
 
-	ObjectRenderSystem();
-	virtual ~ObjectRenderSystem();
+	ObjectRenderSystem() = default;
+	virtual ~ObjectRenderSystem() = default;
 
 	//=======================================================================
 	// 描画関数

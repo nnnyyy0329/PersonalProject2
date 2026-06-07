@@ -1,15 +1,5 @@
 #include "ObjectLogic.h"
 
-ObjectLogic::ObjectLogic()
-{
-
-}
-
-ObjectLogic::~ObjectLogic()
-{
-
-}
-
 bool ObjectLogic::Initialize()
 {
 	return true;

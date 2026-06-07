@@ -1,15 +1,5 @@
 #include "ObjectRenderSystem.h"
 
-ObjectRenderSystem::ObjectRenderSystem()
-{
-
-}
-
-ObjectRenderSystem::~ObjectRenderSystem()
-{
-
-}
-
 void ObjectRenderSystem::BeginRender()
 {
 	// 3D基本設定

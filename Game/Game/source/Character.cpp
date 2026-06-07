@@ -1,15 +1,5 @@
 #include "Character.h"
 
-Character::Character()
-{
-
-}
-
-Character::~Character()
-{
-
-}
-
 bool Character::Initialize()
 {
 	// すべてのコンポーネントを初期化する

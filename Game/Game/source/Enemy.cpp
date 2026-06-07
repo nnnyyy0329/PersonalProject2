@@ -5,10 +5,6 @@
 #include "DxLibAnimationComponent.h"
 #include "EnemyAnimationComponent.h"
 
-Enemy::Enemy() = default;
-
-Enemy::~Enemy() = default;
-
 bool Enemy::Initialize()
 {
 	// リソースサーバーのインスタンスを取得

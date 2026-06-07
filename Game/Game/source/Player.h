@@ -6,8 +6,8 @@ class Player : public Character
 {
 public:
 
-	Player();
-	virtual ~Player();
+	Player() = default;
+	virtual ~Player() = default;
 	
 	//===========================================================================
 	// 基本関数

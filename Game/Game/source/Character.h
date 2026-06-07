@@ -13,8 +13,8 @@ class Character : public ObjectLogic
 {
 public:
 
-	Character();
-	virtual ~Character();
+	Character() = default;
+	virtual ~Character() = default;
 
 	//===========================================================================
 	// 基本関数

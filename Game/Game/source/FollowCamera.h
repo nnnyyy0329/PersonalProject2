@@ -9,7 +9,7 @@ class FollowCamera : public CameraBase
 public:
 
 	FollowCamera(const ObjectData& target);
-	virtual ~FollowCamera();
+	virtual ~FollowCamera() = default;
 
 	//==========================================================================
 	// 基本関数
@@ -38,6 +38,6 @@ private:
 	const ObjectData& m_targetObject;
 
 	/// 追従するオブジェクトからのオフセット
-	VECTOR m_offset;
+	VECTOR m_offset = {};
 };
 

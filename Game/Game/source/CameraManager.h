@@ -8,8 +8,8 @@ class CameraManager
 {
 public:
 
-	CameraManager();
-	virtual ~CameraManager();
+	CameraManager() = default;
+	virtual ~CameraManager() = default;
 
 	//===========================================================================
 	// 基本関数

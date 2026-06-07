@@ -14,8 +14,8 @@ class ModeGame : public ModeBase
 	typedef ModeBase base;
 public:
 
-	ModeGame();
-	virtual ~ModeGame();
+	ModeGame() = default;
+	virtual ~ModeGame() = default;
 
 	//===========================================================================
 	// 基本関数

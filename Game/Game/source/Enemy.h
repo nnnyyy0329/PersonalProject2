@@ -6,8 +6,8 @@ class Enemy : public Character
 {
 public:
 
-	Enemy();
-	virtual ~Enemy();
+	Enemy() = default;
+	virtual ~Enemy() = default;
 
 	//===========================================================================
 	// 基本関数
