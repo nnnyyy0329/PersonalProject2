@@ -22,6 +22,6 @@ public:
 	/// @brief 更新関数
 	///
 	/// @param owner 更新処理を行うキャラクター
-	virtual void Update(TOwner& owner) {};
+	virtual void Update(TOwner& owner) = 0;
 
 };
