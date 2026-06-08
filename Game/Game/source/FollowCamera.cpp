@@ -37,9 +37,9 @@ void FollowCamera::SetUpCamera() const
 	// カメラの位置と注視点とアップベクトルを設定
 	SetCameraPositionAndTargetAndUpVec
 	(
-		m_cameraData.pos,		// カメラの位置
-		m_targetObject.pos,		// カメラの注視点
-		m_cameraData.upVec		// カメラのアップベクトル
+		m_cameraData.pos,	// カメラの位置
+		m_targetObject.pos,	// カメラの注視点
+		m_cameraData.upVec	// カメラのアップベクトル
 	);
 
 	// カメラの近クリップ距離と遠クリップ距離を設定

@@ -149,9 +149,6 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="source\ActionMove.cpp" />
-    <ClCompile Include="source\Animation\AnimManager.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="source\ApplicationGlobal.cpp" />
     <ClCompile Include="source\ApplicationMain.cpp" />
     <ClCompile Include="source\Bullet.cpp">
@@ -169,9 +166,6 @@
     <ClCompile Include="source\Enemy.cpp" />
     <ClCompile Include="source\EnemyAnimationComponent.cpp" />
     <ClCompile Include="source\FollowCamera.cpp" />
-    <ClCompile Include="source\GameCamera.cpp">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClCompile>
     <ClCompile Include="source\InputManager.cpp" />
     <ClCompile Include="source\Pad.cpp" />
     <ClCompile Include="source\Light.cpp" />
@@ -188,9 +182,6 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ActionMove.h" />
-    <ClInclude Include="source\Animation\AnimManager.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClInclude>
     <ClInclude Include="source\ApplicationGlobal.h" />
     <ClInclude Include="source\ApplicationMain.h" />
     <ClInclude Include="source\Bullet.h">
@@ -210,10 +201,8 @@
     <ClInclude Include="source\Enemy.h" />
     <ClInclude Include="source\EnemyAnimationComponent.h" />
     <ClInclude Include="source\FollowCamera.h" />
-    <ClInclude Include="source\GameCamera.h">
-      <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
-    </ClInclude>
     <ClInclude Include="source\HealthComponent.h" />
+    <ClInclude Include="source\ICameraComponent.h" />
     <ClInclude Include="source\ICharacterAction.h" />
     <ClInclude Include="source\IComponent.h" />
     <ClInclude Include="source\InputManager.h" />

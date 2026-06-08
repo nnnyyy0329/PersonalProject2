@@ -7,9 +7,6 @@
     <ClCompile Include="source\BulletManager.cpp">
       <Filter>Bullet</Filter>
     </ClCompile>
-    <ClCompile Include="source\Animation\AnimManager.cpp">
-      <Filter>Animation</Filter>
-    </ClCompile>
     <ClCompile Include="source\ApplicationGlobal.cpp">
       <Filter>Application</Filter>
     </ClCompile>
@@ -55,9 +52,6 @@
     <ClCompile Include="source\CameraBase.cpp">
       <Filter>Object\Camera</Filter>
     </ClCompile>
-    <ClCompile Include="source\GameCamera.cpp">
-      <Filter>Object\Camera</Filter>
-    </ClCompile>
     <ClCompile Include="source\FollowCamera.cpp">
       <Filter>Object\Camera</Filter>
     </ClCompile>
@@ -95,9 +89,6 @@
     </ClInclude>
     <ClInclude Include="source\BulletManager.h">
       <Filter>Bullet</Filter>
-    </ClInclude>
-    <ClInclude Include="source\Animation\AnimManager.h">
-      <Filter>Animation</Filter>
     </ClInclude>
     <ClInclude Include="source\ApplicationGlobal.h">
       <Filter>Application</Filter>
@@ -147,9 +138,6 @@
     <ClInclude Include="source\CameraBase.h">
       <Filter>Object\Camera</Filter>
     </ClInclude>
-    <ClInclude Include="source\GameCamera.h">
-      <Filter>Object\Camera</Filter>
-    </ClInclude>
     <ClInclude Include="source\FollowCamera.h">
       <Filter>Object\Camera</Filter>
     </ClInclude>
@@ -177,20 +165,11 @@
     <ClInclude Include="source\IComponent.h">
       <Filter>Component</Filter>
     </ClInclude>
-    <ClInclude Include="source\HealthComponent.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="source\Enemy.h">
       <Filter>Object\Character\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="source\MoveComponent.h">
-      <Filter>Component</Filter>
-    </ClInclude>
     <ClInclude Include="source\PlayerMoveComponent.h">
       <Filter>Object\Character\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="source\DxLibAnimationComponent.h">
-      <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="source\PlayerAnimationComponent.h">
       <Filter>Object\Character\Player</Filter>
@@ -198,13 +177,22 @@
     <ClInclude Include="source\EnemyAnimationComponent.h">
       <Filter>Object\Character\Enemy</Filter>
     </ClInclude>
+    <ClInclude Include="source\DxLibAnimationComponent.h">
+      <Filter>Component\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="source\HealthComponent.h">
+      <Filter>Component\Health</Filter>
+    </ClInclude>
+    <ClInclude Include="source\MoveComponent.h">
+      <Filter>Component\Move</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ICameraComponent.h">
+      <Filter>Component\Camera</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
       <UniqueIdentifier>{dbd2dd3d-1e6f-4956-b6b1-3c0631975688}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Animation">
-      <UniqueIdentifier>{8a4cbfe7-fc06-4c1c-94bf-2ce3a31c6539}</UniqueIdentifier>
     </Filter>
     <Filter Include="Mode">
       <UniqueIdentifier>{17c20df4-c5d4-41ff-b1f1-ab6abf71e86b}</UniqueIdentifier>
@@ -253,6 +241,18 @@
     </Filter>
     <Filter Include="Action">
       <UniqueIdentifier>{cc319f1c-d75b-435d-b041-20e2ae84c1d8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Animation">
+      <UniqueIdentifier>{0d1dc636-a25d-4fc5-b0fa-75ff6eeb1393}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Health">
+      <UniqueIdentifier>{b30e754c-4ed3-45d6-b125-549924b51183}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Move">
+      <UniqueIdentifier>{5fb39a90-725d-4ba6-9ce0-87dda19eead5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Camera">
+      <UniqueIdentifier>{ef074f01-0739-434f-a269-9af965a3dc89}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
