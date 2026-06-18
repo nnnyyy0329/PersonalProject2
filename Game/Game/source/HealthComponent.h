@@ -1,7 +1,6 @@
 #pragma once
 #include "IComponent.h"
 #include "DebugManager.h"
-#include <string>
 
 /// @brief キャラクターの体力を管理するコンポーネントクラス
 ///

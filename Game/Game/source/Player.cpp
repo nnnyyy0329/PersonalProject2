@@ -54,7 +54,7 @@ void Player::SetUpComponents()
 	// プレイヤーの体力コンポーネントを追加
 	AddComponent(std::make_unique<HealthComponent<Character>>(200.0f));
 
-	// プレイヤーの移動アクションを追加
+	// プレイヤーの移動コンポネントを追加
 	AddComponent(std::make_unique<PlayerMoveComponent>());
 
 	// アニメーションコンポーネントを追加
@@ -66,6 +66,6 @@ void Player::SetUpComponents()
 
 void Player::SetUpActions()
 {
-	// 初期状態のアクションとして移動を設定
+	// 移動アクションを設定
 	SetAction(std::make_unique<ActionMove>());
 }

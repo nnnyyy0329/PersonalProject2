@@ -1,3 +1,4 @@
+#include "Character.h"
 #include "PlayerMoveComponent.h"
 #include "InputManager.h"
 

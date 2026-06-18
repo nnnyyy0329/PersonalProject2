@@ -1,6 +1,7 @@
 #pragma once
 #include "MoveComponent.h"
-#include "Character.h"
+
+class Character;	/// キャラクタークラス
 
 /// @brief プレイヤーの移動を管理するコンポーネントクラス
 class PlayerMoveComponent : public MoveComponent<Character>
@@ -26,10 +27,5 @@ public:
 	///
 	/// @return 移動ベクトル
 	virtual VECTOR GetMoveVector() const override { return m_moveVector; }
-
-private:
-
-	/// 移動ベクトル
-	VECTOR m_moveVector = VGet(0.0f, 0.0f, 0.0f);
 };
 

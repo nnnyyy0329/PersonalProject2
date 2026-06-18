@@ -1,7 +1,7 @@
 #pragma once
 #include "IComponent.h"
-#include "Character.h"
 
+class Character;										/// キャラクタークラス
 template<typename TOwner>class DxLibAnimationComponent;	/// アニメーション管理コンポーネントクラス
 template<typename TOwner>class MoveComponent;			/// 移動管理コンポーネントクラス
 

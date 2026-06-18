@@ -1,11 +1,13 @@
 #pragma once
-#include <memory>
-#include <vector>
 #include "ObjectLogic.h"
 #include "ICharacterAction.h"
 #include "IComponent.h"
+#include <memory>
+#include <vector>
 
-/// コンポーネントの基底クラスのエイリアス
+class Character;	/// キャラクタークラス
+
+/// コンポーネント基底クラスのエイリアス
 using ComponentBase = IComponent<Character>;
 
 /// @brief キャラクタークラス

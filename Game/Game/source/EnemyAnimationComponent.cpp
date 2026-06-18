@@ -1,3 +1,4 @@
+#include "Character.h"
 #include "EnemyAnimationComponent.h"
 #include "DxLibAnimationComponent.h"
 

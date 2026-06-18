@@ -1,3 +1,4 @@
+#include "Character.h"
 #include "PlayerAnimationComponent.h"
 #include "DxLibAnimationComponent.h"
 #include "MoveComponent.h"
