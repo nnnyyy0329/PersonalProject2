@@ -1,8 +1,10 @@
 #include "Player.h"
 #include "Server/ResourceServer.h"
 #include "ActionMove.h"
+#include "ActionRotation.h"
 #include "HealthComponent.h"
 #include "PlayerMoveComponent.h"
+#include "PlayerRotComponent.h"
 #include "DxLibAnimationComponent.h"
 #include "PlayerAnimationComponent.h"
 
@@ -56,6 +58,9 @@ void Player::SetUpComponents()
 
 	// プレイヤーの移動コンポネントを追加
 	AddComponent(std::make_unique<PlayerMoveComponent>());
+	
+	// プレイヤーの回転コンポーネントを追加
+	AddComponent(std::make_unique<PlayerRotComponent>());
 
 	// アニメーションコンポーネントを追加
 	AddComponent(std::make_unique<DxLibAnimationComponent<Character>>());

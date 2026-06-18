@@ -51,7 +51,7 @@ void ObjectRenderSystem::LightRender(const Light& light)
 
 	// 平行ライト
 	{
-		SetGlobalAmbientLight(GetColorF(0.f, 0.f, 0.f, 0.f));
+		SetGlobalAmbientLight(GetColorF(0.0f, 0.0f, 0.0f, 0.0f));
 		ChangeLightTypeDir(lightData.direction);
 	}
 }

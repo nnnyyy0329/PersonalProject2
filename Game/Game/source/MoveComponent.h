@@ -1,5 +1,6 @@
 #pragma once
 #include "IComponent.h"
+#include "DxLib.h"
 
 /// @brief キャラクターの移動を管理するコンポーネントクラス
 ///

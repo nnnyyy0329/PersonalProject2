@@ -85,6 +85,9 @@
     <ClCompile Include="source\EnemyAnimationComponent.cpp">
       <Filter>Object\Character\Enemy\Function</Filter>
     </ClCompile>
+    <ClCompile Include="source\PlayerRotComponent.cpp">
+      <Filter>Object\Character\Player\Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -197,6 +200,9 @@
     </ClInclude>
     <ClInclude Include="source\EnemyAnimationComponent.h">
       <Filter>Object\Character\Enemy\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerRotComponent.h">
+      <Filter>Object\Character\Player\Action</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

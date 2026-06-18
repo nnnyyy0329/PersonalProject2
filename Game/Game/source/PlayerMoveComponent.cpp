@@ -1,5 +1,5 @@
-#include "Character.h"
 #include "PlayerMoveComponent.h"
+#include "Character.h"
 #include "InputManager.h"
 
 void PlayerMoveComponent::Update(Character& character)

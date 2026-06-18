@@ -180,6 +180,7 @@
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\PlayerAnimationComponent.cpp" />
     <ClCompile Include="source\PlayerMoveComponent.cpp" />
+    <ClCompile Include="source\PlayerRotComponent.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ActionMove.h" />
@@ -222,6 +223,7 @@
     <ClInclude Include="source\PlayerAnimationComponent.h" />
     <ClInclude Include="source\PlayerMoveComponent.h" />
     <ClInclude Include="source\MoveComponent.h" />
+    <ClInclude Include="source\PlayerRotComponent.h" />
     <ClInclude Include="source\RotationComponent.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
