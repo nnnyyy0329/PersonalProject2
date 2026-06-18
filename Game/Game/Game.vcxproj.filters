@@ -67,20 +67,23 @@
     <ClCompile Include="source\InputManager.cpp">
       <Filter>input</Filter>
     </ClCompile>
-    <ClCompile Include="source\ActionMove.cpp">
-      <Filter>Action</Filter>
-    </ClCompile>
     <ClCompile Include="source\Enemy.cpp">
       <Filter>Object\Character\Enemy</Filter>
     </ClCompile>
+    <ClCompile Include="source\ActionMove.cpp">
+      <Filter>Action</Filter>
+    </ClCompile>
+    <ClCompile Include="source\ActionRotation.cpp">
+      <Filter>Action</Filter>
+    </ClCompile>
     <ClCompile Include="source\PlayerMoveComponent.cpp">
-      <Filter>Object\Character\Player</Filter>
+      <Filter>Object\Character\Player\Action</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerAnimationComponent.cpp">
-      <Filter>Object\Character\Player</Filter>
+      <Filter>Object\Character\Player\Function</Filter>
     </ClCompile>
     <ClCompile Include="source\EnemyAnimationComponent.cpp">
-      <Filter>Object\Character\Enemy</Filter>
+      <Filter>Object\Character\Enemy\Function</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -168,15 +171,6 @@
     <ClInclude Include="source\Enemy.h">
       <Filter>Object\Character\Enemy</Filter>
     </ClInclude>
-    <ClInclude Include="source\PlayerMoveComponent.h">
-      <Filter>Object\Character\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="source\PlayerAnimationComponent.h">
-      <Filter>Object\Character\Player</Filter>
-    </ClInclude>
-    <ClInclude Include="source\EnemyAnimationComponent.h">
-      <Filter>Object\Character\Enemy</Filter>
-    </ClInclude>
     <ClInclude Include="source\DxLibAnimationComponent.h">
       <Filter>Component\Animation</Filter>
     </ClInclude>
@@ -188,6 +182,21 @@
     </ClInclude>
     <ClInclude Include="source\ICameraComponent.h">
       <Filter>Component\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ActionRotation.h">
+      <Filter>Action</Filter>
+    </ClInclude>
+    <ClInclude Include="source\RotationComponent.h">
+      <Filter>Component\Rotation</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerMoveComponent.h">
+      <Filter>Object\Character\Player\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerAnimationComponent.h">
+      <Filter>Object\Character\Player\Function</Filter>
+    </ClInclude>
+    <ClInclude Include="source\EnemyAnimationComponent.h">
+      <Filter>Object\Character\Enemy\Function</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -253,6 +262,21 @@
     </Filter>
     <Filter Include="Component\Camera">
       <UniqueIdentifier>{ef074f01-0739-434f-a269-9af965a3dc89}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Rotation">
+      <UniqueIdentifier>{0998dc86-4c3b-42b7-9e18-f2e91502f713}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Character\Player\Action">
+      <UniqueIdentifier>{70666eff-4fb6-40c5-b0b9-11e1cb2b9969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Character\Enemy\Action">
+      <UniqueIdentifier>{4e1d9d28-8080-42d8-8ea2-445bc056c881}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Character\Enemy\Function">
+      <UniqueIdentifier>{40d7ab18-1a41-48ba-b977-6dd9c43eff98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Character\Player\Function">
+      <UniqueIdentifier>{4a0018f8-ad98-4439-9f34-22e539cf7715}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
