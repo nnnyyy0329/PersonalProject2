@@ -26,6 +26,15 @@ private:
 	// 内部関数
 	//===========================================================================
 
+	/// @brief キャラクターを移動させる関数
+	///
+	/// @param character 移動させるキャラクター
+	void Move(Character& character);
+
+	/// @brief キャラクターを回転させる関数
+	///
+	/// @param character 回転させるキャラクター
+	void Rotate(Character& character);
 
 };
 
