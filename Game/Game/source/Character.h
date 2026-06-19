@@ -44,6 +44,17 @@ public:
 	/// @param newAction 新しいアクション
 	void SetAction(std::unique_ptr<ICharacterAction> newAction);
 
+	/// @brief 現在のアクションが指定された型かどうかを判定する関数
+	///
+	/// @tparam T 判定したいアクションの型
+	/// 
+	/// @return 現在のアクションが指定された型である場合はtrue、そうでない場合はfalse
+	template<typename TAction>
+	bool IsCurrentAction()const
+	{
+		return dynamic_cast<TAction*>(m_currentAction.get()) != nullptr;
+	}
+
 	//===========================================================================
 	// コンポーネント管理関数
 	//===========================================================================
