@@ -30,18 +30,12 @@ public:
 	/// @return コンボを受付中である場合はtrue、そうでない場合はfalse
 	bool IsCancelable() const { return m_isCancelable; }
 
-	/// @brief 攻撃フェーズがNONEであるかどうか
+	/// @brief 攻撃が終了しているかどうか
 	///
-	/// @return 攻撃が無効である場合はtrue、そうでない場合はfalse
-	bool IsAttackPhaseNone() const { return m_currentPhase == AttackPhase::NONE; }
+	/// @return 攻撃が終了している場合はtrue、そうでない場合はfalse
+	bool IsFinished() const override { return m_isFinished; }
 
 private:
-
-	//===========================================================================
-	// 内部関数
-	//===========================================================================
-
-
 
 	//===========================================================================
 	// メンバ変数
@@ -59,5 +53,7 @@ private:
 	/// 攻撃がキャンセル可能かどうか
 	bool m_isCancelable = false;
 
+	/// 攻撃が終了しているかどうか
+	bool m_isFinished = false;
 };
 

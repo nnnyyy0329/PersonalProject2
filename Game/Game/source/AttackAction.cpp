@@ -59,6 +59,7 @@ void AttackAction::Execute(Character& character)
 			{
 				m_currentPhase = AttackPhase::NONE;
 				m_stateTime = 0.0f;
+				m_isFinished = true;
 
 				printf("攻撃が無効になりました\n");
 			}

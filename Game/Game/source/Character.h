@@ -66,6 +66,11 @@ public:
 		return dynamic_cast<TAction*>(m_currentAction.get()) != nullptr;
 	}
 
+	/// @brief デフォルトのアクションを作成する関数
+	///
+	/// @return デフォルトのアクションのポインタ
+	virtual std::unique_ptr<ICharacterAction> CreateDefaultAction() = 0;
+
 	//===========================================================================
 	// コンポーネント管理関数
 	//===========================================================================

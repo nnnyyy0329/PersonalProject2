@@ -55,3 +55,9 @@ void Enemy::SetUpActions()
 	// 初期状態のアクションとして移動を設定
 	SetAction(std::make_unique<ActionMove>());
 }
+
+std::unique_ptr<ICharacterAction> Enemy::CreateDefaultAction()
+{	
+	// デフォルトのアクションとして移動を返す
+	return std::make_unique<ActionMove>();
+}

@@ -29,6 +29,13 @@ void Character::Update()
 	{
 		// アクションの実行関数を呼び出す
 		m_currentAction->Execute(*this);
+
+		// アクションが終了しているなら
+		if(m_currentAction->IsFinished())
+		{
+			// デフォルトのアクションを作成して設定する
+			SetAction(CreateDefaultAction());
+		}
 	}
 }
 
