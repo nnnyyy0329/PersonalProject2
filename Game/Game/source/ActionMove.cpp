@@ -69,7 +69,7 @@ void ActionMove::Rotate(Character& character)
 		float diff = targetAngle - currentAngle;
 
 		// 角度の差が180度を超える場合は、反対方向に回転する
-		while(diff > DX_PI_F) { diff -= OPPOSITE_ANGLE; }
+		while(diff > DX_PI_F)  { diff -= OPPOSITE_ANGLE; }
 		while(diff < -DX_PI_F) { diff += OPPOSITE_ANGLE; }
 
 		// 回転速度を掛けて、現在の角度を更新

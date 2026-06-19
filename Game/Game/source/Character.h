@@ -44,9 +44,20 @@ public:
 	/// @param newAction 新しいアクション
 	void SetAction(std::unique_ptr<ICharacterAction> newAction);
 
+	/// @brief 現在のアクションの取得関数
+	///
+	/// @tparam TAction 取得したいアクションの型
+	/// 
+	/// @return 現在のアクションのポインタ。現在のアクションが指定された型でない場合はnullptr
+	template<typename TAction>
+	TAction* GetCurrentAction()
+	{
+		return dynamic_cast<TAction*>(m_currentAction.get());
+	}
+
 	/// @brief 現在のアクションが指定された型かどうかを判定する関数
 	///
-	/// @tparam T 判定したいアクションの型
+	/// @tparam TAction 判定したいアクションの型
 	/// 
 	/// @return 現在のアクションが指定された型である場合はtrue、そうでない場合はfalse
 	template<typename TAction>
@@ -66,16 +77,16 @@ public:
 
 	/// @brief コンポーネントの取得関数
 	///
-	/// @tparam T 取得したいコンポーネントの型
+	/// @tparam TComponent 取得したいコンポーネントの型
 	/// 
 	/// @return 取得したいコンポーネントのポインタ。見つからない場合はnullptr
-	template<typename T>
-	T* GetComponent()
+	template<typename TComponent>
+	TComponent* GetComponent()
 	{
 		for(const auto& component : m_components)
 		{
 			// 型変換(dynamic_cast)を試みる
-			T* target = dynamic_cast<T*>(component.get());
+			TComponent* target = dynamic_cast<TComponent*>(component.get());
 
 			// 目的の型のコンポーネントが見つかった場合、変換したポインタを返す
 			if(target) { return target; }
