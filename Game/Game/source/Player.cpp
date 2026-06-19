@@ -7,6 +7,7 @@
 #include "PlayerRotComponent.h"
 #include "DxLibAnimationComponent.h"
 #include "PlayerAnimationComponent.h"
+#include "PlayerAttackComponent.h"
 
 bool Player::Initialize()
 {
@@ -67,10 +68,19 @@ void Player::SetUpComponents()
 
 	// プレイヤーのアニメーションコンポーネントを追加
 	AddComponent(std::make_unique<PlayerAnimationComponent>());
+
+	// プレイヤーの攻撃コンポーネントを追加
+	AddComponent(std::make_unique<PlayerAttackComponent>());
 }
 
 void Player::SetUpActions()
 {
 	// 移動アクションを設定
 	SetAction(std::make_unique<ActionMove>());
+}
+
+std::unique_ptr<ICharacterAction> Player::CreateDefaultAction()
+{
+	// デフォルトのアクションは移動アクション
+	return std::make_unique<ActionMove>();
 }

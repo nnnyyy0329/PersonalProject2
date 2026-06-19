@@ -88,6 +88,15 @@
     <ClCompile Include="source\PlayerRotComponent.cpp">
       <Filter>Object\Character\Player\Action</Filter>
     </ClCompile>
+    <ClCompile Include="source\AttackAction.cpp">
+      <Filter>Action</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerInputComponent.cpp">
+      <Filter>Object\Character\Player\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerAttackComponent.cpp">
+      <Filter>Object\Character\Player\Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -204,6 +213,18 @@
     <ClInclude Include="source\PlayerRotComponent.h">
       <Filter>Object\Character\Player\Action</Filter>
     </ClInclude>
+    <ClInclude Include="source\AttackData.h">
+      <Filter>Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="source\AttackAction.h">
+      <Filter>Action</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerInputComponent.h">
+      <Filter>Object\Character\Player\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerAttackComponent.h">
+      <Filter>Object\Character\Player\Action</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -283,6 +304,9 @@
     </Filter>
     <Filter Include="Object\Character\Player\Function">
       <UniqueIdentifier>{4a0018f8-ad98-4439-9f34-22e539cf7715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Attack">
+      <UniqueIdentifier>{400a4fc1-83be-4895-a8d5-a742c1693469}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

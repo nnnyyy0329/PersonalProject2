@@ -154,6 +154,7 @@
     </ClCompile>
     <ClCompile Include="source\ApplicationGlobal.cpp" />
     <ClCompile Include="source\ApplicationMain.cpp" />
+    <ClCompile Include="source\AttackAction.cpp" />
     <ClCompile Include="source\Bullet.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -181,6 +182,8 @@
     <ClCompile Include="source\ObjectRenderSystem.cpp" />
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\PlayerAnimationComponent.cpp" />
+    <ClCompile Include="source\PlayerAttackComponent.cpp" />
+    <ClCompile Include="source\PlayerInputComponent.cpp" />
     <ClCompile Include="source\PlayerMoveComponent.cpp" />
     <ClCompile Include="source\PlayerRotComponent.cpp" />
   </ItemGroup>
@@ -191,6 +194,8 @@
     </ClInclude>
     <ClInclude Include="source\ApplicationGlobal.h" />
     <ClInclude Include="source\ApplicationMain.h" />
+    <ClInclude Include="source\AttackAction.h" />
+    <ClInclude Include="source\AttackData.h" />
     <ClInclude Include="source\Bullet.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
@@ -225,6 +230,8 @@
     <ClInclude Include="source\ObjectRenderSystem.h" />
     <ClInclude Include="source\Player.h" />
     <ClInclude Include="source\PlayerAnimationComponent.h" />
+    <ClInclude Include="source\PlayerAttackComponent.h" />
+    <ClInclude Include="source\PlayerInputComponent.h" />
     <ClInclude Include="source\PlayerMoveComponent.h" />
     <ClInclude Include="source\MoveComponent.h" />
     <ClInclude Include="source\PlayerRotComponent.h" />
