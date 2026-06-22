@@ -1,6 +1,5 @@
 #pragma once
 #include "IComponent.h"
-#include "DebugManager.h"
 
 /// @brief キャラクターの体力を管理するコンポーネントクラス
 ///
@@ -22,16 +21,7 @@ public:
 	/// @param owner 初期化処理を行うキャラクター
 	///
 	/// @return 成功しているならtrue、失敗しているならfalse
-	virtual bool Initialize(TOwner& owner) override
-	{
-		auto& debugParam = DebugManager::GetInstance().GetDebugParameter();
-
-		// ラムダ式を使用して、体力のデバッグパラメーターを追加
-		debugParam.AddItem("Player/Health", [this]() { return std::to_string(m_life); });
-		debugParam.AddItem("Player/MaxHealth", [this]() { return std::to_string(m_maxLife); });
-
-		return true;
-	}
+	virtual bool Initialize(TOwner& owner) override { return true; }
 
 	//===========================================================================
 	// 内部関数

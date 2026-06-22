@@ -225,6 +225,12 @@
     <ClInclude Include="source\PlayerAttackComponent.h">
       <Filter>Object\Character\Player\Action</Filter>
     </ClInclude>
+    <ClInclude Include="source\CollisionComponent.h">
+      <Filter>Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CollisionData.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -307,6 +313,12 @@
     </Filter>
     <Filter Include="Attack">
       <UniqueIdentifier>{400a4fc1-83be-4895-a8d5-a742c1693469}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Collision">
+      <UniqueIdentifier>{e1a1d5b5-bc8f-4978-ad21-81e242c93ae5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{7ee94531-4c82-41d9-8339-338d11e00362}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

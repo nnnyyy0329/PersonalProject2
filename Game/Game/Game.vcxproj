@@ -206,6 +206,8 @@
     <ClInclude Include="source\CameraData.h" />
     <ClInclude Include="source\CameraManager.h" />
     <ClInclude Include="source\Character.h" />
+    <ClInclude Include="source\CollisionComponent.h" />
+    <ClInclude Include="source\CollisionData.h" />
     <ClInclude Include="source\DebugFps.h" />
     <ClInclude Include="source\DebugManager.h" />
     <ClInclude Include="source\DebugParameter.h" />

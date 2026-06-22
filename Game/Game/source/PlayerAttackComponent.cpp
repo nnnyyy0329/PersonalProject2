@@ -11,6 +11,9 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak1.activeDuration = 20.0f;
     weak1.recoveryDuration = 20.0f;
     weak1.comboReceiveTime = 15.0f;
+	weak1.colData.shape = ShapeType::CAPSULE;
+	weak1.colData.size = VGet(1.0f, 1.0f, 1.0f);
+	weak1.colData.offset = VGet(0.0f, 0.0f, 50.0f);
     AddAttackData(weak1);
 
 	AttackData weak2;
@@ -18,6 +21,9 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak2.activeDuration = 20.0f;
     weak2.recoveryDuration = 20.0f;
     weak2.comboReceiveTime = 15.0f;
+	weak2.colData.shape = ShapeType::CAPSULE;
+	weak2.colData.size = VGet(1.0f, 1.0f, 1.0f);
+	weak2.colData.offset = VGet(100.0f, 0.0f, 0.0f);
     AddAttackData(weak2);
 
     AttackData weak3;
@@ -25,6 +31,9 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak3.activeDuration = 20.0f;
     weak3.recoveryDuration = 20.0f;
     weak3.comboReceiveTime = 15.0f;
+	weak3.colData.shape = ShapeType::CAPSULE;
+	weak3.colData.size = VGet(1.0f, 1.0f, 1.0f);
+	weak3.colData.offset = VGet(0.0f, 100.0f, 0.0f);
     AddAttackData(weak3);
 }
 

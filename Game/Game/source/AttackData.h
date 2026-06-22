@@ -1,5 +1,6 @@
 #pragma once
 #include <string>
+#include "CollisionData.h"
 
 /// @brief 攻撃のフェーズを表す列挙型
 enum class AttackPhase
@@ -17,9 +18,9 @@ struct AttackData
 	float activeDuration;	/// 攻撃が有効な時間
 	float recoveryDuration;	/// 攻撃後の硬直時間
 	float comboReceiveTime;	/// コンボ受付時間
-
 	std::string effectName;	/// 攻撃時のエフェクト名
 	std::string soundName;	/// 攻撃時のサウンド名
+	CollisionData colData;	/// 当たり判定のデータ
 
 	AttackData()
 	{
@@ -27,8 +28,8 @@ struct AttackData
 		activeDuration		= 0.0f;
 		recoveryDuration	= 0.0f;
 		comboReceiveTime	= 0.0f;
-
 		effectName			= "";
 		soundName			= "";
+		colData				= CollisionData();
 	}
 };

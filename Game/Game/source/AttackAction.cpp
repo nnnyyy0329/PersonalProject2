@@ -1,5 +1,6 @@
 ﻿#include "AttackAction.h"
 #include "Character.h"
+#include "CollisionComponent.h"
 
 void AttackAction::Execute(Character& character)
 {
@@ -7,9 +8,9 @@ void AttackAction::Execute(Character& character)
 	if(m_currentPhase == AttackPhase::NONE)
 	{
 		// 攻撃開始フェーズに移行する
-		m_currentPhase = AttackPhase::STARTUP;
-		m_stateTime = 0.0f;
-		m_isCancelable = false;
+		NonePhaseProcess();
+
+		return;
 	}
 
 	// 現在のフェーズの経過時間を更新する
@@ -21,6 +22,23 @@ void AttackAction::Execute(Character& character)
 		m_isCancelable = true;
 	}
 
+	// 攻撃のフェーズを更新する
+	UpdateAttackPhase(character);
+
+	// コリジョンの有効化を行う
+	EnableCollision(character);
+}
+
+void AttackAction::NonePhaseProcess()
+{
+	// 攻撃開始フェーズに移行する
+	m_currentPhase = AttackPhase::STARTUP;
+	m_stateTime = 0.0f;
+	m_isCancelable = false;
+}
+
+void AttackAction::UpdateAttackPhase(Character& character)
+{
 	// 攻撃のフェーズを更新する
 	switch(m_currentPhase)
 	{
@@ -71,5 +89,27 @@ void AttackAction::Execute(Character& character)
 		{
 			break;
 		}
+	}
+}
+
+void AttackAction::EnableCollision(Character& character)
+{
+	// コリジョンコンポーネントを取得する
+	auto colComponent = character.GetComponent<CollisionComponent<Character>>();
+	if(!colComponent) { return; }
+
+	// 攻撃有効フェーズで、かつ攻撃有効時間内であれば
+	if(m_currentPhase == AttackPhase::ACTIVE && m_stateTime < m_attackData.activeDuration)
+	{
+		// コリジョンを有効にする
+		colComponent->ActiveCollision(m_attackData.colData);
+
+		printfDx("コリジョンが有効になりました\n");
+	}
+	// 攻撃有効フェーズでない場合、または攻撃有効時間を過ぎている場合
+	else
+	{
+		// コリジョンを無効にする
+		colComponent->DeactiveCollision();
 	}
 }
