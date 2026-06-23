@@ -55,7 +55,7 @@ void Enemy::Update()
 void Enemy::SetUpComponents()
 {
 	// 体力コンポーネントを追加
-	AddComponent(std::make_unique<HealthComponent<Character>>(100.0f));
+	AddComponent(std::make_unique<HealthComponent<Character>>(200.0f));
 
 	// アニメーション管理コンポーネントを追加
 	AddComponent(std::make_unique<DxLibAnimationComponent<Character>>());

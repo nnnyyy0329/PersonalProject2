@@ -13,14 +13,11 @@ void AttackAction::Execute(Character& character)
 		return;
 	}
 
+	// コンボ受付時間かを更新する
+	UpdateComboReceive();
+
 	// 現在のフェーズの経過時間を更新する
 	m_stateTime += 1.0f;
-
-	// 攻撃がコンボを受付中かどうかを更新する
-	if(m_stateTime >= m_attackData.comboReceiveTime)
-	{
-		m_isCancelable = true;
-	}
 
 	// 攻撃のフェーズを更新する
 	UpdateAttackPhase(character);
@@ -111,5 +108,18 @@ void AttackAction::EnableCollision(Character& character)
 	{
 		// コリジョンを無効にする
 		colComponent->DeactiveCollision();
+	}
+}
+
+void AttackAction::UpdateComboReceive()
+{
+	// 攻撃有効フェーズで、かつ攻撃有効時間内であれば
+	if((m_currentPhase == AttackPhase::RECOVERY) && (m_stateTime < m_attackData.recoveryDuration))
+	{
+		// 攻撃がコンボを受付中かどうかを更新する
+		if(m_stateTime >= m_attackData.comboReceiveTime)
+		{
+			m_isCancelable = true;
+		}
 	}
 }
