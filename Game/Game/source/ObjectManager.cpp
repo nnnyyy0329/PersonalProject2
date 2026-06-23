@@ -59,11 +59,36 @@ void ObjectManager::RegisterCreators()
 	m_objectFactory.RegisterObject("Player", []() -> std::unique_ptr<ObjectLogic> { return std::make_unique<Player>(); });
 	//m_objects.emplace_back(m_objectFactory.CreateObject("Player"));
 
-
 	// 敵の生成関数を登録
 	m_objectFactory.RegisterObject("Enemy", []() -> std::unique_ptr<ObjectLogic> { return std::make_unique<Enemy>(); });
 	m_objects.emplace_back(m_objectFactory.CreateObject("Enemy"));
 
+}
+
+const std::vector<Character*> ObjectManager::GetCharacters()
+{
+	std::vector<Character*> characters;
+
+	// プレイヤーが存在する場合
+	if(m_player)
+	{
+		// キャラクターリストに追加
+		characters.push_back(m_player.get());
+	}
+
+	// オブジェクトリストからキャラクターを取得
+	for(auto& obj : m_objects)
+	{
+		// ほかのキャラクターへのダウンキャスト
+		Character* character = dynamic_cast<Character*>(obj.get());
+		if(character)
+		{
+			characters.push_back(character);
+		}
+	}
+
+	// キャラクターのポインタのベクターを返す
+	return characters;
 }
 
 void ObjectManager::PlayerCreate()

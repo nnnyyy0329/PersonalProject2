@@ -46,6 +46,9 @@ bool ModeGame::Process()
 	// カメラマネージャーの更新
 	m_cameraManager->Update();
 
+	// 当たり判定の更新
+	m_collisionManager->Update(m_objectManager->GetCharacters());
+
 	// デバッグ表示の更新
 	DebugManager::GetInstance().Update();
 
@@ -76,11 +79,14 @@ bool ModeGame::Render()
 
 void ModeGame::CreateManagers()
 {
+	// オブジェクトマネージャーの生成
+	m_objectManager = std::make_unique<ObjectManager>();
+
 	// カメラマネージャーの生成
 	m_cameraManager = std::make_unique<CameraManager>();
 
-	// オブジェクトマネージャーの生成
-	m_objectManager = std::make_unique<ObjectManager>();
+	// 当たり判定マネージャーの生成
+	m_collisionManager = std::make_unique<CollisionManager>();
 }
 
 void ModeGame::CreateCamera()

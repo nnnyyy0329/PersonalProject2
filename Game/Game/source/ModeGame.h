@@ -5,6 +5,7 @@
 
 #include "CameraManager.h"
 #include "ObjectManager.h"
+#include "CollisionManager.h"
 
 class Player;	/// プレイヤークラス
 
@@ -56,10 +57,19 @@ private:
 	// メンバ変数
 	//===========================================================================
 
-	std::unique_ptr<ObjectManager>				m_objectManager;	/// オブジェクトマネージャークラス
-	ObjectRenderSystem							m_objectRender;		/// オブジェクトの描画クラス
-	Map											m_map;				/// マップクラス
+	/// オブジェクトマネージャークラス
+	std::unique_ptr<ObjectManager>		m_objectManager;
 
-	std::unique_ptr<CameraManager>				m_cameraManager;	/// カメラマネージャークラス
+	/// オブジェクトの描画クラス
+	ObjectRenderSystem					m_objectRender;
+
+	/// マップクラス
+	Map									m_map;
+
+	/// カメラマネージャークラス
+	std::unique_ptr<CameraManager>		m_cameraManager;
+
+	/// 当たり判定マネージャークラス
+	std::unique_ptr<CollisionManager>	m_collisionManager;
 
 }; 

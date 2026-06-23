@@ -6,6 +6,8 @@
 
 class ObjectLogic;			/// オブジェクトのロジッククラス
 class ObjectRenderSystem;	/// オブジェクトの描画クラス
+
+class Character;			/// キャラクタークラス
 class Player;				/// プレイヤークラス
 class Enemy;				/// 敵クラス
 
@@ -42,6 +44,11 @@ public:
 	//===========================================================================
 	// ゲッター
 	//===========================================================================
+
+	/// @brief 現在存在しているキャラクターを取得する関数
+	///
+	/// @return キャラクターのポインタのベクター
+	const std::vector<Character*> GetCharacters();
 
 	/// @brief プレイヤーオブジェクトの取得関数
 	Player* GetPlayer() const { return m_player.get(); }
