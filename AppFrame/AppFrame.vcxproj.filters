@@ -102,9 +102,6 @@
     <ClCompile Include="source\Manager\input\InputManager.cpp">
       <Filter>Manager\Input</Filter>
     </ClCompile>
-    <ClCompile Include="source\Collision\DxLibCollisionMath.cpp">
-      <Filter>Collision</Filter>
-    </ClCompile>
     <ClCompile Include="source\GeometryUtility\DxLibGeometryUtility.cpp">
       <Filter>Utility</Filter>
     </ClCompile>

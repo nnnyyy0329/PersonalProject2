@@ -1,3 +1,4 @@
+#include "DxLibGeometryUtility.h"
 #include "DxLib.h"
 
 namespace DxLibGeometryUtility

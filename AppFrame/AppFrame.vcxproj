@@ -159,7 +159,6 @@
     <ClCompile Include="source\CFile\CFile.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
-    <ClCompile Include="source\Collision\DxLibCollisionMath.cpp" />
     <ClCompile Include="source\GeometryUtility\DxLibGeometryUtility.cpp" />
     <ClCompile Include="source\Manager\input\InputManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
