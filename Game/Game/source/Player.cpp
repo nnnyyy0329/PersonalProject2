@@ -7,6 +7,7 @@
 #include "DxLibAnimationComponent.h"
 #include "PlayerAnimationComponent.h"
 #include "PlayerAttackComponent.h"
+#include "CollisionComponent.h"
 
 bool Player::Initialize()
 {
@@ -19,6 +20,12 @@ bool Player::Initialize()
 
 	// アクションの設定
 	SetUpActions();
+
+
+
+	m_charColData.radius = 50.0f;
+
+
 
 	// 基底クラスの初期化処理を呼び、全てのコンポーネントを初期化する
 	Character::Initialize();
@@ -47,6 +54,13 @@ void Player::Update()
 		}
 	}*/
 
+
+
+	m_charColData.top = VAdd(GetObjectData().pos, VGet(0.0f, 100.0f, 0.0f));
+	m_charColData.bottom = GetObjectData().pos;
+
+
+
 	// 基底クラスの更新処理を呼び出す
 	Character::Update();
 }
@@ -70,6 +84,9 @@ void Player::SetUpComponents()
 
 	// プレイヤーの攻撃コンポーネントを追加
 	AddComponent(std::make_unique<PlayerAttackComponent>());
+
+	// 当たり判定コンポーネントを追加
+	AddComponent(std::make_unique<CollisionComponent<Character>>());
 }
 
 void Player::SetUpActions()

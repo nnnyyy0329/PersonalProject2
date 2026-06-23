@@ -58,7 +58,7 @@ public:
 
 	/// @brief 当たり判定が有効かどうかを取得する関数
 	///
-	/// @return 当たり判定が有効かどうか
+	/// @return 当たり判定が有効かどうか、有効である場合はtrue、そうでない場合はfalse
 	bool IsActive() const { return m_isActive; }
 
 protected:

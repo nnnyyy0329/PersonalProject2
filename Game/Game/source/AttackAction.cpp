@@ -104,7 +104,7 @@ void AttackAction::EnableCollision(Character& character)
 		// コリジョンを有効にする
 		colComponent->ActiveCollision(m_attackData.colData);
 
-		printfDx("コリジョンが有効になりました\n");
+		//printfDx("コリジョンが有効になりました\n");
 	}
 	// 攻撃有効フェーズでない場合、または攻撃有効時間を過ぎている場合
 	else

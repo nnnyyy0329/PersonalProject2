@@ -4,6 +4,7 @@
 #include "HealthComponent.h"
 #include "DxLibAnimationComponent.h"
 #include "EnemyAnimationComponent.h"
+#include "CollisionComponent.h"
 
 bool Enemy::Initialize()
 {
@@ -16,6 +17,12 @@ bool Enemy::Initialize()
 
 	// アクションの設定
 	SetUpActions();
+
+
+
+	m_charColData.radius = 50.0f;
+
+
 
 	// 基底クラスの初期化処理を呼び、全てのコンポーネントを初期化する
 	Character::Initialize();
@@ -34,6 +41,13 @@ bool Enemy::Terminate()
 
 void Enemy::Update()
 {
+
+
+	m_charColData.top = VAdd(GetObjectData().pos, VGet(0.0f, 100.0f, 0.0f));
+	m_charColData.bottom = GetObjectData().pos;
+
+
+
 	// 基底クラスの更新処理を呼び出す
 	Character::Update();
 }
@@ -48,6 +62,9 @@ void Enemy::SetUpComponents()
 
 	// 敵のアニメーション管理コンポーネントを追加
 	AddComponent(std::make_unique<EnemyAnimationComponent>());
+
+	// 当たり判定コンポーネントを追加
+	AddComponent(std::make_unique<CollisionComponent<Character>>());
 }
 
 void Enemy::SetUpActions()

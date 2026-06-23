@@ -97,6 +97,9 @@
     <ClCompile Include="source\PlayerAttackComponent.cpp">
       <Filter>Object\Character\Player\Action</Filter>
     </ClCompile>
+    <ClCompile Include="source\CollisionManager.cpp">
+      <Filter>Component\Collision</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -230,6 +233,12 @@
     </ClInclude>
     <ClInclude Include="source\CollisionData.h">
       <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CollisionManager.h">
+      <Filter>Component\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CharacterData.h">
+      <Filter>Object\Character</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
