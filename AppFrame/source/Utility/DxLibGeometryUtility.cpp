@@ -1,6 +1,6 @@
-#include "GeometryUtility.h"
+#include "DxLib.h"
 
-namespace GeometryUtility
+namespace DxLibGeometryUtility
 {
 	bool IsFacing(const VECTOR& fromPos, const VECTOR& fromDir, const VECTOR& targetPos, float dotThreshold)
 	{

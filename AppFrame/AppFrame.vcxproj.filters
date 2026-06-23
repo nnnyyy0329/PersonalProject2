@@ -96,7 +96,7 @@
     <ClCompile Include="source\Server\SoundVoice.cpp">
       <Filter>Server\Sound</Filter>
     </ClCompile>
-    <ClCompile Include="source\Utility\GeometryUtility.cpp">
+    <ClCompile Include="source\Utility\DxLibGeometryUtility.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
     <ClCompile Include="source\Manager\input\InputManager.cpp">
@@ -162,7 +162,7 @@
     <ClInclude Include="source\draw\mydraw.h">
       <Filter>draw</Filter>
     </ClInclude>
-    <ClInclude Include="source\Utility\GeometryUtility.h">
+    <ClInclude Include="source\Utility\DxLibGeometryUtility.h">
       <Filter>Utility</Filter>
     </ClInclude>
     <ClInclude Include="source\Manager\input\InputManager.h">

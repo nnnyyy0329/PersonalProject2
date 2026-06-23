@@ -1,6 +1,6 @@
 /*****************************************
-* file   GeometryUtility.h
-* brief  幾何計算用の便利関数クラス
+* file   DxLibGeometryUtility.h
+* brief  DxLib用の計算便利関数クラス
 * author 成田 悠真
 * date   2026/02/06
 ******************************************/
@@ -29,7 +29,7 @@ struct SectorData
 };
 
 /// @brief 幾何計算用の便利関数クラス
-namespace GeometryUtility
+namespace DxLibGeometryUtility
 {
 	/// @brief 対象が前方にあるかどうかを判定する関数
 	///
