@@ -5,6 +5,10 @@ class Character;										/// キャラクタークラス
 template<typename TOwner>class DxLibAnimationComponent;	/// アニメーション管理コンポーネントクラス
 template<typename TOwner>class MoveComponent;			/// 移動管理コンポーネントクラス
 
+
+class PlayerAttackComponent;
+
+
 /// @brief プレイヤーのアニメーションを管理するコンポーネントクラス
 class PlayerAnimationComponent : public IComponent<Character>
 {
@@ -32,13 +36,16 @@ private:
 	// 内部関数
 	//===========================================================================
 
-	/// @brief 移動ベクトルに応じてアニメーションを切り替える関数
-	void ChangeAnimByMovement();
-
 	/// @brief プレイヤーのアニメーションを登録する関数
 	///
 	/// @param owner アニメーションを登録するキャラクター
 	void RegisterPlayerAnimations(Character& owner);
+
+	/// @brief 移動ベクトルに応じてアニメーションを切り替える関数
+	void ChangeAnimByMovement();
+
+	/// @brief 攻撃の状態に応じてアニメーションを切り替える関数
+	void ChangeAnimByAttack();
 
 	//===========================================================================
 	// メンバ変数
@@ -49,6 +56,9 @@ private:
 
 	/// 移動管理コンポーネントの参照用ポインタ
 	MoveComponent<Character>* m_moveComponent = nullptr;
+
+	/// プレイヤーの攻撃管理コンポーネントの参照用ポインタ
+	PlayerAttackComponent* m_playerAttackComponent = nullptr;
 
 };
 
