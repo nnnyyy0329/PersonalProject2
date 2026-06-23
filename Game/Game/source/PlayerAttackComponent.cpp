@@ -1,7 +1,7 @@
 ﻿#include "PlayerAttackComponent.h"
 #include "Character.h"
 #include "InputManager.h"
-#include "AttackAction.h"
+#include "ActionAttack.h"
 #include "ActionMove.h"
 
 PlayerAttackComponent::PlayerAttackComponent()
@@ -65,7 +65,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 void PlayerAttackComponent::Update(Character& owner)
 {
 	// 現在のアクションが攻撃アクションでない場合
-    if(!owner.IsCurrentAction<AttackAction>())
+    if(!owner.IsCurrentAction<ActionAttack>())
     {
 		// コンボをリセットする
 		ResetCombo();
@@ -84,11 +84,11 @@ void PlayerAttackComponent::InputAttack(Character& owner)
 	// Aボタンが押された場合
     if(pad_1.isTrigger(PadButton::A))
     {
-        if(!owner.IsCurrentAction<AttackAction>())
+        if(!owner.IsCurrentAction<ActionAttack>())
         {
             if(m_comboIndex < m_attackDataList.size())
             {
-				owner.SetAction(std::make_unique<AttackAction>(m_attackDataList[m_comboIndex]));
+				owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
 				m_comboIndex++;
 
                 printfDx("攻撃入力が処理されました\n");
@@ -96,12 +96,12 @@ void PlayerAttackComponent::InputAttack(Character& owner)
         }
         else
         {
-            auto* currentAction = owner.GetCurrentAction<AttackAction>();
+            auto* currentAction = owner.GetCurrentAction<ActionAttack>();
             if(currentAction && currentAction->IsCancelable())
             {
                 if(m_comboIndex < m_attackDataList.size())
                 {
-					owner.SetAction(std::make_unique<AttackAction>(m_attackDataList[m_comboIndex]));
+					owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
 					m_comboIndex++;
 
                     printfDx("コンボ攻撃入力が処理されました\n");

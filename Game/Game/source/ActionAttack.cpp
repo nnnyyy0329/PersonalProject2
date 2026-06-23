@@ -1,8 +1,8 @@
-﻿#include "AttackAction.h"
+﻿#include "ActionAttack.h"
 #include "Character.h"
 #include "CollisionComponent.h"
 
-void AttackAction::Execute(Character& character)
+void ActionAttack::Execute(Character& character)
 {
 	// 攻撃が開始されていない場合
 	if(m_currentPhase == AttackPhase::NONE)
@@ -26,7 +26,7 @@ void AttackAction::Execute(Character& character)
 	EnableCollision(character);
 }
 
-void AttackAction::NonePhaseProcess()
+void ActionAttack::NonePhaseProcess()
 {
 	// 攻撃開始フェーズに移行する
 	m_currentPhase = AttackPhase::STARTUP;
@@ -34,7 +34,7 @@ void AttackAction::NonePhaseProcess()
 	m_isCancelable = false;
 }
 
-void AttackAction::UpdateAttackPhase(Character& character)
+void ActionAttack::UpdateAttackPhase(Character& character)
 {
 	// 攻撃のフェーズを更新する
 	switch(m_currentPhase)
@@ -89,7 +89,7 @@ void AttackAction::UpdateAttackPhase(Character& character)
 	}
 }
 
-void AttackAction::EnableCollision(Character& character)
+void ActionAttack::EnableCollision(Character& character)
 {
 	// コリジョンコンポーネントを取得する
 	auto colComponent = character.GetComponent<CollisionComponent<Character>>();
@@ -111,7 +111,7 @@ void AttackAction::EnableCollision(Character& character)
 	}
 }
 
-void AttackAction::UpdateComboReceive()
+void ActionAttack::UpdateComboReceive()
 {
 	// 攻撃有効フェーズで、かつ攻撃有効時間内であれば
 	if((m_currentPhase == AttackPhase::RECOVERY) && (m_stateTime < m_attackData.recoveryDuration))

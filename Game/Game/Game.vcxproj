@@ -154,7 +154,7 @@
     </ClCompile>
     <ClCompile Include="source\ApplicationGlobal.cpp" />
     <ClCompile Include="source\ApplicationMain.cpp" />
-    <ClCompile Include="source\AttackAction.cpp" />
+    <ClCompile Include="source\ActionAttack.cpp" />
     <ClCompile Include="source\Bullet.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -195,7 +195,7 @@
     </ClInclude>
     <ClInclude Include="source\ApplicationGlobal.h" />
     <ClInclude Include="source\ApplicationMain.h" />
-    <ClInclude Include="source\AttackAction.h" />
+    <ClInclude Include="source\ActionAttack.h" />
     <ClInclude Include="source\AttackData.h" />
     <ClInclude Include="source\Bullet.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>

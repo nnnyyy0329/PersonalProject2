@@ -79,16 +79,13 @@
     <ClCompile Include="source\PlayerMoveComponent.cpp">
       <Filter>Object\Character\Player\Action</Filter>
     </ClCompile>
-    <ClCompile Include="source\PlayerAnimationComponent.cpp">
-      <Filter>Object\Character\Player\Function</Filter>
-    </ClCompile>
     <ClCompile Include="source\EnemyAnimationComponent.cpp">
       <Filter>Object\Character\Enemy\Function</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerRotComponent.cpp">
       <Filter>Object\Character\Player\Action</Filter>
     </ClCompile>
-    <ClCompile Include="source\AttackAction.cpp">
+    <ClCompile Include="source\ActionAttack.cpp">
       <Filter>Action</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerInputComponent.cpp">
@@ -99,6 +96,9 @@
     </ClCompile>
     <ClCompile Include="source\CollisionManager.cpp">
       <Filter>Component\Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerAnimationComponent.cpp">
+      <Filter>Object\Character\Player\Function\Animation</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -207,9 +207,6 @@
     <ClInclude Include="source\PlayerMoveComponent.h">
       <Filter>Object\Character\Player\Action</Filter>
     </ClInclude>
-    <ClInclude Include="source\PlayerAnimationComponent.h">
-      <Filter>Object\Character\Player\Function</Filter>
-    </ClInclude>
     <ClInclude Include="source\EnemyAnimationComponent.h">
       <Filter>Object\Character\Enemy\Function</Filter>
     </ClInclude>
@@ -219,7 +216,7 @@
     <ClInclude Include="source\AttackData.h">
       <Filter>Attack</Filter>
     </ClInclude>
-    <ClInclude Include="source\AttackAction.h">
+    <ClInclude Include="source\ActionAttack.h">
       <Filter>Action</Filter>
     </ClInclude>
     <ClInclude Include="source\PlayerInputComponent.h">
@@ -239,6 +236,9 @@
     </ClInclude>
     <ClInclude Include="source\CharacterData.h">
       <Filter>Object\Character</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerAnimationComponent.h">
+      <Filter>Object\Character\Player\Function\Animation</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -328,6 +328,9 @@
     </Filter>
     <Filter Include="Collision">
       <UniqueIdentifier>{7ee94531-4c82-41d9-8339-338d11e00362}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Character\Player\Function\Animation">
+      <UniqueIdentifier>{016a0288-719c-4866-9773-38d4c43b4fdc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

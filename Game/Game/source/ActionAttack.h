@@ -5,12 +5,12 @@
 class Character;	/// キャラクタークラス
 
 /// @brief 攻撃アクションクラス
-class AttackAction : public ICharacterAction
+class ActionAttack : public ICharacterAction
 {
 public:
 
-	AttackAction(const AttackData& attackData) : m_attackData(attackData) {}
-	virtual ~AttackAction() = default;
+	ActionAttack(const AttackData& attackData) : m_attackData(attackData) {}
+	virtual ~ActionAttack() = default;
 
 	//===========================================================================
 	// 基本関数
