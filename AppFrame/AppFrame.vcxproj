@@ -159,6 +159,8 @@
     <ClCompile Include="source\CFile\CFile.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="source\Collision\DxLibCollisionMath.cpp" />
+    <ClCompile Include="source\GeometryUtility\DxLibGeometryUtility.cpp" />
     <ClCompile Include="source\Manager\input\InputManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -177,7 +179,6 @@
     <ClCompile Include="source\Server\SoundStatic.cpp" />
     <ClCompile Include="source\Server\SoundStream.cpp" />
     <ClCompile Include="source\Server\SoundVoice.cpp" />
-    <ClCompile Include="source\Utility\DxLibGeometryUtility.cpp" />
     <ClCompile Include="source\Vector\Vecto3D.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -189,7 +190,9 @@
     <ClInclude Include="source\CFile\CFile.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="source\Collision\DxLibCollisionMath.h" />
     <ClInclude Include="source\draw\mydraw.h" />
+    <ClInclude Include="source\GeometryUtility\DxLibGeometryUtility.h" />
     <ClInclude Include="source\Manager\ComponentManager.h" />
     <ClInclude Include="source\Manager\input\InputManager.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -209,7 +212,6 @@
     <ClInclude Include="source\Server\SoundStatic.h" />
     <ClInclude Include="source\Server\SoundStream.h" />
     <ClInclude Include="source\Server\SoundVoice.h" />
-    <ClInclude Include="source\Utility\DxLibGeometryUtility.h" />
     <ClInclude Include="source\Vector\Vecto3D.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>

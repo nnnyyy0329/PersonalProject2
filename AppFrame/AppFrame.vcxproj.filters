@@ -43,6 +43,9 @@
     <Filter Include="Utility">
       <UniqueIdentifier>{ffecd66a-804f-4b37-a1b5-75be90b98eea}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{100b0a02-07be-4ae3-8cac-3669cc922c78}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\CFile\CFile.cpp">
@@ -96,11 +99,14 @@
     <ClCompile Include="source\Server\SoundVoice.cpp">
       <Filter>Server\Sound</Filter>
     </ClCompile>
-    <ClCompile Include="source\Utility\DxLibGeometryUtility.cpp">
-      <Filter>Utility</Filter>
-    </ClCompile>
     <ClCompile Include="source\Manager\input\InputManager.cpp">
       <Filter>Manager\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Collision\DxLibCollisionMath.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="source\GeometryUtility\DxLibGeometryUtility.cpp">
+      <Filter>Utility</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -162,11 +168,14 @@
     <ClInclude Include="source\draw\mydraw.h">
       <Filter>draw</Filter>
     </ClInclude>
-    <ClInclude Include="source\Utility\DxLibGeometryUtility.h">
-      <Filter>Utility</Filter>
-    </ClInclude>
     <ClInclude Include="source\Manager\input\InputManager.h">
       <Filter>Manager\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Collision\DxLibCollisionMath.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="source\GeometryUtility\DxLibGeometryUtility.h">
+      <Filter>Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
