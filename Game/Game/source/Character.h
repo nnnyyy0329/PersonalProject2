@@ -1,5 +1,6 @@
 #pragma once
 #include "ObjectLogic.h"
+#include "CharacterData.h"
 #include "ICharacterAction.h"
 #include "IComponent.h"
 #include <memory>
@@ -110,6 +111,11 @@ public:
 	/// @return モデルのハンドル
 	int GetModelHandle() const { return m_data.handle; }
 
+	/// @brief キャラクターの当たり判定データの取得関数
+	///
+	/// @return キャラクターの当たり判定データ
+	const CharColData& GetCharColData() const { return m_charColData; }
+
 protected:
 
 	//===========================================================================
@@ -121,6 +127,9 @@ protected:
 
 	/// キャラクターのコンポーネントを格納するベクター
 	std::vector<std::unique_ptr<ComponentBase>> m_components;
+
+	/// キャラクターの当たり判定データ
+	CharColData m_charColData;
 
 };
 

@@ -16,11 +16,13 @@ struct CollisionData
 	ShapeType shape;	/// 当たり判定の形状
 	VECTOR size;		/// 当たり判定のサイズ
 	VECTOR offset;		/// 当たり判定のオフセット
+	float radius;		/// 球形の半径
 
 	CollisionData()
 	{
 		shape = ShapeType::NONE;
 		size = VGet(0.0f, 0.0f, 0.0f);
 		offset = VGet(0.0f, 0.0f, 0.0f);
+		radius = 0.0f;
 	}
 };
