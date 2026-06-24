@@ -94,14 +94,14 @@
     <ClCompile Include="source\PlayerAttackComponent.cpp">
       <Filter>Object\Character\Player\Action</Filter>
     </ClCompile>
-    <ClCompile Include="source\CollisionManager.cpp">
-      <Filter>Component\Collision</Filter>
-    </ClCompile>
     <ClCompile Include="source\PlayerAnimationComponent.cpp">
       <Filter>Object\Character\Player\Function\Animation</Filter>
     </ClCompile>
     <ClCompile Include="source\ActionDamage.cpp">
       <Filter>Action</Filter>
+    </ClCompile>
+    <ClCompile Include="source\CollisionManager.cpp">
+      <Filter>Collision</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -234,9 +234,6 @@
     <ClInclude Include="source\CollisionData.h">
       <Filter>Collision</Filter>
     </ClInclude>
-    <ClInclude Include="source\CollisionManager.h">
-      <Filter>Component\Collision</Filter>
-    </ClInclude>
     <ClInclude Include="source\CharacterData.h">
       <Filter>Object\Character</Filter>
     </ClInclude>
@@ -245,6 +242,15 @@
     </ClInclude>
     <ClInclude Include="source\ActionDamage.h">
       <Filter>Action</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DamageData.h">
+      <Filter>Damage</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DamageInfo.h">
+      <Filter>Damage</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CollisionManager.h">
+      <Filter>Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -337,6 +343,9 @@
     </Filter>
     <Filter Include="Object\Character\Player\Function\Animation">
       <UniqueIdentifier>{016a0288-719c-4866-9773-38d4c43b4fdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Damage">
+      <UniqueIdentifier>{48ce769d-10ae-4b4f-ab6c-32bdefd1b3af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

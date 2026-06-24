@@ -213,6 +213,8 @@
     <ClInclude Include="source\CollisionComponent.h" />
     <ClInclude Include="source\CollisionData.h" />
     <ClInclude Include="source\CollisionManager.h" />
+    <ClInclude Include="source\DamageData.h" />
+    <ClInclude Include="source\DamageInfo.h" />
     <ClInclude Include="source\DebugFps.h" />
     <ClInclude Include="source\DebugManager.h" />
     <ClInclude Include="source\DebugParameter.h" />

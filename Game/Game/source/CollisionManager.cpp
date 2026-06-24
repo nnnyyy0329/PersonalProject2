@@ -45,8 +45,8 @@ bool CollisionManager::CheckHitAttack(Character* attacker, Character* defender)
 	if(!defCol) { return false; }
 
 	// 当たり判定のデータを取得
-	const auto& attackData = attackCol->GetCollisionData();
-	const auto& defData = defCol->GetCollisionData();
+	auto& attackData = attackCol->GetCollisionData();
+	auto& defData = defCol->GetCollisionData();
 
 	// 攻撃者の位置を取得
 	VECTOR attackerPos = attacker->GetObjectData().pos;
