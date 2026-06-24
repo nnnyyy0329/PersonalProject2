@@ -22,11 +22,14 @@ void CollisionManager::Update(const std::vector<Character*>& characters)
 			// 攻撃がヒットしたかどうかを判定する
 			if(CheckHitAttack(attacker, defender))
 			{
+				// 防御者の体力コンポーネントを取得する
 				auto* healthComp = defender->GetComponent<HealthComponent<Character>>();
 				if(!healthComp || healthComp->IsDead()) { continue; }
 
 				// ダメージを適用する
 				healthComp->ApplyDamage(0.5f);
+
+
 
 				printfDx("攻撃がヒットしました！\n");
 			}
