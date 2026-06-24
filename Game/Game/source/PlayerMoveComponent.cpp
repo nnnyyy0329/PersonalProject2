@@ -19,6 +19,17 @@ void PlayerMoveComponent::Update(Character& character)
 		float moveZ = static_cast<float>(pad_1.GetLeftStickY());	// 左スティックを移動ベクトルのZ成分にする
 		m_moveVector = VGet(moveX, 0.0f, moveZ);					// Y成分は0にして、移動ベクトルを作成
 		m_moveVector = VScale(m_moveVector, MOVE_SPEED);			// 移動ベクトルを移動速度でスケーリングする
+
+		//// 方向を正規化
+		//float length = VSize(m_moveVector);
+		//if(length > 0.0f)
+		//{
+		//	// 移動ベクトルを正規化
+		//	m_moveVector = VScale(m_moveVector, 1.0f / length);
+
+		//	// 移動速度でスケーリング
+		//	m_moveVector = VScale(m_moveVector, MOVE_SPEED);
+		//}
 	}
 	// パッドが接続されていない場合
 	else
