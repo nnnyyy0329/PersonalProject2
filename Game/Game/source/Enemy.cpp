@@ -6,6 +6,7 @@
 #include "EnemyAnimationComponent.h"
 #include "CollisionComponent.h"
 #include "EnemyDamageComponent.h"
+#include "EnemyDebugParamCompnent.h"
 
 bool Enemy::Initialize()
 {
@@ -69,6 +70,9 @@ void Enemy::SetUpComponents()
 
 	// 敵のダメージ管理コンポーネントを追加
 	AddComponent(std::make_unique<EnemyDamageComponent>());
+
+	// デバッグパラメータコンポーネントを追加
+	AddComponent(std::make_unique<EnemyDebugParamComponent>());
 }
 
 void Enemy::SetUpActions()

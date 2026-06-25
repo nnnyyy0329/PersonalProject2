@@ -8,6 +8,7 @@
 #include "PlayerAnimationComponent.h"
 #include "PlayerAttackComponent.h"
 #include "CollisionComponent.h"
+#include "PlayerDebugParamComponent.h"
 
 bool Player::Initialize()
 {
@@ -87,6 +88,9 @@ void Player::SetUpComponents()
 
 	// 当たり判定コンポーネントを追加
 	AddComponent(std::make_unique<CollisionComponent<Character>>());
+
+	// デバッグパラメータコンポーネントを追加
+	AddComponent(std::make_unique<PlayerDebugParamComponent>());
 }
 
 void Player::SetUpActions()

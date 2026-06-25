@@ -66,8 +66,8 @@ bool CollisionManager::CheckHitAttack(Character* attacker, Character* defender)
 
 	// 防御者の当たり判定
 	DxLibCollisionMath::Capsule defCapsule;
-	defCapsule.top = VAdd(defenderPos, defenderCharCol.top);
-	defCapsule.bottom = VAdd(defenderPos, defenderCharCol.bottom);
+	defCapsule.top = defenderCharCol.top;
+	defCapsule.bottom = defenderCharCol.bottom;
 	defCapsule.radius = defenderCharCol.radius;
 
 	// カプセル同士の当たり判定を行う

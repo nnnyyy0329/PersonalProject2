@@ -173,6 +173,7 @@
     <ClCompile Include="source\Enemy.cpp" />
     <ClCompile Include="source\EnemyAnimationComponent.cpp" />
     <ClCompile Include="source\EnemyDamageComponent.cpp" />
+    <ClCompile Include="source\EnemyDebugParamCompnent.cpp" />
     <ClCompile Include="source\FollowCamera.cpp" />
     <ClCompile Include="source\InputManager.cpp" />
     <ClCompile Include="source\Pad.cpp" />
@@ -187,6 +188,7 @@
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\PlayerAnimationComponent.cpp" />
     <ClCompile Include="source\PlayerAttackComponent.cpp" />
+    <ClCompile Include="source\PlayerDebugParamComponent.cpp" />
     <ClCompile Include="source\PlayerInputComponent.cpp" />
     <ClCompile Include="source\PlayerMoveComponent.cpp" />
     <ClCompile Include="source\PlayerRotComponent.cpp" />
@@ -225,6 +227,7 @@
     <ClInclude Include="source\Enemy.h" />
     <ClInclude Include="source\EnemyAnimationComponent.h" />
     <ClInclude Include="source\EnemyDamageComponent.h" />
+    <ClInclude Include="source\EnemyDebugParamCompnent.h" />
     <ClInclude Include="source\FollowCamera.h" />
     <ClInclude Include="source\HealthComponent.h" />
     <ClInclude Include="source\HealthObserver.h" />
@@ -245,6 +248,7 @@
     <ClInclude Include="source\Player.h" />
     <ClInclude Include="source\PlayerAnimationComponent.h" />
     <ClInclude Include="source\PlayerAttackComponent.h" />
+    <ClInclude Include="source\PlayerDebugParamComponent.h" />
     <ClInclude Include="source\PlayerInputComponent.h" />
     <ClInclude Include="source\PlayerMoveComponent.h" />
     <ClInclude Include="source\MoveComponent.h" />

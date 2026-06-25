@@ -106,6 +106,15 @@
     <ClCompile Include="source\EnemyDamageComponent.cpp">
       <Filter>Object\Character\Enemy\Action</Filter>
     </ClCompile>
+    <ClCompile Include="source\DebugCollision.cpp">
+      <Filter>Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerDebugParamComponent.cpp">
+      <Filter>Object\Character\Player\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EnemyDebugParamCompnent.cpp">
+      <Filter>Object\Character\Enemy\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -264,6 +273,15 @@
     <ClInclude Include="source\EnemyDamageComponent.h">
       <Filter>Object\Character\Enemy\Action</Filter>
     </ClInclude>
+    <ClInclude Include="source\DebugCollision.h">
+      <Filter>Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerDebugParamComponent.h">
+      <Filter>Object\Character\Player\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="source\EnemyDebugParamCompnent.h">
+      <Filter>Object\Character\Enemy\Debug</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -364,6 +382,12 @@
     </Filter>
     <Filter Include="Observer\Health">
       <UniqueIdentifier>{be0812f4-6f06-4527-a77d-95f140e44c75}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Character\Player\Debug">
+      <UniqueIdentifier>{1b390ee8-0a9c-421b-9ce5-8e03f6f8be37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Character\Enemy\Debug">
+      <UniqueIdentifier>{3cbdf3a3-cf91-4aa2-9b77-72a3c1c2263b}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

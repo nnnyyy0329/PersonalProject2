@@ -1,6 +1,7 @@
 #pragma once
 #include "DebugFps.h"
 #include "DebugParameter.h"
+#include "DebugCollision.h"
 
 /// @brief デバッグシステムマネージャークラス
 class DebugManager
@@ -45,6 +46,11 @@ public:
 	/// @return デバッグパラメーター参照
 	DebugParameter& GetDebugParameter() { return m_debugParameter; }
 
+	/// @brief デバッグFPS機能取得関数
+	///
+	/// @return デバッグFPS参照
+	DebugCollision& GetDebugCollision() { return m_debugCollision; }
+
 protected:
 
 	//===========================================================================
@@ -53,6 +59,8 @@ protected:
 
 	DebugFps		m_debugFps;			/// デバッグ用FPS表示クラス
 	DebugParameter	m_debugParameter;	/// デバッグ用パラメーター表示クラス
+	DebugCollision	m_debugCollision;	/// デバッグ用当たり判定表示クラス
+
 	bool m_isDebugMode = false;			/// デバッグモードかどうか
 
 private:

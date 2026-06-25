@@ -27,5 +27,6 @@ void DebugManager::Render()
 	m_debugFps.Render();
 
 	// デバッグパラメーターの描画
-	m_debugParameter.Render(10, 10);
+	m_debugParameter.Render(1500, 10);
+
 }
