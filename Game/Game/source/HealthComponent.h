@@ -1,11 +1,13 @@
 #pragma once
 #include "IComponent.h"
+#include "Subject.h"
+#include "HealthObserver.h"
 
 /// @brief キャラクターの体力を管理するコンポーネントクラス
 ///
 /// @tparam TOwner コンポーネントを所有するクラスの型
 template<typename TOwner>
-class HealthComponent : public IComponent<TOwner>
+class HealthComponent : public IComponent<TOwner>, public Subject<HealthObserver<TOwner>>
 {
 public:
 
@@ -32,13 +34,34 @@ public:
 	/// @param damage 受けるダメージ量
 	void ApplyDamage(float damage)
 	{
+		// ダメージが0以下の場合は処理を行わない
+		if(damage <= 0.0f) { return; }
+
+		// 減らす前の体力を保存して、体力を減らす
+		float oldLife = m_life;
 		m_life -= damage;
 
 		// 体力が0未満にならないように
-		if(m_life < 0.0f)
+		if(m_life < 0.0f) { m_life = 0.0f; }
+
+		// 体力が変化した場合
+		if(oldLife != m_life)
 		{
-			m_life = 0.0f;
+			// 体力が変化したことをオブザーバーに通知する
+			for(auto* observer : this->m_observers)
+			{
+				observer->OnDamaged(*this->GetOwner(), m_life, m_maxLife);
+			}
 		}
+
+		//// / 体力が0になった場合、死亡をオブザーバーに通知する
+		//if(IsDead())
+		//{
+		//	for(auto* observer : this->m_observers)
+		//	{
+		//		observer->OnDeath(*this->GetOwner());
+		//	}
+		//}
 	}
 
 	/// @brief 死亡判定関数

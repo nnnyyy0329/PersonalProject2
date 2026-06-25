@@ -252,6 +252,12 @@
     <ClInclude Include="source\CollisionManager.h">
       <Filter>Collision</Filter>
     </ClInclude>
+    <ClInclude Include="source\Subject.h">
+      <Filter>Observer</Filter>
+    </ClInclude>
+    <ClInclude Include="source\HealthObserver.h">
+      <Filter>Observer\Health</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -346,6 +352,12 @@
     </Filter>
     <Filter Include="Damage">
       <UniqueIdentifier>{48ce769d-10ae-4b4f-ab6c-32bdefd1b3af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Observer">
+      <UniqueIdentifier>{780a0f99-e3b5-4f2f-9faa-b7a642ad8b9c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Observer\Health">
+      <UniqueIdentifier>{be0812f4-6f06-4527-a77d-95f140e44c75}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
