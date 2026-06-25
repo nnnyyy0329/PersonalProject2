@@ -61,6 +61,9 @@ public:
 	/// @param owner 初期化処理を行うキャラクター
 	virtual bool Initialize(TOwner& owner) override
 	{
+		// コンポーネントの所有者を設定する
+		IComponent<TOwner>::Initialize(owner);
+
 		// モデルのハンドルを取得して保存
 		m_modelHandle = owner.GetModelHandle();
 

@@ -19,7 +19,13 @@ public:
 	/// @param owner 初期化処理を行うキャラクター
 	///
 	/// @return 成功しているならtrue、失敗しているならfalse
-	virtual bool Initialize(TOwner& owner) { return true; }
+	virtual bool Initialize(TOwner& owner)
+	{
+		// コンポーネントの所有者を設定する
+		m_owner = &owner;
+
+		return true;
+	}
 
 	/// @brief 更新関数
 	///

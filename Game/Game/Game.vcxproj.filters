@@ -103,6 +103,9 @@
     <ClCompile Include="source\CollisionManager.cpp">
       <Filter>Collision</Filter>
     </ClCompile>
+    <ClCompile Include="source\EnemyDamageComponent.cpp">
+      <Filter>Object\Character\Enemy\Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -257,6 +260,9 @@
     </ClInclude>
     <ClInclude Include="source\HealthObserver.h">
       <Filter>Observer\Health</Filter>
+    </ClInclude>
+    <ClInclude Include="source\EnemyDamageComponent.h">
+      <Filter>Object\Character\Enemy\Action</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

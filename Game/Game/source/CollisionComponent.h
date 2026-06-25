@@ -21,7 +21,13 @@ public:
 	/// @param owner 初期化処理を行うキャラクター
 	/// 
 	/// @return 成功しているならtrue、失敗しているならfalse
-	bool Initialize(TOwner& owner) override { return true; }
+	bool Initialize(TOwner& owner) override
+	{
+		// コンポーネントの所有者を設定する
+		IComponent<TOwner>::Initialize(owner);
+
+		return true; 
+	}
 
 	/// @brief 初期化関数
 	///

@@ -5,6 +5,7 @@
 #include "DxLibAnimationComponent.h"
 #include "EnemyAnimationComponent.h"
 #include "CollisionComponent.h"
+#include "EnemyDamageComponent.h"
 
 bool Enemy::Initialize()
 {
@@ -65,6 +66,9 @@ void Enemy::SetUpComponents()
 
 	// 当たり判定コンポーネントを追加
 	AddComponent(std::make_unique<CollisionComponent<Character>>());
+
+	// 敵のダメージ管理コンポーネントを追加
+	AddComponent(std::make_unique<EnemyDamageComponent>());
 }
 
 void Enemy::SetUpActions()
