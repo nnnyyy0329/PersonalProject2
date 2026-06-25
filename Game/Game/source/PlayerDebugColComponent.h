@@ -22,6 +22,11 @@ public:
 	/// @return 成功しているならtrue、失敗しているならfalse
 	bool Initialize(Character& owner) override;
 
+	/// @brief 更新関数
+	///
+	/// @param owner 更新処理を行うキャラクター
+	void Update(Character& owner) override;
+
 private:
 
 	//===========================================================================

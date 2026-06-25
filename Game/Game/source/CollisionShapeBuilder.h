@@ -12,7 +12,7 @@ namespace CollisionShapeBuilder
 	/// @param character カプセル形状を作成するキャラクター
 	/// 
 	/// @return キャラクターのカプセル形状
-	std::optional<DxLibCollisionMath::Capsule> CreateCharacterCapsule(const Character& character)
+	inline std::optional<DxLibCollisionMath::Capsule> CreateCharacterCapsule(const Character& character)
 	{
 		DxLibCollisionMath::Capsule capsule;
 
@@ -29,7 +29,7 @@ namespace CollisionShapeBuilder
 	/// @param character 攻撃判定カプセル形状を作成するキャラクター
 	/// 
 	/// @return キャラクターの攻撃判定カプセル形状
-	std::optional<DxLibCollisionMath::Capsule> CreateAttackCapsule(Character& character)
+	inline std::optional<DxLibCollisionMath::Capsule> CreateAttackCapsule(Character& character)
 	{
 		DxLibCollisionMath::Capsule capsule;
 
