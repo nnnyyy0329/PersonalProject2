@@ -36,7 +36,7 @@ private:
 	/// @brief プレイヤーの攻撃判定をデバッグ表示する関数
 	///
 	/// @param owner デバッグ表示を行うキャラクター
-	void DrawPlayerAttackCollision(const Character& owner);
+	void DrawPlayerAttackCollision(Character& owner);
 
 };
 

@@ -3,6 +3,7 @@
 #include "Character.h"
 #include "HealthComponent.h"
 #include "Collision/DxLibCollisionMath.h"
+#include "CollisionShapeBuilder.h"
 
 void CollisionManager::Update(const std::vector<Character*>& characters)
 {
@@ -43,35 +44,16 @@ bool CollisionManager::CheckHitAttack(Character* attacker, Character* defender)
 	auto* attackCol = attacker->GetComponent<CollisionComponent<Character>>();
 	if(!attackCol || !attackCol->IsActive()) { return false; }
 
-	// 防御者の当たり判定コンポーネントを取得
-	auto* defCol = defender->GetComponent<CollisionComponent<Character>>();
-	if(!defCol) { return false; }
-
-	// 当たり判定のデータを取得
-	auto& attackData = attackCol->GetCollisionData();
-	auto& defData = defCol->GetCollisionData();
-
-	// 攻撃者の位置を取得
-	VECTOR attackerPos = attacker->GetObjectData().pos;
-
-	// 防御者の位置と当たり判定データを取得
-	VECTOR defenderPos = defender->GetObjectData().pos;
-	auto defenderCharCol = defender->GetCharColData();
-
 	// 攻撃者の攻撃判定
-	DxLibCollisionMath::Capsule attackCapsule;
-	attackCapsule.top = VAdd(attackerPos, attackData.offset);
-	attackCapsule.bottom = attackerPos;
-	attackCapsule.radius = attackData.radius;
+	auto attackCapsule = CollisionShapeBuilder::CreateAttackCapsule(*attacker);
+	if(!attackCapsule.has_value()) { return false; }
 
 	// 防御者の当たり判定
-	DxLibCollisionMath::Capsule defCapsule;
-	defCapsule.top = defenderCharCol.top;
-	defCapsule.bottom = defenderCharCol.bottom;
-	defCapsule.radius = defenderCharCol.radius;
+	auto defCapsule = CollisionShapeBuilder::CreateCharacterCapsule(*defender);
+	if(!defCapsule.has_value()) { return false; }
 
 	// カプセル同士の当たり判定を行う
-	if(DxLibCollisionMath::CheckCapsuleToCapsule(attackCapsule, defCapsule))
+	if(DxLibCollisionMath::CheckCapsuleToCapsule(attackCapsule.value(), defCapsule.value()))
 	{
 		return true;
 	}

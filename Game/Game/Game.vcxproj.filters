@@ -288,6 +288,9 @@
     <ClInclude Include="source\PlayerDebugColComponent.h">
       <Filter>Object\Character\Player\Debug</Filter>
     </ClInclude>
+    <ClInclude Include="source\CollisionShapeBuilder.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">

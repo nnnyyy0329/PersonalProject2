@@ -1,6 +1,7 @@
 #pragma once
 #include <DxLib.h>
 
+/// @brief DxLibの衝突判定関数をラップした名前空間
 namespace DxLibCollisionMath
 {
 	/// @brief 球のデータ構造体
