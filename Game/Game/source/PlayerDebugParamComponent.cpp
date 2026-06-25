@@ -22,19 +22,21 @@ void PlayerDebugParamComponent::HealthDebugParam(Character& owner)
 
 	// デバッグパラメーターのインスタンスを取得
 	auto& debugParam = DebugManager::GetInstance().GetDebugParameter();
+	if(!&debugParam) { return; }
 
 	// ラムダ式を使用して、体力のデバッグパラメーターを追加
-	debugParam.AddItem("PlayerHealth", [this, health]() { return std::to_string(health->GetLife()); });
-	debugParam.AddItem("PlayerMaxHealth", [this, health]() { return std::to_string(health->GetMaxLife()); });
+	debugParam.AddParamItem("PlayerHealth", [this, health]() { return std::to_string(health->GetLife()); });
+	debugParam.AddParamItem("PlayerMaxHealth", [this, health]() { return std::to_string(health->GetMaxLife()); });
 }
 
 void PlayerDebugParamComponent::PositionDebugParam(Character& owner)
 {
 	// デバッグパラメーターのインスタンスを取得
 	auto& debugParam = DebugManager::GetInstance().GetDebugParameter();
+	if(!&debugParam) { return; }
 
 	// ラムダ式を使用して、位置のデバッグパラメーターを追加
-	debugParam.AddItem("PlayerPosX", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.x); });
-	debugParam.AddItem("PlayerPosY", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.y); });
-	debugParam.AddItem("PlayerPosZ", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.z); });
+	debugParam.AddParamItem("PlayerPosX", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.x); });
+	debugParam.AddParamItem("PlayerPosY", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.y); });
+	debugParam.AddParamItem("PlayerPosZ", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.z); });
 }

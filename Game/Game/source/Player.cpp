@@ -9,6 +9,7 @@
 #include "PlayerAttackComponent.h"
 #include "CollisionComponent.h"
 #include "PlayerDebugParamComponent.h"
+#include "PlayerDebugColComponent.h"
 
 bool Player::Initialize()
 {
@@ -24,7 +25,7 @@ bool Player::Initialize()
 
 
 
-	m_charColData.radius = 50.0f;
+	m_charColData.radius = 30.0f;
 
 
 
@@ -91,6 +92,9 @@ void Player::SetUpComponents()
 
 	// デバッグパラメータコンポーネントを追加
 	AddComponent(std::make_unique<PlayerDebugParamComponent>());
+
+	// デバッグ当たり判定コンポーネントを追加
+	AddComponent(std::make_unique<PlayerDebugColComponent>());
 }
 
 void Player::SetUpActions()

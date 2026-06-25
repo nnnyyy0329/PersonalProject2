@@ -115,6 +115,9 @@
     <ClCompile Include="source\EnemyDebugParamCompnent.cpp">
       <Filter>Object\Character\Enemy\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="source\PlayerDebugColComponent.cpp">
+      <Filter>Object\Character\Player\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -281,6 +284,9 @@
     </ClInclude>
     <ClInclude Include="source\EnemyDebugParamCompnent.h">
       <Filter>Object\Character\Enemy\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerDebugColComponent.h">
+      <Filter>Object\Character\Player\Debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

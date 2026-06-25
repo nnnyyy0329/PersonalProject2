@@ -5,10 +5,10 @@
 
 EnemyDamageComponent::EnemyDamageComponent()
 {
-	m_damageInfo.damageData.damage = 10.0f;
-	m_damageInfo.damageData.knockback = 5.0f;
+	m_damageInfo.damageData.damage = 0.0f;
+	m_damageInfo.damageData.knockback = 2.0f;
 	m_damageInfo.damageData.hitStunTime = 30.0f;
-	m_damageInfo.damageData.damageInvincibeTime = 60.0f;
+	m_damageInfo.damageData.damageInvincibeTime = 0.0f;
 	m_damageInfo.damageData.isLaunch = false;
 	m_damageInfo.hitDirection = VGet(0.0f, 0.0f, -1.0f);
 }

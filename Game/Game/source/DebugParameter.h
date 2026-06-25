@@ -17,7 +17,7 @@ public:
 	///
 	/// @param name パラメーターの名前
 	/// @param getter パラメーターの値を取得する関数
-	void AddItem(const std::string& name, std::function<std::string()> getter);
+	void AddParamItem(const std::string& name, std::function<std::string()> getter);
 
 	/// @brief デバッグパラメーターの描画関数
 	///

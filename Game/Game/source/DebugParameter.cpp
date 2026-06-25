@@ -1,7 +1,7 @@
 #include "DebugParameter.h"
 #include "DxLib.h"
 
-void DebugParameter::AddItem(const std::string& name, std::function<std::string()> getter)
+void DebugParameter::AddParamItem(const std::string& name, std::function<std::string()> getter)
 {
 	m_items.emplace_back(name, getter);
 }

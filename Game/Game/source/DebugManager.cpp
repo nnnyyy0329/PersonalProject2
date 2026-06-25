@@ -29,4 +29,7 @@ void DebugManager::Render()
 	// デバッグパラメーターの描画
 	m_debugParameter.Render(1500, 10);
 
+	// デバッグ当たり判定の描画
+	m_debugCollision.Render();
+
 }

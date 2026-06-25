@@ -1,7 +1,16 @@
 #include "DebugCollision.h"
 
-void DebugCollision::Render(const VECTOR& position, const AttackData& colData, const CharColData& charColData)
+void DebugCollision::AddColItem(DrawColFunc func)
 {
+	m_drawColFuncs.push_back(func);
+}
 
-
+void DebugCollision::Render()
+{
+	// 登録されたコリジョン描画関数をすべて呼び出す
+	for (auto& func : m_drawColFuncs)
+	{
+		// コリジョン描画関数を呼び出す
+		func();
+	}
 }

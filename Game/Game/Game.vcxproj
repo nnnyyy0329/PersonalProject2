@@ -188,6 +188,7 @@
     <ClCompile Include="source\Player.cpp" />
     <ClCompile Include="source\PlayerAnimationComponent.cpp" />
     <ClCompile Include="source\PlayerAttackComponent.cpp" />
+    <ClCompile Include="source\PlayerDebugColComponent.cpp" />
     <ClCompile Include="source\PlayerDebugParamComponent.cpp" />
     <ClCompile Include="source\PlayerInputComponent.cpp" />
     <ClCompile Include="source\PlayerMoveComponent.cpp" />
@@ -248,6 +249,7 @@
     <ClInclude Include="source\Player.h" />
     <ClInclude Include="source\PlayerAnimationComponent.h" />
     <ClInclude Include="source\PlayerAttackComponent.h" />
+    <ClInclude Include="source\PlayerDebugColComponent.h" />
     <ClInclude Include="source\PlayerDebugParamComponent.h" />
     <ClInclude Include="source\PlayerInputComponent.h" />
     <ClInclude Include="source\PlayerMoveComponent.h" />
