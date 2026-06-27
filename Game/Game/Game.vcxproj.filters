@@ -232,7 +232,7 @@
       <Filter>Object\Character\Player\Action</Filter>
     </ClInclude>
     <ClInclude Include="source\AttackData.h">
-      <Filter>Attack</Filter>
+      <Filter>Data\Attack</Filter>
     </ClInclude>
     <ClInclude Include="source\ActionAttack.h">
       <Filter>Action</Filter>
@@ -290,6 +290,18 @@
     </ClInclude>
     <ClInclude Include="source\CollisionShapeBuilder.h">
       <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="source\EffectData.h">
+      <Filter>Data\Effect</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CameraShakeData.h">
+      <Filter>Data\CameraShake</Filter>
+    </ClInclude>
+    <ClInclude Include="source\SoundData.h">
+      <Filter>Data\Sound</Filter>
+    </ClInclude>
+    <ClInclude Include="source\AttackTiming.h">
+      <Filter>Data\Attack</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -371,9 +383,6 @@
     <Filter Include="Object\Character\Player\Function">
       <UniqueIdentifier>{4a0018f8-ad98-4439-9f34-22e539cf7715}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Attack">
-      <UniqueIdentifier>{400a4fc1-83be-4895-a8d5-a742c1693469}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component\Collision">
       <UniqueIdentifier>{e1a1d5b5-bc8f-4978-ad21-81e242c93ae5}</UniqueIdentifier>
     </Filter>
@@ -397,6 +406,21 @@
     </Filter>
     <Filter Include="Object\Character\Enemy\Debug">
       <UniqueIdentifier>{3cbdf3a3-cf91-4aa2-9b77-72a3c1c2263b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data">
+      <UniqueIdentifier>{011f4f67-3490-4b8f-aa25-0c56440c63ab}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Attack">
+      <UniqueIdentifier>{400a4fc1-83be-4895-a8d5-a742c1693469}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Effect">
+      <UniqueIdentifier>{580b12d1-8e42-477c-80fc-09c0efed4528}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\CameraShake">
+      <UniqueIdentifier>{238ed80d-00e5-4d02-bd8c-7183de871087}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Sound">
+      <UniqueIdentifier>{239b3d1f-1343-4d88-9cca-dfe42546588e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -42,7 +42,7 @@ void ActionAttack::UpdateAttackPhase(Character& character)
 		case AttackPhase::STARTUP:	// 攻撃開始フェーズ
 		{
 			// 攻撃開始時間を過ぎたら攻撃有効フェーズに移行する
-			if(m_stateTime >= m_attackData.startTime)
+			if(m_stateTime >= m_attackData.timing.startTime)
 			{
 				m_currentPhase = AttackPhase::ACTIVE;
 				m_stateTime = 0.0f;
@@ -56,7 +56,7 @@ void ActionAttack::UpdateAttackPhase(Character& character)
 		case AttackPhase::ACTIVE:	// 攻撃有効フェーズ
 		{
 			// 攻撃有効時間を過ぎたら攻撃後の硬直フェーズに移行する
-			if(m_stateTime >= m_attackData.activeDuration)
+			if(m_stateTime >= m_attackData.timing.activeDuration)
 			{
 				m_currentPhase = AttackPhase::RECOVERY;
 				m_stateTime = 0.0f;
@@ -70,7 +70,7 @@ void ActionAttack::UpdateAttackPhase(Character& character)
 		case AttackPhase::RECOVERY:	// 攻撃後の硬直フェーズ
 		{
 			// 攻撃後の硬直時間を過ぎたら攻撃が無効になる
-			if(m_stateTime >= m_attackData.recoveryDuration)
+			if(m_stateTime >= m_attackData.timing.recoveryDuration)
 			{
 				m_currentPhase = AttackPhase::NONE;
 				m_stateTime = 0.0f;
@@ -96,7 +96,7 @@ void ActionAttack::EnableCollision(Character& character)
 	if(!colComponent) { return; }
 
 	// 攻撃有効フェーズで、かつ攻撃有効時間内であれば
-	if(m_currentPhase == AttackPhase::ACTIVE && m_stateTime < m_attackData.activeDuration)
+	if(m_currentPhase == AttackPhase::ACTIVE && m_stateTime < m_attackData.timing.activeDuration)
 	{
 		// コリジョンを有効にする
 		colComponent->ActiveCollision(m_attackData.colData);
@@ -114,10 +114,10 @@ void ActionAttack::EnableCollision(Character& character)
 void ActionAttack::UpdateComboReceive()
 {
 	// 攻撃有効フェーズで、かつ攻撃有効時間内であれば
-	if((m_currentPhase == AttackPhase::RECOVERY) && (m_stateTime < m_attackData.recoveryDuration))
+	if((m_currentPhase == AttackPhase::RECOVERY) && (m_stateTime < m_attackData.timing.recoveryDuration))
 	{
 		// 攻撃がコンボを受付中かどうかを更新する
-		if(m_stateTime >= m_attackData.comboReceiveTime)
+		if(m_stateTime >= m_attackData.timing.comboReceiveTime)
 		{
 			m_isCancelable = true;
 		}

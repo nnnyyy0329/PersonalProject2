@@ -204,6 +204,7 @@
     <ClInclude Include="source\ApplicationMain.h" />
     <ClInclude Include="source\ActionAttack.h" />
     <ClInclude Include="source\AttackData.h" />
+    <ClInclude Include="source\AttackTiming.h" />
     <ClInclude Include="source\Bullet.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
@@ -213,6 +214,7 @@
     <ClInclude Include="source\CameraBase.h" />
     <ClInclude Include="source\CameraData.h" />
     <ClInclude Include="source\CameraManager.h" />
+    <ClInclude Include="source\CameraShakeData.h" />
     <ClInclude Include="source\Character.h" />
     <ClInclude Include="source\CharacterData.h" />
     <ClInclude Include="source\CollisionComponent.h" />
@@ -226,6 +228,7 @@
     <ClInclude Include="source\DebugManager.h" />
     <ClInclude Include="source\DebugParameter.h" />
     <ClInclude Include="source\DxLibAnimationComponent.h" />
+    <ClInclude Include="source\EffectData.h" />
     <ClInclude Include="source\Enemy.h" />
     <ClInclude Include="source\EnemyAnimationComponent.h" />
     <ClInclude Include="source\EnemyDamageComponent.h" />
@@ -257,6 +260,7 @@
     <ClInclude Include="source\MoveComponent.h" />
     <ClInclude Include="source\PlayerRotComponent.h" />
     <ClInclude Include="source\RotationComponent.h" />
+    <ClInclude Include="source\SoundData.h" />
     <ClInclude Include="source\Subject.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
