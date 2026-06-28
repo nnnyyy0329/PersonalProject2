@@ -38,5 +38,10 @@ private:
 	/// @param owner デバッグ表示を行うキャラクター
 	void PositionDebugParam(Character& owner);
 
+	/// @brief プレイヤーの回転をデバッグ表示する関数
+	///
+	/// @param owner デバッグ表示を行うキャラクター
+	void RotationDebugParam(Character& owner);
+
 };
 
