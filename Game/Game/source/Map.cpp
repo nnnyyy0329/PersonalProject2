@@ -1,15 +1,6 @@
 #include "Map.h"
-
-Map::Map()
-{
-	
-}
-
-Map::~Map()
-{
-	// マップのグラフィックハンドル解放
-	Terminate();
-}
+#include "Server/ResourceServer.h"
+#include "Server/SoundServer.h"
 
 bool Map::Initialize()
 {
@@ -19,6 +10,13 @@ bool Map::Initialize()
 	// マップのグラフィックハンドル取得
 	m_mapData.mapHandle = rs->GetHandle("Map");
 	m_mapData.skyHandle = rs->GetHandle("Sky");
+
+
+
+	// ステージBGMのハンドル取得、再生
+	m_stageBgm = SoundServer::GetInstance()->Play("BGM_Stage", DX_PLAYTYPE_BACK);
+
+
 
 	return true;
 }

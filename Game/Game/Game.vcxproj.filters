@@ -306,6 +306,9 @@
     <ClInclude Include="source\AttackEventComponent,h.h">
       <Filter>Component\Attack</Filter>
     </ClInclude>
+    <ClInclude Include="source\MapData.h">
+      <Filter>Map</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
