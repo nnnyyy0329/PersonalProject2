@@ -47,14 +47,15 @@ namespace CollisionShapeBuilder
 
 			VECTOR forward = DxLibGeometryUtility::GetForwardVector(character.GetObjectData().rot.y);
 			VECTOR right = DxLibGeometryUtility::GetRightVector(character.GetObjectData().rot.y);
-			VECTOR offset = VAdd(VAdd(VScale(right, attackData.offset.x), VGet(0.0f, attackData.offset.y, 0.0f)), VScale(forward, attackData.offset.z));
+			VECTOR topOffset = VAdd(VAdd(VScale(right, attackData.topOffset.x), VGet(0.0f, attackData.topOffset.y, 0.0f)), VScale(forward, attackData.topOffset.z));
+			VECTOR bottomOffset = VAdd(VAdd(VScale(right, attackData.bottomOffset.x), VGet(0.0f, attackData.bottomOffset.y, 0.0f)), VScale(forward, attackData.bottomOffset.z));
 
 
 
 
 			// キャラクターの位置と攻撃判定データを使用してカプセル形状を設定する
-			capsule.top		= VAdd(character.GetObjectData().pos, offset);
-			capsule.bottom	= VAdd(character.GetObjectData().pos, offset);
+			capsule.top		= VAdd(character.GetObjectData().pos, topOffset);
+			capsule.bottom	= VAdd(character.GetObjectData().pos, bottomOffset);
 			capsule.radius	= attackData.radius;
 		}
 

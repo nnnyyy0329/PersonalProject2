@@ -13,8 +13,9 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak1.timing.comboReceiveTime = 1.0f;
 	weak1.colData.shape = ShapeType::CAPSULE;
 	weak1.colData.size = VGet(1.0f, 1.0f, 1.0f);
-	weak1.colData.offset = VGet(0.0f, 0.0f, 50.0f);
-	weak1.colData.radius = 100.0f;
+	weak1.colData.topOffset = VGet(0.0f, 100.0f, -80.0f);
+	weak1.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
+	weak1.colData.radius = 50.0f;
     AddAttackData(weak1);
 
 	AttackData weak2;
@@ -24,8 +25,9 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak2.timing.comboReceiveTime = 1.0f;
 	weak2.colData.shape = ShapeType::CAPSULE;
 	weak2.colData.size = VGet(1.0f, 1.0f, 1.0f);
-	weak2.colData.offset = VGet(100.0f, 0.0f, 0.0f);
-    weak2.colData.radius = 100.0f;
+    weak2.colData.topOffset = VGet(0.0f, 100.0f, -80.0f);
+    weak2.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
+    weak2.colData.radius = 50.0f;
     AddAttackData(weak2);
 
     AttackData weak3;
@@ -35,8 +37,9 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak3.timing.comboReceiveTime = 1.0f;
 	weak3.colData.shape = ShapeType::CAPSULE;
 	weak3.colData.size = VGet(1.0f, 1.0f, 1.0f);
-	weak3.colData.offset = VGet(0.0f, 100.0f, 0.0f);
-    weak3.colData.radius = 100.0f;
+    weak3.colData.topOffset = VGet(0.0f, 100.0f, -80.0f);
+    weak3.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
+    weak3.colData.radius = 50.0f;
     AddAttackData(weak3);
 
 	AttackData weak4;
@@ -46,8 +49,9 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak4.timing.comboReceiveTime = 1.0f;
 	weak4.colData.shape = ShapeType::CAPSULE;
 	weak4.colData.size = VGet(1.0f, 1.0f, 1.0f);
-	weak4.colData.offset = VGet(0.0f, 0.0f, -100.0f);
-	weak4.colData.radius = 100.0f;
+    weak4.colData.topOffset = VGet(0.0f, 100.0f, -80.0f);
+    weak4.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
+    weak4.colData.radius = 50.0f;
 	AddAttackData(weak4);
 
 	AttackData weak5;
@@ -57,8 +61,9 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak5.timing.comboReceiveTime = 0.0f;
 	weak5.colData.shape = ShapeType::CAPSULE;   
 	weak5.colData.size = VGet(1.0f, 1.0f, 1.0f);
-	weak5.colData.offset = VGet(100.0f, 100.0f, 0.0f);
-	weak5.colData.radius = 100.0f;
+    weak5.colData.topOffset = VGet(0.0f, 100.0f, -80.0f);
+    weak5.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
+    weak5.colData.radius = 50.0f;
 	AddAttackData(weak5);
 }
 
