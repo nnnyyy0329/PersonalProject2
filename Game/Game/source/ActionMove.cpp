@@ -65,6 +65,12 @@ void ActionMove::Rotate(Character& character)
 		ObjectData data = character.GetObjectData();
 		float currentAngle = data.rot.y;
 
+
+
+		printfDx("rotVec = %.2f %.2f  target = %.2f  current = %.2f\n",rotVector.x, rotVector.z,targetAngle,currentAngle);
+
+		
+
 		// 角度の差を計算
 		float diff = targetAngle - currentAngle;
 
@@ -74,6 +80,14 @@ void ActionMove::Rotate(Character& character)
 
 		// 回転速度を掛けて、現在の角度を更新
 		currentAngle += diff * ROTATION_SPEED;
+
+
+
+		while(currentAngle >= DX_TWO_PI_F){ currentAngle -= DX_TWO_PI_F; }
+		while(currentAngle < 0.0f){ currentAngle += DX_TWO_PI_F; }
+
+
+
 		data.rot.y = currentAngle;
 
 		// 更新されたオブジェクトデータをキャラクターに設定

@@ -2,6 +2,7 @@
 #include "Character.h"
 #include "Collision/DxLibCollisionMath.h"
 #include "CollisionComponent.h"
+#include "GeometryUtility/DxLibGeometryUtility.h"
 #include <optional>
 
 /// @brief キャラクターの当たり判定形状を作成する関数群
@@ -41,9 +42,19 @@ namespace CollisionShapeBuilder
 			// 攻撃判定のデータを取得
 			auto& attackData = attackCol->GetCollisionData();
 
+
+
+
+			VECTOR forward = DxLibGeometryUtility::GetForwardVector(character.GetObjectData().rot.y);
+			VECTOR right = DxLibGeometryUtility::GetRightVector(character.GetObjectData().rot.y);
+			VECTOR offset = VAdd(VAdd(VScale(right, attackData.offset.x), VGet(0.0f, attackData.offset.y, 0.0f)), VScale(forward, attackData.offset.z));
+
+
+
+
 			// キャラクターの位置と攻撃判定データを使用してカプセル形状を設定する
-			capsule.top		= VAdd(character.GetObjectData().pos, attackData.offset);
-			capsule.bottom	= VAdd(character.GetObjectData().pos, attackData.offset);
+			capsule.top		= VAdd(character.GetObjectData().pos, offset);
+			capsule.bottom	= VAdd(character.GetObjectData().pos, offset);
 			capsule.radius	= attackData.radius;
 		}
 
