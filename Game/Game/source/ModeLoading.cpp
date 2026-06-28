@@ -16,6 +16,13 @@ bool ModeLoading::Initialize()
 
 	rs->Register("Enemy", "res/Enemy/SK_enemy_00_multimotion.mv1", RESOURCE_TYPE::Model, 1.0f);
 	
+	rs->Register("SE_Attack", "sound/SE/iPlayerAttack1.mp3", RESOURCE_TYPE::Sound, 1.0f);
+
+	rs->Register("EF_Damage1", "effect/SChange_Hit_00.efkefc", RESOURCE_TYPE::Effect, 5.0f);
+	rs->Register("EF_Damage2", "effect/en_damage_test.efkefc", RESOURCE_TYPE::Effect, 20.0f);
+
+	rs->Register("BGM_Stage", "sound/BGM/stage_01.mp3", RESOURCE_TYPE::Sound, 1.0f);
+
 	rs->Register("Sky", "res/SkySphere/skysphere.mv1", RESOURCE_TYPE::Model, 1.0f);
 
 	return true;
