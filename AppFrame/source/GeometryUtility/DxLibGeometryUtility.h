@@ -116,6 +116,21 @@ namespace DxLibGeometryUtility
 	/// @param playerDir プレイヤーの向きベクトル
 	/// 
 	/// @return ワールド座標に変換されたオフセット
-	VECTOR TransOffsetToWorld(const VECTOR& offset, const VECTOR& playerDir);						
+	VECTOR TransOffsetToWorld(const VECTOR& offset, const VECTOR& dir);
+
+	/// @brief ヨー角から前方ベクトルを取得する関数
+	///
+	/// @param yaw ヨー角
+	/// 
+	/// @return 前方ベクトル
+	VECTOR GetForwardVector(float yaw);
+
+	/// @brief ヨー角から右方向ベクトルを取得する関数
+	///
+	/// @param yaw ヨー角
+	/// 
+	/// @return 右方向ベクトル
+	VECTOR GetRightVector(float yaw);
+	
 }
 

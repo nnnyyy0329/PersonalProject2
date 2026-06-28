@@ -176,10 +176,10 @@ namespace DxLibGeometryUtility
 		DrawLine3D(center, endPoint, lineColor);
 	}
 
-	VECTOR TransOffsetToWorld(const VECTOR& offset, const VECTOR& playerDir)
+	VECTOR TransOffsetToWorld(const VECTOR& offset, const VECTOR& dir)
 	{
 		// プレイヤーの向きベクトルの正規化
-		VECTOR dirNorm = VNorm(playerDir);
+		VECTOR dirNorm = VNorm(dir);
 
 		// 上ベクトル設定
 		VECTOR upVec = VGet(0.0f, 1.0f, 0.0f);
@@ -207,4 +207,13 @@ namespace DxLibGeometryUtility
 		return worldPos;
 	}
 
+	VECTOR GetForwardVector(float yaw)
+	{
+		return VGet(sinf(yaw), 0.0f, cosf(yaw));
+	}
+
+	VECTOR GetRightVector(float yaw)
+	{
+		return VGet(cosf(yaw), 0.0f, -sinf(yaw));
+	}
 }
