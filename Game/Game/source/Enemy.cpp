@@ -7,6 +7,7 @@
 #include "CollisionComponent.h"
 #include "EnemyDamageComponent.h"
 #include "EnemyDebugParamCompnent.h"
+#include "EnemyDebugColComponent.h"
 
 bool Enemy::Initialize()
 {
@@ -22,7 +23,7 @@ bool Enemy::Initialize()
 
 
 
-	m_charColData.radius = 50.0f;
+	m_charColData.radius = 30.0f;
 
 
 
@@ -45,7 +46,7 @@ void Enemy::Update()
 {
 
 
-	m_charColData.top = VAdd(GetObjectData().pos, VGet(0.0f, 100.0f, 0.0f));
+	m_charColData.top = VAdd(GetObjectData().pos, VGet(0.0f, 80.0f, 0.0f));
 	m_charColData.bottom = GetObjectData().pos;
 
 
@@ -73,6 +74,9 @@ void Enemy::SetUpComponents()
 
 	// デバッグパラメータコンポーネントを追加
 	AddComponent(std::make_unique<EnemyDebugParamComponent>());
+
+	// デバッグコリジョンコンポーネントを追加
+	AddComponent(std::make_unique<EnemyDebugColComponent>());
 }
 
 void Enemy::SetUpActions()

@@ -173,6 +173,7 @@
     <ClCompile Include="source\Enemy.cpp" />
     <ClCompile Include="source\EnemyAnimationComponent.cpp" />
     <ClCompile Include="source\EnemyDamageComponent.cpp" />
+    <ClCompile Include="source\EnemyDebugColComponent.cpp" />
     <ClCompile Include="source\EnemyDebugParamCompnent.cpp" />
     <ClCompile Include="source\FollowCamera.cpp" />
     <ClCompile Include="source\InputManager.cpp" />
@@ -233,6 +234,7 @@
     <ClInclude Include="source\Enemy.h" />
     <ClInclude Include="source\EnemyAnimationComponent.h" />
     <ClInclude Include="source\EnemyDamageComponent.h" />
+    <ClInclude Include="source\EnemyDebugColComponent.h" />
     <ClInclude Include="source\EnemyDebugParamCompnent.h" />
     <ClInclude Include="source\FollowCamera.h" />
     <ClInclude Include="source\HealthComponent.h" />

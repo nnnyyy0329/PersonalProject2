@@ -1,25 +1,13 @@
 #include "PlayerDebugColComponent.h"
 #include "DebugManager.h"
-#include "ActionAttack.h"
 #include "CollisionShapeBuilder.h"
-
-bool PlayerDebugColComponent::Initialize(Character& owner)
-{
-	// プレイヤーの当たり判定をデバッグ表示する関数を呼び出す
-	//DrawPlayerCollision(owner);
-
-	// プレイヤーの攻撃判定をデバッグ表示する関数を呼び出す
-	//DrawPlayerAttackCollision(owner);
-
-	return true;
-}
 
 void PlayerDebugColComponent::Update(Character& owner)
 {
-	// プレイヤーの当たり判定をデバッグ表示する関数を呼び出す
+	// プレイヤーの当たり判定をデバッグ表示
 	DrawPlayerCollision(owner);
 
-	// プレイヤーの攻撃判定をデバッグ表示する関数を呼び出す
+	// プレイヤーの攻撃判定をデバッグ表示
 	DrawPlayerAttackCollision(owner);
 }
 

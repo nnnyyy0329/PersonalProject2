@@ -93,7 +93,7 @@ void Player::SetUpComponents()
 	// デバッグパラメータコンポーネントを追加
 	AddComponent(std::make_unique<PlayerDebugParamComponent>());
 
-	// デバッグ当たり判定コンポーネントを追加
+	// デバッグコリジョンコンポーネントを追加
 	AddComponent(std::make_unique<PlayerDebugColComponent>());
 }
 

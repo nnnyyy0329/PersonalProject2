@@ -118,6 +118,9 @@
     <ClCompile Include="source\PlayerDebugColComponent.cpp">
       <Filter>Object\Character\Player\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="source\EnemyDebugColComponent.cpp">
+      <Filter>Object\Character\Enemy\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -246,9 +249,6 @@
     <ClInclude Include="source\CollisionComponent.h">
       <Filter>Component\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="source\CollisionData.h">
-      <Filter>Collision</Filter>
-    </ClInclude>
     <ClInclude Include="source\CharacterData.h">
       <Filter>Object\Character</Filter>
     </ClInclude>
@@ -308,6 +308,12 @@
     </ClInclude>
     <ClInclude Include="source\MapData.h">
       <Filter>Map</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CollisionData.h">
+      <Filter>Data\Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="source\EnemyDebugColComponent.h">
+      <Filter>Object\Character\Enemy\Debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -430,6 +436,9 @@
     </Filter>
     <Filter Include="Component\Attack">
       <UniqueIdentifier>{2812ca99-6791-4bbe-bac3-df0022360616}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Collision">
+      <UniqueIdentifier>{59b17484-c1d8-42df-bb40-7a5dc9e34966}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -3,13 +3,13 @@
 
 class Character;	/// キャラクタークラス
 
-/// @brief プレイヤーのデバッグ用コリジョンコンポーネントクラス
-class PlayerDebugColComponent : public IComponent<Character>
+/// @brief 敵のデバッグ用コリジョンコンポーネントクラス
+class EnemyDebugColComponent : public IComponent<Character>
 {
 public:
 
-	PlayerDebugColComponent() = default;
-	virtual ~PlayerDebugColComponent() = default;
+	EnemyDebugColComponent() = default;
+	virtual ~EnemyDebugColComponent() = default;
 
 	//===========================================================================
 	// 基本関数
@@ -26,15 +26,10 @@ private:
 	// 内部関数
 	//===========================================================================
 
-	/// @brief プレイヤーの当たり判定をデバッグ表示する関数
+	/// @brief 敵の当たり判定をデバッグ表示する関数
 	///
 	/// @param owner デバッグ表示を行うキャラクター
-	void DrawPlayerCollision(const Character& owner);
-
-	/// @brief プレイヤーの攻撃判定をデバッグ表示する関数
-	///
-	/// @param owner デバッグ表示を行うキャラクター
-	void DrawPlayerAttackCollision(Character& owner);
+	void DrawEnemyCollision(const Character& owner);
 
 };
 
