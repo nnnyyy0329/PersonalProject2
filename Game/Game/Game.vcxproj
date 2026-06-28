@@ -204,6 +204,7 @@
     <ClInclude Include="source\ApplicationMain.h" />
     <ClInclude Include="source\ActionAttack.h" />
     <ClInclude Include="source\AttackData.h" />
+    <ClInclude Include="source\AttackEventComponent,h.h" />
     <ClInclude Include="source\AttackTiming.h" />
     <ClInclude Include="source\Bullet.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>

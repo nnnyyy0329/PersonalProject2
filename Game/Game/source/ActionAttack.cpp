@@ -48,6 +48,14 @@ void ActionAttack::UpdateAttackPhase(Character& character)
 				m_stateTime = 0.0f;
 
 				printfDx("攻撃が開始されました\n");
+
+
+
+				// 攻撃が開始されたときの処理を行う（仮実装）
+				OnAttackActive(m_attackData);
+
+
+
 			}
 
 			break;
@@ -122,4 +130,21 @@ void ActionAttack::UpdateComboReceive()
 			m_isCancelable = true;
 		}
 	}
+}
+
+
+
+
+#include "Server/ResourceServer.h"
+#include "Server/SoundServer.h"
+
+void ActionAttack::OnAttackActive(const AttackData& attackData)
+{
+	auto rs = ResourceServer::GetInstance();
+
+	int seHandle = rs->GetHandle("SE_Attack");
+
+	auto ss = SoundServer::GetInstance();
+
+	ss->Play("SE_Attack", DX_PLAYTYPE_BACK);
 }

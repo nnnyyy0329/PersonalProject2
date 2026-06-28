@@ -303,6 +303,9 @@
     <ClInclude Include="source\AttackTiming.h">
       <Filter>Data\Attack</Filter>
     </ClInclude>
+    <ClInclude Include="source\AttackEventComponent,h.h">
+      <Filter>Component\Attack</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -421,6 +424,9 @@
     </Filter>
     <Filter Include="Data\Sound">
       <UniqueIdentifier>{239b3d1f-1343-4d88-9cca-dfe42546588e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Attack">
+      <UniqueIdentifier>{2812ca99-6791-4bbe-bac3-df0022360616}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
