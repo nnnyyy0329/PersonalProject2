@@ -164,6 +164,7 @@
     </ClCompile>
     <ClCompile Include="source\CameraBase.cpp" />
     <ClCompile Include="source\CameraManager.cpp" />
+    <ClCompile Include="source\CameraShake.cpp" />
     <ClCompile Include="source\Character.cpp" />
     <ClCompile Include="source\CollisionManager.cpp" />
     <ClCompile Include="source\DebugCollision.cpp" />
@@ -216,6 +217,7 @@
     <ClInclude Include="source\CameraBase.h" />
     <ClInclude Include="source\CameraData.h" />
     <ClInclude Include="source\CameraManager.h" />
+    <ClInclude Include="source\CameraShake.h" />
     <ClInclude Include="source\CameraShakeData.h" />
     <ClInclude Include="source\Character.h" />
     <ClInclude Include="source\CharacterData.h" />

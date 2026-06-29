@@ -121,6 +121,9 @@
     <ClCompile Include="source\EnemyDebugColComponent.cpp">
       <Filter>Object\Character\Enemy\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="source\CameraShake.cpp">
+      <Filter>Object\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -317,6 +320,9 @@
     </ClInclude>
     <ClInclude Include="source\DamageComponent.h">
       <Filter>Component\Damage</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CameraShake.h">
+      <Filter>Object\Camera</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
