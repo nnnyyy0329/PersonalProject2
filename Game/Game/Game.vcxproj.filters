@@ -259,10 +259,10 @@
       <Filter>Action</Filter>
     </ClInclude>
     <ClInclude Include="source\DamageData.h">
-      <Filter>Damage</Filter>
+      <Filter>Data\Damage</Filter>
     </ClInclude>
     <ClInclude Include="source\DamageInfo.h">
-      <Filter>Damage</Filter>
+      <Filter>Data\Damage</Filter>
     </ClInclude>
     <ClInclude Include="source\CollisionManager.h">
       <Filter>Collision</Filter>
@@ -314,6 +314,9 @@
     </ClInclude>
     <ClInclude Include="source\EnemyDebugColComponent.h">
       <Filter>Object\Character\Enemy\Debug</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DamageComponent.h">
+      <Filter>Component\Damage</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -404,9 +407,6 @@
     <Filter Include="Object\Character\Player\Function\Animation">
       <UniqueIdentifier>{016a0288-719c-4866-9773-38d4c43b4fdc}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Damage">
-      <UniqueIdentifier>{48ce769d-10ae-4b4f-ab6c-32bdefd1b3af}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Observer">
       <UniqueIdentifier>{780a0f99-e3b5-4f2f-9faa-b7a642ad8b9c}</UniqueIdentifier>
     </Filter>
@@ -439,6 +439,12 @@
     </Filter>
     <Filter Include="Data\Collision">
       <UniqueIdentifier>{59b17484-c1d8-42df-bb40-7a5dc9e34966}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Damage">
+      <UniqueIdentifier>{9b806758-73c7-4598-8859-2be36891516f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Data\Damage">
+      <UniqueIdentifier>{48ce769d-10ae-4b4f-ab6c-32bdefd1b3af}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

@@ -1,7 +1,8 @@
 ﻿#include "CollisionManager.h"
 #include "CollisionComponent.h"
-#include "Character.h"
 #include "HealthComponent.h"
+#include "DamageComponent.h"
+#include "Character.h"
 #include "Collision/DxLibCollisionMath.h"
 #include "CollisionShapeBuilder.h"
 
@@ -26,6 +27,20 @@ void CollisionManager::Update(const std::vector<Character*>& characters)
 				// 防御者の体力コンポーネントを取得する
 				auto* healthComp = defender->GetComponent<HealthComponent<Character>>();
 				if(!healthComp || healthComp->IsDead()) { continue; }
+
+				// 防御者のダメージコンポーネントを取得する
+				auto* damageComp = defender->GetComponent<DamageComponent<Character>>();
+				if(!damageComp) { continue; }
+
+				// ダメージ情報を取得する
+				DamageInfo damageInfo = damageComp->GetDamageInfo();
+
+				// ダメージ情報をダメージコンポーネントに設定する
+				damageComp->SetDamageInfo(damageInfo);
+
+				// ヒット方向を計算し、ダメージコンポーネントに設定する
+				VECTOR dir = VNorm(VSub(defender->GetObjectData().pos, attacker->GetObjectData().pos));
+				damageComp->SetHitDirection(dir);
 
 				// ダメージを適用する
 				healthComp->ApplyDamage(0.5f);

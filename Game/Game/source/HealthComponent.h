@@ -56,18 +56,10 @@ public:
 			// 体力が変化したことをオブザーバーに通知する
 			for(auto* observer : this->m_observers)
 			{
+				// 通知
 				observer->OnDamaged(*this->GetOwner(), m_life, m_maxLife);
 			}
 		}
-
-		//// / 体力が0になった場合、死亡をオブザーバーに通知する
-		//if(IsDead())
-		//{
-		//	for(auto* observer : this->m_observers)
-		//	{
-		//		observer->OnDeath(*this->GetOwner());
-		//	}
-		//}
 	}
 
 	/// @brief 死亡判定関数

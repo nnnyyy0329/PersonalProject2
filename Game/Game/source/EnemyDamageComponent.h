@@ -1,12 +1,10 @@
 #pragma once
-#include "IComponent.h"
-#include "HealthObserver.h"
-#include "DamageInfo.h"
+#include "DamageComponent.h"
 
 class Character;	/// キャラクタークラス
 
 /// @brief 敵のダメージを管理するコンポーネントクラス
-class EnemyDamageComponent : public IComponent<Character>, public HealthObserver<Character>
+class EnemyDamageComponent : public DamageComponent<Character>
 {
 public:
 
@@ -33,18 +31,6 @@ public:
 	/// @param maxHealth 最大体力の値
 	void OnDamaged(Character& owner, float newHealth, float maxHealth) override;
 
-	/// @brief 死亡時の処理関数
-	///
-	/// @param owner 死亡したキャラクター
-	void OnDeath(Character& owner) override;
-
 private:
-
-	//===========================================================================
-	// メンバ変数
-	//===========================================================================
-
-	/// 被弾情報
-	DamageInfo m_damageInfo;
 
 };

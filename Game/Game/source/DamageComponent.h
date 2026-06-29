@@ -1,0 +1,71 @@
+#pragma once
+#include "IComponent.h"
+#include "HealthObserver.h"
+#include "DamageInfo.h"
+
+/// @brief キャラクターのダメージを管理するコンポーネントクラス
+///
+/// @tparam TOwner コンポーネントを所有するクラスの型
+template<typename TOwner>
+class DamageComponent : public IComponent<TOwner>, public HealthObserver<TOwner>
+{
+public:
+
+	DamageComponent() = default;
+	virtual ~DamageComponent() = default;
+
+	//===========================================================================
+	// 内部関数
+	//===========================================================================
+
+	/// @brief ダメージを受けたときに呼ばれる関数
+	///
+	/// @param owner ダメージを受けたキャラ
+	/// @param newHealth 新しい体力
+	/// @param maxHealth 最大体力
+	virtual void OnDamaged(TOwner& owner, float newHealth, float maxHealth)override {}
+
+	/// @brief 死亡したときに呼ばれる関数
+	///
+	/// @param owner 死亡したキャラ
+	virtual void OnDeath(TOwner& owner)override {}
+
+	//===========================================================================
+	// ゲッター
+	//===========================================================================
+
+	/// @brief 被弾情報を取得する関数
+	///
+	/// @return 被弾情報
+	const DamageInfo& GetDamageInfo() const { return m_damageInfo; }
+
+	//===========================================================================
+	// セッター
+	//===========================================================================
+
+	/// @brief 被弾情報を設定する関数
+	///
+	/// @param damageInfo 被弾情報
+	void SetDamageInfo(const DamageInfo& damageInfo)
+	{
+		m_damageInfo = damageInfo; 
+	}
+
+	/// @brief ヒット方向を設定する関数
+	///
+	/// @param direction ヒット方向
+	void SetHitDirection(const VECTOR& direction)
+	{
+		m_damageInfo.hitDirection = direction; 
+	}
+
+protected:
+
+	//===========================================================================
+	// メンバ変数
+	//===========================================================================
+
+	/// 被弾情報
+	DamageInfo m_damageInfo;
+
+};

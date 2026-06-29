@@ -5,12 +5,8 @@
 
 EnemyDamageComponent::EnemyDamageComponent()
 {
-	m_damageInfo.damageData.damage = 0.0f;
 	m_damageInfo.damageData.knockback = 2.0f;
 	m_damageInfo.damageData.hitStunTime = 30.0f;
-	m_damageInfo.damageData.damageInvincibeTime = 0.0f;
-	m_damageInfo.damageData.isLaunch = false;
-	m_damageInfo.hitDirection = VGet(0.0f, 0.0f, -1.0f);
 }
 
 bool EnemyDamageComponent::Initialize(Character& owner)
@@ -29,9 +25,3 @@ void EnemyDamageComponent::OnDamaged(Character& owner, float newHealth, float ma
 {
 	owner.SetAction(std::make_unique<ActionDamage>(m_damageInfo));
 }
-
-void EnemyDamageComponent::OnDeath(Character& owner)
-{
-
-}
-
