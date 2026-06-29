@@ -145,10 +145,8 @@ void ActionAttack::OnAttackActive(const AttackData& attackData, Character& chara
 	auto ss = SoundServer::GetInstance();
 	auto es = EffectServer::GetInstance();
 
-	int seHandle = rs->GetHandle("SE_Attack");
-	ss->Play("SE_Attack", DX_PLAYTYPE_BACK);
+	int seHandle = ss->Play("SE_Attack", DX_PLAYTYPE_BACK);
 	es->Play(attackData.effectData.name, character.GetObjectData().pos);
 	es->Play("EF_Damage1", character.GetObjectData().pos);
 	es->Play("EF_Damage2", character.GetObjectData().pos);
-	es->Play("InteriorPlayerFifthAttack", character.GetObjectData().pos);
 }
