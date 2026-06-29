@@ -16,6 +16,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak1.colData.topOffset = VGet(0.0f, 100.0f, -80.0f);
 	weak1.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
 	weak1.colData.radius = 50.0f;
+	weak1.effectData.name = "EF_Attack";
     AddAttackData(weak1);
 
 	AttackData weak2;
@@ -28,6 +29,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak2.colData.topOffset = VGet(0.0f, 100.0f, -80.0f);
     weak2.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
     weak2.colData.radius = 50.0f;
+	weak2.effectData.name = "EF_Attack";
     AddAttackData(weak2);
 
     AttackData weak3;
@@ -40,6 +42,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak3.colData.topOffset = VGet(0.0f, 100.0f, -80.0f);
     weak3.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
     weak3.colData.radius = 50.0f;
+	weak3.effectData.name = "EF_Attack";
     AddAttackData(weak3);
 
 	AttackData weak4;
@@ -52,6 +55,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak4.colData.topOffset = VGet(0.0f, 100.0f, -80.0f);
     weak4.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
     weak4.colData.radius = 50.0f;
+	weak4.effectData.name = "EF_Attack";
 	AddAttackData(weak4);
 
 	AttackData weak5;
@@ -64,6 +68,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak5.colData.topOffset = VGet(0.0f, 100.0f, -80.0f);
     weak5.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
     weak5.colData.radius = 50.0f;
+	weak5.effectData.name = "EF_Attack";
 	AddAttackData(weak5);
 }
 
@@ -89,25 +94,34 @@ void PlayerAttackComponent::InputAttack(Character& owner)
 	// Aボタンが押された場合
     if(pad_1.isTrigger(PadButton::A))
     {
+		// 現在のアクションが攻撃アクションでない場合
         if(!owner.IsCurrentAction<ActionAttack>())
         {
+            // コンボ攻撃が攻撃のデータ数より少ない場合
             if(m_comboIndex < m_attackDataList.size())
             {
+				// 攻撃アクションを設定する
 				owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
 				m_comboIndex++;
+
 
                 printfDx("攻撃入力が処理されました\n");
             }
         }
+		// 現在のアクションが攻撃アクションである場合
         else
         {
+			// 現在のアクションが攻撃アクションであり、コンボ受付中なら
             auto* currentAction = owner.GetCurrentAction<ActionAttack>();
             if(currentAction && currentAction->IsCancelable())
             {
+				// コンボ攻撃が攻撃のデータ数より少ない場合
                 if(m_comboIndex < m_attackDataList.size())
                 {
+					// 攻撃アクションを設定する
 					owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
 					m_comboIndex++;
+
 
                     printfDx("コンボ攻撃入力が処理されました\n");
                 }

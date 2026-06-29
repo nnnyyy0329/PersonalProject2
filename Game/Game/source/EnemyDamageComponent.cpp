@@ -5,7 +5,7 @@
 
 EnemyDamageComponent::EnemyDamageComponent()
 {
-	m_damageInfo.damageData.knockback = 2.0f;
+	m_damageInfo.damageData.knockback = 1.7f;
 	m_damageInfo.damageData.hitStunTime = 30.0f;
 }
 
@@ -23,5 +23,6 @@ bool EnemyDamageComponent::Initialize(Character& owner)
 
 void EnemyDamageComponent::OnDamaged(Character& owner, float newHealth, float maxHealth)
 {
+	// ダメージアクションを設定
 	owner.SetAction(std::make_unique<ActionDamage>(m_damageInfo));
 }

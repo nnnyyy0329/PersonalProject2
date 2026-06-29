@@ -52,7 +52,7 @@ void ActionAttack::UpdateAttackPhase(Character& character)
 
 
 				// 攻撃が開始されたときの処理を行う（仮実装）
-				OnAttackActive(m_attackData);
+				OnAttackActive(m_attackData, character);
 
 
 
@@ -137,14 +137,18 @@ void ActionAttack::UpdateComboReceive()
 
 #include "Server/ResourceServer.h"
 #include "Server/SoundServer.h"
+#include "Server/EffectServer.h"
 
-void ActionAttack::OnAttackActive(const AttackData& attackData)
+void ActionAttack::OnAttackActive(const AttackData& attackData, Character& character)
 {
 	auto rs = ResourceServer::GetInstance();
+	auto ss = SoundServer::GetInstance();
+	auto es = EffectServer::GetInstance();
 
 	int seHandle = rs->GetHandle("SE_Attack");
-
-	auto ss = SoundServer::GetInstance();
-
 	ss->Play("SE_Attack", DX_PLAYTYPE_BACK);
+	es->Play(attackData.effectData.name, character.GetObjectData().pos);
+	es->Play("EF_Damage1", character.GetObjectData().pos);
+	es->Play("EF_Damage2", character.GetObjectData().pos);
+	es->Play("InteriorPlayerFifthAttack", character.GetObjectData().pos);
 }

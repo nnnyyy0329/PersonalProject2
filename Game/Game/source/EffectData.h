@@ -1,16 +1,13 @@
 #pragma once
+#include <string>
 
 // @brief エフェクトデータクラス
 struct EffectData
 {
-	int handle;		/// エフェクトハンドル
-	float scale;	/// エフェクトのスケール
-	float lifeTime;	/// エフェクトの寿命
+	std::string name;	/// エフェクト名
 
 	EffectData()
 	{
-		handle		= -1;
-		scale		= 1.0f;
-		lifeTime	= 0.0f;
+		name = "";
 	}
 };

@@ -59,10 +59,13 @@ private:
 
 
 
+
 	/// @brief 攻撃が終了したときの処理関数
 	///
 	/// @param attackData 攻撃のデータ
-	void OnAttackActive(const AttackData& attackData);
+	/// @param character 攻撃を実行するキャラクター
+	void OnAttackActive(const AttackData& attackData, Character& character);
+
 
 
 

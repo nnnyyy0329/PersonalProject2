@@ -67,7 +67,7 @@ void ActionMove::Rotate(Character& character)
 
 
 
-		printfDx("rotVec = %.2f %.2f  target = %.2f  current = %.2f\n",rotVector.x, rotVector.z,targetAngle,currentAngle);
+		//printfDx("rotVec = %.2f %.2f  target = %.2f  current = %.2f\n",rotVector.x, rotVector.z,targetAngle,currentAngle);
 
 		
 
