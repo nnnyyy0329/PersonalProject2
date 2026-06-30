@@ -1,4 +1,4 @@
-#pragma once
+﻿#pragma once
 
 /// @brief 体力の変化や死亡を監視するオブザーバークラス
 ///
