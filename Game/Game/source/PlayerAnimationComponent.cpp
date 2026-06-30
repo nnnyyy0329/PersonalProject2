@@ -26,9 +26,11 @@ bool PlayerAnimationComponent::Initialize(Character& owner)
 
 
 
+
 	// 攻撃管理コンポーネントを取得
 	m_playerAttackComponent = owner.GetComponent<PlayerAttackComponent>();
 	if(!m_playerAttackComponent) { return false; }
+
 
 
 
