@@ -17,13 +17,7 @@ public:
 	/// @brief 初期化関数
 	///
 	/// @param owner 初期化処理を行うキャラクター
-	virtual bool Initialize(TOwner& owner) override
-	{
-		// コンポーネントの所有者を設定する
-		IComponent<TOwner>::Initialize(owner);
-
-		return true;
-	}
+	virtual bool Initialize(TOwner& owner) override{ return true; }
 
 	/// @brief 更新関数
 	///

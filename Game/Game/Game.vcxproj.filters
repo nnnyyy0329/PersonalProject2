@@ -324,6 +324,9 @@
     <ClInclude Include="source\CameraShake.h">
       <Filter>Object\Camera</Filter>
     </ClInclude>
+    <ClInclude Include="source\DeathComponent.h">
+      <Filter>Component\Death</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -451,6 +454,9 @@
     </Filter>
     <Filter Include="Data\Damage">
       <UniqueIdentifier>{48ce769d-10ae-4b4f-ab6c-32bdefd1b3af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Death">
+      <UniqueIdentifier>{3255d1b0-6da4-41bd-bade-885ba8e4f019}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

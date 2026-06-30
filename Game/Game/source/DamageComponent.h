@@ -11,7 +11,6 @@ class DamageComponent : public IComponent<TOwner>, public HealthObserver<TOwner>
 {
 public:
 
-	DamageComponent() = default;
 	virtual ~DamageComponent() = default;
 
 	//===========================================================================
@@ -23,12 +22,7 @@ public:
 	/// @param owner ダメージを受けたキャラ
 	/// @param newHealth 新しい体力
 	/// @param maxHealth 最大体力
-	virtual void OnDamaged(TOwner& owner, float newHealth, float maxHealth)override {}
-
-	/// @brief 死亡したときに呼ばれる関数
-	///
-	/// @param owner 死亡したキャラ
-	virtual void OnDeath(TOwner& owner)override {}
+	virtual void OnDamaged(TOwner& owner, float newHealth, float maxHealth) override {}
 
 	//===========================================================================
 	// ゲッター
@@ -37,7 +31,10 @@ public:
 	/// @brief 被弾情報を取得する関数
 	///
 	/// @return 被弾情報
-	const DamageInfo& GetDamageInfo() const { return m_damageInfo; }
+	const DamageInfo& GetDamageInfo() const 
+	{
+		return m_damageInfo; 
+	}
 
 	//===========================================================================
 	// セッター

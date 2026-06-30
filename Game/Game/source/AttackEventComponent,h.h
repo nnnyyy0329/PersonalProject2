@@ -7,7 +7,6 @@ class AttackEventComponent : public IComponent<TOwner>
 {
 public:
 
-	AttackEventComponent() = default;
 	virtual ~AttackEventComponent() = default;
 
 	//===========================================================================
