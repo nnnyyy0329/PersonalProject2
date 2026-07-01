@@ -333,6 +333,9 @@
     <ClInclude Include="source\IState.h">
       <Filter>State</Filter>
     </ClInclude>
+    <ClInclude Include="source\StateMachine.h">
+      <Filter>State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
