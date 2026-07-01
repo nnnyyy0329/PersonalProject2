@@ -60,12 +60,18 @@ public:
 	/// @brief 当たり判定のデータを取得する関数
 	///
 	/// @return 当たり判定のデータ
-	const CollisionData& GetCollisionData() const { return m_collisionData; }
+	const CollisionData& GetCollisionData() const
+	{
+		return m_collisionData;
+	}
 
 	/// @brief 当たり判定が有効かどうかを取得する関数
 	///
 	/// @return 当たり判定が有効かどうか、有効である場合はtrue、そうでない場合はfalse
-	bool IsActive() const { return m_isActive; }
+	bool IsActive() const 
+	{
+		return m_isActive; 
+	}
 
 protected:
 

@@ -41,13 +41,13 @@ void ActionAttack::UpdateAttackPhase(Character& character)
 	{
 		case AttackPhase::STARTUP:	// 攻撃開始フェーズ
 		{
+			printfDx("攻撃が開始されました\n");
+
 			// 攻撃開始時間を過ぎたら攻撃有効フェーズに移行する
 			if(m_stateTime >= m_attackData.timing.startTime)
 			{
 				m_currentPhase = AttackPhase::ACTIVE;
 				m_stateTime = 0.0f;
-
-				printfDx("攻撃が開始されました\n");
 
 
 
@@ -63,13 +63,13 @@ void ActionAttack::UpdateAttackPhase(Character& character)
 
 		case AttackPhase::ACTIVE:	// 攻撃有効フェーズ
 		{
+			printf("攻撃が有効になりました\n");
+
 			// 攻撃有効時間を過ぎたら攻撃後の硬直フェーズに移行する
 			if(m_stateTime >= m_attackData.timing.activeDuration)
 			{
 				m_currentPhase = AttackPhase::RECOVERY;
 				m_stateTime = 0.0f;
-
-				printf("攻撃が有効になりました\n");
 			}
 
 			break;
@@ -77,14 +77,14 @@ void ActionAttack::UpdateAttackPhase(Character& character)
 
 		case AttackPhase::RECOVERY:	// 攻撃後の硬直フェーズ
 		{
+			printf("攻撃が無効になりました\n");
+
 			// 攻撃後の硬直時間を過ぎたら攻撃が無効になる
 			if(m_stateTime >= m_attackData.timing.recoveryDuration)
 			{
 				m_currentPhase = AttackPhase::NONE;
 				m_stateTime = 0.0f;
 				m_isFinished = true;
-
-				printf("攻撃が無効になりました\n");
 			}
 
 			break;
@@ -145,10 +145,8 @@ void ActionAttack::OnAttackActive(const AttackData& attackData, Character& chara
 	auto ss = SoundServer::GetInstance();
 	auto es = EffectServer::GetInstance();
 
-	int seHandle = rs->GetHandle("SE_Attack");
-	ss->Play("SE_Attack", DX_PLAYTYPE_BACK);
+	int seHandle = ss->Play("SE_Attack", DX_PLAYTYPE_BACK);
 	es->Play(attackData.effectData.name, character.GetObjectData().pos);
 	es->Play("EF_Damage1", character.GetObjectData().pos);
 	es->Play("EF_Damage2", character.GetObjectData().pos);
-	es->Play("InteriorPlayerFifthAttack", character.GetObjectData().pos);
 }

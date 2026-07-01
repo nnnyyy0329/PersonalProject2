@@ -55,10 +55,10 @@ private:
 	DamageInfo m_damageInfo;
 
 	/// ノックバックの速度べクトル
-	VECTOR m_knockBackVelocity	= { 0.0f, 0.0f, 0.0f };
+	VECTOR m_knockBackVelocity = { 0.0f, 0.0f, 0.0f };
 
 	/// タイマー
-	float m_timer				= 0.0f;
+	float m_timer = 0.0f;
 
 };
 

@@ -4,7 +4,6 @@
 #include <string>
 #include <unordered_map>
 #include <stdexcept>
-#include <algorithm>
 
 /// アニメーション関連の定数
 namespace Anim
@@ -41,7 +40,6 @@ public:
 		float startTime = 0.0f;	/// 再生開始時間
 	};
 
-	DxLibAnimationComponent() = default;
 	virtual ~DxLibAnimationComponent()
 	{
 		// 自身が管理するすべてのアニメーションハンドルを解放

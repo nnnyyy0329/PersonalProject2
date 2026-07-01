@@ -17,6 +17,8 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak1.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
 	weak1.colData.radius = 50.0f;
 	weak1.effectData.name = "EF_Attack";
+	weak1.cameraShakeData.duration = 60.0f;
+	weak1.cameraShakeData.magnitude = 10.0f;
     AddAttackData(weak1);
 
 	AttackData weak2;
@@ -30,6 +32,8 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak2.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
     weak2.colData.radius = 50.0f;
 	weak2.effectData.name = "EF_Attack";
+	weak2.cameraShakeData.duration = 60.0f;
+	weak2.cameraShakeData.magnitude = 10.0f;
     AddAttackData(weak2);
 
     AttackData weak3;
@@ -43,6 +47,8 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak3.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
     weak3.colData.radius = 50.0f;
 	weak3.effectData.name = "EF_Attack";
+	weak3.cameraShakeData.duration = 60.0f;
+	weak3.cameraShakeData.magnitude = 10.0f;
     AddAttackData(weak3);
 
 	AttackData weak4;
@@ -56,6 +62,8 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak4.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
     weak4.colData.radius = 50.0f;
 	weak4.effectData.name = "EF_Attack";
+	weak4.cameraShakeData.duration = 60.0f;
+	weak4.cameraShakeData.magnitude = 10.0f;
 	AddAttackData(weak4);
 
 	AttackData weak5;
@@ -69,6 +77,8 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak5.colData.bottomOffset = VGet(0.0f, 0.0f, -80.0f);
     weak5.colData.radius = 50.0f;
 	weak5.effectData.name = "EF_Attack";
+	weak5.cameraShakeData.duration = 60.0f;
+	weak5.cameraShakeData.magnitude = 10.0f;
 	AddAttackData(weak5);
 }
 

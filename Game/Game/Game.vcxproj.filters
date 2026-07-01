@@ -121,6 +121,9 @@
     <ClCompile Include="source\EnemyDebugColComponent.cpp">
       <Filter>Object\Character\Enemy\Debug</Filter>
     </ClCompile>
+    <ClCompile Include="source\CameraShake.cpp">
+      <Filter>Object\Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -318,6 +321,18 @@
     <ClInclude Include="source\DamageComponent.h">
       <Filter>Component\Damage</Filter>
     </ClInclude>
+    <ClInclude Include="source\CameraShake.h">
+      <Filter>Object\Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DeathComponent.h">
+      <Filter>Component\Death</Filter>
+    </ClInclude>
+    <ClInclude Include="source\ICommand.h">
+      <Filter>Command</Filter>
+    </ClInclude>
+    <ClInclude Include="source\IState.h">
+      <Filter>State</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -445,6 +460,15 @@
     </Filter>
     <Filter Include="Data\Damage">
       <UniqueIdentifier>{48ce769d-10ae-4b4f-ab6c-32bdefd1b3af}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Death">
+      <UniqueIdentifier>{3255d1b0-6da4-41bd-bade-885ba8e4f019}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Command">
+      <UniqueIdentifier>{24bd582b-932d-453c-af56-2bac7a7a4b8f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="State">
+      <UniqueIdentifier>{2f52403b-5a43-4a18-8261-53b8d8150c6e}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

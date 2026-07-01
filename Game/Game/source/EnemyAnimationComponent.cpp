@@ -1,6 +1,7 @@
 #include "Character.h"
 #include "EnemyAnimationComponent.h"
 #include "DxLibAnimationComponent.h"
+#include "ActionDamage.h"
 
 bool EnemyAnimationComponent::Initialize(Character& owner)
 {
@@ -18,14 +19,9 @@ bool EnemyAnimationComponent::Initialize(Character& owner)
 
 void EnemyAnimationComponent::Update(Character& owner)
 {
-	// 移動ベクトルに応じてアニメーションを切り替える
-	//ChangeAnimByMovement(owner);
+	// ダメージを受けたときのアニメーションを切り替える
+	AnimationChangeByDamage(owner);
 }
-
-//void EnemyAnimationComponent::ChangeAnimByMovement(Character& owner)
-//{
-//	
-//}
 
 void EnemyAnimationComponent::RegisterEnemyAnimations(Character& owner)
 {
@@ -36,4 +32,14 @@ void EnemyAnimationComponent::RegisterEnemyAnimations(Character& owner)
 	m_animationComponent->RegisterAnimation("enemy_idle_01", owner.GetModelHandle());
 	m_animationComponent->RegisterAnimation("enemy_walk_01", owner.GetModelHandle());
 	m_animationComponent->RegisterAnimation("enemy_damage_00", owner.GetModelHandle());
+}
+
+void EnemyAnimationComponent::AnimationChangeByDamage(Character& owner)
+{
+	// ダメージを受けている場合
+	if(owner.IsCurrentAction<ActionDamage>())
+	{
+		// ダメージアクション中はダメージアニメーションを再生
+		m_animationComponent->PlayAnimation("enemy_damage_00", {});
+	}
 }
