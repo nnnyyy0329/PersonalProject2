@@ -24,7 +24,7 @@ public:
 	/// @brief アクションの実行関数
 	///
 	/// @param character アクションを実行するキャラクター
-	void Execute(Character& character) override;
+	void Update(Character& character) override;
 
 private:
 

@@ -16,7 +16,7 @@ public:
 	/// @brief アクションの実行関数
 	///
 	/// @param character アクションを実行するキャラクター
-	virtual void Execute(Character& character) = 0;
+	virtual void Update(Character& character) = 0;
 
 	/// @brief アクションが終了しているかどうかを判定する関数
 	///

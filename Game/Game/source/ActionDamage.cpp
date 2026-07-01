@@ -7,7 +7,7 @@ namespace
 	constexpr float KNOCKBACK_DECAY_RATE = 0.9f;
 }
 
-void ActionDamage::Execute(Character& character)
+void ActionDamage::Update(Character& character)
 {
 	// ノックバックを更新する
 	UpdateKnockback(character);

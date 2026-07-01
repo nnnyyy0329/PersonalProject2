@@ -12,7 +12,7 @@ namespace
 	constexpr float OPPOSITE_ANGLE = DX_PI_F * 2.0f;
 }
 
-void ActionMove::Execute(Character& character)
+void ActionMove::Update(Character& character)
 {
 	// キャラクターを移動させる
 	Move(character);

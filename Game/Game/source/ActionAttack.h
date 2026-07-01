@@ -19,7 +19,7 @@ public:
 	/// @brief アクションの実行関数
 	///
 	/// @param character アクションを実行するキャラクター
-	virtual void Execute(Character& character) override;
+	virtual void Update(Character& character) override;
 
 	//===========================================================================
 	// 内部関数

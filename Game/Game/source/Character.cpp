@@ -28,7 +28,7 @@ void Character::Update()
 	if(m_currentAction)
 	{
 		// アクションの実行関数を呼び出す
-		m_currentAction->Execute(*this);
+		m_currentAction->Update(*this);
 
 		// アクションが終了しているなら
 		if(m_currentAction->IsFinished())
