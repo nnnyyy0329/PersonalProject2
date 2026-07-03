@@ -1,5 +1,6 @@
 #pragma once
 #include "IComponent.h"
+#include "PlayerAttackCommand.h"
 
 class Character;	/// キャラクタークラス
 
@@ -18,5 +19,15 @@ public:
 	///
 	/// @param owner 更新処理を行うキャラクター
 	virtual void Update(Character& owner) override;
+
+private:
+	
+	//===========================================================================
+	// メンバ変数
+	//===========================================================================
+
+	/// プレイヤーの攻撃コマンド
+	PlayerAttackCommand m_attackCommand;
+
 };
 

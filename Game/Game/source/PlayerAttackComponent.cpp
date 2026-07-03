@@ -90,52 +90,46 @@ void PlayerAttackComponent::Update(Character& owner)
 		// コンボをリセットする
 		ResetCombo();
     }
-
-	// 攻撃入力を処理する
-	InputAttack(owner);
 }
 
-void PlayerAttackComponent::InputAttack(Character& owner)
+bool PlayerAttackComponent::TryAttack(Character& owner)
 {
-    // 1Pのパッド情報取得
-    const auto& pad_1 = InputManager::GetInstance().GetPad(0);
-	if(!pad_1.IsConnected()) { return; }
-
-	// Aボタンが押された場合
-    if(pad_1.isTrigger(PadButton::A))
-    {
-		// 現在のアクションが攻撃アクションでない場合
-        if(!owner.IsCurrentAction<ActionAttack>())
-        {
-            // コンボ攻撃が攻撃のデータ数より少ない場合
-            if(m_comboIndex < m_attackDataList.size())
-            {
-				// 攻撃アクションを設定する
-				owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
-				m_comboIndex++;
+	// 現在のアクションが攻撃アクションでない場合
+	if(!owner.IsCurrentAction<ActionAttack>())
+	{
+		// コンボ攻撃が攻撃のデータ数より少ない場合
+		if(m_comboIndex < m_attackDataList.size())
+		{
+			// 攻撃アクションを設定する
+			owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
+			m_comboIndex++;
 
 
-                printfDx("攻撃入力が処理されました\n");
-            }
-        }
-		// 現在のアクションが攻撃アクションである場合
-        else
-        {
-			// 現在のアクションが攻撃アクションであり、コンボ受付中なら
-            auto* currentAction = owner.GetCurrentAction<ActionAttack>();
-            if(currentAction && currentAction->IsCancelable())
-            {
-				// コンボ攻撃が攻撃のデータ数より少ない場合
-                if(m_comboIndex < m_attackDataList.size())
-                {
-					// 攻撃アクションを設定する
-					owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
-					m_comboIndex++;
+			printfDx("攻撃入力が処理されました\n");
 
 
-                    printfDx("コンボ攻撃入力が処理されました\n");
-                }
-            }
-        }
-    }
+			return true;
+		}
+	}
+
+	// 現在のアクションが攻撃アクションであり、コンボ受付中なら
+	auto* currentAction = owner.GetCurrentAction<ActionAttack>();
+	if(currentAction && currentAction->IsCancelable())
+	{
+		// コンボ攻撃が攻撃のデータ数より少ない場合
+		if(m_comboIndex < m_attackDataList.size())
+		{
+			// 攻撃アクションを設定する
+			owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
+			m_comboIndex++;
+
+
+			printfDx("コンボ攻撃入力が処理されました\n");
+
+
+			return true;
+		}
+	}
+
+	return false;
 }

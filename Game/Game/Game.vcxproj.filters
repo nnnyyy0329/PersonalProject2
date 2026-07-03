@@ -124,6 +124,12 @@
     <ClCompile Include="source\CameraShake.cpp">
       <Filter>Object\Camera</Filter>
     </ClCompile>
+    <ClCompile Include="source\PlayerMoveCommand.cpp">
+      <Filter>Object\Character\Player\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerAttackCommand.cpp">
+      <Filter>Object\Character\Player\Command</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -336,6 +342,12 @@
     <ClInclude Include="source\StateMachine.h">
       <Filter>State</Filter>
     </ClInclude>
+    <ClInclude Include="source\PlayerMoveCommand.h">
+      <Filter>Object\Character\Player\Command</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerAttackCommand.h">
+      <Filter>Object\Character\Player\Command</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -472,6 +484,9 @@
     </Filter>
     <Filter Include="State">
       <UniqueIdentifier>{2f52403b-5a43-4a18-8261-53b8d8150c6e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Object\Character\Player\Command">
+      <UniqueIdentifier>{e7e05179-5a8c-4291-a063-106de2ff5166}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

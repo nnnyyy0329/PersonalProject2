@@ -10,6 +10,7 @@
 #include "CollisionComponent.h"
 #include "PlayerDebugParamComponent.h"
 #include "PlayerDebugColComponent.h"
+#include "PlayerInputComponent.h"
 
 bool Player::Initialize()
 {
@@ -25,7 +26,9 @@ bool Player::Initialize()
 
 
 
+
 	m_charColData.radius = 30.0f;
+
 
 
 
@@ -95,6 +98,9 @@ void Player::SetUpComponents()
 
 	// デバッグコリジョンコンポーネントを追加
 	AddComponent(std::make_unique<PlayerDebugColComponent>());
+
+	// 入力コンポーネントを追加
+	AddComponent(std::make_unique<PlayerInputComponent>());
 }
 
 void Player::SetUpActions()

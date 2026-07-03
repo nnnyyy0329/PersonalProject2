@@ -31,10 +31,12 @@ public:
 	/// @param attackData 追加する攻撃データ
 	void AddAttackData(const AttackData& attackData) { m_attackDataList.push_back(attackData); }
 
-	/// @brief 攻撃入力を処理する関数
+	/// @brief 攻撃処理を行う関数
 	///
-	/// @param owner 
-	void InputAttack(Character& owner);
+	/// @param owner 攻撃処理を行うキャラクター
+	/// 
+	/// @return 攻撃が成功した場合 true、それ以外は false
+	bool TryAttack(Character& owner);
 
 	/// @brief コンボをリセットする関数
 	void ResetCombo() { m_comboIndex = 0; }
