@@ -1,6 +1,6 @@
 #pragma once
 
-/// @brief キャラクターのコンポーネントを管理するクラス
+/// @brief コンポーネントのインターフェイスクラス
 ///
 /// @tparam TOwner コンポーネントを所有するクラスの型
 template<typename TOwner>

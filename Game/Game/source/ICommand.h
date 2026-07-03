@@ -1,5 +1,8 @@
 #pragma once
 
+/// @brief コマンドのインターフェースクラス
+///
+/// @tparam TOwner コマンドを実行するキャラクターの型
 template<typename TOwner>
 class ICommand
 {

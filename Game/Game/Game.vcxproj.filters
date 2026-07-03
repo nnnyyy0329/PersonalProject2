@@ -348,6 +348,9 @@
     <ClInclude Include="source\PlayerAttackCommand.h">
       <Filter>Object\Character\Player\Command</Filter>
     </ClInclude>
+    <ClInclude Include="source\IStrategy.h">
+      <Filter>Strategy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -487,6 +490,9 @@
     </Filter>
     <Filter Include="Object\Character\Player\Command">
       <UniqueIdentifier>{e7e05179-5a8c-4291-a063-106de2ff5166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Strategy">
+      <UniqueIdentifier>{2e117243-9db1-4943-9641-9a47a07e3497}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
