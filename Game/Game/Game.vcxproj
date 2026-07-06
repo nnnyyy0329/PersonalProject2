@@ -257,6 +257,7 @@
     <ClInclude Include="source\IState.h" />
     <ClInclude Include="source\IStrategy.h" />
     <ClInclude Include="source\MapData.h" />
+    <ClInclude Include="source\MoveStrategy.h" />
     <ClInclude Include="source\Pad.h" />
     <ClInclude Include="source\Light.h" />
     <ClInclude Include="source\Map.h" />

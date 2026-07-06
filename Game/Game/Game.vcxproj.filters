@@ -351,6 +351,9 @@
     <ClInclude Include="source\IStrategy.h">
       <Filter>Strategy</Filter>
     </ClInclude>
+    <ClInclude Include="source\MoveStrategy.h">
+      <Filter>Strategy</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
