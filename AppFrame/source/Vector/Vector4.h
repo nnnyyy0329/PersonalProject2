@@ -108,19 +108,29 @@ namespace Vector
 		void SetZ(float z) { _z = z; }
 		void SetW(float w) { _w = w; }
 		void Set(const Vector4& v);
-		void Add(const Vector4& v);
 
 		//===========================================================================
 		// 内部関数
 		//===========================================================================
 
+		/// @brief ベクトルを加算する関数
+		///
+		/// @param v 加算するベクトル
+		/// 
+		/// @return 加算結果のベクトル
+		Vector4 Add(const Vector4& v);
+
+		/// @brief ベクトルを減算する関数
+		///
+		/// @param v 減算するベクトル
+		/// 
+		/// @return 減算結果のベクトル
+		Vector4 Sub(const Vector4& v);
+
 		/// @brief ベクトルの長さを計算する関数
 		///
 		/// @return ベクトルの長さ
 		float Length() const;
-
-		/// @brief ベクトルを正規化する関数
-		void Normalize();
 
 		/// @brief 正規化されたベクトルを返す関数
 		///

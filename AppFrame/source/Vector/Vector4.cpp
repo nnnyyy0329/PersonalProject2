@@ -97,27 +97,19 @@ namespace Vector
 		_w = v.GetW();
 	}
 
-	void Vector4::Add(const Vector4& v)
+	Vector4 Vector4::Add(const Vector4& v)
 	{
-		_x += v.GetX();
-		_y += v.GetY();
-		_z += v.GetZ();
+		return Vector4(_x + v.GetX(), _y + v.GetY(), _z + v.GetZ());
+	}
+
+	Vector4 Vector4::Sub(const Vector4& v)
+	{
+		return Vector4(_x - v.GetX(), _y - v.GetY(), _z - v.GetZ());
 	}
 
 	float Vector4::Length() const
 	{
 		return std::sqrt(_x * _x + _y * _y + _z * _z);
-	}
-
-	void Vector4::Normalize()
-	{
-		float len = Length();
-		if (len > 0.0f)
-		{
-			_x /= len;
-			_y /= len;
-			_z /= len;
-		}
 	}
 
 	Vector4 Vector4::Normalized() const
