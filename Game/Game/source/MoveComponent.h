@@ -1,6 +1,6 @@
 #pragma once
 #include "IComponent.h"
-#include "DxLib.h"
+#include "Vector/Vector3.h"
 
 /// @brief キャラクターの移動を管理するコンポーネントクラス
 ///
@@ -19,7 +19,7 @@ public:
 	/// @brief 移動ベクトルを取得する純粋仮想関数
 	///
 	/// @return 移動ベクトル
-	virtual VECTOR GetMoveVector()const = 0;
+	virtual Vec3::Vector3 GetMoveVector()const = 0;
 
 protected:
 
@@ -28,6 +28,6 @@ protected:
 	//===========================================================================
 
 	/// 移動ベクトル
-	VECTOR m_moveVector = { 0.0f, 0.0f, 0.0f };	
+	Vec3::Vector3 m_moveVector = { 0.0f, 0.0f, 0.0f };
 
 };

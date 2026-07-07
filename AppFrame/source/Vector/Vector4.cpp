@@ -101,48 +101,48 @@ namespace Vec4
 		m_w = v.GetW();
 	}
 
-	Vector4 Vector4::Add(const Vector4& v1, const Vector4& v2)
+	Vector4 Vector4::Add(const Vector4& otherV)
 	{
 		return Vector4
 		(
-			v1.GetX() + v2.GetX(),
-			v1.GetY() + v2.GetY(),
-			v1.GetZ() + v2.GetZ(),
-			v1.GetW() + v2.GetW()
+			m_x + otherV.GetX(),
+			m_y + otherV.GetY(),
+			m_z + otherV.GetZ(),
+			m_w + otherV.GetW()
 		);
 	}
 
-	Vector4 Vector4::Sub(const Vector4& v1, const Vector4& v2)
+	Vector4 Vector4::Sub(const Vector4& otherV)
 	{
 		return Vector4
 		(
-			v1.GetX() - v2.GetX(),
-			v1.GetY() - v2.GetY(),
-			v1.GetZ() - v2.GetZ(),
-			v1.GetW() - v2.GetW()
+			m_x - otherV.GetX(),
+			m_y - otherV.GetY(),
+			m_z - otherV.GetZ(),
+			m_w - otherV.GetW()
 		);
 	}
 
-	float Vector4::Length(const Vector4& v)
+	float Vector4::Length() const
 	{
 		return std::sqrt
 		(
-			v.GetX() * v.GetX() +
-			v.GetY() * v.GetY() +
-			v.GetZ() * v.GetZ() +
-			v.GetW() * v.GetW()
+			m_x * m_x +
+			m_y * m_y +
+			m_z * m_z +
+			m_w * m_w
 		);
 	}
 
-	Vector4 Vector4::Norm(const Vector4& v)
+	Vector4 Vector4::Normalize() const
 	{
-		float len = Length(v);
+		float len = Length();
 		if (len > 0.0f)
 		{
-			float nx = v.GetX() / len;
-			float ny = v.GetY() / len;
-			float nz = v.GetZ() / len;
-			float nw = v.GetW() / len;
+			float nx = m_x / len;
+			float ny = m_y / len;
+			float nz = m_z / len;
+			float nw = m_w / len;
 
 			return Vector4(nx, ny, nz, nw);
 		}
@@ -150,8 +150,8 @@ namespace Vec4
 		return Vector4(m_x, m_y, m_z, m_w);
 	}
 
-	float Vector4::Dot(const Vector4& v1, const Vector4& v2)
+	float Vector4::Dot(const Vector4& otherV) const
 	{
-		return v1.GetX() * v2.GetX() + v1.GetY() * v2.GetY() + v1.GetZ() * v2.GetZ() + v1.GetW() * v2.GetW();
+		return m_x * otherV.GetX() + m_y * otherV.GetY() + m_z * otherV.GetZ() + m_w * otherV.GetW();
 	}
 }

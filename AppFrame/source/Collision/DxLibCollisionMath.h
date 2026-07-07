@@ -1,5 +1,7 @@
 #pragma once
 #include <DxLib.h>
+#include "Vector/Vector3.h"
+#include "VectorConverter/VectorConverter.h"
 
 /// @brief DxLibの衝突判定関数をラップした名前空間
 namespace DxLibCollisionMath
@@ -7,12 +9,12 @@ namespace DxLibCollisionMath
 	/// @brief 球のデータ構造体
 	struct Sphere
 	{
-		VECTOR center;	/// 球の中心座標
-		float radius;	/// 球の半径
+		Vec3::Vector3 center;	/// 球の中心座標
+		float radius;			/// 球の半径
 
 		Sphere()
 		{
-			center = VGet(0.0f, 0.0f, 0.0f);
+			center = Vec3::Vector3(0.0f, 0.0f, 0.0f);
 			radius = 1.0f;
 		}
 	};
@@ -20,14 +22,14 @@ namespace DxLibCollisionMath
 	/// @brief カプセルのデータ構造体
 	struct Capsule
 	{
-		VECTOR top;
-		VECTOR bottom;
-		float radius;
+		Vec3::Vector3 top;		/// カプセルの上端の座標
+		Vec3::Vector3 bottom;	/// カプセルの下端の座標
+		float radius;			/// カプセルの半径
 
 		Capsule()
 		{
-			top = VGet(0.0f, 1.0f, 0.0f);
-			bottom = VGet(0.0f, -1.0f, 0.0f);
+			top = Vec3::Vector3(0.0f, 1.0f, 0.0f);
+			bottom = Vec3::Vector3(0.0f, -1.0f, 0.0f);
 			radius = 1.0f;
 		}
 	};
@@ -53,7 +55,11 @@ namespace DxLibCollisionMath
 		//return distance < radiusSum;
 
 		// 球と球の衝突判定
-		return HitCheck_Sphere_Sphere(a.center, a.radius, b.center, b.radius);
+		return HitCheck_Sphere_Sphere
+		(
+			Vec::ToDxVec(a.center), a.radius, 
+			Vec::ToDxVec(b.center), b.radius
+		);
 	}
 
 	/// @brief カプセルとカプセルの衝突判定関数
@@ -65,7 +71,11 @@ namespace DxLibCollisionMath
 	inline bool CheckCapsuleToCapsule(const Capsule& a, const Capsule& b)
 	{
 		// カプセル同士の衝突判定
-		return HitCheck_Capsule_Capsule(a.top, a.bottom, a.radius, b.top, b.bottom, b.radius);
+		return HitCheck_Capsule_Capsule
+		(
+			Vec::ToDxVec(a.top), Vec::ToDxVec(a.bottom), a.radius, 
+			Vec::ToDxVec(b.top), Vec::ToDxVec(b.bottom), b.radius
+		);
 	}
 }
 

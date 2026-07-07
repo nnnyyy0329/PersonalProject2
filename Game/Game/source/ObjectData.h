@@ -1,12 +1,12 @@
 #pragma once
-#include "DxLib.h"
+#include "Vector/Vector3.h"
 
 /// @brief オブジェクトデータ構造体
 struct ObjectData
 {
-	VECTOR pos; /// オブジェクトの位置
-	VECTOR rot; /// オブジェクトの回転
-	int handle;	/// オブジェクトのグラフィックハンドル
+	Vec3::Vector3 pos;	/// オブジェクトの位置
+	Vec3::Vector3 rot;	/// オブジェクトの回転
+	int handle;			/// オブジェクトのグラフィックハンドル
 
 	ObjectData()
 	{

@@ -13,8 +13,10 @@ bool Map::Initialize()
 
 
 
+
 	// ステージBGMのハンドル取得、再生
 	m_stageBgm = SoundServer::GetInstance()->Play("BGM_Stage", DX_PLAYTYPE_BACK);
+
 
 
 

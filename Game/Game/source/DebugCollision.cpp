@@ -13,4 +13,7 @@ void DebugCollision::Render()
 		// コリジョン描画関数を呼び出す
 		func();
 	}
+
+	// 描画関数のリストをクリアする
+	m_drawColFuncs.clear();
 }

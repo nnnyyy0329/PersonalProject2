@@ -1,4 +1,5 @@
 #pragma once
+#include "DxLib.h"
 #include "CameraData.h"
 
 /// @brief カメラの基底クラス

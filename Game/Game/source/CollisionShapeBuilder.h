@@ -4,6 +4,8 @@
 #include "CollisionComponent.h"
 #include "GeometryUtility/DxLibGeometryUtility.h"
 #include <optional>
+#include "Vector/Vector3.h"
+#include "VectorConverter/VectorConverter.h"
 
 /// @brief キャラクターの当たり判定形状を作成する関数群
 namespace CollisionShapeBuilder
@@ -45,17 +47,17 @@ namespace CollisionShapeBuilder
 
 
 
-			VECTOR forward = DxLibGeometryUtility::GetForwardVector(character.GetObjectData().rot.y);
-			VECTOR right = DxLibGeometryUtility::GetRightVector(character.GetObjectData().rot.y);
-			VECTOR topOffset = VAdd(VAdd(VScale(right, attackData.topOffset.x), VGet(0.0f, attackData.topOffset.y, 0.0f)), VScale(forward, attackData.topOffset.z));
-			VECTOR bottomOffset = VAdd(VAdd(VScale(right, attackData.bottomOffset.x), VGet(0.0f, attackData.bottomOffset.y, 0.0f)), VScale(forward, attackData.bottomOffset.z));
+			Vec3::Vector3 forward = Vec::ToVec3(DxLibGeometryUtility::GetForwardVector(character.GetObjectData().rot.GetY()));
+			Vec3::Vector3 right = Vec::ToVec3(DxLibGeometryUtility::GetRightVector(character.GetObjectData().rot.GetY()));
+			Vec3::Vector3 topOffset = (right * attackData.topOffset.GetX() + Vec3::Vector3(0.0f, attackData.topOffset.GetY(), 0.0f) + (forward * attackData.topOffset.GetZ()));
+			Vec3::Vector3 bottomOffset = (right * attackData.bottomOffset.GetX() + Vec3::Vector3(0.0f, attackData.bottomOffset.GetY(), 0.0f) + (forward * attackData.bottomOffset.GetZ()));
 
 
 
 
 			// キャラクターの位置と攻撃判定データを使用してカプセル形状を設定する
-			capsule.top		= VAdd(character.GetObjectData().pos, topOffset);
-			capsule.bottom	= VAdd(character.GetObjectData().pos, bottomOffset);
+			capsule.top		= character.GetObjectData().pos + topOffset;
+			capsule.bottom	= character.GetObjectData().pos + bottomOffset;
 			capsule.radius	= attackData.radius;
 		}
 

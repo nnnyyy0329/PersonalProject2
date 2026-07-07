@@ -31,7 +31,7 @@ public:
 	// 内部関数
 	//===========================================================================
 
-	virtual VECTOR GetRotVector() const override { return m_rotVector; }
+	virtual Vec3::Vector3 GetRotVector() const override { return m_rotVector; }
 
 private:
 

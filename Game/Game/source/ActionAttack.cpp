@@ -54,7 +54,7 @@ void ActionAttack::UpdateAttackPhase(Character& character)
 
 
 
-				printfDx("攻撃が開始されました\n");
+				printf("攻撃が開始されました\n");
 			}
 
 			break;
@@ -137,6 +137,7 @@ void ActionAttack::UpdateComboReceive()
 #include "Server/ResourceServer.h"
 #include "Server/SoundServer.h"
 #include "Server/EffectServer.h"
+#include "VectorConverter/VectorConverter.h"
 
 void ActionAttack::OnAttackActive(const AttackData& attackData, Character& character)
 {
@@ -145,7 +146,7 @@ void ActionAttack::OnAttackActive(const AttackData& attackData, Character& chara
 	auto es = EffectServer::GetInstance();
 
 	int seHandle = ss->Play("SE_Attack", DX_PLAYTYPE_BACK);
-	es->Play(attackData.effectData.name, character.GetObjectData().pos);
-	es->Play("EF_Damage1", character.GetObjectData().pos);
-	es->Play("EF_Damage2", character.GetObjectData().pos);
+	es->Play(attackData.effectData.name, Vec::ToDxVec(character.GetObjectData().pos));
+	es->Play("EF_Damage1", Vec::ToDxVec(character.GetObjectData().pos));
+	es->Play("EF_Damage2", Vec::ToDxVec(character.GetObjectData().pos));
 }

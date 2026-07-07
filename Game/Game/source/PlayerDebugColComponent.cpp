@@ -1,6 +1,7 @@
 #include "PlayerDebugColComponent.h"
 #include "DebugManager.h"
 #include "CollisionShapeBuilder.h"
+#include "VectorConverter/VectorConverter.h"
 
 void PlayerDebugColComponent::Update(Character& owner)
 {
@@ -26,12 +27,12 @@ void PlayerDebugColComponent::DrawPlayerCollision(const Character& owner)
 			// 3Dカプセルを描画
 			DrawCapsule3D
 			(
-				charColData.top,		// カプセルの上端の座標
-				charColData.bottom,		// カプセルの下端の座標
-				charColData.radius,		// カプセルの半径
-				16,						// カプセルの分割数
-				GetColor(0, 255, 0),	// カプセルの色
-				GetColor(0, 0, 255),	// カプセルの線の色
+				Vec::ToDxVec(charColData.top),		// カプセルの上端の座標
+				Vec::ToDxVec(charColData.bottom),	// カプセルの下端の座標
+				charColData.radius,					// カプセルの半径
+				16,									// カプセルの分割数
+				GetColor(0, 255, 0),				// カプセルの色
+				GetColor(0, 0, 255),				// カプセルの線の色
 				TRUE
 			);
 		});
@@ -53,12 +54,12 @@ void PlayerDebugColComponent::DrawPlayerAttackCollision(Character& owner)
 			// 3Dカプセルを描画
 			DrawCapsule3D
 			(
-				capsule.value().top,	// カプセルの上端の座標
-				capsule.value().bottom,	// カプセルの下端の座標
-				capsule.value().radius,	// カプセルの半径
-				16,						// カプセルの分割数
-				GetColor(255, 0, 0),	// カプセルの色
-				GetColor(255, 0, 0),	// カプセルの線の色
+				Vec::ToDxVec(capsule.value().top),		// カプセルの上端の座標
+				Vec::ToDxVec(capsule.value().bottom),	// カプセルの下端の座標
+				capsule.value().radius,					// カプセルの半径
+				16,										// カプセルの分割数
+				GetColor(255, 0, 0),					// カプセルの色
+				GetColor(255, 0, 0),					// カプセルの線の色
 				TRUE
 			);
 		});

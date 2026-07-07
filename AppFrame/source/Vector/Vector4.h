@@ -114,42 +114,35 @@ namespace Vec4
 		//===========================================================================
 
 		/// @brief ベクトルを加算する関数
-		///
-		/// @param v1 加算するベクトル1
-		/// @param v2 加算するベクトル2
+		/// 
+		/// @param otherV 加算するベクトル
 		/// 
 		/// @return 加算結果のベクトル
-		Vector4 Add(const Vector4& v1, const Vector4& v2);
+		Vector4 Add(const Vector4& otherV);
 
 		/// @brief ベクトルを減算する関数
 		///
-		/// @param v1 減算するベクトル1
-		/// @param v2 減算するベクトル2
+		/// @param otherV 減算するベクトル
 		/// 
 		/// @return 減算結果のベクトル
-		Vector4 Sub(const Vector4& v1, const Vector4& v2);
-
-		/// @brief 正規化されたベクトルを返す関数
-		///
-		/// @param v 正規化するベクトル
-		/// 
-		/// @return 正規化されたベクトル
-		Vector4 Norm(const Vector4& v);
+		Vector4 Sub(const Vector4& otherV);
 
 		/// @brief ベクトルの長さを計算する関数
-		/// 
-		/// @param v 長さを計算するベクトル
 		///
 		/// @return ベクトルの長さ
-		float Length(const Vector4& v);
+		float Length() const;
+
+		/// @brief 正規化されたベクトルを返す関数
+		/// 
+		/// @return 正規化されたベクトル
+		Vector4 Normalize() const;
 
 		/// @brief 2つのベクトルの内積を計算する関数
-		///
-		/// @param v1 内積を計算するベクトル1
-		/// @param v2 内積を計算するベクトル2
+		/// 
+		/// @param v 内積を計算するベクトル
 		/// 
 		/// @return 内積の値
-		float Dot(const Vector4& v1, const Vector4& v2);
+		float Dot(const Vector4& otherV) const;
 
 	private:
 

@@ -46,8 +46,10 @@ void Enemy::Update()
 {
 
 
-	m_charColData.top = VAdd(GetObjectData().pos, VGet(0.0f, 80.0f, 0.0f));
+
+	m_charColData.top = GetObjectData().pos + Vec3::Vector3(0.0f, 80.0f, 0.0f);
 	m_charColData.bottom = GetObjectData().pos;
+
 
 
 

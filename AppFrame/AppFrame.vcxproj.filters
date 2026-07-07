@@ -189,7 +189,7 @@
     <ClInclude Include="source\Vector\Vector4.h">
       <Filter>Vector</Filter>
     </ClInclude>
-    <ClInclude Include="source\VTransformUtility\VectorConverter.h">
+    <ClInclude Include="source\VectorConverter\VectorConverter.h">
       <Filter>VectorConverter</Filter>
     </ClInclude>
   </ItemGroup>

@@ -26,6 +26,6 @@ public:
 	/// @brief 移動ベクトルを取得する関数
 	///
 	/// @return 移動ベクトル
-	virtual VECTOR GetMoveVector() const override { return m_moveVector; }
+	virtual Vec3::Vector3 GetMoveVector() const override { return m_moveVector; }
 };
 

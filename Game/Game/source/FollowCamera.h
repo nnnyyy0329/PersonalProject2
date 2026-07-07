@@ -38,6 +38,6 @@ private:
 	const ObjectData& m_targetObject;
 
 	/// 追従するオブジェクトからのオフセット
-	VECTOR m_offset = {};
+	Vec3::Vector3 m_offset = {};
 };
 

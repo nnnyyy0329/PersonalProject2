@@ -1,4 +1,5 @@
 #include "CameraShake.h"
+#include "DxLib.h"
 
 namespace
 {
@@ -18,7 +19,7 @@ void CameraShake::Update()
 	if(m_shakeTimer <= 0.0f)
 	{
 		// 振動オフセットをリセット
-		m_shakeOffset = VGet(0.0f, 0.0f, 0.0f);
+		m_shakeOffset = Vec3::Vector3(0.0f, 0.0f, 0.0f);
 
 		return;
 	}
@@ -30,7 +31,7 @@ void CameraShake::Update()
 	if(m_shakeTimer <= 0.0f)
 	{
 		// 振動オフセットをリセット
-		m_shakeOffset = VGet(0.0f, 0.0f, 0.0f);
+		m_shakeOffset = {0.0f, 0.0f, 0.0f};
 
 		return;
 	}
@@ -47,7 +48,7 @@ void CameraShake::Update()
 	float randZ = ((GetRand(MAX_RAND) - HALF_MAX_RAND) / RANDOM_SCALE) * currentMagnitude;
 
 	// 振動オフセットを更新
-	m_shakeOffset = VGet(randX, randY, randZ);
+	m_shakeOffset = Vec3::Vector3(randX, randY, randZ);
 }
 
 void CameraShake::PlayShake(float duration, float magnitude)
@@ -55,5 +56,5 @@ void CameraShake::PlayShake(float duration, float magnitude)
 	m_shakeTimer	= duration;
 	m_duration		= duration;
 	m_magnitude		= magnitude;
-	m_shakeOffset	= { 0.0f, 0.0f, 0.0f };
+	m_shakeOffset	= Vec3::Vector3(0.0f, 0.0f, 0.0f);
 }

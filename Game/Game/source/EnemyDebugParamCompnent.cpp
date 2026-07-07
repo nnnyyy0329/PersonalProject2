@@ -34,7 +34,7 @@ void EnemyDebugParamComponent::PositionDebugParam(Character& owner)
 	auto& debugParam = DebugManager::GetInstance().GetDebugParameter();
 
 	// ラムダ式を使用して、位置のデバッグパラメーターを追加
-	debugParam.AddParamItem("EnemyPositionX", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.x); });
-	debugParam.AddParamItem("EnemyPositionY", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.y); });
-	debugParam.AddParamItem("EnemyPositionZ", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.z); });
+	debugParam.AddParamItem("EnemyPositionX", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.GetX()); });
+	debugParam.AddParamItem("EnemyPositionY", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.GetY()); });
+	debugParam.AddParamItem("EnemyPositionZ", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.GetZ()); });
 }

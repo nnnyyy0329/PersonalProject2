@@ -22,13 +22,13 @@ void ActionDamage::UpdateKnockback(Character& character)
 	ObjectData data = character.GetObjectData();
 
 	// ノックバック方向にキャラクターを移動させる
-	data.pos = VAdd(data.pos, m_knockBackVelocity);
+	data.pos = data.pos + m_knockBackVelocity;
 
 	// 更新されたオブジェクトデータをキャラクターに設定する
 	character.SetObjectData(data);
 
 	// 減衰させる
-	m_knockBackVelocity = VScale(m_knockBackVelocity, KNOCKBACK_DECAY_RATE);
+	m_knockBackVelocity = m_knockBackVelocity * KNOCKBACK_DECAY_RATE;
 }
 
 void ActionDamage::UpdateTimer(Character& character)

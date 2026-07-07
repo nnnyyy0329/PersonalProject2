@@ -39,9 +39,9 @@ void PlayerDebugParamComponent::PositionDebugParam(Character& owner)
 	if(!&debugParam) { return; }
 
 	// 位置のデバッグパラメーターを追加
-	debugParam.AddParamItem("PlayerPosX", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.x); });
-	debugParam.AddParamItem("PlayerPosY", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.y); });
-	debugParam.AddParamItem("PlayerPosZ", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.z); });
+	debugParam.AddParamItem("PlayerPosX", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.GetX()); });
+	debugParam.AddParamItem("PlayerPosY", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.GetY()); });
+	debugParam.AddParamItem("PlayerPosZ", [this, &owner]() { return std::to_string(owner.GetObjectData().pos.GetZ()); });
 }
 
 void PlayerDebugParamComponent::RotationDebugParam(Character& owner)
@@ -51,7 +51,7 @@ void PlayerDebugParamComponent::RotationDebugParam(Character& owner)
 	if(!&debugParam) { return; }
 
 	// 回転のデバッグパラメーターを追加
-	debugParam.AddParamItem("PlayerRotX", [this, &owner]() { return std::to_string(owner.GetObjectData().rot.x); });
-	debugParam.AddParamItem("PlayerRotY", [this, &owner]() { return std::to_string(owner.GetObjectData().rot.y); });
-	debugParam.AddParamItem("PlayerRotZ", [this, &owner]() { return std::to_string(owner.GetObjectData().rot.z); });
+	debugParam.AddParamItem("PlayerRotX", [this, &owner]() { return std::to_string(owner.GetObjectData().rot.GetX()); });
+	debugParam.AddParamItem("PlayerRotY", [this, &owner]() { return std::to_string(owner.GetObjectData().rot.GetY()); });
+	debugParam.AddParamItem("PlayerRotZ", [this, &owner]() { return std::to_string(owner.GetObjectData().rot.GetZ()); });
 }

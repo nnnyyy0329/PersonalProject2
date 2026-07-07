@@ -2,6 +2,7 @@
 #include "PlayerAnimationComponent.h"
 #include "DxLibAnimationComponent.h"
 #include "MoveComponent.h"
+#include "Vector/Vector3.h"
 
 
 
@@ -83,16 +84,16 @@ void PlayerAnimationComponent::ChangeAnimByMovement()
 
 
 	// 移動ベクトルを取得
-	VECTOR moveVector = m_moveComponent->GetMoveVector();
+	Vec3::Vector3 moveVector = m_moveComponent->GetMoveVector();
 
 	// 移動ベクトルが走りの閾値より大きい場合
-	if(VSize(moveVector) > RUN_THRESHOLD)
+	if(moveVector.Length() > RUN_THRESHOLD)
 	{
 		// 走り
 		m_animationComponent->PlayAnimation("player_jog_01", {});
 	}
 	// 移動ベクトルが0より大きい場合
-	else if(VSize(moveVector) > 0.0f)
+	else if(moveVector.Length() > 0.0f)
 	{
 		// 歩き
 		m_animationComponent->PlayAnimation("player_walk_01", {});

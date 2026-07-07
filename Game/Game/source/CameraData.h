@@ -1,17 +1,17 @@
 #pragma once
-#include "DxLib.h"
+#include "Vector/Vector3.h"
 
 /// @brief カメラデータ構造体
 struct CameraData
 {
 	/// カメラの位置
-	VECTOR pos;
+	Vec3::Vector3 pos;
 
 	/// カメラの注視点
-	VECTOR target;
+	Vec3::Vector3 target;
 
 	/// カメラのアップベクトル
-	VECTOR upVec;
+	Vec3::Vector3 upVec;
 
 	CameraData()
 	{

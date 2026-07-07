@@ -2,6 +2,10 @@
 #include "Character.h"
 #include "MoveComponent.h"
 #include "RotationComponent.h"
+#include "Vector/Vector3.h"
+
+#define	PI	(3.1415926535897932386f)
+#define TWO_PI (PI * 2.0f)
 
 namespace
 {
@@ -9,7 +13,7 @@ namespace
 	constexpr float ROTATION_SPEED = 0.15f;
 
 	// 反対方向に回転するための角度
-	constexpr float OPPOSITE_ANGLE = DX_PI_F * 2.0f;
+	constexpr float OPPOSITE_ANGLE = PI * 2.0f;
 }
 
 void ActionMove::Update(Character& character)
@@ -28,16 +32,16 @@ void ActionMove::Move(Character& character)
 	if(moveComponent)
 	{
 		// コンポーネントから移動ベクトルを取得
-		VECTOR moveVector = moveComponent->GetMoveVector();
+		Vec3::Vector3 moveVector = moveComponent->GetMoveVector();
 
 		// 移動ベクトルの大きさが0より大きい場合
-		if(VSize(moveVector) > 0.0f)
+		if(moveVector.Length() > 0.0f)
 		{
 			// キャラクターのオブジェクトデータを取得
 			ObjectData data = character.GetObjectData();
 
 			// 移動ベクトルをキャラクターの位置に加算
-			data.pos = VAdd(data.pos, moveVector);
+			data.pos = data.pos + moveVector;
 
 			// 更新されたオブジェクトデータをキャラクターに設定
 			character.SetObjectData(data);
@@ -52,18 +56,18 @@ void ActionMove::Rotate(Character& character)
 	if(rotationComponent)
 	{
 		// コンポーネントから回転ベクトルを取得
-		VECTOR rotVector = rotationComponent->GetRotVector();
-		if(VSize(rotVector) <= 0.0f) { return; }
+		Vec3::Vector3 rotVector = rotationComponent->GetRotVector();
+		if(rotVector.Length() <= 0.0f) { return; }
 
 		// 回転ベクトルから角度を計算
-		float targetAngle = atan2f(rotVector.x, rotVector.z);
+		float targetAngle = atan2f(rotVector.GetX(), rotVector.GetZ());
 
 		// モデルの正面がZ軸のマイナス方向の場合180度加算する
-		targetAngle += DX_PI_F;
+		targetAngle += PI;
 
 		// キャラクターの現在の回転角度を取得
 		ObjectData data = character.GetObjectData();
-		float currentAngle = data.rot.y;
+		float currentAngle = data.rot.GetY();
 
 
 
@@ -75,20 +79,20 @@ void ActionMove::Rotate(Character& character)
 		float diff = targetAngle - currentAngle;
 
 		// 角度の差が180度を超える場合は、反対方向に回転する
-		while(diff > DX_PI_F)  { diff -= OPPOSITE_ANGLE; }
-		while(diff < -DX_PI_F) { diff += OPPOSITE_ANGLE; }
+		while(diff > PI)  { diff -= OPPOSITE_ANGLE; }
+		while(diff < -PI) { diff += OPPOSITE_ANGLE; }
 
 		// 回転速度を掛けて、現在の角度を更新
 		currentAngle += diff * ROTATION_SPEED;
 
 
 
-		while(currentAngle >= DX_TWO_PI_F){ currentAngle -= DX_TWO_PI_F; }
-		while(currentAngle < 0.0f){ currentAngle += DX_TWO_PI_F; }
+		while(currentAngle >= TWO_PI){ currentAngle -= TWO_PI; }
+		while(currentAngle < 0.0f){ currentAngle += TWO_PI; }
 
 
 
-		data.rot.y = currentAngle;
+		data.rot.SetY(currentAngle);
 
 		// 更新されたオブジェクトデータをキャラクターに設定
 		character.SetObjectData(data);

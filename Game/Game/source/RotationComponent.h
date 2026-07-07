@@ -1,6 +1,6 @@
 #pragma once
 #include "IComponent.h"
-#include "DxLib.h"
+#include "Vector/Vector3.h"
 
 /// @brief キャラクターの回転を管理するコンポーネントクラス
 ///
@@ -16,7 +16,7 @@ public:
 	// 内部関数
 	//=======================================================================
 
-	virtual VECTOR GetRotVector() const = 0;
+	virtual Vec3::Vector3 GetRotVector() const = 0;
 
 protected:
 
@@ -25,6 +25,6 @@ protected:
 	//=======================================================================
 
 	/// 回転ベクトル
-	VECTOR m_rotVector = { 0, 0, 0 };
+	Vec3::Vector3 m_rotVector = { 0.0f, 0.0f, 0.0f };
 
 };

@@ -51,7 +51,7 @@ public:
 	/// @brief ヒット方向を設定する関数
 	///
 	/// @param direction ヒット方向
-	void SetHitDirection(const VECTOR& direction)
+	void SetHitDirection(const Vec3::Vector3& direction)
 	{
 		m_damageInfo.hitDirection = direction; 
 	}

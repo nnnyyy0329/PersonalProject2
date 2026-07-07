@@ -39,11 +39,12 @@ void CollisionManager::Update(const std::vector<Character*>& characters)
 				damageComp->SetDamageInfo(damageInfo);
 
 				// ヒット方向を計算し、ダメージコンポーネントに設定する
-				VECTOR dir = VNorm(VSub(defender->GetObjectData().pos, attacker->GetObjectData().pos));
-				damageComp->SetHitDirection(dir);
+				Vec3::Vector3 dir = defender->GetObjectData().pos - attacker->GetObjectData().pos;
+				damageComp->SetHitDirection(dir.Normalize());
 
 				// ダメージを適用する
 				healthComp->ApplyDamage(0.5f);
+
 
 
 

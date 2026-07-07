@@ -76,6 +76,13 @@ namespace Vec3
 		return *this;
 	}
 
+	void Vector3::Set(float x, float y, float z)
+	{
+		m_x = x;
+		m_y = y;
+		m_z = z;
+	}
+
 	void Vector3::Set(const Vector3& v)
 	{
 		m_x = v.GetX();
@@ -83,34 +90,29 @@ namespace Vec3
 		m_z = v.GetZ();
 	}
 
-	Vector3 Vector3::Add(const Vector3& v1, const Vector3& v2)
+	Vector3 Vector3::Add(const Vector3& otherV)
 	{
-		return Vector3(v1.GetX() + v2.GetX(), v1.GetY() + v2.GetY(), v1.GetZ() + v2.GetZ());
+		return Vector3(m_x + otherV.GetX(), m_y + otherV.GetY(), m_z + otherV.GetZ());
 	}
 
-	Vector3 Vector3::Sub(const Vector3& v1, const Vector3& v2)
+	Vector3 Vector3::Sub(const Vector3& otherV)
 	{
-		return Vector3(v1.GetX() - v2.GetX(), v1.GetY() - v2.GetY(), v1.GetZ() - v2.GetZ());
+		return Vector3(m_x - otherV.GetX(), m_y - otherV.GetY(), m_z - otherV.GetZ());
 	}
 
-	float Vector3::Length(const Vector3& v)
+	float Vector3::Length() const
 	{
-		return std::sqrt
-		(
-			v.GetX() * v.GetX() +
-			v.GetY() * v.GetY() +
-			v.GetZ() * v.GetZ()
-		);
+		return std::sqrt(m_x * m_x + m_y * m_y + m_z * m_z);
 	}
 
-	Vector3 Vector3::Norm(const Vector3& v)
+	Vector3 Vector3::Normalize() const
 	{
-		float len = Length(v);
+		float len = Length();
 		if(len > 0.0f)
 		{
-			float nx = v.GetX() / len;
-			float ny = v.GetY() / len;
-			float nz = v.GetZ() / len;
+			float nx = m_x / len;
+			float ny = m_y / len;
+			float nz = m_z / len;
 
 			return Vector3(nx, ny, nz);
 		}
@@ -118,9 +120,9 @@ namespace Vec3
 		return Vector3(m_x, m_y, m_z);
 	}
 
-	float Vector3::Dot(const Vector3& v1, const Vector3& v2)
+	float Vector3::Dot(const Vector3& otherV) const
 	{
-		return v1.GetX() * v2.GetX() + v1.GetY() * v2.GetY() + v1.GetZ() * v2.GetZ();
+		return m_x * otherV.GetX() + m_y * otherV.GetY() + m_z * otherV.GetZ();
 	}
 
 }

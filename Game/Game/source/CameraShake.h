@@ -1,5 +1,5 @@
 #pragma once
-#include "DxLib.h"
+#include "Vector/Vector3.h"
 
 /// @brief カメラ振動クラス
 class CameraShake
@@ -38,7 +38,7 @@ public:
 	/// @brief 振動のオフセットを取得する関数
 	///
 	/// @return 振動のオフセット
-	VECTOR GetShakeOffset() const { return m_shakeOffset; }
+	Vec3::Vector3 GetShakeOffset() const { return m_shakeOffset; }
 
 protected:
 
@@ -62,7 +62,7 @@ protected:
 	float m_magnitude		= 0.0f;
 
 	/// 振動のオフセット
-	VECTOR m_shakeOffset	= { 0.0f, 0.0f, 0.0f };
+	Vec3::Vector3 m_shakeOffset	= { 0.0f, 0.0f, 0.0f };
 
 };
 
