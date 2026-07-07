@@ -46,6 +46,9 @@
     <Filter Include="Collision">
       <UniqueIdentifier>{100b0a02-07be-4ae3-8cac-3669cc922c78}</UniqueIdentifier>
     </Filter>
+    <Filter Include="VectorConverter">
+      <UniqueIdentifier>{bfff30ec-7f61-4e39-80ad-f8695d6ca0a7}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\CFile\CFile.cpp">
@@ -72,7 +75,7 @@
     <ClCompile Include="source\Server\ResourceServer.cpp">
       <Filter>Server\Resource</Filter>
     </ClCompile>
-    <ClCompile Include="source\Vector\Vecto3D.cpp">
+    <ClCompile Include="source\Vector\Vector3.cpp">
       <Filter>Vector</Filter>
     </ClCompile>
     <ClCompile Include="source\Server\SoundServer.cpp">
@@ -141,7 +144,7 @@
     <ClInclude Include="source\Server\ResourceServer.h">
       <Filter>Server\Resource</Filter>
     </ClInclude>
-    <ClInclude Include="source\Vector\Vecto3D.h">
+    <ClInclude Include="source\Vector\Vector3.h">
       <Filter>Vector</Filter>
     </ClInclude>
     <ClInclude Include="source\Server\SoundServer.h">
@@ -185,6 +188,9 @@
     </ClInclude>
     <ClInclude Include="source\Vector\Vector4.h">
       <Filter>Vector</Filter>
+    </ClInclude>
+    <ClInclude Include="source\VTransformUtility\VectorConverter.h">
+      <Filter>VectorConverter</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

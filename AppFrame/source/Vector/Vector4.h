@@ -1,6 +1,6 @@
 #pragma once
 
-namespace Vector
+namespace Vec4
 {
 	/// @brief 4次元ベクトルクラス
 	class Vector4
@@ -93,20 +93,20 @@ namespace Vector
 		// ゲッター
 		//===========================================================================
 
-		float GetX() const { return _x; }
-		float GetY() const { return _y; }
-		float GetZ() const { return _z; }
-		float GetW() const { return _w; }
-		Vector4 Get() const { return Vector4(_x, _y, _z, _w); }
+		float GetX() const { return m_x; }
+		float GetY() const { return m_y; }
+		float GetZ() const { return m_z; }
+		float GetW() const { return m_w; }
+		Vector4 Get() const { return Vector4(m_x, m_y, m_z, m_w); }
 
 		//===========================================================================
 		// セッター
 		//===========================================================================
 
-		void SetX(float x) { _x = x; }
-		void SetY(float y) { _y = y; }
-		void SetZ(float z) { _z = z; }
-		void SetW(float w) { _w = w; }
+		void SetX(float x) { m_x = x; }
+		void SetY(float y) { m_y = y; }
+		void SetZ(float z) { m_z = z; }
+		void SetW(float w) { m_w = w; }
 		void Set(const Vector4& v);
 
 		//===========================================================================
@@ -115,41 +115,48 @@ namespace Vector
 
 		/// @brief ベクトルを加算する関数
 		///
-		/// @param v 加算するベクトル
+		/// @param v1 加算するベクトル1
+		/// @param v2 加算するベクトル2
 		/// 
 		/// @return 加算結果のベクトル
-		Vector4 Add(const Vector4& v);
+		Vector4 Add(const Vector4& v1, const Vector4& v2);
 
 		/// @brief ベクトルを減算する関数
 		///
-		/// @param v 減算するベクトル
+		/// @param v1 減算するベクトル1
+		/// @param v2 減算するベクトル2
 		/// 
 		/// @return 減算結果のベクトル
-		Vector4 Sub(const Vector4& v);
-
-		/// @brief ベクトルの長さを計算する関数
-		///
-		/// @return ベクトルの長さ
-		float Length() const;
+		Vector4 Sub(const Vector4& v1, const Vector4& v2);
 
 		/// @brief 正規化されたベクトルを返す関数
 		///
+		/// @param v 正規化するベクトル
+		/// 
 		/// @return 正規化されたベクトル
-		Vector4 Normalized() const;
+		Vector4 Norm(const Vector4& v);
+
+		/// @brief ベクトルの長さを計算する関数
+		/// 
+		/// @param v 長さを計算するベクトル
+		///
+		/// @return ベクトルの長さ
+		float Length(const Vector4& v);
 
 		/// @brief 2つのベクトルの内積を計算する関数
 		///
-		/// @param v 内積を計算するベクトル
+		/// @param v1 内積を計算するベクトル1
+		/// @param v2 内積を計算するベクトル2
 		/// 
 		/// @return 内積の値
-		float Dot(const Vector4& v) const;
+		float Dot(const Vector4& v1, const Vector4& v2);
 
 	private:
 
-		float _x = 0.0f;
-		float _y = 0.0f;
-		float _z = 0.0f;
-		float _w = 0.0f;
+		float m_x = 0.0f;
+		float m_y = 0.0f;
+		float m_z = 0.0f;
+		float m_w = 0.0f;
 
 	};
 }
