@@ -24,5 +24,4 @@ namespace Vec
 	{
 		return Vec3::Vector3(v.x, v.y, v.z);
 	}
-
 }

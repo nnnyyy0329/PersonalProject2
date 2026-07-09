@@ -1,5 +1,6 @@
 #pragma once
 #include "IStrategy.h"
+#include "Vector/Vector3.h"
 
 template<typename TOwner>
 class MoveStrategy : public IStrategy<TOwner>
@@ -11,7 +12,5 @@ public:
 	//===========================================================================
 	// 内部関数
 	//===========================================================================
-
-	virtual VECTOR CalculateMove(TOwner& owner, const VECTOR& input) = 0;
 
 };
