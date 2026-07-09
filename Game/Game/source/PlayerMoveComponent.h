@@ -8,7 +8,7 @@ class PlayerMoveComponent : public MoveComponent<Character>
 {
 public:
 
-	virtual ~PlayerMoveComponent() = default;
+	~PlayerMoveComponent() = default;
 
 	//===========================================================================
 	// 基本関数

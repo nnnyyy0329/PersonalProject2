@@ -12,7 +12,8 @@ bool EnemyAnimationComponent::Initialize(Character& owner)
 	// 敵のアニメーションを登録
 	RegisterEnemyAnimations(owner);
 
-	m_animationComponent->PlayAnimation("enemy_idle_01", {});
+	// 初期アニメーション（アイドルアニメーション）を再生
+	PlayAnimIdle();
 
 	return true;
 }
@@ -42,4 +43,10 @@ void EnemyAnimationComponent::AnimationChangeByDamage(Character& owner)
 		// ダメージアクション中はダメージアニメーションを再生
 		m_animationComponent->PlayAnimation("enemy_damage_00", {});
 	}
+}
+
+void EnemyAnimationComponent::PlayAnimIdle()
+{
+	// アイドルアニメーションを再生
+	m_animationComponent->PlayAnimation("enemy_idle_01", {});
 }

@@ -13,9 +13,6 @@
     <ClCompile Include="source\ApplicationMain.cpp">
       <Filter>Application</Filter>
     </ClCompile>
-    <ClCompile Include="source\Character.cpp">
-      <Filter>Object\Character</Filter>
-    </ClCompile>
     <ClCompile Include="source\Map.cpp">
       <Filter>Map</Filter>
     </ClCompile>
@@ -29,7 +26,7 @@
       <Filter>Light</Filter>
     </ClCompile>
     <ClCompile Include="source\Player.cpp">
-      <Filter>Object\Character\Player</Filter>
+      <Filter>Character\Player</Filter>
     </ClCompile>
     <ClCompile Include="source\ObjectLogic.cpp">
       <Filter>ObjectBase</Filter>
@@ -50,13 +47,13 @@
       <Filter>Debug</Filter>
     </ClCompile>
     <ClCompile Include="source\CameraBase.cpp">
-      <Filter>Object\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClCompile>
     <ClCompile Include="source\FollowCamera.cpp">
-      <Filter>Object\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClCompile>
     <ClCompile Include="source\CameraManager.cpp">
-      <Filter>Object\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClCompile>
     <ClCompile Include="source\ObjectManager.cpp">
       <Filter>ObjectBase</Filter>
@@ -68,7 +65,7 @@
       <Filter>input</Filter>
     </ClCompile>
     <ClCompile Include="source\Enemy.cpp">
-      <Filter>Object\Character\Enemy</Filter>
+      <Filter>Character\Enemy</Filter>
     </ClCompile>
     <ClCompile Include="source\ActionMove.cpp">
       <Filter>Action</Filter>
@@ -77,25 +74,25 @@
       <Filter>Action</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerMoveComponent.cpp">
-      <Filter>Object\Character\Player\Action</Filter>
+      <Filter>Character\Player\Action</Filter>
     </ClCompile>
     <ClCompile Include="source\EnemyAnimationComponent.cpp">
-      <Filter>Object\Character\Enemy\Function</Filter>
+      <Filter>Character\Enemy\Function</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerRotComponent.cpp">
-      <Filter>Object\Character\Player\Action</Filter>
+      <Filter>Character\Player\Action</Filter>
     </ClCompile>
     <ClCompile Include="source\ActionAttack.cpp">
       <Filter>Action</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerInputComponent.cpp">
-      <Filter>Object\Character\Player\Action</Filter>
+      <Filter>Character\Player\Action</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerAttackComponent.cpp">
-      <Filter>Object\Character\Player\Action</Filter>
+      <Filter>Character\Player\Action</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerAnimationComponent.cpp">
-      <Filter>Object\Character\Player\Function\Animation</Filter>
+      <Filter>Character\Player\Function\Animation</Filter>
     </ClCompile>
     <ClCompile Include="source\ActionDamage.cpp">
       <Filter>Action</Filter>
@@ -104,31 +101,43 @@
       <Filter>Collision</Filter>
     </ClCompile>
     <ClCompile Include="source\EnemyDamageComponent.cpp">
-      <Filter>Object\Character\Enemy\Action</Filter>
+      <Filter>Character\Enemy\Action</Filter>
     </ClCompile>
     <ClCompile Include="source\DebugCollision.cpp">
       <Filter>Debug</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerDebugParamComponent.cpp">
-      <Filter>Object\Character\Player\Debug</Filter>
+      <Filter>Character\Player\Debug</Filter>
     </ClCompile>
     <ClCompile Include="source\EnemyDebugParamCompnent.cpp">
-      <Filter>Object\Character\Enemy\Debug</Filter>
+      <Filter>Character\Enemy\Debug</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerDebugColComponent.cpp">
-      <Filter>Object\Character\Player\Debug</Filter>
+      <Filter>Character\Player\Debug</Filter>
     </ClCompile>
     <ClCompile Include="source\EnemyDebugColComponent.cpp">
-      <Filter>Object\Character\Enemy\Debug</Filter>
+      <Filter>Character\Enemy\Debug</Filter>
     </ClCompile>
     <ClCompile Include="source\CameraShake.cpp">
-      <Filter>Object\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerMoveCommand.cpp">
-      <Filter>Object\Character\Player\Command</Filter>
+      <Filter>Character\Player\Command</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerAttackCommand.cpp">
-      <Filter>Object\Character\Player\Command</Filter>
+      <Filter>Character\Player\Command</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Character.cpp">
+      <Filter>Character</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EnemyBehaviorTree.cpp">
+      <Filter>Character\Enemy\BehaviorTree</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EnemyIdleState.cpp">
+      <Filter>Character\Enemy\State</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EnemyMoveComponent.cpp">
+      <Filter>Character\Enemy\Action</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -144,9 +153,6 @@
     <ClInclude Include="source\ApplicationMain.h">
       <Filter>Application</Filter>
     </ClInclude>
-    <ClInclude Include="source\Character.h">
-      <Filter>Object\Character</Filter>
-    </ClInclude>
     <ClInclude Include="source\Map.h">
       <Filter>Map</Filter>
     </ClInclude>
@@ -160,7 +166,7 @@
       <Filter>Light</Filter>
     </ClInclude>
     <ClInclude Include="source\Player.h">
-      <Filter>Object\Character\Player</Filter>
+      <Filter>Character\Player</Filter>
     </ClInclude>
     <ClInclude Include="source\ObjectData.h">
       <Filter>ObjectBase</Filter>
@@ -184,16 +190,16 @@
       <Filter>Debug</Filter>
     </ClInclude>
     <ClInclude Include="source\CameraBase.h">
-      <Filter>Object\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClInclude>
     <ClInclude Include="source\FollowCamera.h">
-      <Filter>Object\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClInclude>
     <ClInclude Include="source\CameraManager.h">
-      <Filter>Object\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClInclude>
     <ClInclude Include="source\CameraData.h">
-      <Filter>Object\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClInclude>
     <ClInclude Include="source\ObjectManager.h">
       <Filter>ObjectBase</Filter>
@@ -214,7 +220,7 @@
       <Filter>Component</Filter>
     </ClInclude>
     <ClInclude Include="source\Enemy.h">
-      <Filter>Object\Character\Enemy</Filter>
+      <Filter>Character\Enemy</Filter>
     </ClInclude>
     <ClInclude Include="source\DxLibAnimationComponent.h">
       <Filter>Component\Animation</Filter>
@@ -235,13 +241,13 @@
       <Filter>Component\Rotation</Filter>
     </ClInclude>
     <ClInclude Include="source\PlayerMoveComponent.h">
-      <Filter>Object\Character\Player\Action</Filter>
+      <Filter>Character\Player\Action</Filter>
     </ClInclude>
     <ClInclude Include="source\EnemyAnimationComponent.h">
-      <Filter>Object\Character\Enemy\Function</Filter>
+      <Filter>Character\Enemy\Function</Filter>
     </ClInclude>
     <ClInclude Include="source\PlayerRotComponent.h">
-      <Filter>Object\Character\Player\Action</Filter>
+      <Filter>Character\Player\Action</Filter>
     </ClInclude>
     <ClInclude Include="source\AttackData.h">
       <Filter>Data\Attack</Filter>
@@ -250,19 +256,16 @@
       <Filter>Action</Filter>
     </ClInclude>
     <ClInclude Include="source\PlayerInputComponent.h">
-      <Filter>Object\Character\Player\Action</Filter>
+      <Filter>Character\Player\Action</Filter>
     </ClInclude>
     <ClInclude Include="source\PlayerAttackComponent.h">
-      <Filter>Object\Character\Player\Action</Filter>
+      <Filter>Character\Player\Action</Filter>
     </ClInclude>
     <ClInclude Include="source\CollisionComponent.h">
       <Filter>Component\Collision</Filter>
     </ClInclude>
-    <ClInclude Include="source\CharacterData.h">
-      <Filter>Object\Character</Filter>
-    </ClInclude>
     <ClInclude Include="source\PlayerAnimationComponent.h">
-      <Filter>Object\Character\Player\Function\Animation</Filter>
+      <Filter>Character\Player\Function\Animation</Filter>
     </ClInclude>
     <ClInclude Include="source\ActionDamage.h">
       <Filter>Action</Filter>
@@ -283,19 +286,19 @@
       <Filter>Observer\Health</Filter>
     </ClInclude>
     <ClInclude Include="source\EnemyDamageComponent.h">
-      <Filter>Object\Character\Enemy\Action</Filter>
+      <Filter>Character\Enemy\Action</Filter>
     </ClInclude>
     <ClInclude Include="source\DebugCollision.h">
       <Filter>Debug</Filter>
     </ClInclude>
     <ClInclude Include="source\PlayerDebugParamComponent.h">
-      <Filter>Object\Character\Player\Debug</Filter>
+      <Filter>Character\Player\Debug</Filter>
     </ClInclude>
     <ClInclude Include="source\EnemyDebugParamCompnent.h">
-      <Filter>Object\Character\Enemy\Debug</Filter>
+      <Filter>Character\Enemy\Debug</Filter>
     </ClInclude>
     <ClInclude Include="source\PlayerDebugColComponent.h">
-      <Filter>Object\Character\Player\Debug</Filter>
+      <Filter>Character\Player\Debug</Filter>
     </ClInclude>
     <ClInclude Include="source\CollisionShapeBuilder.h">
       <Filter>Collision</Filter>
@@ -322,13 +325,13 @@
       <Filter>Data\Collision</Filter>
     </ClInclude>
     <ClInclude Include="source\EnemyDebugColComponent.h">
-      <Filter>Object\Character\Enemy\Debug</Filter>
+      <Filter>Character\Enemy\Debug</Filter>
     </ClInclude>
     <ClInclude Include="source\DamageComponent.h">
       <Filter>Component\Damage</Filter>
     </ClInclude>
     <ClInclude Include="source\CameraShake.h">
-      <Filter>Object\Camera</Filter>
+      <Filter>Camera</Filter>
     </ClInclude>
     <ClInclude Include="source\DeathComponent.h">
       <Filter>Component\Death</Filter>
@@ -343,10 +346,10 @@
       <Filter>State</Filter>
     </ClInclude>
     <ClInclude Include="source\PlayerMoveCommand.h">
-      <Filter>Object\Character\Player\Command</Filter>
+      <Filter>Character\Player\Command</Filter>
     </ClInclude>
     <ClInclude Include="source\PlayerAttackCommand.h">
-      <Filter>Object\Character\Player\Command</Filter>
+      <Filter>Character\Player\Command</Filter>
     </ClInclude>
     <ClInclude Include="source\IStrategy.h">
       <Filter>Strategy</Filter>
@@ -356,6 +359,21 @@
     </ClInclude>
     <ClInclude Include="source\LightData.h">
       <Filter>Light</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Character.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CharacterData.h">
+      <Filter>Character</Filter>
+    </ClInclude>
+    <ClInclude Include="source\EnemyBehaviorTree.h">
+      <Filter>Character\Enemy\BehaviorTree</Filter>
+    </ClInclude>
+    <ClInclude Include="source\EnemyIdleState.h">
+      <Filter>Character\Enemy\State</Filter>
+    </ClInclude>
+    <ClInclude Include="source\EnemyMoveComponent.h">
+      <Filter>Character\Enemy\Action</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -380,18 +398,6 @@
     <Filter Include="Light">
       <UniqueIdentifier>{c7768099-bd8a-46e3-ba10-78d7be80ca29}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object">
-      <UniqueIdentifier>{37d7d984-bd86-40db-940d-942d6b12d4d5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Camera">
-      <UniqueIdentifier>{7e601687-8263-4220-aa8c-162c99d96dbd}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Character">
-      <UniqueIdentifier>{5820b922-17bc-4a6c-9b30-9d9c5536ff90}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Character\Player">
-      <UniqueIdentifier>{a049f421-f065-41af-b566-a7728cb32dd4}</UniqueIdentifier>
-    </Filter>
     <Filter Include="ObjectBase">
       <UniqueIdentifier>{a678d3ba-d371-44f5-a5b7-9c1c624cc2bf}</UniqueIdentifier>
     </Filter>
@@ -400,9 +406,6 @@
     </Filter>
     <Filter Include="Component">
       <UniqueIdentifier>{acbfcb25-6735-4a27-912c-16eace56eb6d}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Character\Enemy">
-      <UniqueIdentifier>{31b74fa4-1afb-4fa1-831b-908ffff4e931}</UniqueIdentifier>
     </Filter>
     <Filter Include="Debug">
       <UniqueIdentifier>{78a0a7c6-33b5-4ede-a0ed-91b18160a93f}</UniqueIdentifier>
@@ -425,38 +428,17 @@
     <Filter Include="Component\Rotation">
       <UniqueIdentifier>{0998dc86-4c3b-42b7-9e18-f2e91502f713}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Character\Player\Action">
-      <UniqueIdentifier>{70666eff-4fb6-40c5-b0b9-11e1cb2b9969}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Character\Enemy\Action">
-      <UniqueIdentifier>{4e1d9d28-8080-42d8-8ea2-445bc056c881}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Character\Enemy\Function">
-      <UniqueIdentifier>{40d7ab18-1a41-48ba-b977-6dd9c43eff98}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Character\Player\Function">
-      <UniqueIdentifier>{4a0018f8-ad98-4439-9f34-22e539cf7715}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Component\Collision">
       <UniqueIdentifier>{e1a1d5b5-bc8f-4978-ad21-81e242c93ae5}</UniqueIdentifier>
     </Filter>
     <Filter Include="Collision">
       <UniqueIdentifier>{7ee94531-4c82-41d9-8339-338d11e00362}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Character\Player\Function\Animation">
-      <UniqueIdentifier>{016a0288-719c-4866-9773-38d4c43b4fdc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Observer">
       <UniqueIdentifier>{780a0f99-e3b5-4f2f-9faa-b7a642ad8b9c}</UniqueIdentifier>
     </Filter>
     <Filter Include="Observer\Health">
       <UniqueIdentifier>{be0812f4-6f06-4527-a77d-95f140e44c75}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Character\Player\Debug">
-      <UniqueIdentifier>{1b390ee8-0a9c-421b-9ce5-8e03f6f8be37}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Object\Character\Enemy\Debug">
-      <UniqueIdentifier>{3cbdf3a3-cf91-4aa2-9b77-72a3c1c2263b}</UniqueIdentifier>
     </Filter>
     <Filter Include="Data">
       <UniqueIdentifier>{011f4f67-3490-4b8f-aa25-0c56440c63ab}</UniqueIdentifier>
@@ -494,11 +476,53 @@
     <Filter Include="State">
       <UniqueIdentifier>{2f52403b-5a43-4a18-8261-53b8d8150c6e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Object\Character\Player\Command">
-      <UniqueIdentifier>{e7e05179-5a8c-4291-a063-106de2ff5166}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Strategy">
       <UniqueIdentifier>{2e117243-9db1-4943-9641-9a47a07e3497}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character">
+      <UniqueIdentifier>{f2abe9e7-5711-4873-a9cd-de62139037bc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy">
+      <UniqueIdentifier>{31b74fa4-1afb-4fa1-831b-908ffff4e931}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy\Action">
+      <UniqueIdentifier>{4e1d9d28-8080-42d8-8ea2-445bc056c881}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy\Function">
+      <UniqueIdentifier>{40d7ab18-1a41-48ba-b977-6dd9c43eff98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy\Debug">
+      <UniqueIdentifier>{3cbdf3a3-cf91-4aa2-9b77-72a3c1c2263b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player">
+      <UniqueIdentifier>{a049f421-f065-41af-b566-a7728cb32dd4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player\Action">
+      <UniqueIdentifier>{70666eff-4fb6-40c5-b0b9-11e1cb2b9969}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player\Function">
+      <UniqueIdentifier>{4a0018f8-ad98-4439-9f34-22e539cf7715}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player\Function\Animation">
+      <UniqueIdentifier>{016a0288-719c-4866-9773-38d4c43b4fdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player\Debug">
+      <UniqueIdentifier>{1b390ee8-0a9c-421b-9ce5-8e03f6f8be37}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player\Command">
+      <UniqueIdentifier>{e7e05179-5a8c-4291-a063-106de2ff5166}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Camera">
+      <UniqueIdentifier>{7e601687-8263-4220-aa8c-162c99d96dbd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player\State">
+      <UniqueIdentifier>{6ff6d785-de70-4e4e-86aa-8102dd55668a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy\State">
+      <UniqueIdentifier>{81852d88-62ae-486c-b90b-f0180996ddac}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy\BehaviorTree">
+      <UniqueIdentifier>{c4ad843b-9bb1-4db1-9541-d60d4fec0643}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

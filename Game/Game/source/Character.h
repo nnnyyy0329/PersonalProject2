@@ -3,6 +3,7 @@
 #include "CharacterData.h"
 #include "ICharacterAction.h"
 #include "IComponent.h"
+#include "StateMachine.h"
 #include <memory>
 #include <vector>
 

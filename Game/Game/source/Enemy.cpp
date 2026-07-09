@@ -8,6 +8,8 @@
 #include "EnemyDamageComponent.h"
 #include "EnemyDebugParamCompnent.h"
 #include "EnemyDebugColComponent.h"
+#include "EnemyMoveComponent.h"
+#include "EnemyIdleState.h"
 
 bool Enemy::Initialize()
 {
@@ -23,12 +25,17 @@ bool Enemy::Initialize()
 
 
 
+
 	m_charColData.radius = 30.0f;
+
 
 
 
 	// 基底クラスの初期化処理を呼び、全てのコンポーネントを初期化する
 	Character::Initialize();
+
+	// ステートの初期化
+	m_stateMachine.ChangeState(*this, std::make_unique<EnemyIdleState>());
 
 	// ハンドルが有効かどうか
 	return m_data.handle != -1;
@@ -52,6 +59,13 @@ void Enemy::Update()
 
 
 
+
+	// 次に行うステートに切り替える
+	auto nextState = m_behaviorTree.Think(*this);
+	if(nextState) { m_stateMachine.ChangeState(*this, std::move(nextState)); }
+
+	// 現在のステートを更新する
+	m_stateMachine.Update(*this);
 
 	// 基底クラスの更新処理を呼び出す
 	Character::Update();
@@ -79,6 +93,9 @@ void Enemy::SetUpComponents()
 
 	// デバッグコリジョンコンポーネントを追加
 	AddComponent(std::make_unique<EnemyDebugColComponent>());
+
+	// 敵の移動管理コンポーネントを追加
+	AddComponent(std::make_unique<EnemyMoveComponent>());
 }
 
 void Enemy::SetUpActions()

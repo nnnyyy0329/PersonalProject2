@@ -174,9 +174,12 @@
     <ClCompile Include="source\DebugParameter.cpp" />
     <ClCompile Include="source\Enemy.cpp" />
     <ClCompile Include="source\EnemyAnimationComponent.cpp" />
+    <ClCompile Include="source\EnemyBehaviorTree.cpp" />
     <ClCompile Include="source\EnemyDamageComponent.cpp" />
     <ClCompile Include="source\EnemyDebugColComponent.cpp" />
     <ClCompile Include="source\EnemyDebugParamCompnent.cpp" />
+    <ClCompile Include="source\EnemyIdleState.cpp" />
+    <ClCompile Include="source\EnemyMoveComponent.cpp" />
     <ClCompile Include="source\FollowCamera.cpp" />
     <ClCompile Include="source\InputManager.cpp" />
     <ClCompile Include="source\Pad.cpp" />
@@ -243,9 +246,12 @@
     <ClInclude Include="source\EffectData.h" />
     <ClInclude Include="source\Enemy.h" />
     <ClInclude Include="source\EnemyAnimationComponent.h" />
+    <ClInclude Include="source\EnemyBehaviorTree.h" />
     <ClInclude Include="source\EnemyDamageComponent.h" />
     <ClInclude Include="source\EnemyDebugColComponent.h" />
     <ClInclude Include="source\EnemyDebugParamCompnent.h" />
+    <ClInclude Include="source\EnemyIdleState.h" />
+    <ClInclude Include="source\EnemyMoveComponent.h" />
     <ClInclude Include="source\FollowCamera.h" />
     <ClInclude Include="source\HealthComponent.h" />
     <ClInclude Include="source\HealthObserver.h" />

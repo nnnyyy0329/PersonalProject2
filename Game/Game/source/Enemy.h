@@ -1,5 +1,6 @@
 #pragma once
 #include "Character.h"
+#include "EnemyBehaviorTree.h"
 
 /// @brief 敵クラス
 class Enemy : public Character
@@ -35,6 +36,15 @@ public:
 	/// @return デフォルトのアクションのポインタ
 	std::unique_ptr<ICharacterAction> CreateDefaultAction() override;
 
+	//===========================================================================
+	// ゲッター
+	//===========================================================================
+
+	/// @brief ステートマシンの取得関数
+	///
+	/// @return ステートマシンの参照
+	StateMachine<Enemy>& GetStateMachine() { return m_stateMachine; }
+
 private:
 
 	//===========================================================================
@@ -47,5 +57,14 @@ private:
 	/// @brief アクションの設定関数
 	void SetUpActions();
 
+	//===========================================================================
+	// メンバ変数
+	//===========================================================================
+
+	/// 敵の行動を管理するビヘイビアツリー
+	EnemyBehaviorTree m_behaviorTree;
+
+	/// キャラクターのステートマシン
+	StateMachine<Enemy> m_stateMachine;
 };
 
