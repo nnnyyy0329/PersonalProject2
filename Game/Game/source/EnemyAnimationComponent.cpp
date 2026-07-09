@@ -50,3 +50,9 @@ void EnemyAnimationComponent::PlayAnimIdle()
 	// アイドルアニメーションを再生
 	m_animationComponent->PlayAnimation("enemy_idle_01", {});
 }
+
+void EnemyAnimationComponent::PlayAnimMove()
+{
+	// 移動アニメーションを再生
+	m_animationComponent->PlayAnimation("enemy_walk_01", {});
+}

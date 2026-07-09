@@ -1,5 +1,6 @@
 #pragma once
 #include "Character.h"
+#include "StateMachine.h"
 #include "EnemyBehaviorTree.h"
 
 /// @brief 敵クラス

@@ -1,6 +1,7 @@
 #include "EnemyBehaviorTree.h"
 #include "Enemy.h"
 #include "EnemyIdleState.h"
+#include "EnemyMoveState.h"
 #include "EnemyMoveComponent.h"
 
 std::unique_ptr<IState<Enemy>> EnemyBehaviorTree::Think(Enemy& owner)
@@ -11,13 +12,13 @@ std::unique_ptr<IState<Enemy>> EnemyBehaviorTree::Think(Enemy& owner)
 
 	// 移動できる場合は移動ステートに遷移する
 	auto moveComp = owner.GetComponent<EnemyMoveComponent>();
-	if(moveComp && moveComp->CanMove())
+	if(moveComp && moveComp->IsMoving())
 	{
 		// 仮でアイドルステートに遷移。移動しているときにアイドルモーションをしていたら成功している。
-		return std::make_unique<EnemyIdleState>();
+		return std::make_unique<EnemyMoveState>();
 	}
 
 
-	// 遷移しない場合はnullptrを返す
-	return nullptr;
+	// 遷移しない場合はアイドルステートに遷移する
+	return std::make_unique<EnemyIdleState>();
 }

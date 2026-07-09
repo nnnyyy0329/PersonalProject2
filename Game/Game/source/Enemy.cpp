@@ -10,6 +10,7 @@
 #include "EnemyDebugColComponent.h"
 #include "EnemyMoveComponent.h"
 #include "EnemyIdleState.h"
+#include "EnemyRotComponent.h"
 
 bool Enemy::Initialize()
 {
@@ -96,6 +97,9 @@ void Enemy::SetUpComponents()
 
 	// 敵の移動管理コンポーネントを追加
 	AddComponent(std::make_unique<EnemyMoveComponent>());
+
+	// 敵の回転管理コンポーネントを追加
+	//AddComponent(std::make_unique<EnemyRotComponent>());
 }
 
 void Enemy::SetUpActions()

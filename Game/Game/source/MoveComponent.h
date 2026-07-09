@@ -21,6 +21,11 @@ public:
 	/// @return 移動ベクトル
 	virtual Vec3::Vector3 GetMoveVector()const = 0;
 
+	/// @brief 移動中かどうかを判定する関数
+	///
+	/// @return 移動中ならtrue、停止中ならfalse
+	bool IsMoving()const { return m_moveVector.Length() > 0.0f; }
+
 protected:
 
 	//===========================================================================

@@ -20,18 +20,21 @@ public:
 	/// @param owner 初期化処理を行うキャラクター
 	/// 
 	/// @return 成功しているならtrue、失敗しているならfalse
-	virtual bool Initialize(Character& owner) override;
+	bool Initialize(Character& owner) override;
 
 	/// @brief 更新関数
 	///
 	/// @param owner 更新処理を行うキャラクター
-	virtual void Update(Character& owner) override;
+	void Update(Character& owner) override;
 
 	//===========================================================================
 	// 内部関数
 	//===========================================================================
 
-	virtual Vec3::Vector3 GetRotVector() const override { return m_rotVector; }
+	/// @brief 回転ベクトルを取得する関数
+	///
+	/// @return 回転ベクトル
+	Vec3::Vector3 GetRotVector() const override { return m_rotVector; }
 
 private:
 
