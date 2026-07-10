@@ -14,6 +14,9 @@
 
 bool Enemy::Initialize()
 {
+	// 基底クラスの初期化処理を呼び出す
+	ObjectLogic::Initialize();
+
 	// リソースサーバーのインスタンスを取得
 	auto rs = ResourceServer::GetInstance();
 	m_data.handle = rs->GetHandle("Enemy");
@@ -98,7 +101,7 @@ void Enemy::SetUpComponents()
 	AddComponent(std::make_unique<EnemyMoveComponent>());
 
 	// 敵の回転管理コンポーネントを追加
-	//AddComponent(std::make_unique<EnemyRotComponent>());
+	AddComponent(std::make_unique<EnemyRotComponent>());
 }
 
 void Enemy::SetUpActions()

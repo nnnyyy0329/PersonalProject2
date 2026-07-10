@@ -4,12 +4,9 @@
 
 void EnemyIdleState::Enter(Enemy& owner)
 {
-	// 敵のアニメーションコンポーネントを取得
+	// アイドルアニメーションを再生する
 	auto enemyAnimComp = owner.GetComponent<EnemyAnimationComponent>();
-	if(!enemyAnimComp) { return; }
-
-	// 敵のアニメーションをアイドル状態に設定
-	enemyAnimComp->PlayAnimIdle();
+	if(enemyAnimComp) { enemyAnimComp->PlayAnimIdle(); }
 }
 
 void EnemyIdleState::Update(Enemy& owner)

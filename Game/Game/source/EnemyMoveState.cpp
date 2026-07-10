@@ -1,15 +1,16 @@
 #include "EnemyMoveState.h"
 #include "Enemy.h"
 #include "EnemyAnimationComponent.h"
+#include "ActionMove.h"
 
 void EnemyMoveState::Enter(Enemy& owner)
 {
-	// 敵のアニメーションコンポーネントを取得
-	auto enemyAnimComp = owner.GetComponent<EnemyAnimationComponent>();
-	if(!enemyAnimComp) { return; }
+	// 移動アクションを設定する
+	owner.SetAction(std::make_unique<ActionMove>());
 
-	// 敵のアニメーションを移動状態に設定
-	enemyAnimComp->PlayAnimMove();
+	// 移動アニメーションを再生する
+	auto enemyAnimComp = owner.GetComponent<EnemyAnimationComponent>();
+	if(enemyAnimComp) { enemyAnimComp->PlayAnimMove(); }
 }
 
 void EnemyMoveState::Update(Enemy& owner)

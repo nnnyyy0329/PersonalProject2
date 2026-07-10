@@ -2,6 +2,8 @@
 
 bool ObjectLogic::Initialize()
 {
+	m_data = ObjectData();
+
 	return true;
 }
 

@@ -4,7 +4,6 @@
 #include "EnemyMoveState.h"
 #include "EnemyMoveComponent.h"
 
-
 void EnemyBehaviorTree::Think(Enemy& owner)
 {
 	// ステートマシンを取得
