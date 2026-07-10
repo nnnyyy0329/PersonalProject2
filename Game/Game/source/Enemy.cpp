@@ -62,8 +62,7 @@ void Enemy::Update()
 
 
 	// 次に行うステートに切り替える
-	auto nextState = m_behaviorTree.Think(*this);
-	if(nextState) { m_stateMachine.ChangeState(*this, std::move(nextState)); }
+	m_behaviorTree.Think(*this);
 
 	// 現在のステートを更新する
 	m_stateMachine.Update(*this);

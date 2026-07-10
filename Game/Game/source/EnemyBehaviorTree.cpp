@@ -1,24 +1,41 @@
-#include "EnemyBehaviorTree.h"
+﻿#include "EnemyBehaviorTree.h"
 #include "Enemy.h"
 #include "EnemyIdleState.h"
 #include "EnemyMoveState.h"
 #include "EnemyMoveComponent.h"
 
-std::unique_ptr<IState<Enemy>> EnemyBehaviorTree::Think(Enemy& owner)
-{
-	// 現在のステートを取得
-	auto currentState = owner.GetStateMachine().GetCurrentState();
-	if(!currentState) { return std::make_unique<EnemyIdleState>(); }
 
-	// 移動できる場合は移動ステートに遷移する
-	auto moveComp = owner.GetComponent<EnemyMoveComponent>();
-	if(moveComp && moveComp->IsMoving())
+void EnemyBehaviorTree::Think(Enemy& owner)
+{
+	// ステートマシンを取得
+	auto& stateMachine = owner.GetStateMachine();
+	
+	// 現在のステートがない場合
+	if(!stateMachine.GetCurrentState())
 	{
-		// 仮でアイドルステートに遷移。移動しているときにアイドルモーションをしていたら成功している。
-		return std::make_unique<EnemyMoveState>();
+		// アイドルステートに遷移する
+		stateMachine.ChangeState(owner, std::make_unique<EnemyIdleState>());
+
+		return;
 	}
 
+	// 移動コンポーネントを取得して移動中かどうかを判定する
+	auto* moveComp = owner.GetComponent<EnemyMoveComponent>();
+	if(moveComp && moveComp->IsMoving())
+	{
+		if(stateMachine.IsCurrentState<EnemyMoveState>()) { return; }
 
-	// 遷移しない場合はアイドルステートに遷移する
-	return std::make_unique<EnemyIdleState>();
+		// 移動できる場合は移動ステートに遷移する
+		stateMachine.ChangeState(owner, std::make_unique<EnemyMoveState>());
+
+		return;
+	}
+	// 遷移しない場合
+	else
+	{
+		if(stateMachine.IsCurrentState<EnemyIdleState>()) { return; }
+
+		// アイドルステートに遷移する
+		stateMachine.ChangeState(owner, std::make_unique<EnemyIdleState>());
+	}
 }

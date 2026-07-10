@@ -19,9 +19,7 @@ public:
 	/// @brief 敵の行動を考える関数
 	///
 	/// @param owner 行動を考える敵
-	/// 
-	/// @return 考えた行動のステートのスマートポインタ
-	std::unique_ptr<IState<Enemy>> Think(Enemy& owner);
+	void Think(Enemy& owner);
 
 };
 
