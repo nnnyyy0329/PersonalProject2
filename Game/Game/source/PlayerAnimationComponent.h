@@ -30,6 +30,16 @@ public:
 	/// @param owner 更新処理を行うキャラクター
 	virtual void Update(Character& owner) override;
 
+	//=======================================================================
+	// 内部関数
+	//=======================================================================
+
+	/// @brief アイドルアニメーションを再生する関数
+	void PlayAnimIdle();
+
+	/// @brief 移動アニメーションを再生する関数
+	void PlayAnimMove();
+
 private:
 	
 	//===========================================================================
@@ -40,9 +50,6 @@ private:
 	///
 	/// @param owner アニメーションを登録するキャラクター
 	void RegisterPlayerAnimations(Character& owner);
-
-	/// @brief 移動ベクトルに応じてアニメーションを切り替える関数
-	void ChangeAnimByMovement();
 
 	/// @brief 攻撃の状態に応じてアニメーションを切り替える関数
 	void ChangeAnimByAttack();

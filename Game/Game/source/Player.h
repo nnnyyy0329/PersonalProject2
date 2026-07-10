@@ -1,5 +1,7 @@
 #pragma once
 #include "Character.h"
+#include "PlayerStateController.h"
+#include "StateMachine.h"
 
 /// @brief プレイヤークラス
 class Player : public Character
@@ -35,6 +37,15 @@ public:
 	/// @return デフォルトのアクションのポインタ
 	std::unique_ptr<ICharacterAction> CreateDefaultAction() override;
 
+	//===========================================================================
+	// ゲッター
+	//===========================================================================
+
+	/// @brief ステートマシンの取得関数
+	///
+	/// @return ステートマシンの参照
+	StateMachine<Player>& GetStateMachine() { return m_stateMachine; }
+
 private:
 
 	//===========================================================================
@@ -46,6 +57,16 @@ private:
 
 	/// @brief アクションの設定関数
 	void SetUpActions();
+
+	//===========================================================================
+	// メンバ変数
+	//===========================================================================
+
+	/// プレイヤーのステートコントローラー
+	PlayerStateController m_stateController;
+
+	/// プレイヤーのステートマシン
+	StateMachine<Player> m_stateMachine;
 
 };
 

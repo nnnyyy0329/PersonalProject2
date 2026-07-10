@@ -11,6 +11,7 @@
 #include "PlayerDebugParamComponent.h"
 #include "PlayerDebugColComponent.h"
 #include "PlayerInputComponent.h"
+#include "PlayerIdleState.h"
 
 bool Player::Initialize()
 {
@@ -35,6 +36,9 @@ bool Player::Initialize()
 	// 基底クラスの初期化処理を呼び、全てのコンポーネントを初期化する
 	Character::Initialize();
 
+	// 初期ステートに変更
+	m_stateMachine.ChangeState(*this, std::make_unique<PlayerIdleState>());
+
 	// ハンドルが有効かどうか
 	return m_data.handle != -1;
 }
@@ -49,16 +53,6 @@ bool Player::Terminate()
 
 void Player::Update()
 {
-	/*if(InputManager::GetInstance().GetPad(0).isTrigger(PadButton::X))
-	{
-		auto healthComponent = GetComponent<HealthComponent<Character>>();
-
-		if(healthComponent)
-		{
-			healthComponent->ApplyDamage(10.0f);
-		}
-	}*/
-
 
 
 
@@ -67,6 +61,11 @@ void Player::Update()
 
 
 
+	// 次に行うステートを決定する
+	m_stateController.Update(*this);
+
+	// ステートの更新処理を呼び出す
+	m_stateMachine.Update(*this);
 
 	// 基底クラスの更新処理を呼び出す
 	Character::Update();

@@ -76,9 +76,6 @@
     <ClCompile Include="source\PlayerMoveComponent.cpp">
       <Filter>Character\Player\Action</Filter>
     </ClCompile>
-    <ClCompile Include="source\EnemyAnimationComponent.cpp">
-      <Filter>Character\Enemy\Function</Filter>
-    </ClCompile>
     <ClCompile Include="source\PlayerRotComponent.cpp">
       <Filter>Character\Player\Action</Filter>
     </ClCompile>
@@ -144,6 +141,18 @@
     </ClCompile>
     <ClCompile Include="source\EnemyMoveState.cpp">
       <Filter>Character\Enemy\State</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerIdleState.cpp">
+      <Filter>Character\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerMoveState.cpp">
+      <Filter>Character\Player\State</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EnemyAnimationComponent.cpp">
+      <Filter>Character\Enemy\Function\Animation</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerStateController.cpp">
+      <Filter>Character\Player\State</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -248,9 +257,6 @@
     </ClInclude>
     <ClInclude Include="source\PlayerMoveComponent.h">
       <Filter>Character\Player\Action</Filter>
-    </ClInclude>
-    <ClInclude Include="source\EnemyAnimationComponent.h">
-      <Filter>Character\Enemy\Function</Filter>
     </ClInclude>
     <ClInclude Include="source\PlayerRotComponent.h">
       <Filter>Character\Player\Action</Filter>
@@ -386,6 +392,18 @@
     </ClInclude>
     <ClInclude Include="source\EnemyMoveState.h">
       <Filter>Character\Enemy\State</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerIdleState.h">
+      <Filter>Character\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerMoveState.h">
+      <Filter>Character\Player\State</Filter>
+    </ClInclude>
+    <ClInclude Include="source\EnemyAnimationComponent.h">
+      <Filter>Character\Enemy\Function\Animation</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerStateController.h">
+      <Filter>Character\Player\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -535,6 +553,9 @@
     </Filter>
     <Filter Include="Character\Enemy\BehaviorTree">
       <UniqueIdentifier>{c4ad843b-9bb1-4db1-9541-d60d4fec0643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Enemy\Function\Animation">
+      <UniqueIdentifier>{19147eef-b61b-421b-94f8-d4ad789cef1a}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

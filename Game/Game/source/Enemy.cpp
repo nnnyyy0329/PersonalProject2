@@ -14,9 +14,6 @@
 
 bool Enemy::Initialize()
 {
-	// 基底クラスの初期化処理を呼び出す
-	ObjectLogic::Initialize();
-
 	// リソースサーバーのインスタンスを取得
 	auto rs = ResourceServer::GetInstance();
 	m_data.handle = rs->GetHandle("Enemy");
@@ -38,7 +35,7 @@ bool Enemy::Initialize()
 	// 基底クラスの初期化処理を呼び、全てのコンポーネントを初期化する
 	Character::Initialize();
 
-	// ステートの初期化
+	// 初期ステートに変更
 	m_stateMachine.ChangeState(*this, std::make_unique<EnemyIdleState>());
 
 	// ハンドルが有効かどうか
@@ -64,10 +61,10 @@ void Enemy::Update()
 
 
 
-	// 次に行うステートに切り替える
+	// 次に行うステートを決定する
 	m_behaviorTree.Think(*this);
 
-	// 現在のステートを更新する
+	// ステートの更新処理を呼び出す
 	m_stateMachine.Update(*this);
 
 	// 基底クラスの更新処理を呼び出す

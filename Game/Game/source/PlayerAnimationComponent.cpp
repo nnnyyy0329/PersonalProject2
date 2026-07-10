@@ -44,9 +44,6 @@ bool PlayerAnimationComponent::Initialize(Character& owner)
 void PlayerAnimationComponent::Update(Character& owner)
 {
 	if(!m_animationComponent) { return; }
-	
-	// 移動ベクトルに応じてアニメーションを切り替える
-	ChangeAnimByMovement();
 
 	// 攻撃の状態に応じてアニメーションを切り替える
 	ChangeAnimByAttack();
@@ -65,44 +62,6 @@ void PlayerAnimationComponent::RegisterPlayerAnimations(Character& owner)
 	m_animationComponent->RegisterAnimation("player_idle_01", owner.GetModelHandle());
 	m_animationComponent->RegisterAnimation("player_walk_01", owner.GetModelHandle());
 	m_animationComponent->RegisterAnimation("player_jog_01", owner.GetModelHandle());
-}
-
-void PlayerAnimationComponent::ChangeAnimByMovement()
-{
-	if(!m_moveComponent) { return; }
-
-
-
-
-	if(m_playerAttackComponent->GetComboIndex() > 0)
-	{
-		// 攻撃中は移動アニメーションを再生しない
-		return;
-	}
-
-
-
-
-	// 移動ベクトルを取得
-	Vec3::Vector3 moveVector = m_moveComponent->GetMoveVector();
-
-	// 移動ベクトルが走りの閾値より大きい場合
-	if(moveVector.Length() > RUN_THRESHOLD)
-	{
-		// 走り
-		m_animationComponent->PlayAnimation("player_jog_01", {});
-	}
-	// 移動ベクトルが0より大きい場合
-	else if(moveVector.Length() > 0.0f)
-	{
-		// 歩き
-		m_animationComponent->PlayAnimation("player_walk_01", {});
-	}
-	// それ以外はアイドル
-	else
-	{
-		m_animationComponent->PlayAnimation("player_idle_01", {});
-	}
 }
 
 void PlayerAnimationComponent::ChangeAnimByAttack()
@@ -145,7 +104,6 @@ void PlayerAnimationComponent::ChangeAnimByAttack()
 		}
 
 		case 5:	// 5段目
-
 		{
 			m_animationComponent->PlayAnimation("Nchange_attack_04", {});
 			break;
@@ -155,5 +113,40 @@ void PlayerAnimationComponent::ChangeAnimByAttack()
 		{
 			break;
 		}
+	}
+}
+
+void PlayerAnimationComponent::PlayAnimIdle()
+{
+	if(!m_animationComponent) { return; }
+
+	// 攻撃中は移動アニメーションを再生しない
+	if(m_playerAttackComponent->GetComboIndex() > 0) { return; }
+
+	// アイドルアニメーションを再生
+	m_animationComponent->PlayAnimation("player_idle_01", {});
+}
+
+void PlayerAnimationComponent::PlayAnimMove()
+{
+	if(!m_animationComponent) { return; }
+
+	// 攻撃中は移動アニメーションを再生しない
+	if(m_playerAttackComponent->GetComboIndex() > 0) { return; }
+
+	// 移動ベクトルを取得
+	Vec3::Vector3 moveVector = m_moveComponent->GetMoveVector();
+
+	// 移動ベクトルが走りの閾値より大きい場合
+	if(moveVector.Length() > RUN_THRESHOLD)
+	{
+		// 走り
+		m_animationComponent->PlayAnimation("player_jog_01", {});
+	}
+	// 移動ベクトルが0より大きい場合
+	else if(moveVector.Length() > 0.0f)
+	{
+		// 歩き
+		m_animationComponent->PlayAnimation("player_walk_01", {});
 	}
 }

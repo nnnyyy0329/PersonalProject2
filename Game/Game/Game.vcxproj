@@ -199,13 +199,16 @@
     <ClCompile Include="source\PlayerAttackComponent.cpp" />
     <ClCompile Include="source\PlayerDebugColComponent.cpp" />
     <ClCompile Include="source\PlayerDebugParamComponent.cpp" />
+    <ClCompile Include="source\PlayerIdleState.cpp" />
     <ClCompile Include="source\PlayerInputComponent.cpp" />
     <ClCompile Include="source\PlayerMoveCommand.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="source\PlayerMoveComponent.cpp" />
+    <ClCompile Include="source\PlayerMoveState.cpp" />
     <ClCompile Include="source\PlayerRotComponent.cpp" />
+    <ClCompile Include="source\PlayerStateController.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ActionDamage.h" />
@@ -285,6 +288,7 @@
     <ClInclude Include="source\PlayerAttackComponent.h" />
     <ClInclude Include="source\PlayerDebugColComponent.h" />
     <ClInclude Include="source\PlayerDebugParamComponent.h" />
+    <ClInclude Include="source\PlayerIdleState.h" />
     <ClInclude Include="source\PlayerInputComponent.h" />
     <ClInclude Include="source\PlayerMoveCommand.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -292,7 +296,9 @@
     </ClInclude>
     <ClInclude Include="source\PlayerMoveComponent.h" />
     <ClInclude Include="source\MoveComponent.h" />
+    <ClInclude Include="source\PlayerMoveState.h" />
     <ClInclude Include="source\PlayerRotComponent.h" />
+    <ClInclude Include="source\PlayerStateController.h" />
     <ClInclude Include="source\RotationComponent.h" />
     <ClInclude Include="source\SoundData.h" />
     <ClInclude Include="source\StateMachine.h" />
