@@ -33,8 +33,6 @@ void ActionDamage::UpdateKnockback(Character& character)
 
 void ActionDamage::UpdateTimer(Character& character)
 {
-
-
 	// タイマーを減少させる
 	m_timer -= 1.0f;
 

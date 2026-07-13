@@ -2,6 +2,7 @@
 #include "Player.h"
 #include "PlayerAnimationComponent.h"
 #include "ActionMove.h"
+#include "ActionAttack.h"
 
 void PlayerMoveState::Enter(Player& owner)
 {
@@ -15,7 +16,9 @@ void PlayerMoveState::Enter(Player& owner)
 
 void PlayerMoveState::Update(Player& owner)
 {
-
+	// 移動アニメーションを再生する
+	auto playerAnimComp = owner.GetComponent<PlayerAnimationComponent>();
+	if(playerAnimComp) { playerAnimComp->PlayAnimMove(); }
 }
 
 void PlayerMoveState::Exit(Player& owner)

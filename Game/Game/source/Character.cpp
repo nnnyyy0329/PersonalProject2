@@ -33,8 +33,8 @@ void Character::Update()
 		// アクションが終了しているなら
 		if(m_currentAction->IsFinished())
 		{
-			// デフォルトのアクションを作成して設定する
-			SetAction(CreateDefaultAction());
+			// 現在のアクションをリセットする
+			m_currentAction.reset();
 		}
 	}
 }

@@ -40,6 +40,11 @@ public:
 	/// @brief 移動アニメーションを再生する関数
 	void PlayAnimMove();
 
+	/// @brief 攻撃アニメーションを再生する関数
+	///
+	/// @param comboI 攻撃のコンボインデックス
+	void PlayAnimAttack(int comboIndex);
+
 private:
 	
 	//===========================================================================
@@ -50,9 +55,6 @@ private:
 	///
 	/// @param owner アニメーションを登録するキャラクター
 	void RegisterPlayerAnimations(Character& owner);
-
-	/// @brief 攻撃の状態に応じてアニメーションを切り替える関数
-	void ChangeAnimByAttack();
 
 	//===========================================================================
 	// メンバ変数

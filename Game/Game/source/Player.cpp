@@ -56,10 +56,12 @@ void Player::Update()
 
 
 
+
 	m_charColData.top = GetObjectData().pos + Vec3::Vector3(0.0f, 100.0f, 0.0f);
 	m_charColData.bottom = GetObjectData().pos;
 
 
+	
 
 	// 次に行うステートを決定する
 	m_stateController.Update(*this);

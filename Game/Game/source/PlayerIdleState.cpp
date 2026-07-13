@@ -11,7 +11,8 @@ void PlayerIdleState::Enter(Player& owner)
 
 void PlayerIdleState::Update(Player& owner)
 {
-
+	auto playerAnimComp = owner.GetComponent<PlayerAnimationComponent>();
+	if(playerAnimComp) { playerAnimComp->PlayAnimIdle(); }
 }
 
 void PlayerIdleState::Exit(Player& owner)

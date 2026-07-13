@@ -29,5 +29,10 @@ private:
 	/// @param player ステートを切り替えるプレイヤー
 	void ChangeMoveState(Player& player);
 
+	/// @brief プレイヤーの攻撃ステートを切り替える関数
+	///
+	/// @param player ステートを切り替えるプレイヤー
+	void ChangeAttackState(Player& player);
+
 };
 

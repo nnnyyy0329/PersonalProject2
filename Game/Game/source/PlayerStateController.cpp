@@ -3,9 +3,19 @@
 #include "PlayerMoveComponent.h"
 #include "PlayerMoveState.h"
 #include "PlayerIdleState.h"
+#include "PlayerAttackComponent.h"
+#include "PlayerAttackState.h"
+#include "ActionAttack.h"
 
 void PlayerStateController::Update(Player& player)
 {
+	// プレイヤーの攻撃ステートを切り替える
+	if(player.IsCurrentAction<ActionAttack>())
+	{
+		ChangeAttackState(player);
+		return;
+	}
+
 	// プレイヤーの移動ステートを切り替える
 	ChangeMoveState(player);
 }
@@ -33,6 +43,31 @@ void PlayerStateController::ChangeMoveState(Player& player)
 		if(stateMachine.IsCurrentState<PlayerIdleState>()) { return; }
 
 		// 停止中の場合はアイドルステートに遷移する
+		stateMachine.ChangeState(player, std::make_unique<PlayerIdleState>());
+	}
+}
+
+void PlayerStateController::ChangeAttackState(Player& player)
+{
+	// プレイヤーのステートマシンを取得
+	auto& stateMachine = player.GetStateMachine();
+
+	// 攻撃コンポーネントを取得
+	auto attackComp = player.GetComponent<PlayerAttackComponent>();
+	if(!attackComp) { return; }
+
+	// 攻撃中なら
+	if(player.IsCurrentAction<ActionAttack>())
+	{
+		if(stateMachine.IsCurrentState<PlayerAttackState>()) { return; }
+
+		// 攻撃中の場合は攻撃ステートに遷移する
+		stateMachine.ChangeState(player, std::make_unique<PlayerAttackState>());
+	}
+	else
+	{
+		// 攻撃中でない場合は、攻撃ステートからアイドルステートに遷移する
+		if(stateMachine.IsCurrentState<PlayerIdleState>()) { return; }
 		stateMachine.ChangeState(player, std::make_unique<PlayerIdleState>());
 	}
 }

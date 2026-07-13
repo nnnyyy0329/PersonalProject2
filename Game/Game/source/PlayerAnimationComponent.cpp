@@ -45,8 +45,6 @@ void PlayerAnimationComponent::Update(Character& owner)
 {
 	if(!m_animationComponent) { return; }
 
-	// 攻撃の状態に応じてアニメーションを切り替える
-	ChangeAnimByAttack();
 }
 
 void PlayerAnimationComponent::RegisterPlayerAnimations(Character& owner)
@@ -62,58 +60,6 @@ void PlayerAnimationComponent::RegisterPlayerAnimations(Character& owner)
 	m_animationComponent->RegisterAnimation("player_idle_01", owner.GetModelHandle());
 	m_animationComponent->RegisterAnimation("player_walk_01", owner.GetModelHandle());
 	m_animationComponent->RegisterAnimation("player_jog_01", owner.GetModelHandle());
-}
-
-void PlayerAnimationComponent::ChangeAnimByAttack()
-{
-	if(!m_playerAttackComponent) { return; }
-
-	// 現在の攻撃のコンボインデックスを取得
-	int comboIndex = m_playerAttackComponent->GetComboIndex();
-
-	// コンボインデックスに応じてアニメーションを切り替える
-	switch(comboIndex)
-	{
-		case 0:
-		{
-			break;
-		}
-
-		case 1:	// 1段目
-		{
-			m_animationComponent->PlayAnimation("Nchange_attack_00", {});
-			break;
-		}
-
-		case 2:	// 2段目
-		{
-			m_animationComponent->PlayAnimation("Nchange_attack_01", {});
-			break;
-		}
-			
-		case 3:	// 3段目
-		{
-			m_animationComponent->PlayAnimation("Nchange_attack_02", {});
-			break;
-		}
-			
-		case 4:	// 4段目
-		{
-			m_animationComponent->PlayAnimation("Nchange_attack_03", {});
-			break;
-		}
-
-		case 5:	// 5段目
-		{
-			m_animationComponent->PlayAnimation("Nchange_attack_04", {});
-			break;
-		}
-
-		default:
-		{
-			break;
-		}
-	}
 }
 
 void PlayerAnimationComponent::PlayAnimIdle()
@@ -148,5 +94,49 @@ void PlayerAnimationComponent::PlayAnimMove()
 	{
 		// 歩き
 		m_animationComponent->PlayAnimation("player_walk_01", {});
+	}
+}
+
+void PlayerAnimationComponent::PlayAnimAttack(int comboIndex)
+{
+	if(!m_animationComponent) { return; }
+
+	// コンボインデックスに応じてアニメーションを切り替える
+	switch(comboIndex)
+	{
+		case 1:	// 1段目
+		{
+			m_animationComponent->PlayAnimation("Nchange_attack_00", {});
+			break;
+		}
+
+		case 2:	// 2段目
+		{
+			m_animationComponent->PlayAnimation("Nchange_attack_01", {});
+			break;
+		}
+
+		case 3:	// 3段目
+		{
+			m_animationComponent->PlayAnimation("Nchange_attack_02", {});
+			break;
+		}
+
+		case 4:	// 4段目
+		{
+			m_animationComponent->PlayAnimation("Nchange_attack_03", {});
+			break;
+		}
+
+		case 5:	// 5段目
+		{
+			m_animationComponent->PlayAnimation("Nchange_attack_04", {});
+			break;
+		}
+
+		default:
+		{
+			break;
+		}
 	}
 }

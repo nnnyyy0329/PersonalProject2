@@ -32,6 +32,7 @@ void ActionAttack::NonePhaseProcess()
 	m_currentPhase = AttackPhase::STARTUP;
 	m_stateTime = 0.0f;
 	m_isCancelable = false;
+	m_isFinished = false;
 }
 
 void ActionAttack::UpdateAttackPhase(Character& character)
