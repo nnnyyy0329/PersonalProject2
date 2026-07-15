@@ -21,5 +21,21 @@ public:
 	/// @param owner 行動を考える敵
 	void Think(Enemy& owner);
 
+private:
+
+	//===========================================================================
+	// 内部関数
+	//===========================================================================
+
+	/// @brief 敵の移動を考える関数
+	///
+	/// @param owner 移動を考える敵
+	void ThinkMove(Enemy& owner);
+
+	/// @brief 敵のダメージを考える関数
+	///
+	/// @param owner ダメージを考える敵
+	void ThinkDamage(Enemy& owner);
+
 };
 

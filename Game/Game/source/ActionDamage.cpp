@@ -38,12 +38,7 @@ void ActionDamage::UpdateTimer(Character& character)
 
 	if(m_timer <= 0.0f)
 	{
-		// ダメージアクション終了処理
-		FinishActionDamage(character);
+		// アクションを終了する
+		m_isFinished = true;
 	}
-}
-
-void ActionDamage::FinishActionDamage(Character& character)
-{
-
 }

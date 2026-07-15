@@ -15,7 +15,9 @@ void EnemyMoveState::Enter(Enemy& owner)
 
 void EnemyMoveState::Update(Enemy& owner)
 {
-
+	// 移動アニメーションを再生する
+	auto enemyAnimComp = owner.GetComponent<EnemyAnimationComponent>();
+	if(enemyAnimComp) { enemyAnimComp->PlayAnimMove(); }
 }
 
 void EnemyMoveState::Exit(Enemy& owner)

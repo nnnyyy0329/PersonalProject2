@@ -11,7 +11,9 @@ void EnemyIdleState::Enter(Enemy& owner)
 
 void EnemyIdleState::Update(Enemy& owner)
 {
-
+	// アイドルアニメーションを再生する
+	auto enemyAnimComp = owner.GetComponent<EnemyAnimationComponent>();
+	if(enemyAnimComp) { enemyAnimComp->PlayAnimIdle(); }
 }
 
 void EnemyIdleState::Exit(Enemy& owner)

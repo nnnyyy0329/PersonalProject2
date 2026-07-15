@@ -176,6 +176,7 @@
     <ClCompile Include="source\EnemyAnimationComponent.cpp" />
     <ClCompile Include="source\EnemyBehaviorTree.cpp" />
     <ClCompile Include="source\EnemyDamageComponent.cpp" />
+    <ClCompile Include="source\EnemyDamageState.cpp" />
     <ClCompile Include="source\EnemyDebugColComponent.cpp" />
     <ClCompile Include="source\EnemyDebugParamCompnent.cpp" />
     <ClCompile Include="source\EnemyIdleState.cpp" />
@@ -254,6 +255,7 @@
     <ClInclude Include="source\EnemyAnimationComponent.h" />
     <ClInclude Include="source\EnemyBehaviorTree.h" />
     <ClInclude Include="source\EnemyDamageComponent.h" />
+    <ClInclude Include="source\EnemyDamageState.h" />
     <ClInclude Include="source\EnemyDebugColComponent.h" />
     <ClInclude Include="source\EnemyDebugParamCompnent.h" />
     <ClInclude Include="source\EnemyIdleState.h" />

@@ -21,7 +21,7 @@ bool EnemyAnimationComponent::Initialize(Character& owner)
 void EnemyAnimationComponent::Update(Character& owner)
 {
 	// ダメージを受けたときのアニメーションを切り替える
-	AnimationChangeByDamage(owner);
+	//AnimationChangeByDamage(owner);
 }
 
 void EnemyAnimationComponent::RegisterEnemyAnimations(Character& owner)
@@ -55,4 +55,10 @@ void EnemyAnimationComponent::PlayAnimMove()
 {
 	// 移動アニメーションを再生
 	m_animationComponent->PlayAnimation("enemy_walk_01", {});
+}
+
+void EnemyAnimationComponent::PlayAnimDamage()
+{
+	// ダメージアニメーションを再生
+	m_animationComponent->PlayAnimation("enemy_damage_00", {});
 }

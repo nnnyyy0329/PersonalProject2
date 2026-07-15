@@ -52,10 +52,6 @@ void PlayerStateController::ChangeAttackState(Player& player)
 	// プレイヤーのステートマシンを取得
 	auto& stateMachine = player.GetStateMachine();
 
-	// 攻撃コンポーネントを取得
-	auto attackComp = player.GetComponent<PlayerAttackComponent>();
-	if(!attackComp) { return; }
-
 	// 攻撃中なら
 	if(player.IsCurrentAction<ActionAttack>())
 	{
@@ -64,10 +60,12 @@ void PlayerStateController::ChangeAttackState(Player& player)
 		// 攻撃中の場合は攻撃ステートに遷移する
 		stateMachine.ChangeState(player, std::make_unique<PlayerAttackState>());
 	}
+	// 攻撃中でない場合
 	else
 	{
-		// 攻撃中でない場合は、攻撃ステートからアイドルステートに遷移する
 		if(stateMachine.IsCurrentState<PlayerIdleState>()) { return; }
+
+		// 攻撃ステートからアイドルステートに遷移する
 		stateMachine.ChangeState(player, std::make_unique<PlayerIdleState>());
 	}
 }
