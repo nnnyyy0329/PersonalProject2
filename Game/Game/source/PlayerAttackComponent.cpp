@@ -16,7 +16,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak1.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
 	weak1.colData.bottomOffset				= Vec3::Vector3(0.0f, 0.0f, -80.0f);
 	weak1.colData.radius					= 50.0f;
-	weak1.damageData.damage					= 5.0f;
+	weak1.damageData.damage					= 1.0f;
 	weak1.damageData.hitStunTime			= 0.0f;
 	weak1.damageData.damageInvincibeTime	= 0.0f;
 	weak1.hitMoveData.moveDirection			= { 0.0f, 0.0f, 1.0f };
@@ -37,7 +37,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak2.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
     weak2.colData.bottomOffset				= Vec3::Vector3(0.0f, 0.0f, -80.0f);
     weak2.colData.radius					= 50.0f;
-	weak2.damageData.damage					= 5.0f;
+	weak2.damageData.damage					= 2.0f;
 	weak2.damageData.hitStunTime			= 0.0f;
 	weak2.damageData.damageInvincibeTime	= 0.0f;
 	weak2.hitMoveData.moveDirection			= { 1.0f, 0.0f, 0.0f };
@@ -58,7 +58,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak3.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
     weak3.colData.bottomOffset				= Vec3::Vector3(0.0f, 0.0f, -80.0f);
     weak3.colData.radius					= 50.0f;
-	weak3.damageData.damage					= 5.0f;
+	weak3.damageData.damage					= 3.0f;
 	weak3.damageData.hitStunTime			= 0.0f;
 	weak3.damageData.damageInvincibeTime	= 0.0f;
 	weak3.hitMoveData.moveDirection			= { 0.0f, 1.0f, 0.0f };
@@ -79,7 +79,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak4.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
     weak4.colData.bottomOffset				= Vec3::Vector3(0.0f, 0.0f, -80.0f);
     weak4.colData.radius					= 50.0f;
-	weak4.damageData.damage					= 5.0f;
+	weak4.damageData.damage					= 4.0f;
 	weak4.damageData.hitStunTime			= 0.0f;
 	weak4.damageData.damageInvincibeTime	= 0.0f;
 	weak4.hitMoveData.moveDirection			= { 0.0f, -1.0f, 0.0f };

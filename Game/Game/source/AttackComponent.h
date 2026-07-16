@@ -30,14 +30,6 @@ public:
 	// ゲッター
 	//=======================================================================
 
-	/// @brief 攻撃データの数を取得する関数
-	///
-	/// @return 攻撃データの数
-	/*const int GetAttackDataCount() const
-	{
-		return static_cast<int>(m_attackDataList.size());
-	}*/
-
 	/// @brief 攻撃データリストを取得する関数
 	///
 	/// @return 攻撃データリスト
@@ -45,18 +37,6 @@ public:
 	{
 		return m_attackDataList;
 	}
-
-	//const AttackData& GetAttackData(int index) const
-	//{
-	//	// indexが範囲外の場合は例外を投げる
-	//	if(index < 0 || index >= GetAttackDataCount())
-	//	{
-	//		throw std::runtime_error("攻撃データのインデックスが範囲外:" + std::to_string(index));
-	//	}
-
-	//	// indexが範囲内の場合は攻撃データを返す
-	//	return m_attackDataList[index];
-	//}
 
 	//=======================================================================
 	// セッター

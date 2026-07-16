@@ -1,6 +1,6 @@
 ﻿#include "CollisionManager.h"
 #include "CollisionComponent.h"
-#include "AttackComponent.h"
+#include "ActionAttack.h"
 #include "HealthComponent.h"
 #include "DamageComponent.h"
 #include "Character.h"
@@ -26,8 +26,8 @@ void CollisionManager::Update(const std::vector<Character*>& characters)
 			if(CheckHitAttack(attacker, defender))
 			{
 				// 攻撃者の攻撃コンポーネントを取得する
-				auto* attackComp = attacker->GetComponent<AttackComponent<Character>>();
-				if(!attackComp) { continue; }
+				auto* actionAttack = attacker->GetCurrentAction<ActionAttack>();
+				if(!actionAttack) { continue; }
 
 				// 防御者の体力コンポーネントを取得する
 				auto* healthComp = defender->GetComponent<HealthComponent<Character>>();
@@ -48,7 +48,8 @@ void CollisionManager::Update(const std::vector<Character*>& characters)
 				damageComp->SetHitDirection(dir.Normalize());
 
 				// ダメージを適用する
-				healthComp->ApplyDamage(0.5f);
+				float damage = actionAttack->GetAttackData().damageData.damage;
+				healthComp->ApplyDamage(damage);
 
 
 
