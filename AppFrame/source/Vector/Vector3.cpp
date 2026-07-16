@@ -100,11 +100,6 @@ namespace Vec3
 		return Vector3(m_x - otherV.GetX(), m_y - otherV.GetY(), m_z - otherV.GetZ());
 	}
 
-	float Vector3::Length() const
-	{
-		return std::sqrt(m_x * m_x + m_y * m_y + m_z * m_z);
-	}
-
 	Vector3 Vector3::Normalize() const
 	{
 		float len = Length();
@@ -120,9 +115,23 @@ namespace Vec3
 		return Vector3(m_x, m_y, m_z);
 	}
 
+	Vector3 Vector3::Cross(const Vector3& otherV) const
+	{
+		float cx = m_y * otherV.GetZ() - m_z * otherV.GetY();
+		float cy = m_z * otherV.GetX() - m_x * otherV.GetZ();
+		float cz = m_x * otherV.GetY() - m_y * otherV.GetX();
+
+		return Vector3(cx, cy, cz);
+	}
+
 	float Vector3::Dot(const Vector3& otherV) const
 	{
 		return m_x * otherV.GetX() + m_y * otherV.GetY() + m_z * otherV.GetZ();
+	}
+
+	float Vector3::Length() const
+	{
+		return std::sqrt(m_x * m_x + m_y * m_y + m_z * m_z);
 	}
 
 }

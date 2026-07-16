@@ -137,6 +137,13 @@ namespace Vec3
 		/// @return 正規化されたベクトル
 		Vector3 Normalize() const;
 
+		/// @brief 2つのベクトルの外積を計算する関数
+		///
+		/// @param otherV 外積を計算するベクトル
+		/// 
+		/// @return 外積のベクトル
+		Vec3::Vector3 Cross(const Vec3::Vector3& otherV) const;
+
 		/// @brief 2つのベクトルの内積を計算する関数
 		/// 
 		/// @param v 内積を計算するベクトル
