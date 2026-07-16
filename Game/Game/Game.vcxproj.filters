@@ -417,11 +417,14 @@
     <ClInclude Include="source\EnemyDamageState.h">
       <Filter>Character\Enemy\State</Filter>
     </ClInclude>
-    <ClInclude Include="source\DamageMoveData.h">
-      <Filter>Data\Damage</Filter>
-    </ClInclude>
     <ClInclude Include="source\AttackComponent.h">
       <Filter>Component\Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="source\AttackDamageData.h">
+      <Filter>Data\Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="source\HitMoveData.h">
+      <Filter>Data\Attack</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

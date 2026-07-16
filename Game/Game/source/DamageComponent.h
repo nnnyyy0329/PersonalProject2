@@ -1,6 +1,7 @@
 #pragma once
 #include "IComponent.h"
 #include "HealthObserver.h"
+#include "DamageInfo.h"
 
 /// @brief キャラクターのダメージを管理するコンポーネントクラス
 ///
