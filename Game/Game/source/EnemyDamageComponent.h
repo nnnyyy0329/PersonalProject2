@@ -27,9 +27,8 @@ public:
 	/// @brief 初期化関数
 	///
 	/// @param owner 初期化処理を行うキャラクター
-	/// @param newHealth 新しい体力の値
-	/// @param maxHealth 最大体力の値
-	void OnDamaged(Character& owner, float newHealth, float maxHealth) override;
+	/// @param damageInfo ダメージ情報
+	void OnDamaged(Character& owner) override;
 
 private:
 

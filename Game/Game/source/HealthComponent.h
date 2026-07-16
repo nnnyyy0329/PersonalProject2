@@ -21,7 +21,7 @@ public:
 	/// @brief 初期化関数
 	/// 
 	/// @param owner 初期化処理を行うキャラクター
-	///
+	/// 
 	/// @return 成功しているならtrue、失敗しているならfalse
 	virtual bool Initialize(TOwner& owner) override 
 	{
@@ -38,6 +38,7 @@ public:
 	/// @brief ダメージを受ける関数
 	///
 	/// @param damage 受けるダメージ量
+	/// @param damageMoveData ダメージ移動データ
 	void ApplyDamage(float damage)
 	{
 		// ダメージが0以下の場合は処理を行わない
@@ -57,7 +58,7 @@ public:
 			for(auto* observer : this->m_observers)
 			{
 				// 通知
-				observer->OnDamaged(*this->GetOwner(), m_life, m_maxLife);
+				observer->OnDamaged(*this->GetOwner());
 			}
 		}
 	}

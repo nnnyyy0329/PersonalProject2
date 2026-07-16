@@ -1,7 +1,6 @@
 #pragma once
 #include "IComponent.h"
 #include "HealthObserver.h"
-#include "DamageInfo.h"
 
 /// @brief キャラクターのダメージを管理するコンポーネントクラス
 ///
@@ -20,9 +19,8 @@ public:
 	/// @brief ダメージを受けたときに呼ばれる関数
 	///
 	/// @param owner ダメージを受けたキャラ
-	/// @param newHealth 新しい体力
-	/// @param maxHealth 最大体力
-	virtual void OnDamaged(TOwner& owner, float newHealth, float maxHealth) override {}
+	/// @param damageInfo ダメージ情報
+	virtual void OnDamaged(TOwner& owner) override {}
 
 	//===========================================================================
 	// ゲッター

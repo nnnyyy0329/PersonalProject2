@@ -17,8 +17,7 @@ public:
 	/// @brief 体力が変化したときに呼ばれる関数
 	///
 	/// @param owner オーナーのポインタ
-	/// @param newHealth 新しい体力の値
-	/// @param maxHealth 最大体力の値
-	virtual void OnDamaged(TOwner& owner, float newHealth, float maxHealth) = 0;
+	/// @param damageInfo ダメージ情報
+	virtual void OnDamaged(TOwner& owner) = 0;
 
 };

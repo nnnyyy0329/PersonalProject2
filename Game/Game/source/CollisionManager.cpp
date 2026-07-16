@@ -1,5 +1,6 @@
 ﻿#include "CollisionManager.h"
 #include "CollisionComponent.h"
+#include "AttackComponent.h"
 #include "HealthComponent.h"
 #include "DamageComponent.h"
 #include "Character.h"
@@ -24,6 +25,10 @@ void CollisionManager::Update(const std::vector<Character*>& characters)
 			// 攻撃がヒットしたかどうかを判定する
 			if(CheckHitAttack(attacker, defender))
 			{
+				// 攻撃者の攻撃コンポーネントを取得する
+				auto* attackComp = attacker->GetComponent<AttackComponent<Character>>();
+				if(!attackComp) { continue; }
+
 				// 防御者の体力コンポーネントを取得する
 				auto* healthComp = defender->GetComponent<HealthComponent<Character>>();
 				if(!healthComp || healthComp->IsDead()) { continue; }

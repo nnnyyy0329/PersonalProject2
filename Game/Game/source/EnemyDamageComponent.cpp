@@ -21,7 +21,7 @@ bool EnemyDamageComponent::Initialize(Character& owner)
 	return true;
 }
 
-void EnemyDamageComponent::OnDamaged(Character& owner, float newHealth, float maxHealth)
+void EnemyDamageComponent::OnDamaged(Character& owner)
 {
 	// ダメージアクションを設定
 	owner.SetAction(std::make_unique<ActionDamage>(m_damageInfo));

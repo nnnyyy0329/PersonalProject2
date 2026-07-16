@@ -1,12 +1,12 @@
 #pragma once
-#include "IComponent.h"
+#include "AttackComponent.h"
 #include "AttackData.h"
 #include <vector>
 
 class Character;	/// キャラクタークラス
 
 /// @brief プレイヤーの攻撃を管理するコンポーネントクラス
-class PlayerAttackComponent : public IComponent<Character>
+class PlayerAttackComponent : public AttackComponent<Character>
 {
 public:
 
@@ -25,11 +25,6 @@ public:
 	//===========================================================================
 	// 内部関数
 	//===========================================================================
-
-	/// @brief 攻撃データを追加する関数
-	///
-	/// @param attackData 追加する攻撃データ
-	void AddAttackData(const AttackData& attackData) { m_attackDataList.push_back(attackData); }
 
 	/// @brief 攻撃処理を行う関数
 	///
@@ -55,9 +50,6 @@ private:
 	//===========================================================================
 	// メンバ変数
 	//===========================================================================
-
-	/// 攻撃のデータのリスト
-	std::vector<AttackData> m_attackDataList;
 
 	/// 現在のコンボのインデックス
 	int m_comboIndex = 0;

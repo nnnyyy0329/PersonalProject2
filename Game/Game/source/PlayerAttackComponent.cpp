@@ -19,7 +19,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak1.effectData.name			= "EF_Attack";
 	weak1.cameraShakeData.duration	= 60.0f;
 	weak1.cameraShakeData.magnitude = 10.0f;
-    AddAttackData(weak1);
+	AddAttackData(weak1);
 
 	AttackData weak2;
     weak2.timing.startTime			= 10.0f;
