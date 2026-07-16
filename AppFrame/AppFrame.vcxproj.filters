@@ -114,6 +114,9 @@
     <ClCompile Include="source\Vector\Vector4.cpp">
       <Filter>Vector</Filter>
     </ClCompile>
+    <ClCompile Include="source\GeometryUtility\GeometryUtility.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\CFile\CFile.h">
@@ -191,6 +194,9 @@
     </ClInclude>
     <ClInclude Include="source\VectorConverter\VectorConverter.h">
       <Filter>VectorConverter</Filter>
+    </ClInclude>
+    <ClInclude Include="source\GeometryUtility\GeometryUtility.h">
+      <Filter>Utility</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -160,6 +160,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="source\GeometryUtility\DxLibGeometryUtility.cpp" />
+    <ClCompile Include="source\GeometryUtility\GeometryUtility.cpp" />
     <ClCompile Include="source\Manager\input\InputManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -198,6 +199,7 @@
     <ClInclude Include="source\Collision\DxLibCollisionMath.h" />
     <ClInclude Include="source\draw\mydraw.h" />
     <ClInclude Include="source\GeometryUtility\DxLibGeometryUtility.h" />
+    <ClInclude Include="source\GeometryUtility\GeometryUtility.h" />
     <ClInclude Include="source\Manager\ComponentManager.h" />
     <ClInclude Include="source\Manager\input\InputManager.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
