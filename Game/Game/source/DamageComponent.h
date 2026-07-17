@@ -1,7 +1,6 @@
 #pragma once
 #include "IComponent.h"
 #include "HealthObserver.h"
-#include "DamageInfo.h"
 
 /// @brief キャラクターのダメージを管理するコンポーネントクラス
 ///
@@ -21,7 +20,7 @@ public:
 	///
 	/// @param owner ダメージを受けたキャラ
 	/// @param damageInfo ダメージ情報
-	virtual void OnDamaged(TOwner& owner) override {}
+	virtual void OnDamaged(TOwner& owner, const DamageInfo& damageInfo) override {}
 
 	//===========================================================================
 	// ゲッター

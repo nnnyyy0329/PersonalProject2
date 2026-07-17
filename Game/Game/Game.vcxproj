@@ -244,9 +244,9 @@
     <ClInclude Include="source\CollisionManager.h" />
     <ClInclude Include="source\CollisionShapeBuilder.h" />
     <ClInclude Include="source\DamageComponent.h" />
-    <ClInclude Include="source\DamageData.h" />
+    <ClInclude Include="source\DamageConverter.h" />
+    <ClInclude Include="source\KnockbackData.h" />
     <ClInclude Include="source\DamageInfo.h" />
-    <ClInclude Include="source\HitMoveData.h" />
     <ClInclude Include="source\DeathComponent.h" />
     <ClInclude Include="source\DebugCollision.h" />
     <ClInclude Include="source\DebugFps.h" />

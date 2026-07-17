@@ -2,6 +2,7 @@
 #include "IComponent.h"
 #include "Subject.h"
 #include "HealthObserver.h"
+#include "DamageInfo.h"
 
 /// @brief キャラクターの体力を管理するコンポーネントクラス
 ///
@@ -39,14 +40,14 @@ public:
 	///
 	/// @param damage 受けるダメージ量
 	/// @param damageMoveData ダメージ移動データ
-	void ApplyDamage(float damage)
+	void ApplyDamage(const DamageInfo& damageInfo)
 	{
 		// ダメージが0以下の場合は処理を行わない
-		if(damage <= 0.0f) { return; }
+		if(damageInfo.damage <= 0.0f) { return; }
 
 		// 減らす前の体力を保存して、体力を減らす
 		float oldLife = m_life;
-		m_life -= damage;
+		m_life -= damageInfo.damage;
 
 		// 体力が0未満にならないように
 		if(m_life < 0.0f) { m_life = 0.0f; }
@@ -58,7 +59,7 @@ public:
 			for(auto* observer : this->m_observers)
 			{
 				// 通知
-				observer->OnDamaged(*this->GetOwner());
+				observer->OnDamaged(*this->GetOwner(), damageInfo);
 			}
 		}
 	}

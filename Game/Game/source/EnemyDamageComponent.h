@@ -28,8 +28,6 @@ public:
 	///
 	/// @param owner 初期化処理を行うキャラクター
 	/// @param damageInfo ダメージ情報
-	void OnDamaged(Character& owner) override;
-
-private:
+	void OnDamaged(Character& owner, const DamageInfo& damageInfo) override;
 
 };

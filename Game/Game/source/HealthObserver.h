@@ -1,4 +1,5 @@
 ﻿#pragma once
+#include "DamageInfo.h"
 
 /// @brief 体力の変化や死亡を監視するオブザーバークラス
 ///
@@ -18,6 +19,6 @@ public:
 	///
 	/// @param owner オーナーのポインタ
 	/// @param damageInfo ダメージ情報
-	virtual void OnDamaged(TOwner& owner) = 0;
+	virtual void OnDamaged(TOwner& owner, const DamageInfo& damageInfo) = 0;
 
 };

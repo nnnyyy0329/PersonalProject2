@@ -288,7 +288,7 @@
     <ClInclude Include="source\ActionDamage.h">
       <Filter>Action</Filter>
     </ClInclude>
-    <ClInclude Include="source\DamageData.h">
+    <ClInclude Include="source\KnockbackData.h">
       <Filter>Data\Damage</Filter>
     </ClInclude>
     <ClInclude Include="source\DamageInfo.h">
@@ -423,8 +423,8 @@
     <ClInclude Include="source\AttackDamageData.h">
       <Filter>Data\Attack</Filter>
     </ClInclude>
-    <ClInclude Include="source\HitMoveData.h">
-      <Filter>Data\Attack</Filter>
+    <ClInclude Include="source\DamageConverter.h">
+      <Filter>Collision</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

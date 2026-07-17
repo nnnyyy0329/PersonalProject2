@@ -34,5 +34,11 @@ private:
 	/// @return 攻撃がヒットした場合はtrue、そうでない場合はfalse
 	bool CheckHitAttack(Character* attacker, Character* defender);
 
+	/// @brief 攻撃がヒットしたときの処理を行う関数
+	///
+	/// @param attacker 攻撃を行ったキャラクター
+	/// @param defender 攻撃を受けたキャラクター
+	void HitAttackProcess(Character* attacker, Character* defender);
+
 };
 

@@ -13,8 +13,8 @@ public:
 	ActionDamage(const DamageInfo& damageInfo)
 		: 
 		m_damageInfo(damageInfo),
-		m_knockBackVelocity(m_damageInfo.hitDirection * m_damageInfo.damageData.knockback),
-		m_timer(damageInfo.damageData.hitStunTime) {}
+		m_knockBackVelocity((m_damageInfo.damageData.moveDirection + m_damageInfo.hitDirection) * m_damageInfo.damageData.knockbackSpeed),
+		m_timer(damageInfo.damageData.knockbackTime) {}
 
 	virtual ~ActionDamage() = default;
 
@@ -64,13 +64,13 @@ private:
 	/// 被弾情報
 	DamageInfo m_damageInfo;
 
-	/// ノックバックの速度べクトル
+	/// ノックバックべクトル
 	Vec3::Vector3 m_knockBackVelocity = { 0.0f, 0.0f, 0.0f };
 
 	/// タイマー
 	float m_timer = 0.0f;
 
-	// アクションが終了しているかどうか
+	/// アクションが終了しているかどうか
 	bool m_isFinished = false;
 
 };

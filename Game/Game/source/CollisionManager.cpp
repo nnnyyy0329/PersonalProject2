@@ -6,6 +6,7 @@
 #include "Character.h"
 #include "Collision/DxLibCollisionMath.h"
 #include "CollisionShapeBuilder.h"
+#include "DamageConverter.h"
 
 void CollisionManager::Update(const std::vector<Character*>& characters)
 {
@@ -25,31 +26,8 @@ void CollisionManager::Update(const std::vector<Character*>& characters)
 			// 攻撃がヒットしたかどうかを判定する
 			if(CheckHitAttack(attacker, defender))
 			{
-				// 攻撃者の攻撃コンポーネントを取得する
-				auto* actionAttack = attacker->GetCurrentAction<ActionAttack>();
-				if(!actionAttack) { continue; }
-
-				// 防御者の体力コンポーネントを取得する
-				auto* healthComp = defender->GetComponent<HealthComponent<Character>>();
-				if(!healthComp || healthComp->IsDead()) { continue; }
-
-				// 防御者のダメージコンポーネントを取得する
-				auto* damageComp = defender->GetComponent<DamageComponent<Character>>();
-				if(!damageComp) { continue; }
-
-				// ダメージ情報を取得する
-				DamageInfo damageInfo = damageComp->GetDamageInfo();
-
-				// ダメージ情報をダメージコンポーネントに設定する
-				damageComp->SetDamageInfo(damageInfo);
-
-				// ヒット方向を計算し、ダメージコンポーネントに設定する
-				Vec3::Vector3 dir = defender->GetObjectData().pos - attacker->GetObjectData().pos;
-				damageComp->SetHitDirection(dir.Normalize());
-
-				// ダメージを適用する
-				float damage = actionAttack->GetAttackData().damageData.damage;
-				healthComp->ApplyDamage(damage);
+				// 攻撃がヒットしたときの処理を行う
+				HitAttackProcess(attacker, defender);
 
 
 
@@ -81,4 +59,34 @@ bool CollisionManager::CheckHitAttack(Character* attacker, Character* defender)
 	}
 
 	return false;
+}
+
+void CollisionManager::HitAttackProcess(Character* attacker, Character* defender)
+{
+	// 攻撃者の攻撃コンポーネントを取得する
+	auto* actionAttack = attacker->GetCurrentAction<ActionAttack>();
+	if(!actionAttack) { return; }
+
+	// 防御者の体力コンポーネントを取得する
+	auto* healthComp = defender->GetComponent<HealthComponent<Character>>();
+	if(!healthComp || healthComp->IsDead()) { return; }
+
+	// 防御者のダメージコンポーネントを取得する
+	auto* damageComp = defender->GetComponent<DamageComponent<Character>>();
+	if(!damageComp) { return; }
+
+	// 攻撃データを取得する
+	const AttackData& attackData = actionAttack->GetAttackData();
+
+	// ダメージ情報を取得し、攻撃データとヒット方向をダメージデータに変換
+	Vec3::Vector3 dir = defender->GetObjectData().pos - attacker->GetObjectData().pos;
+	dir.SetY(0.0f);
+	DamageInfo damageInfo = DamageConverter::ConvertAttackDataToDamageInfo(attackData, dir.Normalize());
+
+	// 変換したダメージ情報をダメージコンポーネントに設定
+	damageComp->SetDamageInfo(damageInfo);
+
+	// ダメージを適用する
+	float damage = actionAttack->GetAttackData().damageData.damage;
+	healthComp->ApplyDamage(damageInfo);
 }

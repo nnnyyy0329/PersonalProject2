@@ -5,8 +5,7 @@
 
 EnemyDamageComponent::EnemyDamageComponent()
 {
-	m_damageInfo.damageData.knockback = 1.7f;
-	m_damageInfo.damageData.hitStunTime = 30.0f;
+	m_damageInfo.damageData.knockbackSpeed = 1.7f;
 }
 
 bool EnemyDamageComponent::Initialize(Character& owner)
@@ -17,12 +16,12 @@ bool EnemyDamageComponent::Initialize(Character& owner)
 
 	// HealthComponentのオブザーバーとして登録
 	health->AddObserver(this);
-
+	
 	return true;
 }
 
-void EnemyDamageComponent::OnDamaged(Character& owner)
+void EnemyDamageComponent::OnDamaged(Character& owner, const DamageInfo& damageInfo)
 {
 	// ダメージアクションを設定
-	owner.SetAction(std::make_unique<ActionDamage>(m_damageInfo));
+	owner.SetAction(std::make_unique<ActionDamage>(damageInfo));
 }
