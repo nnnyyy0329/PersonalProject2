@@ -53,6 +53,9 @@ private:
 	/// @brief 攻撃が開始されていないときの処理
 	void NonePhaseProcess();
 
+	/// @brief コンボ受付時間かを更新する関数
+	void UpdateComboReceive();
+
 	/// @brief 攻撃のフェーズを更新する関数
 	///
 	/// @param character 攻撃を実行するキャラクター
@@ -62,9 +65,6 @@ private:
 	///
 	/// @param character 攻撃を実行するキャラクター
 	void EnableCollision(Character& character);
-
-	/// @brief コンボ受付時間かを更新する関数
-	void UpdateComboReceive();
 
 
 

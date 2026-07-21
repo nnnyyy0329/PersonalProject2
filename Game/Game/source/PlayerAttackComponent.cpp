@@ -4,6 +4,11 @@
 #include "ActionAttack.h"
 #include "ActionMove.h"
 
+namespace
+{
+	constexpr int COMBO_INDEX_THREE = 3;	/// コンボの3段目のインデックス
+}
+
 PlayerAttackComponent::PlayerAttackComponent()
 {
     AttackData weak1;
@@ -11,6 +16,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak1.timing.activeDuration				= 7.0f;
     weak1.timing.recoveryDuration			= 7.0f;
     weak1.timing.comboReceiveTime			= 1.0f;
+	weak1.timing.isAutoNextAttack			= false;
 	weak1.colData.shape						= ShapeType::CAPSULE;
 	weak1.colData.size						= Vec3::Vector3(1.0f, 1.0f, 1.0f);
 	weak1.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
@@ -32,6 +38,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak2.timing.activeDuration				= 3.0f;
     weak2.timing.recoveryDuration			= 18.0f;
     weak2.timing.comboReceiveTime			= 1.0f;
+	weak2.timing.isAutoNextAttack			= false;
 	weak2.colData.shape						= ShapeType::CAPSULE;
 	weak2.colData.size						= Vec3::Vector3(1.0f, 1.0f, 1.0f);
     weak2.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
@@ -53,6 +60,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak3.timing.activeDuration				= 7.0f;
     weak3.timing.recoveryDuration			= 19.0f;
     weak3.timing.comboReceiveTime			= 1.0f;
+	weak3.timing.isAutoNextAttack			= true;
 	weak3.colData.shape						= ShapeType::CAPSULE;
 	weak3.colData.size						= Vec3::Vector3(1.0f, 1.0f, 1.0f);
     weak3.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
@@ -74,6 +82,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak4.timing.activeDuration				= 9.0f;
 	weak4.timing.recoveryDuration			= 30.0f;
 	weak4.timing.comboReceiveTime			= 1.0f;
+	weak4.timing.isAutoNextAttack			= false;
 	weak4.colData.shape						= ShapeType::CAPSULE;
 	weak4.colData.size						= Vec3::Vector3(1.0f, 1.0f, 1.0f);
     weak4.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
@@ -95,6 +104,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak5.timing.activeDuration				= 30.0f;
 	weak5.timing.recoveryDuration			= 0.0f;
 	weak5.timing.comboReceiveTime			= 0.0f;
+	weak5.timing.isAutoNextAttack			= false;
 	weak5.colData.shape						= ShapeType::CAPSULE;   
 	weak5.colData.size						= Vec3::Vector3(1.0f, 1.0f, 1.0f);
     weak5.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
@@ -114,6 +124,8 @@ PlayerAttackComponent::PlayerAttackComponent()
 
 void PlayerAttackComponent::Update(Character& owner)
 {
+	//AutoCombo(owner, COMBO_INDEX_THREE);
+
 	// 現在のアクションが攻撃アクションでない場合
     if(!owner.IsCurrentAction<ActionAttack>())
     {
@@ -127,8 +139,8 @@ bool PlayerAttackComponent::TryAttack(Character& owner)
 	// 現在のアクションが攻撃アクションでない場合
 	if(!owner.IsCurrentAction<ActionAttack>())
 	{
-		// コンボ攻撃が攻撃のデータ数より少ない場合
-		if(m_comboIndex < m_attackDataList.size())
+		// コンボ攻撃が有効範囲内の場合
+		if(IsValidComboIndex())
 		{
 			// 攻撃アクションを設定する
 			owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
@@ -146,8 +158,8 @@ bool PlayerAttackComponent::TryAttack(Character& owner)
 	auto* currentAction = owner.GetCurrentAction<ActionAttack>();
 	if(currentAction && currentAction->IsCancelable())
 	{
-		// コンボ攻撃が攻撃のデータ数より少ない場合
-		if(m_comboIndex < m_attackDataList.size())
+		// コンボ攻撃が有効範囲内の場合
+		if(IsValidComboIndex())
 		{
 			// 攻撃アクションを設定する
 			owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
@@ -162,4 +174,24 @@ bool PlayerAttackComponent::TryAttack(Character& owner)
 	}
 
 	return false;
+}
+
+void PlayerAttackComponent::AutoCombo(Character& owner, int comboIndex)
+{
+	// 指定されたコンボ数が現在のコンボ数と同じ場合
+	if(m_comboIndex == comboIndex)
+	{
+		// コンボ攻撃が有効範囲内の場合
+		if(IsValidComboIndex())
+		{
+			// 次の攻撃を自動で発動する
+			owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
+			m_comboIndex++;
+		}
+	}
+}
+
+bool PlayerAttackComponent::IsValidComboIndex() const
+{
+	return m_comboIndex >= 0 && m_comboIndex < m_attackDataList.size();
 }

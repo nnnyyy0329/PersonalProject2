@@ -33,6 +33,17 @@ public:
 	/// @return 攻撃が成功した場合 true、それ以外は false
 	bool TryAttack(Character& owner);
 
+	/// @brief コンボ攻撃を自動で一部つなぐ関数
+	///
+	/// @param owner コンボ攻撃を行うキャラクター
+	/// @param comboIndex 自動でつなげる1個前のコンボのインデックス
+	void AutoCombo(Character& owner, int comboIndex);
+
+	/// @brief 攻撃データ数が有効範囲かどうかを判定する関数
+	/// 
+	/// @return 有効範囲である場合 true、それ以外は false
+	bool IsValidComboIndex() const;
+
 	/// @brief コンボをリセットする関数
 	void ResetCombo() { m_comboIndex = 0; }
 
