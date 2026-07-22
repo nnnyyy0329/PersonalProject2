@@ -160,6 +160,9 @@
     <ClCompile Include="source\EnemyDamageState.cpp">
       <Filter>Character\Enemy\State</Filter>
     </ClCompile>
+    <ClCompile Include="source\CameraInput.cpp">
+      <Filter>Camera</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -425,6 +428,12 @@
     </ClInclude>
     <ClInclude Include="source\DamageConverter.h">
       <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="source\CameraInput.h">
+      <Filter>Camera</Filter>
+    </ClInclude>
+    <ClInclude Include="source\AttackMoveData.h">
+      <Filter>Data\Attack</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -164,6 +164,7 @@
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
     <ClCompile Include="source\CameraBase.cpp" />
+    <ClCompile Include="source\CameraInput.cpp" />
     <ClCompile Include="source\CameraManager.cpp" />
     <ClCompile Include="source\CameraShake.cpp" />
     <ClCompile Include="source\Character.cpp" />
@@ -225,6 +226,7 @@
     <ClInclude Include="source\AttackDamageData.h" />
     <ClInclude Include="source\AttackData.h" />
     <ClInclude Include="source\AttackEventComponent,h.h" />
+    <ClInclude Include="source\AttackMoveData.h" />
     <ClInclude Include="source\AttackTiming.h" />
     <ClInclude Include="source\Bullet.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
@@ -234,6 +236,7 @@
     </ClInclude>
     <ClInclude Include="source\CameraBase.h" />
     <ClInclude Include="source\CameraData.h" />
+    <ClInclude Include="source\CameraInput.h" />
     <ClInclude Include="source\CameraManager.h" />
     <ClInclude Include="source\CameraShake.h" />
     <ClInclude Include="source\CameraShakeData.h" />
