@@ -36,7 +36,7 @@ namespace mydraw
 	// vCenter:中心座標, vDir:基準の向きベクトル, fRadius:半径, fHalfAngleDeg:半角(度), color:色, segments:分割数
 	inline void DrawFan3D(const VECTOR& vCenter, const VECTOR& vDir, float fRadius, float fHalfAngleDeg, unsigned int color, int segments)
 	{
-		float halfAngleRad = fHalfAngleDeg * DEGREE_TO_RADIAN;
+		float halfAngleRad = fHalfAngleDeg * DEG_TO_RAD;
 		float currentDirAngle = atan2f(vDir.x, vDir.z);
 		float startAngle = currentDirAngle - halfAngleRad;
 		float totalAngle = halfAngleRad * 2.0f;

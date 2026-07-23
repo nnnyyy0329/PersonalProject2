@@ -9,10 +9,9 @@
 #include "../Vector/Vector3.h"
 #include <cmath>
 
-// 計算用マクロ
-#define	PI	(3.1415926535f)
-#define	DEG2RAD(x)			( ((x) / 180.0f ) * PI )
-#define	RAD2DEG(x)			( ((x) * 180.0f ) / PI )
+static const float PI = 3.1415926535f;			// 円周率
+static const float DEG_TO_RAD = PI / 180.0f;	// 度からラジアンへの変換係数
+static const float RAD_TO_DEG = 180.0f / PI;	// ラジアンから度への変換係数
 
 // 当たり判定用。2つのboxが当たったかを判定
 // 当たっていたら1, 当たっていなかったら0を返す
