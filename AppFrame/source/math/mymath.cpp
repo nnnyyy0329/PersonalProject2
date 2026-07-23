@@ -1,4 +1,3 @@
-// 独自計算ライブラリ
 #include "mymath.h"
 
 // 当たり判定用。2つのboxが当たったかを判定
@@ -82,42 +81,42 @@ int IsHitBoxCircle(
 }
 
 // 点と線分の最短距離の二乗を計算
-float GetPointSegmentSq(const VECTOR& point, const VECTOR& segmentStart, const VECTOR& segmentEnd)
+float GetPointSegmentSq(const Vec3::Vector3& point, const Vec3::Vector3& segmentStart, const Vec3::Vector3& segmentEnd)
 {
 	// 線分のベクトル
-	VECTOR segmentVec = VSub(segmentEnd, segmentStart);
+	Vec3::Vector3 segmentVec = segmentEnd - segmentStart;
 
 	// 線分の開始点から点へのベクトル
-	VECTOR toPoint = VSub(point, segmentStart);
+	Vec3::Vector3 toPoint = point - segmentStart;
 
 	// 線分の長さの二乗
-	float segmentLenSq = VDot(segmentVec, segmentVec);
+	float segmentLenSq = segmentVec.Dot(segmentVec);
 
 	// 線分の長さが0の場合(点と点の距離)
 	if (segmentLenSq < 1e-6f)
 	{
-		return VDot(toPoint, toPoint);// 点と開始点の距離の二乗を返す
+		return toPoint.Dot(toPoint);// 点と開始点の距離の二乗を返す
 	}
 
 	// 線分上の最近点を求める
-	float t = VDot(toPoint, segmentVec) / segmentLenSq;
+	float t = toPoint.Dot(segmentVec) / segmentLenSq;
 
 	// tを0から1の範囲にクランプ
 	if (t < 0.f) t = 0.f;
 	else if (t > 1.f) t = 1.f;
 
 	// 線分上の最近点
-	VECTOR closestPoint = VAdd(segmentStart, VScale(segmentVec, t));
+	Vec3::Vector3 closestPoint = segmentStart + segmentVec * t;
 
 	// 点と最近点の距離の二乗を計算
-	VECTOR diff = VSub(point, closestPoint);
+	Vec3::Vector3 diff = point - closestPoint;
 
 	// 距離の二乗を返す
-	return VDot(diff, diff);
+	return diff.Dot(diff);
 }
 
 // カプセルと点の最短距離の二乗を計算
-float GetCapsulePointSq(const VECTOR& point, const VECTOR& capsuleTop, const VECTOR& capsuleBottom)
+float GetCapsulePointSq(const Vec3::Vector3& point, const Vec3::Vector3& capsuleTop, const Vec3::Vector3& capsuleBottom)
 {
 	// カプセルの中心軸と点の最短距離の二乗を計算
 	float distSq = GetPointSegmentSq(point, capsuleTop, capsuleBottom);
@@ -125,7 +124,7 @@ float GetCapsulePointSq(const VECTOR& point, const VECTOR& capsuleTop, const VEC
 }
 
 // カプセルと球の当たり判定
-bool HitCheck_Capsule_Sphere(const VECTOR& capsuleTop, const VECTOR& capsuleBottom, float capsuleRadius, const VECTOR& sphereCenter, float sphereRadius)
+bool HitCheck_Capsule_Sphere(const Vec3::Vector3& capsuleTop, const Vec3::Vector3& capsuleBottom, float capsuleRadius, const Vec3::Vector3& sphereCenter, float sphereRadius)
 {
 	// カプセルの中心軸と球の中心点の最短距離の二乗を計算
 	float distSq = GetCapsulePointSq(sphereCenter, capsuleTop, capsuleBottom);
@@ -145,11 +144,11 @@ bool HitCheck_Capsule_Sphere(const VECTOR& capsuleTop, const VECTOR& capsuleBott
 }
 
 // 点が円内にあるか
-bool CircleFloor::IsPointInside(const VECTOR& point) const
+bool CircleFloor::IsPointInside(const Vec3::Vector3& point) const
 {
 	// 円の中心と点の距離の二乗を計算
-	float dx = point.x - center.x;
-	float dz = point.z - center.z;
+	float dx = point.GetX() - center.GetX();
+	float dz = point.GetZ() - center.GetZ();
 	float distSq = dx * dx + dz * dz;
 
 	// 半径の二乗と比較
@@ -158,11 +157,11 @@ bool CircleFloor::IsPointInside(const VECTOR& point) const
 }
 
 // 円の境界までの距離を計算
-float CircleFloor::GetDistEdge(const VECTOR& point) const
+float CircleFloor::GetDistEdge(const Vec3::Vector3& point) const
 {
 	// 円の中心と点の距離を計算
-	float dx = point.x - center.x;
-	float dz = point.z - center.z;
+	float dx = point.GetX() - center.GetX();
+	float dz = point.GetZ() - center.GetZ();
 	float dist = sqrtf(dx * dx + dz * dz);
 
 	// 境界までの距離を計算
