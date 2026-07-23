@@ -4,11 +4,14 @@
 #include "RotationComponent.h"
 #include "Vector/Vector3.h"
 
-#define	PI	(3.1415926535897932386f)
-#define TWO_PI (PI * 2.0f)
-
 namespace
 {
+	// 円周率
+	constexpr float PI = 3.1415926535f;
+
+	// 2π
+	constexpr float TWO_PI = PI * 2.0f;
+
 	// 回転の速度
 	constexpr float ROTATION_SPEED = 0.15f;
 
