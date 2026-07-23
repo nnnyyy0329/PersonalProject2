@@ -2,6 +2,7 @@
 #include "ObjectData.h"
 #include "VectorConverter/VectorConverter.h"
 #include <cmath>
+#include <algorithm>
 
 namespace
 {
@@ -9,13 +10,25 @@ namespace
 	constexpr float PI = 3.1415926535f;
 
 	// カメラの回転速度
-	constexpr float ROTATE_SPEED = 0.05f;
+	constexpr float ROTATE_SPEED = 0.02f;
+
+	// カメラのピッチ角の最大値
+	constexpr float MAX_PITCH = PI * 0.45f;
+
+	// カメラのピッチ角の最小値
+	constexpr float MIN_PITCH = -PI * 0.25f;
+
+	// カメラの注視点とカメラの位置の距離
+	constexpr float CAMERA_DISTANCE = 330.0f;
 
 	// 追従するオブジェクトからカメラへのオフセット
 	const Vec3::Vector3 POS_OFFSET = { 0.0f, 300.0f, -150.0f };
 
 	// 追従するオブジェクトへのオフセット
 	const Vec3::Vector3 TARGET_OFFSET = { 0.0f, 100.0f, 0.0f };
+
+	// カメラの初期ピッチ角を計算
+	const float INITIAL_PITCH = std::atan2(POS_OFFSET.GetY(), -POS_OFFSET.GetZ());
 }
 
 FollowCamera::FollowCamera(const ObjectData& target)
@@ -33,6 +46,9 @@ void FollowCamera::Update()
 
 	// カメラの回転を更新
 	UpdateCameraRotation();
+
+	// ピッチ角を制限
+	m_pitch = std::clamp(m_pitch, MIN_PITCH - INITIAL_PITCH, MAX_PITCH - INITIAL_PITCH);
 
 	// カメラの位置を更新
 	UpdateCameraPosition();
@@ -88,7 +104,7 @@ Vec3::Vector3 FollowCamera::CalcPitchOffset() const
 	forward = forward.Normalize();
 
 	// ワールド上方向
-	const Vec3::Vector3 worldUp = { 0.0f,1.0f,0.0f };
+	const Vec3::Vector3 worldUp = { 0.0f, 1.0f, 0.0f };
 
 	// カメラの右方向を計算
 	Vec3::Vector3 right = worldUp.Cross(forward).Normalize();
@@ -122,8 +138,8 @@ Vec3::Vector3 FollowCamera::CalcPitchOffset() const
 void FollowCamera::UpdateCameraRotation()
 {
 	// カメラのヨー角を更新
-	m_yaw += m_cameraInput.GetRotateX() * ROTATE_SPEED;
+	m_yaw -= m_cameraInput.GetRotateX() * ROTATE_SPEED;
 
 	// カメラのピッチ角を更新
-	m_pitch += m_cameraInput.GetRotateY() * ROTATE_SPEED;
+	m_pitch -= m_cameraInput.GetRotateY() * ROTATE_SPEED;
 }
