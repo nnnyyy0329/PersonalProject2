@@ -122,7 +122,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	AddAttackData(weak5);
 }
 
-void PlayerAttackComponent::Update(Character& owner)
+void PlayerAttackComponent::Update(Character& owner, const GameContext& gameContext)
 {
 	//AutoCombo(owner, COMBO_INDEX_THREE);
 

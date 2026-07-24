@@ -41,7 +41,7 @@ bool PlayerAnimationComponent::Initialize(Character& owner)
 	return true;
 }
 
-void PlayerAnimationComponent::Update(Character& owner)
+void PlayerAnimationComponent::Update(Character& owner, const GameContext& gameContext)
 {
 	if(!m_animationComponent) { return; }
 

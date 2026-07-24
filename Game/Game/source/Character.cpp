@@ -17,12 +17,12 @@ bool Character::Terminate()
 	return true;
 }
 
-void Character::Update()
+void Character::Update(const GameContext& gameContext)
 {
 	for(auto& component : m_components)
 	{
 		// コンポーネントの更新関数を呼び出す
-		component->Update(*this);
+		component->Update(*this, gameContext);
 	}
 
 	if(m_currentAction)

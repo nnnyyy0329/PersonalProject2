@@ -50,7 +50,7 @@ bool Enemy::Terminate()
 	return true;
 }
 
-void Enemy::Update()
+void Enemy::Update(const GameContext& gameContext)
 {
 
 
@@ -68,7 +68,7 @@ void Enemy::Update()
 	m_stateMachine.Update(*this);
 
 	// 基底クラスの更新処理を呼び出す
-	Character::Update();
+	Character::Update(gameContext);
 }
 
 void Enemy::SetUpComponents()

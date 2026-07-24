@@ -72,7 +72,8 @@ public:
 	/// @brief 更新関数
 	///
 	/// @param owner 更新処理を行うキャラクター
-	virtual void Update(TOwner& owner) override
+	/// @param gameContext 更新処理に必要なゲームコンテキスト
+	virtual void Update(TOwner& owner, const GameContext& gameContext) override
 	{
 		if(m_currentAnimAttachIndex == -1) { return; }
 

@@ -11,7 +11,7 @@ bool EnemyRotComponent::Initialize(Character& character)
 	return true;
 }
 
-void EnemyRotComponent::Update(Character& character)
+void EnemyRotComponent::Update(Character& character, const GameContext& gameContext)
 {
 	m_rotVector = m_enemyMoveComponent->GetMoveVector();
 }

@@ -18,7 +18,7 @@ bool EnemyAnimationComponent::Initialize(Character& owner)
 	return true;
 }
 
-void EnemyAnimationComponent::Update(Character& owner)
+void EnemyAnimationComponent::Update(Character& owner, const GameContext& gameContext)
 {
 	// ダメージを受けたときのアニメーションを切り替える
 	//AnimationChangeByDamage(owner);

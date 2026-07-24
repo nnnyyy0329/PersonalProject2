@@ -10,7 +10,7 @@ namespace
 {
 	constexpr float MOVE_SPEED = 1.5f;	// 移動速度
 }
-void EnemyMoveComponent::Update(Character& character)
+void EnemyMoveComponent::Update(Character& character, const GameContext& gameContext)
 {
 	// 1Pのパッド情報取得
 	const auto& pad_1 = InputManager::GetInstance().GetPad(1);

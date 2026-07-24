@@ -185,6 +185,7 @@
     <ClCompile Include="source\EnemyMoveState.cpp" />
     <ClCompile Include="source\EnemyRotComponent.cpp" />
     <ClCompile Include="source\FollowCamera.cpp" />
+    <ClCompile Include="source\GameContext.cpp" />
     <ClCompile Include="source\InputManager.cpp" />
     <ClCompile Include="source\Pad.cpp" />
     <ClCompile Include="source\Light.cpp" />
@@ -248,6 +249,7 @@
     <ClInclude Include="source\CollisionShapeBuilder.h" />
     <ClInclude Include="source\DamageComponent.h" />
     <ClInclude Include="source\DamageConverter.h" />
+    <ClInclude Include="source\GameContext.h" />
     <ClInclude Include="source\KnockbackData.h" />
     <ClInclude Include="source\DamageInfo.h" />
     <ClInclude Include="source\DeathComponent.h" />

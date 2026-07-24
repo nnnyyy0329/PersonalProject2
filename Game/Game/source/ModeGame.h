@@ -2,6 +2,7 @@
 #include "appframe.h"
 #include "ObjectRenderSystem.h"
 #include "Map.h"
+#include "GameContext.h"
 
 #include "CameraManager.h"
 #include "ObjectManager.h"
@@ -53,6 +54,9 @@ private:
 	/// @brief カメラの生成関数
 	void CreateCamera();
 
+	/// @brief ゲームコンテキストの初期化関数
+	void InitializeGameContext();
+
 	//===========================================================================
 	// メンバ変数
 	//===========================================================================
@@ -71,5 +75,8 @@ private:
 
 	/// 当たり判定マネージャークラス
 	std::unique_ptr<CollisionManager>	m_collisionManager;
+
+	/// ゲームのコンテキストクラス
+	GameContext							m_gameContext;
 
 }; 

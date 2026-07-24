@@ -163,6 +163,9 @@
     <ClCompile Include="source\CameraInput.cpp">
       <Filter>Camera</Filter>
     </ClCompile>
+    <ClCompile Include="source\GameContext.cpp">
+      <Filter>Mode</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -434,6 +437,9 @@
     </ClInclude>
     <ClInclude Include="source\AttackMoveData.h">
       <Filter>Data\Attack</Filter>
+    </ClInclude>
+    <ClInclude Include="source\GameContext.h">
+      <Filter>Mode</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

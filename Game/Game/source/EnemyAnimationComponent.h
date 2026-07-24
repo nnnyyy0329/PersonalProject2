@@ -23,7 +23,8 @@ public:
 	/// @brief 更新関数
 	///
 	/// @param owner 更新処理を行うキャラクター
-	virtual void Update(Character& owner) override;
+	/// @param gameContext 更新処理に必要なゲームコンテキスト
+	virtual void Update(Character& owner, const GameContext& gameContext) override;
 
 	//===========================================================================
 	// 内部関数

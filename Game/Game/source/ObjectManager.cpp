@@ -1,6 +1,7 @@
 ﻿#include "ObjectManager.h"
 #include "ObjectLogic.h"
 #include "ObjectRenderSystem.h"
+//#include "GameContext.h"
 #include "Player.h"
 #include "Enemy.h"
 
@@ -35,13 +36,13 @@ bool ObjectManager::Terminate()
 	return true;
 }
 
-void ObjectManager::Update()
+void ObjectManager::Update(const GameContext& context)
 {
 	// オブジェクトの更新処理
-	for(auto& obj : m_objects) { obj->Update(); }
+	for(auto& obj : m_objects) { obj->Update(context); }
 
 	// プレイヤーの更新処理
-	if(m_player) { m_player->Update(); }
+	if(m_player) { m_player->Update(context); }
 }
 
 void ObjectManager::Render(ObjectRenderSystem& renderSystem)

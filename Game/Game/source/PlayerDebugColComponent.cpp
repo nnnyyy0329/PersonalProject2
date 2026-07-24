@@ -3,7 +3,7 @@
 #include "CollisionShapeBuilder.h"
 #include "VectorConverter/VectorConverter.h"
 
-void PlayerDebugColComponent::Update(Character& owner)
+void PlayerDebugColComponent::Update(Character& owner, const GameContext& gameContext)
 {
 	// プレイヤーの当たり判定をデバッグ表示
 	DrawPlayerCollision(owner);

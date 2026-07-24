@@ -32,7 +32,8 @@ public:
 	/// @brief 初期化関数
 	///
 	/// @param owner 初期化処理を行うキャラクター
-	void Update(TOwner& owner) override {}
+	/// @param gameContext 更新処理に必要なゲームコンテキスト
+	void Update(TOwner& owner, const GameContext& gameContext) override {}
 
 	//===========================================================================
 	// 内部関数

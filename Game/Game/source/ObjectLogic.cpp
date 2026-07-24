@@ -10,7 +10,7 @@ bool ObjectLogic::Terminate()
 	return true;
 }
 
-void ObjectLogic::Update()
+void ObjectLogic::Update(const GameContext& gameContext)
 {
 	
 }

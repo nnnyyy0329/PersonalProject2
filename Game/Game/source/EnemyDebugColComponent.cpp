@@ -3,7 +3,7 @@
 #include "DebugManager.h"
 #include "VectorConverter/VectorConverter.h"
 
-void EnemyDebugColComponent::Update(Character& owner)
+void EnemyDebugColComponent::Update(Character& owner, const GameContext& gameContext)
 {
 	// 敵の当たり判定をデバッグ表示
 	DrawEnemyCollision(owner);

@@ -10,6 +10,9 @@ bool ModeGame::Initialize()
 
 	// マネージャークラスの生成
 	CreateManagers();
+	
+	// ゲームコンテキストの初期化
+	InitializeGameContext();
 
 	// オブジェクトの初期化
 	m_objectManager->Initialize();
@@ -41,7 +44,7 @@ bool ModeGame::Process()
 	InputManager::GetInstance().Update();
 
 	// オブジェクトの更新処理
-	m_objectManager->Update();
+	m_objectManager->Update(m_gameContext);
 	
 	// カメラマネージャーの更新
 	m_cameraManager->Update();
@@ -99,4 +102,10 @@ void ModeGame::CreateCamera()
 
 	// プレイヤーの位置をカメラの注視点に設定
 	m_cameraManager->ChangeCamera(std::move(followCamera));
+}
+
+void ModeGame::InitializeGameContext()
+{
+	// カメラマネージャーを設定
+	m_gameContext.SetCameraManager(m_cameraManager.get());
 }

@@ -1,14 +1,24 @@
 #include "PlayerMoveComponent.h"
 #include "Character.h"
 #include "InputManager.h"
+#include "CameraManager.h"
+#include "CameraBase.h"
+#include "GameContext.h"
 
 namespace
 {
 	constexpr float MOVE_SPEED = 5.0f;	// 移動速度
 }
 
-void PlayerMoveComponent::Update(Character& character)
+void PlayerMoveComponent::Update(Character& character, const GameContext& gameContext)
 {
+	auto& m_cameraManager = gameContext.GetCameraManager();
+	auto& camera = m_cameraManager.GetCurrentCamera();
+	Vec3::Vector3 forward = camera->GetHorizontalForward();
+
+
+
+
 	// 1Pのパッド情報取得
 	const auto& pad_1 = InputManager::GetInstance().GetPad(0);
 

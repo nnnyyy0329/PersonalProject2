@@ -34,7 +34,9 @@ public:
 	virtual bool Terminate() override;
 
 	/// @brief 更新関数
-	virtual void Update() override;
+	///
+	/// @param gameContext 更新処理に必要なゲームコンテキスト
+	virtual void Update(const GameContext& gameContext) override;
 
 	//===========================================================================
 	// アクション管理関数

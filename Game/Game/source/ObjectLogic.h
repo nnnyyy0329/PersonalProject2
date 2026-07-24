@@ -1,6 +1,8 @@
 #pragma once
 #include "ObjectData.h"
 
+class GameContext;	/// ゲームのコンテキストクラス
+
 /// @brief ゲーム内のオブジェクトのロジックを管理するクラス
 class ObjectLogic
 {
@@ -28,9 +30,11 @@ public:
 	virtual bool Terminate() = 0;
 
 	/// @brief 更新関数
+	///
+	/// @param gameContext 更新処理に必要なゲームコンテキスト
 	/// 
 	/// @note この純粋仮想関数は、派生クラスでオーバーライドされる必要があります。
-	virtual void Update() = 0;
+	virtual void Update(const GameContext& gameContext) = 0;
 
 	//===========================================================================
 	// ゲッター

@@ -11,7 +11,7 @@ bool PlayerRotComponent::Initialize(Character& character)
 	return true;
 }
 
-void PlayerRotComponent::Update(Character& character)
+void PlayerRotComponent::Update(Character& character, const GameContext& gameContext)
 {
 	m_rotVector = m_playerMoveComponent->GetMoveVector();
 }

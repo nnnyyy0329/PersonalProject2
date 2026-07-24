@@ -51,7 +51,7 @@ bool Player::Terminate()
 	return true;
 }
 
-void Player::Update()
+void Player::Update(const GameContext& gameContext)
 {
 
 
@@ -70,7 +70,7 @@ void Player::Update()
 	m_stateMachine.Update(*this);
 
 	// 基底クラスの更新処理を呼び出す
-	Character::Update();
+	Character::Update(gameContext);
 }
 
 void Player::SetUpComponents()

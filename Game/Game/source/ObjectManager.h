@@ -7,6 +7,8 @@
 class ObjectLogic;			/// オブジェクトのロジッククラス
 class ObjectRenderSystem;	/// オブジェクトの描画クラス
 
+class GameContext;			/// ゲームのコンテキストクラス
+
 class Character;			/// キャラクタークラス
 class Player;				/// プレイヤークラス
 class Enemy;				/// 敵クラス
@@ -34,7 +36,7 @@ public:
 	bool Terminate();
 
 	/// @brief 更新関数
-	void Update();
+	void Update(const GameContext& context);
 
 	/// @brief 描画関数
 	///
