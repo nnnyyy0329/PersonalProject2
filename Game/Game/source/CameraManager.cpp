@@ -1,6 +1,8 @@
 #include "CameraManager.h"
 #include "CameraBase.h"
 
+CameraManager::~CameraManager() = default;
+
 void CameraManager::Update()
 {
 	if(!m_currentCamera) { return; }

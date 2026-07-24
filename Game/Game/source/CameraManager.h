@@ -9,7 +9,7 @@ class CameraManager
 public:
 
 	CameraManager() = default;
-	virtual ~CameraManager() = default;
+	~CameraManager();
 
 	//===========================================================================
 	// 基本関数
@@ -27,6 +27,15 @@ public:
 
 	/// @brief カメラの切り替え関数
 	void ChangeCamera(std::unique_ptr<CameraBase> newCamera);
+
+	//===========================================================================
+	// ゲッター
+	//===========================================================================
+
+	/// @brief 現在のカメラの取得関数
+	///
+	/// @return 現在のカメラのスマートポインタへの参照
+	const std::unique_ptr<CameraBase>& GetCurrentCamera() const { return m_currentCamera; }
 
 private:
 
