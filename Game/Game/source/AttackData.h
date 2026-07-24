@@ -3,6 +3,7 @@
 #include "CollisionData.h"
 #include "AttackDamageData.h"
 #include "KnockbackData.h"
+#include "AttackMoveData.h"
 #include "EffectData.h"
 #include "SoundData.h"
 #include "CameraShakeData.h"
@@ -23,6 +24,7 @@ struct AttackData
 	CollisionData colData;				/// 当たり判定のデータ
 	AttackDamageData damageData;		/// 攻撃ダメージのデータ
 	KnockbackData knockbackData;		/// ノックバックデータ
+	AttackMoveData moveData;			/// 攻撃移動のデータ
 	EffectData effectData;				/// エフェクトのデータ
 	SoundData soundData;				/// サウンドのデータ
 	CameraShakeData cameraShakeData;	/// カメラ揺れのデータ
@@ -33,6 +35,7 @@ struct AttackData
 		colData				= CollisionData();
 		damageData			= AttackDamageData();
 		knockbackData		= KnockbackData();
+		moveData			= AttackMoveData();
 		effectData			= EffectData();
 		soundData			= SoundData();
 		cameraShakeData		= CameraShakeData();
