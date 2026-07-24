@@ -12,22 +12,27 @@ namespace
 
 void PlayerMoveComponent::Update(Character& character, const GameContext& gameContext)
 {
-	auto& m_cameraManager = gameContext.GetCameraManager();
-	auto& camera = m_cameraManager.GetCurrentCamera();
-	Vec3::Vector3 forward = camera->GetHorizontalForward();
-
-
-
-
 	// 1Pのパッド情報取得
 	const auto& pad_1 = InputManager::GetInstance().GetPad(0);
 
 	// パッドが接続されている場合
 	if(pad_1.IsConnected())
 	{
-		float moveX = static_cast<float>(pad_1.GetLeftStickX());	// 左スティックを移動ベクトルのX成分にする
-		float moveZ = static_cast<float>(pad_1.GetLeftStickY());	// 左スティックを移動ベクトルのZ成分にする
-		m_moveVector.Set(moveX, 0.0f, moveZ);						// Y成分は0にして、移動ベクトルを作成
+		// 左スティックの入力値を取得
+		float moveX = static_cast<float>(pad_1.GetLeftStickX());
+		float moveZ = static_cast<float>(pad_1.GetLeftStickY());
+
+		// カメラマネージャーから現在のカメラを取得
+		auto& m_cameraManager = gameContext.GetCameraManager();
+		auto& camera = m_cameraManager.GetCurrentCamera();
+
+		// カメラの前方向と右方向を取得
+		Vec3::Vector3 forward = camera->GetHorizontalForward();
+		Vec3::Vector3 right = camera->GetHorizontalRight();
+
+		// カメラの向きに合わせて移動ベクトルを作成
+		m_moveVector = right * moveX + forward * moveZ;
+		m_moveVector.SetY(0.0f);
 
 		// 方向を正規化
 		float length = m_moveVector.Length();
