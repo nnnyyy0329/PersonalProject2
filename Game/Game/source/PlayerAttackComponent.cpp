@@ -13,8 +13,8 @@ PlayerAttackComponent::PlayerAttackComponent()
 {
     AttackData weak1;
     weak1.timing.startTime					= 16.0f;
-    weak1.timing.activeDuration				= 7.0f;
-    weak1.timing.recoveryDuration			= 7.0f;
+    weak1.timing.activeDuration				= 5.0f;
+    weak1.timing.recoveryDuration			= 9.0f;
     weak1.timing.comboReceiveTime			= 1.0f;
 	weak1.timing.isAutoNextAttack			= false;
 	weak1.colData.shape						= ShapeType::CAPSULE;
@@ -36,7 +36,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	AttackData weak2;
     weak2.timing.startTime					= 10.0f;
     weak2.timing.activeDuration				= 3.0f;
-    weak2.timing.recoveryDuration			= 18.0f;
+    weak2.timing.recoveryDuration			= 14.0f;
     weak2.timing.comboReceiveTime			= 1.0f;
 	weak2.timing.isAutoNextAttack			= false;
 	weak2.colData.shape						= ShapeType::CAPSULE;
@@ -59,7 +59,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     weak3.timing.startTime					= 4.0f;
     weak3.timing.activeDuration				= 7.0f;
     weak3.timing.recoveryDuration			= 19.0f;
-    weak3.timing.comboReceiveTime			= 1.0f;
+    weak3.timing.comboReceiveTime			= 16.0f;
 	weak3.timing.isAutoNextAttack			= true;
 	weak3.colData.shape						= ShapeType::CAPSULE;
 	weak3.colData.size						= Vec3::Vector3(1.0f, 1.0f, 1.0f);
@@ -80,7 +80,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	AttackData weak4;
 	weak4.timing.startTime					= 11.0f;
 	weak4.timing.activeDuration				= 9.0f;
-	weak4.timing.recoveryDuration			= 30.0f;
+	weak4.timing.recoveryDuration			= 28.0f;
 	weak4.timing.comboReceiveTime			= 1.0f;
 	weak4.timing.isAutoNextAttack			= false;
 	weak4.colData.shape						= ShapeType::CAPSULE;
@@ -101,7 +101,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 
 	AttackData weak5;
 	weak5.timing.startTime					= 30.0f;
-	weak5.timing.activeDuration				= 30.0f;
+	weak5.timing.activeDuration				= 25.0f;
 	weak5.timing.recoveryDuration			= 0.0f;
 	weak5.timing.comboReceiveTime			= 0.0f;
 	weak5.timing.isAutoNextAttack			= false;
@@ -113,7 +113,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak5.damageData.damage					= 0.5f;
 	weak5.damageData.hitStunTime			= 0.0f;
 	weak5.damageData.damageInvincibeTime	= 0.0f;
-	weak5.knockbackData.moveDirection		= { 0.0f, 0.0f, 1.0f };
+	weak5.knockbackData.moveDirection		= { 0.0f, 0.0f, 0.0f };
 	weak5.knockbackData.knockbackSpeed		= 2.0f;
 	weak5.knockbackData.knockbackTime		= 30.0f;
 	weak5.effectData.name					= "EF_Attack";
@@ -124,14 +124,32 @@ PlayerAttackComponent::PlayerAttackComponent()
 
 void PlayerAttackComponent::Update(Character& owner, const GameContext& gameContext)
 {
-	//AutoCombo(owner, COMBO_INDEX_THREE);
+	auto* currentAction = owner.GetCurrentAction<ActionAttack>();
 
-	// 現在のアクションが攻撃アクションでない場合
-    if(!owner.IsCurrentAction<ActionAttack>())
-    {
+	// 現在のアクションが攻撃アクションである場合
+	if(currentAction)
+	{
+		// 現在のコンボインデックス
+		// m_comboIndexは次の攻撃のインデックスを指しているため、現在の攻撃のインデックスはm_comboIndex - 1
+		int currentComboIndex = m_comboIndex - 1;
+
+		// 現在のコンボインデックスが有効範囲内である場合
+		if(IsVaildCurrentComboIndex(currentComboIndex))
+		{
+			// 現在の攻撃データの「次に自動でつながる」フラグが立っており、かつコンボ受付中である場合
+			if(m_attackDataList[currentComboIndex].timing.isAutoNextAttack && currentAction->IsCancelable())
+			{
+				// 自動コンボを発動する
+				AutoCombo(owner);
+			}
+		}
+	}
+	// 攻撃アクションが終了している場合
+	else
+	{
 		// コンボをリセットする
 		ResetCombo();
-    }
+	}
 }
 
 bool PlayerAttackComponent::TryAttack(Character& owner)
@@ -176,22 +194,25 @@ bool PlayerAttackComponent::TryAttack(Character& owner)
 	return false;
 }
 
-void PlayerAttackComponent::AutoCombo(Character& owner, int comboIndex)
+void PlayerAttackComponent::AutoCombo(Character& owner)
 {
-	// 指定されたコンボ数が現在のコンボ数と同じ場合
-	if(m_comboIndex == comboIndex)
+	// コンボ攻撃が有効範囲内の場合
+	if(IsValidComboIndex())
 	{
-		// コンボ攻撃が有効範囲内の場合
-		if(IsValidComboIndex())
-		{
-			// 次の攻撃を自動で発動する
-			owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
-			m_comboIndex++;
-		}
+		// 次の攻撃を自動で発動する
+		owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
+		m_comboIndex++;
+
+		printfDx("自動コンボが発動しました\n");
 	}
 }
 
 bool PlayerAttackComponent::IsValidComboIndex() const
 {
 	return m_comboIndex >= 0 && m_comboIndex < m_attackDataList.size();
+}
+
+bool PlayerAttackComponent::IsVaildCurrentComboIndex(int comboIndex) const
+{
+	return comboIndex >= 0 && comboIndex < m_attackDataList.size();
 }

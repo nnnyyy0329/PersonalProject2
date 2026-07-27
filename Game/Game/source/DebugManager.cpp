@@ -31,5 +31,4 @@ void DebugManager::Render()
 
 	// デバッグ当たり判定の描画
 	m_debugCollision.Render();
-
 }

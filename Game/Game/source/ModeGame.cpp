@@ -52,6 +52,9 @@ bool ModeGame::Process()
 	// 当たり判定の更新
 	m_collisionManager->Update(m_objectManager->GetCharacters());
 
+	// マップの更新
+	m_map.Update();
+
 	// デバッグ表示の更新
 	DebugManager::GetInstance().Update();
 

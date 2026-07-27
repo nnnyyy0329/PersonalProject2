@@ -37,13 +37,19 @@ public:
 	/// @brief コンボ攻撃を自動で一部つなぐ関数
 	///
 	/// @param owner コンボ攻撃を行うキャラクター
-	/// @param comboIndex 自動でつなげる1個前のコンボのインデックス
-	void AutoCombo(Character& owner, int comboIndex);
+	void AutoCombo(Character& owner);
 
 	/// @brief 攻撃データ数が有効範囲かどうかを判定する関数
 	/// 
 	/// @return 有効範囲である場合 true、それ以外は false
 	bool IsValidComboIndex() const;
+
+	/// @brief 指定されたコンボインデックスが有効範囲かどうかを判定する関数
+	///
+	/// @param comboIndex 判定するコンボインデックス
+	/// 
+	/// @return 有効範囲である場合 true、それ以外は false
+	bool IsVaildCurrentComboIndex(int comboIndex) const;
 
 	/// @brief コンボをリセットする関数
 	void ResetCombo() { m_comboIndex = 0; }
