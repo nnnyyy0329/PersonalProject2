@@ -27,7 +27,10 @@ bool ModeLoading::Initialize()
 
 	rs->Register("EF_Attack", "effect/en_attack_test.efkefc", RESOURCE_TYPE::Effect, 20.0f);
 	
-	rs->Register("SE_Attack", "sound/SE/iPlayerAttack1.mp3", RESOURCE_TYPE::Sound, 1.0f);
+	rs->Register("SE_Attack1", "sound/SE/playerAttack1.mp3", RESOURCE_TYPE::Sound, 1.0f);
+	rs->Register("SE_Attack2", "sound/SE/playerAttack2.mp3", RESOURCE_TYPE::Sound, 1.0f);
+	rs->Register("SE_SwingAttack", "sound/SE/SwingAttack.mp3", RESOURCE_TYPE::Sound, 1.0f);
+
 	rs->Register("SE_enemyDamage", "sound/SE/enemyDamage.mp3", RESOURCE_TYPE::Sound, 1.0f);
 
 	rs->Register("EF_Damage1", "effect/SChange_Hit_00.efkefc", RESOURCE_TYPE::Effect, 1.0f);

@@ -1,14 +1,15 @@
 #pragma once
+#include <string>
 
 // @brief サウンドデータ構造体
 struct SoundData
 {
-	int handle;		/// サウンドハンドル
-	float volume;	/// 音量
+	std::string name;	/// サウンドの名前
+	float volume;		/// 音量
 
 	SoundData()
 	{
-		handle = -1;
+		name = "";
 		volume = 1.0f;
 	}
 };

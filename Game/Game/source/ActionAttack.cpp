@@ -145,7 +145,7 @@ void ActionAttack::OnAttackActive(const AttackData& attackData, Character& chara
 	auto ss = SoundServer::GetInstance();
 	auto es = EffectServer::GetInstance();
 
-	int seHandle = ss->Play("SE_Attack", DX_PLAYTYPE_BACK);
+	int seHandle = ss->Play(attackData.soundData.name, DX_PLAYTYPE_BACK);
 	es->Play(attackData.effectData.name, Vec::ToDxVec(character.GetObjectData().pos));
 	es->Play("EF_Damage1", Vec::ToDxVec(character.GetObjectData().pos));
 	es->Play("EF_Damage2", Vec::ToDxVec(character.GetObjectData().pos));

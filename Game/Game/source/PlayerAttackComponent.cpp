@@ -29,6 +29,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak1.knockbackData.knockbackSpeed		= 0.0f;
 	weak1.knockbackData.knockbackTime		= 30.0f;
 	weak1.effectData.name					= "EF_Attack";
+	weak1.soundData.name					= "SE_SwingAttack";
 	weak1.cameraShakeData.duration			= 60.0f;
 	weak1.cameraShakeData.magnitude			= 10.0f;
 	AddAttackData(weak1);
@@ -51,6 +52,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak2.knockbackData.knockbackSpeed		= 0.0f;
 	weak2.knockbackData.knockbackTime		= 30.0f;
 	weak2.effectData.name					= "EF_Attack";
+	weak2.soundData.name					= "SE_SwingAttack";
 	weak2.cameraShakeData.duration			= 60.0f;
 	weak2.cameraShakeData.magnitude			= 10.0f;
     AddAttackData(weak2);
@@ -73,6 +75,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak3.knockbackData.knockbackSpeed		= 2.0f;
 	weak3.knockbackData.knockbackTime		= 30.0f;
 	weak3.effectData.name					= "EF_Attack";
+	weak3.soundData.name					= "SE_SwingAttack";
 	weak3.cameraShakeData.duration			= 60.0f;
 	weak3.cameraShakeData.magnitude			= 10.0f;
     AddAttackData(weak3);
@@ -95,6 +98,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak4.knockbackData.knockbackSpeed		= 2.0f;
 	weak4.knockbackData.knockbackTime		= 30.0f;
 	weak4.effectData.name					= "EF_Attack";
+	weak4.soundData.name					= "SE_SwingAttack";
 	weak4.cameraShakeData.duration			= 60.0f;
 	weak4.cameraShakeData.magnitude			= 10.0f;
 	AddAttackData(weak4);
@@ -117,6 +121,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak5.knockbackData.knockbackSpeed		= 2.0f;
 	weak5.knockbackData.knockbackTime		= 30.0f;
 	weak5.effectData.name					= "EF_Attack";
+	weak5.soundData.name					= "SE_SwingAttack";
 	weak5.cameraShakeData.duration			= 60.0f;
 	weak5.cameraShakeData.magnitude			= 10.0f;
 	AddAttackData(weak5);
