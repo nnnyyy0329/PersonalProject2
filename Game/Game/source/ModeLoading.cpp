@@ -29,6 +29,7 @@ bool ModeLoading::Initialize()
 	
 	rs->Register("SE_Attack1", "sound/SE/playerAttack1.mp3", RESOURCE_TYPE::Sound, 1.0f);
 	rs->Register("SE_Attack2", "sound/SE/playerAttack2.mp3", RESOURCE_TYPE::Sound, 1.0f);
+	rs->Register("SE_Attack3", "sound/SE/playerAttack3.mp3", RESOURCE_TYPE::Sound, 1.0f);
 	rs->Register("SE_SwingAttack", "sound/SE/SwingAttack.mp3", RESOURCE_TYPE::Sound, 1.0f);
 
 	rs->Register("SE_enemyDamage", "sound/SE/enemyDamage.mp3", RESOURCE_TYPE::Sound, 1.0f);
