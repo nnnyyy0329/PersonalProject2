@@ -61,6 +61,12 @@ bool CollisionManager::CheckHitAttack(Character* attacker, Character* defender)
 	return false;
 }
 
+
+
+#include "Server/SoundServer.h"
+
+
+
 void CollisionManager::HitAttackProcess(Character* attacker, Character* defender)
 {
 	// 攻撃者の攻撃コンポーネントを取得する
@@ -82,6 +88,13 @@ void CollisionManager::HitAttackProcess(Character* attacker, Character* defender
 	Vec3::Vector3 dir = defender->GetObjectData().pos - attacker->GetObjectData().pos;
 	dir.SetY(0.0f);
 	DamageInfo damageInfo = DamageConverter::ConvertAttackDataToDamageInfo(attackData, dir.Normalize());
+
+
+
+	auto ss = SoundServer::GetInstance();
+	ss->Play(attackData.soundData.name2, DX_PLAYTYPE_BACK);
+
+
 
 	// 変換したダメージ情報をダメージコンポーネントに設定
 	damageComp->SetDamageInfo(damageInfo);
