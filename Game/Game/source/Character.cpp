@@ -50,3 +50,12 @@ void Character::AddComponent(std::unique_ptr<ComponentBase> component)
 	// 新しいコンポーネントをベクターに追加する
 	m_components.push_back(std::move(component));
 }
+
+Vec3::Vector3 Character::GetForward() const
+{
+	// Y軸回転（ヨー角）を取得
+	float yaw = m_data.rot.GetY();
+
+	// 前方向ベクトルを計算
+	return { -std::sin(yaw), 0.0f, -std::cos(yaw) };
+}

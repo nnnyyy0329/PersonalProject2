@@ -23,6 +23,9 @@ void ActionAttack::Update(Character& character)
 
 	// コリジョンの有効化を行う
 	EnableCollision(character);
+
+	// 攻撃時に前方へ踏み込む処理を行う
+	m_attackLunge.Update(character, m_attackData.moveData, m_currentPhase, m_stateTime);
 }
 
 void ActionAttack::NonePhaseProcess()
@@ -133,6 +136,7 @@ void ActionAttack::EnableCollision(Character& character)
 
 
 
+/* 今後消す隔離用 */
 
 #include "Server/ResourceServer.h"
 #include "Server/SoundServer.h"

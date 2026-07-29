@@ -157,6 +157,7 @@
     <ClCompile Include="source\ApplicationGlobal.cpp" />
     <ClCompile Include="source\ApplicationMain.cpp" />
     <ClCompile Include="source\ActionAttack.cpp" />
+    <ClCompile Include="source\AttackLunge.cpp" />
     <ClCompile Include="source\Bullet.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
@@ -227,7 +228,9 @@
     <ClInclude Include="source\AttackDamageData.h" />
     <ClInclude Include="source\AttackData.h" />
     <ClInclude Include="source\AttackEventComponent,h.h" />
+    <ClInclude Include="source\AttackLunge.h" />
     <ClInclude Include="source\AttackMoveData.h" />
+    <ClInclude Include="source\AttackPhaseData.h" />
     <ClInclude Include="source\AttackTiming.h" />
     <ClInclude Include="source\Bullet.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>

@@ -1,6 +1,7 @@
 #pragma once
 #include "ICharacterAction.h"
 #include "AttackData.h"
+#include "AttackLunge.h"
 
 class Character;	/// キャラクタークラス
 
@@ -81,6 +82,9 @@ private:
 	//===========================================================================
 	// メンバ変数
 	//===========================================================================
+
+	/// 攻撃時に前方へ踏み込む処理を行うクラスのポインタ
+	AttackLunge m_attackLunge;
 
 	/// 攻撃のデータ
 	AttackData m_attackData;

@@ -23,6 +23,9 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak1.knockbackData.moveDirection		= { 0.0f, 0.0f, 0.0f };
 	weak1.knockbackData.knockbackSpeed		= 0.0f;
 	weak1.knockbackData.knockbackTime		= 30.0f;
+	weak1.moveData.movePhase				= AttackPhase::STARTUP;
+	weak1.moveData.moveSpeed				= 3.0f;
+	weak1.moveData.moveTime					= 5.0f;	
 	weak1.effectData.name					= "EF_Attack";
 	weak1.soundData.name1					= "SE_SwingAttack";
 	weak1.soundData.name2					= "SE_Attack3";
@@ -47,6 +50,9 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak2.knockbackData.moveDirection		= { 0.0f, 0.0f, 0.0f };
 	weak2.knockbackData.knockbackSpeed		= 0.0f;
 	weak2.knockbackData.knockbackTime		= 30.0f;
+	weak2.moveData.movePhase				= AttackPhase::STARTUP;
+	weak2.moveData.moveSpeed				= 0.0f;
+	weak2.moveData.moveTime					= 0.0f;
 	weak2.effectData.name					= "EF_Attack";
 	weak2.soundData.name1					= "SE_SwingAttack";
 	weak2.soundData.name2					= "SE_Attack2";
@@ -71,6 +77,9 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak3.knockbackData.moveDirection		= { 0.0f, 1.0f, 0.0f };
 	weak3.knockbackData.knockbackSpeed		= 2.0f;
 	weak3.knockbackData.knockbackTime		= 30.0f;
+	weak3.moveData.movePhase				= AttackPhase::ALL;
+	weak3.moveData.moveSpeed				= 2.0f;
+	weak3.moveData.moveTime					= 27.0f;
 	weak3.effectData.name					= "EF_Attack";
 	weak3.soundData.name1					= "SE_SwingAttack";
 	weak3.soundData.name2					= "SE_Attack1";
@@ -81,7 +90,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	AttackData weak4;
 	weak4.timing.startTime					= 11.0f;
 	weak4.timing.activeDuration				= 9.0f;
-	weak4.timing.recoveryDuration			= 28.0f;
+	weak4.timing.recoveryDuration			= 20.0f;
 	weak4.timing.comboReceiveTime			= 1.0f;
 	weak4.timing.isAutoNextAttack			= false;
 	weak4.colData.shape						= ShapeType::CAPSULE;
@@ -95,6 +104,9 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak4.knockbackData.moveDirection		= { 0.0f, -2.0f, 0.0f };
 	weak4.knockbackData.knockbackSpeed		= 2.0f;
 	weak4.knockbackData.knockbackTime		= 30.0f;
+	weak4.moveData.movePhase				= AttackPhase::ALL;
+	weak4.moveData.moveSpeed				= 2.0f;
+	weak4.moveData.moveTime					= 21.0f;
 	weak4.effectData.name					= "EF_Attack";
 	weak4.soundData.name1					= "SE_SwingAttack";
 	weak4.soundData.name2					= "SE_Attack2";
@@ -119,6 +131,9 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak5.knockbackData.moveDirection		= { 0.0f, 0.0f, 0.0f };
 	weak5.knockbackData.knockbackSpeed		= 2.0f;
 	weak5.knockbackData.knockbackTime		= 30.0f;
+	weak5.moveData.movePhase				= AttackPhase::ACTIVE;
+	weak5.moveData.moveSpeed				= 4.0f;
+	weak5.moveData.moveTime					= 25.0f;
 	weak5.effectData.name					= "EF_Attack";
 	weak5.soundData.name1					= "SE_SwingAttack";
 	weak5.soundData.name2					= "SE_Attack3";

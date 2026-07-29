@@ -166,6 +166,9 @@
     <ClCompile Include="source\GameContext.cpp">
       <Filter>Mode</Filter>
     </ClCompile>
+    <ClCompile Include="source\AttackLunge.cpp">
+      <Filter>Action</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -440,6 +443,12 @@
     </ClInclude>
     <ClInclude Include="source\GameContext.h">
       <Filter>Mode</Filter>
+    </ClInclude>
+    <ClInclude Include="source\AttackLunge.h">
+      <Filter>Action</Filter>
+    </ClInclude>
+    <ClInclude Include="source\AttackPhaseData.h">
+      <Filter>Data\Attack</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
