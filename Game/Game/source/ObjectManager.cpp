@@ -64,6 +64,11 @@ void ObjectManager::RegisterCreators()
 	m_objectFactory.RegisterObject("Enemy", []() -> std::unique_ptr<ObjectLogic> { return std::make_unique<Enemy>(); });
 	m_objects.emplace_back(m_objectFactory.CreateObject("Enemy"));
 
+	/*for(int i = 0; i < 3; ++i)
+	{
+		m_objectFactory.RegisterObject("Enemy", []() -> std::unique_ptr<ObjectLogic> { return std::make_unique<Enemy>(); });
+		m_objects.emplace_back(m_objectFactory.CreateObject("Enemy"));
+	}*/
 }
 
 const std::vector<Character*> ObjectManager::GetCharacters()

@@ -39,6 +39,5 @@ private:
 	/// @param attacker 攻撃を行ったキャラクター
 	/// @param defender 攻撃を受けたキャラクター
 	void HitAttackProcess(Character* attacker, Character* defender);
-
 };
 

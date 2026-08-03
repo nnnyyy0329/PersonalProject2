@@ -2,6 +2,7 @@
 #include "ICharacterAction.h"
 #include "AttackData.h"
 #include "AttackLunge.h"
+#include <unordered_set>
 
 class Character;	/// キャラクタークラス
 
@@ -35,6 +36,22 @@ public:
 	///
 	/// @return 攻撃が終了している場合はtrue、そうでない場合はfalse
 	bool IsFinished() const override { return m_isFinished; }
+
+	//===========================================================================
+	// ヒット管理関数
+	//===========================================================================
+
+	/// @brief 攻撃がヒットしたキャラクターを登録する関数
+	///
+	/// @param character 登録するキャラクター
+	void RegisterHitCharacter(Character* character){ m_hitAttackCharacters.insert(character); }
+
+	/// @brief 攻撃がヒットしたキャラかどうかを判定する関数
+	///
+	/// @param character 判定したいキャラクター
+	/// 
+	/// @return 攻撃がヒットしたキャラクターである場合はtrue、そうでない場合はfalse
+	bool HasHitCharacter(Character* character) const{ return m_hitAttackCharacters.contains(character); }
 
 	//===========================================================================
 	// ゲッター
@@ -100,5 +117,8 @@ private:
 
 	/// 攻撃が終了しているかどうか
 	bool m_isFinished = false;
+
+	/// 攻撃がヒットしたキャラクターの集合
+	std::unordered_set<Character*> m_hitAttackCharacters;
 };
 

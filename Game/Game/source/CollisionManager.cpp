@@ -28,11 +28,6 @@ void CollisionManager::Update(const std::vector<Character*>& characters)
 			{
 				// 攻撃がヒットしたときの処理を行う
 				HitAttackProcess(attacker, defender);
-
-
-
-
-				printfDx("攻撃がヒットしました！\n");
 			}
 		}
 	}
@@ -80,6 +75,20 @@ void CollisionManager::HitAttackProcess(Character* attacker, Character* defender
 	// 防御者のダメージコンポーネントを取得する
 	auto* damageComp = defender->GetComponent<DamageComponent<Character>>();
 	if(!damageComp) { return; }
+
+	// 攻撃がすでにヒットしたキャラならスキップ
+	if(actionAttack->HasHitCharacter(defender)) { return; }
+
+	// ヒットしたキャラではないなら、攻撃がヒットしたキャラとして登録する
+	actionAttack->RegisterHitCharacter(defender);
+
+
+
+
+	printfDx("攻撃がヒットしました！\n");
+
+
+
 
 	// 攻撃データを取得する
 	const AttackData& attackData = actionAttack->GetAttackData();
