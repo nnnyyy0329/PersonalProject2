@@ -100,8 +100,10 @@ void CollisionManager::HitAttackProcess(Character* attacker, Character* defender
 
 
 
+
 	auto ss = SoundServer::GetInstance();
 	ss->Play(attackData.soundData.name2, DX_PLAYTYPE_BACK);
+
 
 
 

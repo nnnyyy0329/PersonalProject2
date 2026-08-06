@@ -54,8 +54,8 @@ void PlayerDebugColComponent::DrawPlayerAttackCollision(Character& owner)
 			// 3Dカプセルを描画
 			DrawCapsule3D
 			(
-				Vec::ToDxVec(capsule.value().top),		// カプセルの上端の座標
-				Vec::ToDxVec(capsule.value().bottom),	// カプセルの下端の座標
+				Vec::ToDxVec(capsule.value().start),	// カプセルの上端の座標
+				Vec::ToDxVec(capsule.value().end),		// カプセルの下端の座標
 				capsule.value().radius,					// カプセルの半径
 				16,										// カプセルの分割数
 				GetColor(255, 0, 0),					// カプセルの色

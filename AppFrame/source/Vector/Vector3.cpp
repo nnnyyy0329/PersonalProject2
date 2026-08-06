@@ -134,4 +134,9 @@ namespace Vec3
 		return std::sqrt(m_x * m_x + m_y * m_y + m_z * m_z);
 	}
 
+	float Vector3::LengthSq() const
+	{
+		return m_x * m_x + m_y * m_y + m_z * m_z;
+	}
+
 }

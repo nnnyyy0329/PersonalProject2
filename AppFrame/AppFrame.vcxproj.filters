@@ -49,6 +49,9 @@
     <Filter Include="VectorConverter">
       <UniqueIdentifier>{bfff30ec-7f61-4e39-80ad-f8695d6ca0a7}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Collision\Shape">
+      <UniqueIdentifier>{423674c7-d84c-4972-ac8e-c2c567d21ac5}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\CFile\CFile.cpp">
@@ -116,6 +119,12 @@
     </ClCompile>
     <ClCompile Include="source\GeometryUtility\GeometryUtility.cpp">
       <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Collision\CollisionMath.cpp">
+      <Filter>Collision</Filter>
+    </ClCompile>
+    <ClCompile Include="source\math\Math.cpp">
+      <Filter>math</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -197,6 +206,18 @@
     </ClInclude>
     <ClInclude Include="source\GeometryUtility\GeometryUtility.h">
       <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Collision\CollisionMath.h">
+      <Filter>Collision</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Collision\Shape\Sphere.h">
+      <Filter>Collision\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Collision\Shape\Capsule.h">
+      <Filter>Collision\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="source\math\Math.h">
+      <Filter>math</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

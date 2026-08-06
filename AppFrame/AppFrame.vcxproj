@@ -159,11 +159,13 @@
     <ClCompile Include="source\CFile\CFile.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="source\Collision\CollisionMath.cpp" />
     <ClCompile Include="source\GeometryUtility\DxLibGeometryUtility.cpp" />
     <ClCompile Include="source\GeometryUtility\GeometryUtility.cpp" />
     <ClCompile Include="source\Manager\input\InputManager.cpp">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClCompile>
+    <ClCompile Include="source\math\Math.cpp" />
     <ClCompile Include="source\math\mymath.cpp" />
     <ClCompile Include="source\Mode\ModeBase.cpp" />
     <ClCompile Include="source\Mode\ModeServer.cpp" />
@@ -196,7 +198,10 @@
     <ClInclude Include="source\CFile\CFile.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="source\Collision\CollisionMath.h" />
     <ClInclude Include="source\Collision\DxLibCollisionMath.h" />
+    <ClInclude Include="source\Collision\Shape\Capsule.h" />
+    <ClInclude Include="source\Collision\Shape\Sphere.h" />
     <ClInclude Include="source\draw\mydraw.h" />
     <ClInclude Include="source\GeometryUtility\DxLibGeometryUtility.h" />
     <ClInclude Include="source\GeometryUtility\GeometryUtility.h" />
@@ -204,6 +209,7 @@
     <ClInclude Include="source\Manager\input\InputManager.h">
       <ExcludedFromBuild Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</ExcludedFromBuild>
     </ClInclude>
+    <ClInclude Include="source\math\Math.h" />
     <ClInclude Include="source\math\mymath.h" />
     <ClInclude Include="source\Mode\ModeBase.h" />
     <ClInclude Include="source\Mode\ModeServer.h" />

@@ -156,6 +156,11 @@ namespace Vec3
 		/// @return ベクトルの長さ
 		float Length() const;
 
+		/// @brief ベクトルの長さの二乗を計算する関数
+		///
+		/// @return ベクトルの長さの二乗
+		float LengthSq() const;
+
 	private:
 
 		float m_x = 0.0f;
