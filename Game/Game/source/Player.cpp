@@ -28,7 +28,7 @@ bool Player::Initialize()
 
 
 
-	m_charColData.radius = 30.0f;
+	m_charColData.capsule.radius = 30.0f;
 
 
 
@@ -57,8 +57,10 @@ void Player::Update(const GameContext& gameContext)
 
 
 
-	m_charColData.top = GetObjectData().pos + Vec3::Vector3(0.0f, 100.0f, 0.0f);
-	m_charColData.bottom = GetObjectData().pos;
+	m_charColData.capsule.start		= GetObjectData().pos + Vec3::Vector3(0.0f, 100.0f, 0.0f);
+	m_charColData.capsule.end		= GetObjectData().pos;
+	m_charColData.capsule.radius	= 30.0f;
+
 
 
 	

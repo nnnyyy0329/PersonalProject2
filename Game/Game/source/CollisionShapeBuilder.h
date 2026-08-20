@@ -20,9 +20,9 @@ namespace CollisionShapeBuilder
 		Collision::Shape::Capsule capsule;
 
 		// キャラクターの当たり判定データを取得してカプセル形状に設定する
-		capsule.start	= character.GetCharColData().top;
-		capsule.end		= character.GetCharColData().bottom;
-		capsule.radius	= character.GetCharColData().radius;
+		capsule.start	= character.GetCharColData().capsule.start;
+		capsule.end		= character.GetCharColData().capsule.end;
+		capsule.radius	= character.GetCharColData().capsule.radius;
 
 		return capsule;
 	}
