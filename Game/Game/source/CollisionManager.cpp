@@ -8,6 +8,8 @@
 #include "CollisionShapeBuilder.h"
 #include "DamageConverter.h"
 
+#include "Collision/HitCollision.h"
+
 void CollisionManager::Update(const std::vector<Character*>& characters)
 {
 	// 攻撃者のキャラ
@@ -47,8 +49,13 @@ bool CollisionManager::CheckHitAttack(Character* attacker, Character* defender)
 	auto defCapsule = CollisionShapeBuilder::CreateCharacterCapsule(*defender);
 	if(!defCapsule.has_value()) { return false; }
 
-	// カプセル同士の当たり判定を行う
-	if(DxLibCollisionMath::CheckCapsuleToCapsule(attackCapsule.value(), defCapsule.value()))
+	//// カプセル同士の当たり判定を行う
+	//if(DxLibCollisionMath::CheckCapsuleToCapsule(attackCapsule.value(), defCapsule.value()))
+	//{
+	//	return true;
+	//}
+
+	if(HitCheck::CapsuleToCapsule(attackCapsule.value(), defCapsule.value()))
 	{
 		return true;
 	}

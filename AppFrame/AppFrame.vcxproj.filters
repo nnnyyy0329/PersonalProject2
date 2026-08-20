@@ -120,7 +120,7 @@
     <ClCompile Include="source\GeometryUtility\GeometryUtility.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
-    <ClCompile Include="source\Collision\CollisionMath.cpp">
+    <ClCompile Include="source\Collision\HitCollision.cpp">
       <Filter>Collision</Filter>
     </ClCompile>
     <ClCompile Include="source\math\Math.cpp">
@@ -207,7 +207,7 @@
     <ClInclude Include="source\GeometryUtility\GeometryUtility.h">
       <Filter>Utility</Filter>
     </ClInclude>
-    <ClInclude Include="source\Collision\CollisionMath.h">
+    <ClInclude Include="source\Collision\HitCollision.h">
       <Filter>Collision</Filter>
     </ClInclude>
     <ClInclude Include="source\Collision\Shape\Sphere.h">

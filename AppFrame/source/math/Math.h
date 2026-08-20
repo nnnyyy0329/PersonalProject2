@@ -5,6 +5,9 @@
 
 namespace Math
 {
+	// 0に近い値を比較するための定数
+	constexpr float EPSILON = 0.00001f;
+
 	/// @brief クランプ関数
 	///
 	/// @param value 値
@@ -13,6 +16,54 @@ namespace Math
 	/// 
 	/// @return min <= value <= max の範囲に収めた値
 	float Clamp(float value, float min, float max);
+
+	/*/// @brief abs関数
+	///
+	/// @param value 値
+	///
+	/// @return valueの絶対値
+	float Abs(float value);*/
+
+	/// @brief テンプレート型のabs関数
+	///
+	/// @tparam T 型
+	/// 
+	/// @param value 値
+	/// 
+	/// @return valueの絶対値
+	template <typename T>
+	constexpr T Abs(T value)
+	{
+		return (value < 0) ? -value : value;
+	}
+
+	/// @brief 最小値を返す関数
+	///
+	/// @tparam T 型
+	/// 
+	/// @param value1 値1
+	/// @param value2 値2
+	/// 
+	/// @return value1とvalue2のうち小さい方の値
+	template <typename T>
+	constexpr T Min(T value1, T value2)
+	{
+		return (value1 < value2) ? value1 : value2;
+	}
+
+	/// @brief 最大値を返す関数
+	///
+	/// @tparam T 型
+	/// 
+	/// @param value1 値1
+	/// @param value2 値2
+	/// 
+	/// @return value1とvalue2のうち大きい方の値
+	template <typename T>
+	constexpr T Max(T value1, T value2)
+	{
+		return (value1 > value2) ? value1 : value2;
+	}
 
 	/// @brief 2つの線分間の最短距離の二乗を計算する関数
 	///
