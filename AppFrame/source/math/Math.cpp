@@ -9,86 +9,214 @@ namespace Math
 		return value;
 	}
 
+	SegmentClosestPoints CalcSegmentClosestPoints(
+		const Vec3::Vector3& startA,
+		const Vec3::Vector3& endA,
+		const Vec3::Vector3& startB,
+		const Vec3::Vector3& endB)
+	{
+		SegmentClosestPoints result;
+
+		//============================================================
+		// 線分のベクトルを計算
+		//============================================================
+
+		// 線分Aのベクトル
+		const Vec3::Vector3 segmentA = endA - startA;
+
+		// 線分Bのベクトル
+		const Vec3::Vector3 segmentB = endB - startB;
+
+		// 線分Bの開始点から線分Aの開始点へのベクトル
+		const Vec3::Vector3 r = startA - startB;
+
+		// 線分Aの長さの二乗
+		float segmentALengthSq = segmentA.Dot(segmentA);
+
+		// 線分Bの長さの二乗
+		float segmentBLengthSq = segmentB.Dot(segmentB);
+
+		// 線分上の位置を表すパラメータ
+		//
+		// t = 0.0f → 線分の開始点
+		// t = 1.0f → 線分の終了点
+		float t = 0.0f;
+		float u = 0.0f;
+
+		//============================================================
+		// 線分Aが点の場合
+		//============================================================
+
+		// 線分Aの長さが0に近い場合、
+		// 線分Aは「線分」ではなく「点」として扱う
+		if(segmentALengthSq < Math::EPSILON)
+		{
+			// 線分AはstartAという点になる
+			t = 0.0f;
+
+			// 線分Bが線分として存在する場合
+			if(segmentBLengthSq >= Math::EPSILON)
+			{
+				// startAから線分B上の最近接点を求める
+				u =
+					Math::Clamp(
+						r.Dot(segmentB) / segmentBLengthSq,
+						0.0f,
+						1.0f);
+			}
+		}
+
+		//============================================================
+		// 線分Bが点の場合
+		//============================================================
+
+		else if(segmentBLengthSq < Math::EPSILON)
+		{
+			// 線分BはstartBという点になる
+			u = 0.0f;
+
+			// startBから線分A上の最近接点を求める
+			t =
+				Math::Clamp(
+					-r.Dot(segmentA) / segmentALengthSq,
+					0.0f,
+					1.0f);
+		}
+
+		//============================================================
+		// A・Bどちらも線分の場合
+		//============================================================
+
+		else
+		{
+			//========================================================
+			// 内積を計算
+			//========================================================
+
+			// 線分Aと線分Bの方向ベクトルの内積
+			float segmentDirectionDot = segmentA.Dot(segmentB);
+
+			// 線分Aの方向ベクトルと、
+			// startB → startAのベクトルの内積
+			float startDistanceOnA = segmentA.Dot(r);
+
+			// 線分Bの方向ベクトルと、
+			// startB → startAのベクトルの内積
+			float startDistanceOnB = segmentB.Dot(r);
+
+			//========================================================
+			// 分母を計算
+			//========================================================
+
+			// AとBの最近接点を求めるための分母
+			//
+			// denominatorが0に近い
+			// ↓
+			// 線分Aと線分Bが平行に近い
+			float denominator =
+				segmentALengthSq * segmentBLengthSq
+				- segmentDirectionDot * segmentDirectionDot;
+
+			//========================================================
+			// まず線分A側の最近接位置を決める
+			//========================================================
+
+			// AとBが平行ではない場合、
+			// まずA側の最近接位置を求める
+			if(Math::Abs(denominator) >= Math::EPSILON)
+			{
+				t = Math::Clamp(
+					(segmentDirectionDot * startDistanceOnB - segmentBLengthSq * startDistanceOnA)
+					/ denominator, 0.0f, 1.0f);
+			}
+
+			//========================================================
+			// 決めたAの位置に対してB側の位置を求める
+			//========================================================
+
+			// tによって決まった線分A上の点に対して、
+			// 線分B上のどこが一番近いかを求めるための値
+			//
+			// この値をsegmentBLengthSqで割ると
+			// B側のパラメータuになる
+			float uNumerator =
+				segmentDirectionDot * t
+				+ startDistanceOnB;
+
+			//========================================================
+			// B側の最近接点が線分の外側だった場合
+			//========================================================
+
+			// B側の最近接点がstartBより外側の場合
+			if(uNumerator < 0.0f)
+			{
+				// B側の最近接点をstartBに固定
+				u = 0.0f;
+
+				// BをstartBに固定したので、
+				// startBからA上の最近接点を改めて求める
+				t = Math::Clamp(
+						-startDistanceOnA / segmentALengthSq, 0.0f, 1.0f);
+			}
+
+			// B側の最近接点がendBより外側の場合
+			else if(uNumerator > segmentBLengthSq)
+			{
+				// B側の最近接点をendBに固定
+				u = 1.0f;
+
+				// BをendBに固定したので、
+				// endBからA上の最近接点を改めて求める
+				t = Math::Clamp(
+					(segmentDirectionDot - startDistanceOnA) / segmentALengthSq, 0.0f, 1.0f);
+			}
+
+			// B側の最近接点が線分Bの内部にある場合
+			else
+			{
+				// B側のパラメータuを計算
+				u = uNumerator / segmentBLengthSq;
+			}
+		}
+
+		//============================================================
+		// パラメータから実際の最近接点を求める
+		//============================================================
+
+		// 線分A上の最近接点
+		result.pointA = startA + segmentA * t;
+
+		// 線分B上の最近接点
+		result.pointB = startB + segmentB * u;
+
+		//============================================================
+		// 最近接点同士の距離の二乗を求める
+		//============================================================
+
+		// 最近接点Aから最近接点Bへのベクトル
+		const Vec3::Vector3 diff = result.pointA - result.pointB;
+
+		// 距離の二乗を計算
+		result.distanceSq = diff.Dot(diff);
+
+		// 最近接点A・最近接点B・距離の二乗を返す
+		return result;
+	}
+
 	float CalcSegmentToSegmentDistanceSq(
 		const Vec3::Vector3& startA,
 		const Vec3::Vector3& endA,
 		const Vec3::Vector3& startB,
 		const Vec3::Vector3& endB)
 	{
-		Vec3::Vector3 segmentA	= endA - startA;	// 線分Aのベクトル
-		Vec3::Vector3 segmentB	= endB - startB;	// 線分Bのベクトル
-		Vec3::Vector3 r			= startA - startB;	// 線分Aの開始点から線分Bの開始点までのベクトル
+		const SegmentClosestPoints result =
+			CalcSegmentClosestPoints(
+				startA, 
+				endA,
+				startB,
+				endB);
 
-		float segmentALengthSq		= segmentA.Dot(segmentA);	// 線分Aの長さの二乗
-		float segmentBLengthSq		= segmentB.Dot(segmentB);	// 線分Bの長さの二乗
-
-		// 線分Aの長さが0に近い場合、線分Aは点として扱う
-		if(Math::Abs(segmentALengthSq) < Math::EPSILON)
-		{
-			// 線分Aが点の場合、線分B上の最近接点を求める
-			Vec3::Vector3 closestB = ClosestPointOnSegment(startA, startB, endB);
-			Vec3::Vector3 diff = startA - closestB;
-			return diff.Dot(diff);
-		}
-
-		// 線分Bの長さが0に近い場合、線分Bは点として扱う
-		if(Math::Abs(segmentBLengthSq) < Math::EPSILON)
-		{
-			// 線分Bが点の場合、線分A上の最近接点を求める
-			Vec3::Vector3 closestA = ClosestPointOnSegment(startB, startA, endA);
-			Vec3::Vector3 diff = startB - closestA;
-			return diff.Dot(diff);
-		}
-
-		float segmentDirectionDot	= segmentA.Dot(segmentB);	// 線分Aと線分Bの方向ベクトルの内積
-		float startDistanceOnA		= segmentA.Dot(r);			// 線分Aの方向ベクトルと、startB→startAの位置関係を表す内積
-		float startDistanceOnB		= segmentB.Dot(r);			// 線分Bの方向ベクトルと、startB→startAの位置関係を表す内積
-
-		// 分母の計算
-		// この計算法は、連立方程式を解くためのもので、線分Aと線分Bのパラメータtとuを求めるために使用されます。
-		float denominator = 
-			segmentALengthSq * segmentBLengthSq - segmentDirectionDot * segmentDirectionDot;
-
-		// 分母が0に近い場合、線分Aと線分Bは平行であるため、最近接点を求めることができません。
-		if(Math::Abs(denominator) < Math::EPSILON)
-		{
-			// 線分Aの開始点から線分B上の最近接点を求める
-			Vec3::Vector3 closestB	= ClosestPointOnSegment(startA, startB, endB);
-			Vec3::Vector3 diffA		= startA - closestB;
-			float distanceSqA		= diffA.Dot(diffA);
-			
-			// 線分Aの終了点から線分B上の最近接点を求める
-			Vec3::Vector3 closestB2	= ClosestPointOnSegment(endA, startB, endB);
-			Vec3::Vector3 diffB		= endA - closestB2;
-			float distanceSqB		= diffB.Dot(diffB);
-
-			// 線分Aの開始点と終了点から線分B上の最近接点までの距離の二乗の最小値を返す
-			return Math::Min(distanceSqA, distanceSqB);
-		}
-		else
-		{
-			// 線分A上の最近接点を求めるためのパラメータtを計算
-			// 計算式は、計算した分母を使って、線分A上の最近接点のパラメータtを求めるためのものです。
-			float t =
-				(segmentDirectionDot * startDistanceOnB - segmentBLengthSq * startDistanceOnA) / denominator;
-
-			// 線分B上の最近接点を求めるためのパラメータuを計算
-			// 計算式は、計算した分母を使って、線分B上の最近接点のパラメータuを求めるためのものです。
-			float u =
-				(segmentALengthSq * startDistanceOnB - segmentDirectionDot * startDistanceOnA) / denominator;
-
-			// tとuを0.0fから1.0fの範囲にクランプ
-			t = Math::Clamp(t, 0.0f, 1.0f);
-			u = Math::Clamp(u, 0.0f, 1.0f);
-
-			// 線分A上の最近接点と線分B上の最近接点を計算
-			Vec3::Vector3 closestA = startA + segmentA * t;
-			Vec3::Vector3 closestB = startB + segmentB * u;
-
-			// 線分A上と線分B上の最近接点の差ベクトルを計算
-			Vec3::Vector3 diff = closestA - closestB;
-			return diff.Dot(diff);
-		}
+		return result.distanceSq;
 	}
 
 	Vec3::Vector3 ClosestPointOnSegment(
@@ -108,8 +236,8 @@ namespace Math
 		// 線分の長さが0に近い場合、線分の開始点を返す
 		if(Math::Abs(segmentLengthSq) < Math::EPSILON){ return segmentStart; }
 
-		// 線分の長さの二乗を計算
-		float t = pointVector.Dot(segmentVector) / segmentVector.Dot(segmentVector);
+		// 線分上の位置を表すパラメータtを計算
+		float t = pointVector.Dot(segmentVector) / segmentLengthSq;
 
 		// tを0.0fから1.0fの範囲にクランプ
 		t = Math::Clamp(t, 0.0f, 1.0f);

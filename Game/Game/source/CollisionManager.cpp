@@ -12,27 +12,112 @@
 
 void CollisionManager::Update(const std::vector<Character*>& characters)
 {
-	// 攻撃者のキャラ
+	//===========================================================================
+	// キャラクター同士の当たり判定
+	//===========================================================================
+
+	// 判定用に、キャラクターを二重ループで回す
+	for(size_t i = 0; i < characters.size(); ++i)
+	{
+		// キャラクター1を取得
+		Character* character1 = characters[i];
+		if(!character1) { continue; }
+
+		// +1 しているのは、キャラクター同士の衝突判定は一度だけ行えばよいから
+		for(size_t j = i + 1; j < characters.size(); ++j)
+		{
+			// キャラクター2を取得
+			Character* character2 = characters[j];
+			if(!character2) { continue; }
+
+			// キャラクター同士の衝突判定を行う
+			auto collision = CheckHitCharacter(character1, character2);
+
+			// キャラクター同士がヒットしたなら
+			if(collision.isHit)
+			{
+				// キャラクター同士が衝突したときの押し出し処理を行う
+				ResolveCharacterCollision(character1, character2, collision);
+
+				// キャラクター同士がヒットしたときの処理を行う
+				HitCharacterProcess(character1, character2);
+			}
+		}
+	}
+
+	//===========================================================================
+	// 攻撃の当たり判定
+	//===========================================================================
+
+	// 判定用に、キャラクターを二重ループで回す
 	for(auto* attacker : characters)
 	{
 		if(!attacker) { continue; }
 
-		// 防御者のキャラ
 		for(auto* defender : characters)
 		{
 			if(!defender) { continue; }
 
-			// 攻撃者と防御者が同じキャラである場合はスキップ
+			// 同じキャラである場合はスキップ
 			if(attacker == defender) { continue; }
 
-			// 攻撃がヒットしたかどうかを判定する
-			if(CheckHitAttack(attacker, defender))
+			// 攻撃
 			{
-				// 攻撃がヒットしたときの処理を行う
-				HitAttackProcess(attacker, defender);
+				// 攻撃がヒットしたなら
+				if(CheckHitAttack(attacker, defender))
+				{
+					// 攻撃ヒット時の処理を行う
+					HitAttackProcess(attacker, defender);
+				}
 			}
 		}
 	}
+}
+
+HitCheck::CapsuleCollisionResult CollisionManager::CheckHitCharacter(Character* character1, Character* character2)
+{
+	HitCheck::CapsuleCollisionResult result;
+
+	// キャラクター1のカプセル形状を作成
+	auto capsule1 = CollisionShapeBuilder::CreateCharacterCapsule(*character1);
+	if(!capsule1.has_value()) { return result; }
+
+	// キャラクター2のカプセル形状を作成
+	auto capsule2 = CollisionShapeBuilder::CreateCharacterCapsule(*character2);
+	if(!capsule2.has_value()) { return result; }
+
+	// カプセル同士の衝突時の計算結果を返す
+	return HitCheck::CapsuleToCapsule(capsule1.value(), capsule2.value());
+}
+
+void  CollisionManager::ResolveCharacterCollision(
+	Character* character1,
+	Character* character2,
+	const HitCheck::CapsuleCollisionResult& collision)
+{
+	if(!collision.isHit || collision.penetration <= 0.0f) { return; }
+
+	// 衝突の貫通深さを0.25倍にして、押し出しの量を調整する
+	const Vec3::Vector3 correction = collision.normal * (collision.penetration * 0.25f);
+
+	ObjectData data1 = character1->GetObjectData();
+	ObjectData data2 = character2->GetObjectData();
+
+	// キャラクター1の位置を修正
+	// 減算なのは、キャラクター1の法線ベクトルがキャラクター2の方向を向いているため
+	data1.pos -= correction;
+	
+	// キャラクター2の位置を修正
+	// 加算なのは、キャラクター2の法線ベクトルがキャラクター1の方向を向いているため
+	data2.pos += correction;
+
+	character1->SetObjectData(data1);
+	character2->SetObjectData(data2);
+}
+
+void CollisionManager::HitCharacterProcess(Character* character1, Character* character2)
+{
+	printfDx("キャラクター同士がヒットしました！\n");
 }
 
 bool CollisionManager::CheckHitAttack(Character* attacker, Character* defender)
@@ -49,18 +134,8 @@ bool CollisionManager::CheckHitAttack(Character* attacker, Character* defender)
 	auto defCapsule = CollisionShapeBuilder::CreateCharacterCapsule(*defender);
 	if(!defCapsule.has_value()) { return false; }
 
-	//// カプセル同士の当たり判定を行う
-	//if(DxLibCollisionMath::CheckCapsuleToCapsule(attackCapsule.value(), defCapsule.value()))
-	//{
-	//	return true;
-	//}
-
-	if(HitCheck::CapsuleToCapsule(attackCapsule.value(), defCapsule.value()))
-	{
-		return true;
-	}
-
-	return false;
+	// 攻撃コリジョンと防御者の衝突フラグを返す
+	return HitCheck::CapsuleToCapsule(attackCapsule.value(), defCapsule.value()).isHit;
 }
 
 

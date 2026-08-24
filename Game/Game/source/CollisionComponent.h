@@ -2,7 +2,7 @@
 #include "IComponent.h"
 #include "CollisionData.h"
 
-/// @brief キャラクターの当たり判定を管理するコンポーネントクラス
+/// @brief 当たり判定を管理するコンポーネントクラス
 ///
 /// @tparam TOwner コンポーネントを所有するクラスの型
 template<typename TOwner>
@@ -18,7 +18,7 @@ public:
 
 	/// @brief 初期化関数
 	///
-	/// @param owner 初期化処理を行うキャラクター
+	/// @param owner 初期化処理を行うオブジェクト
 	/// 
 	/// @return 成功しているならtrue、失敗しているならfalse
 	bool Initialize(TOwner& owner) override
@@ -31,7 +31,7 @@ public:
 
 	/// @brief 初期化関数
 	///
-	/// @param owner 初期化処理を行うキャラクター
+	/// @param owner 初期化処理を行うオブジェクト
 	/// @param gameContext 更新処理に必要なゲームコンテキスト
 	void Update(TOwner& owner, const GameContext& gameContext) override {}
 

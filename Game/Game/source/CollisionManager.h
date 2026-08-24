@@ -1,4 +1,5 @@
 #pragma once
+#include "Collision/HitCollision.h"
 #include <vector>
 
 class Character;	/// キャラクタークラス
@@ -26,6 +27,30 @@ private:
 	// 内部関数
 	//===========================================================================
 
+	/// @brief キャラクター同士がヒットしたかどうかを判定する関数
+	///
+	/// @param character1 キャラクター1
+	/// @param character2 キャラクター2
+	/// 
+	/// @return ヒット結果を含む構造体
+	HitCheck::CapsuleCollisionResult CheckHitCharacter(Character* character1, Character* character2);
+
+	/// @brief キャラクター同士が衝突したときの押し出し処理を行う関数
+	///
+	/// @param character1 キャラクター1
+	/// @param character2 キャラクター2
+	/// @param collision キャラクター同士の衝突判定結果
+	void ResolveCharacterCollision(
+		Character* character1, 
+		Character* character2, 
+		const HitCheck::CapsuleCollisionResult& collision);
+
+	/// @brief キャラクター同士がヒットしたときの処理を行う関数
+	///
+	/// @param character1 キャラクター1
+	/// @param character2 キャラクター2
+	void HitCharacterProcess(Character* character1, Character* character2);
+
 	/// @brief 攻撃がヒットしたかどうかを判定する関数
 	///
 	/// @param attacker 攻撃を行ったキャラクター
@@ -34,10 +59,19 @@ private:
 	/// @return 攻撃がヒットした場合はtrue、そうでない場合はfalse
 	bool CheckHitAttack(Character* attacker, Character* defender);
 
+	/// @brief 攻撃がヒットしたかどうかを判定する関数
+	///
+	/// @param attacker 攻撃を行ったキャラクター
+	/// @param defender 攻撃を受けたキャラクター
+	/// 
+	/// @return ヒット結果を含む構造体
+	HitCheck::CapsuleCollisionResult CheckHitAttackCapsule(Character* attacker, Character* defender);
+
 	/// @brief 攻撃がヒットしたときの処理を行う関数
 	///
 	/// @param attacker 攻撃を行ったキャラクター
 	/// @param defender 攻撃を受けたキャラクター
 	void HitAttackProcess(Character* attacker, Character* defender);
+
 };
 
