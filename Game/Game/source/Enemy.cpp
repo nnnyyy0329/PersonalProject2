@@ -11,6 +11,7 @@
 #include "EnemyMoveComponent.h"
 #include "EnemyIdleState.h"
 #include "EnemyRotComponent.h"
+#include "GravityComponent.h"
 
 bool Enemy::Initialize()
 {
@@ -100,6 +101,9 @@ void Enemy::SetUpComponents()
 
 	// 敵の回転管理コンポーネントを追加
 	AddComponent(std::make_unique<EnemyRotComponent>());
+
+	// 重力コンポーネントを追加
+	AddComponent(std::make_unique<GravityComponent<Character>>(0.25f));
 }
 
 void Enemy::SetUpActions()

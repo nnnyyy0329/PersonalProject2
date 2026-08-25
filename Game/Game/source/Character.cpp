@@ -34,7 +34,10 @@ void Character::Update(const GameContext& gameContext)
 		if(m_currentAction->IsFinished())
 		{
 			// 現在のアクションをリセットする
-			m_currentAction.reset();
+			//m_currentAction.reset();
+
+			// デフォルトのアクションを作成して設定する
+			m_currentAction = CreateDefaultAction();
 		}
 	}
 }

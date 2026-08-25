@@ -12,6 +12,7 @@
 #include "PlayerDebugColComponent.h"
 #include "PlayerInputComponent.h"
 #include "PlayerIdleState.h"
+#include "GravityComponent.h"
 
 bool Player::Initialize()
 {
@@ -24,7 +25,7 @@ bool Player::Initialize()
 
 	// アクションの設定
 	SetUpActions();
-
+	
 
 
 
@@ -106,6 +107,9 @@ void Player::SetUpComponents()
 
 	// 入力コンポーネントを追加
 	AddComponent(std::make_unique<PlayerInputComponent>());
+
+	// 重力コンポーネントを追加
+	AddComponent(std::make_unique<GravityComponent<Character>>(0.25f));
 }
 
 void Player::SetUpActions()

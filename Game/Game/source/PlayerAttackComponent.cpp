@@ -75,7 +75,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak3.damageData.hitStunTime			= 0.0f;
 	weak3.damageData.damageInvincibeTime	= 0.0f;
 	weak3.knockbackData.moveDirection		= { 0.0f, 1.0f, 0.0f };
-	weak3.knockbackData.knockbackSpeed		= 2.0f;
+	weak3.knockbackData.knockbackSpeed		= 7.0f;
 	weak3.knockbackData.knockbackTime		= 30.0f;
 	weak3.moveData.movePhase				= AttackPhase::ALL;
 	weak3.moveData.moveSpeed				= 2.0f;
@@ -102,7 +102,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	weak4.damageData.hitStunTime			= 0.0f;
 	weak4.damageData.damageInvincibeTime	= 0.0f;
 	weak4.knockbackData.moveDirection		= { 0.0f, -2.0f, 0.0f };
-	weak4.knockbackData.knockbackSpeed		= 2.0f;
+	weak4.knockbackData.knockbackSpeed		= 7.0f;
 	weak4.knockbackData.knockbackTime		= 30.0f;
 	weak4.moveData.movePhase				= AttackPhase::ALL;
 	weak4.moveData.moveSpeed				= 2.0f;
