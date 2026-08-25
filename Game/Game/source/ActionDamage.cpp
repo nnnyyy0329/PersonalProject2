@@ -1,5 +1,6 @@
 #include "ActionDamage.h"
 #include "Character.h"
+#include "GravityComponent.h"
 
 namespace
 {
@@ -21,8 +22,19 @@ void ActionDamage::UpdateKnockback(Character& character)
 	// キャラクターのオブジェクトデータを取得する
 	ObjectData data = character.GetObjectData();
 
+	// 水平方向のノックバックを適用する
+	Vec3::Vector3 knockback = m_knockBackVelocity;
+	knockback.SetY(0.0f);
+
 	// ノックバック方向にキャラクターを移動させる
-	data.pos = data.pos + m_knockBackVelocity;
+	data.pos += knockback;
+
+	auto  gravityComp = character.GetComponent<GravityComponent<Character>>();
+	if(gravityComp)
+	{
+		// Y方向の速度をノックバックのY成分に設定する
+		data.pos.SetY(data.pos.GetY() + gravityComp->GetVelocityY());
+	}
 
 	// 更新されたオブジェクトデータをキャラクターに設定する
 	character.SetObjectData(data);

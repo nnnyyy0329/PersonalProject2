@@ -3,6 +3,7 @@
 #include "ActionAttack.h"
 #include "HealthComponent.h"
 #include "DamageComponent.h"
+#include "GravityComponent.h"
 #include "Character.h"
 #include "Collision/DxLibCollisionMath.h"
 #include "CollisionShapeBuilder.h"
@@ -12,6 +13,16 @@
 
 void CollisionManager::Update(const std::vector<Character*>& characters)
 {
+	// 簡易的な仮実装
+	// キャラクターが床にめり込んでいる場合、床の高さに修正する
+	for(auto* character : characters)
+	{
+		if(!character) { continue; }
+		ResolveCharacterFloorPenetration(character);
+	}
+
+
+
 	//===========================================================================
 	// キャラクター同士の当たり判定
 	//===========================================================================
@@ -71,6 +82,32 @@ void CollisionManager::Update(const std::vector<Character*>& characters)
 				}
 			}
 		}
+	}
+}
+
+void CollisionManager::ResolveCharacterFloorPenetration(Character* character)
+{
+	if(!character) { return; }
+
+	// キャラクターのオブジェクトデータを取得
+	ObjectData data = character->GetObjectData();
+
+	// キャラクターのY座標が床合すり抜け対策の高さより下にある場合
+	if(data.pos.GetY() < 0.0f)
+	{
+		// キャラクターのY座標を床合すり抜け対策の高さに修正
+		data.pos.SetY(0.0f);
+
+		// キャラクターの重力コンポーネントを取得
+		auto gravityComp = character->GetComponent<GravityComponent<Character>>();
+		if(gravityComp)
+		{
+			// Y方向の速度を0に設定
+			gravityComp->SetVelocityY(0.0f);
+		}
+
+		// 修正したオブジェクトデータをキャラクターに設定
+		character->SetObjectData(data);
 	}
 }
 

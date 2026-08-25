@@ -2,6 +2,7 @@
 #include "Character.h"
 #include "MoveComponent.h"
 #include "RotationComponent.h"
+#include "GravityComponent.h"
 #include "Vector/Vector3.h"
 
 namespace
@@ -49,6 +50,23 @@ void ActionMove::Move(Character& character)
 			// 更新されたオブジェクトデータをキャラクターに設定
 			character.SetObjectData(data);
 		}
+	}
+
+	// キャラクターの重力コンポーネントを取得
+	auto gravityComponent = character.GetComponent<GravityComponent<Character>>();
+	if(gravityComponent)
+	{
+		// キャラクターのオブジェクトデータを取得
+		ObjectData data = character.GetObjectData();
+
+		// Y方向の速度を取得
+		float velocityY = gravityComponent->GetVelocityY();
+
+		// Y方向の速度をキャラクターの位置に加算
+		data.pos.SetY(data.pos.GetY() + velocityY);
+
+		// 更新されたオブジェクトデータをキャラクターに設定
+		character.SetObjectData(data);
 	}
 }
 
