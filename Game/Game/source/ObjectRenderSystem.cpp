@@ -24,7 +24,7 @@ void ObjectRenderSystem::ObjectRender(const ObjectData& data)
 
 	// オブジェクト回転設定
 	MV1SetRotationXYZ(data.handle, Vec::ToDxVec(data.rot));
- 
+
 	// オブジェクト描画
 	MV1DrawModel(data.handle);
 }
@@ -50,6 +50,7 @@ void ObjectRenderSystem::LightRender(const Light& light)
 
 	// ライトデータ取得
 	auto lightData = light.GetLightData();
+	lightData.direction = Vec3::Vector3(-1.0f, -1.0f, 0.5f);
 
 	// 平行ライト
 	{

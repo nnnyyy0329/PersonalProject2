@@ -214,6 +214,7 @@
     <ClCompile Include="source\PlayerMoveState.cpp" />
     <ClCompile Include="source\PlayerRotComponent.cpp" />
     <ClCompile Include="source\PlayerStateController.cpp" />
+    <ClCompile Include="source\ShadowMapRenderer.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\ActionDamage.h" />
@@ -253,6 +254,7 @@
     <ClInclude Include="source\DamageComponent.h" />
     <ClInclude Include="source\DamageConverter.h" />
     <ClInclude Include="source\GameContext.h" />
+    <ClInclude Include="source\GravityComponent.h" />
     <ClInclude Include="source\KnockbackData.h" />
     <ClInclude Include="source\DamageInfo.h" />
     <ClInclude Include="source\DeathComponent.h" />
@@ -315,6 +317,7 @@
     <ClInclude Include="source\PlayerRotComponent.h" />
     <ClInclude Include="source\PlayerStateController.h" />
     <ClInclude Include="source\RotationComponent.h" />
+    <ClInclude Include="source\ShadowMapRenderer.h" />
     <ClInclude Include="source\SoundData.h" />
     <ClInclude Include="source\StateMachine.h" />
     <ClInclude Include="source\Subject.h" />

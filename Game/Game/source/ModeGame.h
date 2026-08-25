@@ -2,6 +2,7 @@
 #include "appframe.h"
 #include "ObjectRenderSystem.h"
 #include "Map.h"
+#include "Light.h"
 #include "GameContext.h"
 
 #include "CameraManager.h"
@@ -69,6 +70,9 @@ private:
 
 	/// マップクラス
 	Map									m_map;
+
+	/// ライトクラス
+	Light								m_light;
 
 	/// カメラマネージャークラス
 	std::unique_ptr<CameraManager>		m_cameraManager;

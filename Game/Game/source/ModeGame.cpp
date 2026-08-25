@@ -46,11 +46,11 @@ bool ModeGame::Process()
 	// オブジェクトの更新処理
 	m_objectManager->Update(m_gameContext);
 	
-	// カメラマネージャーの更新
-	m_cameraManager->Update();
-
 	// 当たり判定の更新
 	m_collisionManager->Update(m_objectManager->GetCharacters());
+
+	// カメラマネージャーの更新
+	m_cameraManager->Update();
 
 	// マップの更新
 	m_map.Update();
@@ -76,6 +76,9 @@ bool ModeGame::Render()
 
 	// マップの描画
 	m_objectRender.MapRender(m_map);
+
+	// ライトの描画
+	m_objectRender.LightRender(m_light);
 
 	// デバッグ表示
 	DebugManager::GetInstance().Render();

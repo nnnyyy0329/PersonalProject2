@@ -169,6 +169,9 @@
     <ClCompile Include="source\AttackLunge.cpp">
       <Filter>Action</Filter>
     </ClCompile>
+    <ClCompile Include="source\ShadowMapRenderer.cpp">
+      <Filter>Shadow</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -450,6 +453,12 @@
     <ClInclude Include="source\AttackPhaseData.h">
       <Filter>Data\Attack</Filter>
     </ClInclude>
+    <ClInclude Include="source\ShadowMapRenderer.h">
+      <Filter>Shadow</Filter>
+    </ClInclude>
+    <ClInclude Include="source\GravityComponent.h">
+      <Filter>Component\Gravity</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -601,6 +610,12 @@
     </Filter>
     <Filter Include="Character\Enemy\Function\Animation">
       <UniqueIdentifier>{19147eef-b61b-421b-94f8-d4ad789cef1a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shadow">
+      <UniqueIdentifier>{4b2db833-39fa-4c2d-94fd-0105a97c94ef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Component\Gravity">
+      <UniqueIdentifier>{8d97da8b-43ef-435d-81f0-a87ca4a1117d}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
