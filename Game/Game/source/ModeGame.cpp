@@ -15,7 +15,10 @@ bool ModeGame::Initialize()
 	InitializeGameContext();
 
 	// オブジェクトの初期化
-	m_objectManager->Initialize();
+	if(!m_objectManager->Initialize()) { return false; }
+
+	// オブジェクト描画システムの初期化
+	if(!m_objectRender.Initialize()) { return false; }
 
 	// カメラの生成
 	CreateCamera();
@@ -31,7 +34,10 @@ bool ModeGame::Terminate()
 	base::Terminate();
 
 	// オブジェクトの解放処理
-	m_objectManager->Terminate();
+	if(m_objectManager) { m_objectManager->Terminate(); }
+
+	// オブジェクト描画システムの解放処理
+	if(!m_objectRender.Terminate()) { return false; }
 
 	return true;
 }
@@ -65,20 +71,41 @@ bool ModeGame::Render()
 {
 	base::Render();
 
-	// 描画開始
-	m_objectRender.BeginRender();
+	// シャドウマップ描画開始
+	{
+		// シャドウマップ描画開始
+		m_objectRender.BeginShadowRender(m_light);
+
+		// マップのシャドウマップ描画
+		m_objectRender.MapShadowRender(m_map);
+
+		// オブジェクトのシャドウマップ描画
+		m_objectManager->ShadowRender(m_objectRender);
+
+		// シャドウマップ描画終了
+		m_objectRender.EndShadowRender();
+	}
 
 	// カメラセットアップ
 	m_cameraManager->SetUpCamera();
 
-	// オブジェクトの描画
-	m_objectManager->Render(m_objectRender);
+	// 通常描画
+	{
+		// 描画開始
+		m_objectRender.BeginRender();
 
-	// マップの描画
-	m_objectRender.MapRender(m_map);
+		// ライトの描画
+		m_objectRender.LightRender(m_light);
 
-	// ライトの描画
-	m_objectRender.LightRender(m_light);
+		// マップの描画
+		m_objectRender.MapRender(m_map);
+
+		// オブジェクトの描画
+		m_objectManager->ObjectRender(m_objectRender);
+
+		// 描画終了
+		m_objectRender.EndRender();
+	}	
 
 	// デバッグ表示
 	DebugManager::GetInstance().Render();

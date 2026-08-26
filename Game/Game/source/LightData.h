@@ -30,7 +30,7 @@ struct LightData
 		type = LIGHT_TYPE::DIRECTIONAL;
 		state = LIGHT_STATE::INACTIVE;
 		position = Vec3::Vector3(0.0f, 0.0f, 0.0f);
-		direction = Vec3::Vector3(-1.0f, -1.0f, -1.0f);
+		direction = Vec3::Vector3(-1.0f, -1.0f, 0.5f);
 		intensity = 1.0f;
 	}
 };

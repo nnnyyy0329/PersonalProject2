@@ -4,6 +4,7 @@
 /// @brief シャドウマップ描画クラス
 class ShadowMapRenderer
 {
+public:
 	ShadowMapRenderer() = default;
 	~ShadowMapRenderer() = default;
 
@@ -31,7 +32,10 @@ class ShadowMapRenderer
 	void BeginRender(const VECTOR& lightDirection);
 
 	/// @brief シャドウマップ描画終了
-	void EndRender();
+	void EndShadowRender();
+
+	/// @brief シャドウマップの使用を解除する関数
+	void DisableShadowMap();
 
 	/// @brief シャドウマップをセットする関数
 	void SetShadowMap();

@@ -23,6 +23,8 @@ bool ShadowMapRenderer::Terminate()
 
 void ShadowMapRenderer::BeginRender(const VECTOR& lightDirection)
 {
+	if(m_shadowMapHandle == -1) { return; }
+
 	// シャドウマップ描画開始
 	SetShadowMapLightDirection(m_shadowMapHandle, lightDirection);
 
@@ -36,17 +38,26 @@ void ShadowMapRenderer::BeginRender(const VECTOR& lightDirection)
 	ShadowMap_DrawSetup(m_shadowMapHandle);
 }
 
-void ShadowMapRenderer::EndRender()
+void ShadowMapRenderer::EndShadowRender()
 {
+	if(m_shadowMapHandle == -1) { return; }
+
 	// シャドウマップ描画終了
 	ShadowMap_DrawEnd();
+}
+
+void  ShadowMapRenderer::DisableShadowMap()
+{
+	if(m_shadowMapHandle == -1) { return; }
 
 	// シャドウマップの使用を解除
-	SetUseShadowMap(0, m_shadowMapHandle);
+	SetUseShadowMap(0, -1);
 }
 
 void ShadowMapRenderer::SetShadowMap()
 {
+	if(m_shadowMapHandle == -1) { return; }
+
 	// シャドウマップをセット
 	SetUseShadowMap(0, m_shadowMapHandle);
 }

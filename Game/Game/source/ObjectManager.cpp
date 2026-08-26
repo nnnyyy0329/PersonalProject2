@@ -45,13 +45,29 @@ void ObjectManager::Update(const GameContext& context)
 	if(m_player) { m_player->Update(context); }
 }
 
-void ObjectManager::Render(ObjectRenderSystem& renderSystem)
+void ObjectManager::ObjectRender(ObjectRenderSystem& renderSystem)
 {
-	// オブジェクトの描画処理
-	for(auto& obj : m_objects) { renderSystem.ObjectRender(obj->GetObjectData()); }
+	for(auto& obj : m_objects) 
+	{
+		if(!obj) { continue; }
+
+		// オブジェクト描画処理
+		renderSystem.ObjectRender(obj->GetObjectData()); 
+	}
 
 	// プレイヤーの描画処理
 	if(m_player) { renderSystem.ObjectRender(m_player->GetObjectData()); }
+}
+
+void ObjectManager::ShadowRender(ObjectRenderSystem& renderSystem)
+{
+	for(Character* character : m_characters)
+	{
+		if(!character) { continue; }
+
+		// シャドウマップ描画処理
+		renderSystem.ObjectShadowRender(character->GetObjectData());
+	}
 }
 
 void ObjectManager::RegisterCreators()
@@ -71,30 +87,24 @@ void ObjectManager::RegisterCreators()
 	}*/
 }
 
-const std::vector<Character*> ObjectManager::GetCharacters()
+const std::vector<Character*>& ObjectManager::GetCharacters()
 {
-	std::vector<Character*> characters;
+	// 最初にキャラクターリストをクリア
+	m_characters.clear();
 
-	// プレイヤーが存在する場合
-	if(m_player)
-	{
-		// キャラクターリストに追加
-		characters.push_back(m_player.get());
-	}
+	// プレイヤーが存在する場合、キャラクターリストに追加する
+	if(m_player){ m_characters.push_back(m_player.get()); }
 
 	// オブジェクトリストからキャラクターを取得
 	for(auto& obj : m_objects)
 	{
 		// ほかのキャラクターへのダウンキャスト
 		Character* character = dynamic_cast<Character*>(obj.get());
-		if(character)
-		{
-			characters.push_back(character);
-		}
+		if(character){ m_characters.push_back(character); }
 	}
 
 	// キャラクターのポインタのベクターを返す
-	return characters;
+	return m_characters;
 }
 
 void ObjectManager::PlayerCreate()

@@ -38,10 +38,19 @@ public:
 	/// @brief 更新関数
 	void Update(const GameContext& context);
 
+	//===========================================================================
+	// 描画関数
+	//===========================================================================
+
 	/// @brief 描画関数
 	///
 	/// @param renderSystem 描画システム
-	void Render(ObjectRenderSystem& renderSystem);
+	void ObjectRender(ObjectRenderSystem& renderSystem);
+
+	/// @brief シャドウマップ描画関数
+	///
+	/// @param renderSystem 描画システム	
+	void ShadowRender(ObjectRenderSystem& renderSystem);
 
 	//===========================================================================
 	// ゲッター
@@ -50,7 +59,7 @@ public:
 	/// @brief 現在存在しているキャラクターを取得する関数
 	///
 	/// @return キャラクターのポインタのベクター
-	const std::vector<Character*> GetCharacters();
+	const std::vector<Character*>& GetCharacters();
 
 	/// @brief プレイヤーオブジェクトの取得関数
 	Player* GetPlayer() const { return m_player.get(); }
@@ -71,10 +80,17 @@ private:
 	// メンバ変数
 	//===========================================================================
 
-	std::vector<std::unique_ptr<ObjectLogic>> m_objects;	/// オブジェクトのロジッククラスのリスト
-	ObjectFactory m_objectFactory;							/// オブジェクトの生成クラス
+	/// オブジェクトのロジッククラスのリスト
+	std::vector<std::unique_ptr<ObjectLogic>> m_objects;
 
-	std::unique_ptr<Player> m_player;						/// プレイヤーオブジェクトのユニークポインタ
+	/// オブジェクトの生成クラス
+	ObjectFactory m_objectFactory;
+
+	/// キャラクターのリスト
+	std::vector<Character*> m_characters;
+
+	/// プレイヤーオブジェクトのユニークポインタ
+	std::unique_ptr<Player> m_player;
 
 };
 
