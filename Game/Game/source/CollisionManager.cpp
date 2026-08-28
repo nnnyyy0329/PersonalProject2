@@ -8,11 +8,15 @@
 #include "Collision/DxLibCollisionMath.h"
 #include "CollisionShapeBuilder.h"
 #include "DamageConverter.h"
-
 #include "Collision/HitCollision.h"
+#include "Server/SoundServer.h"
 
 void CollisionManager::Update(const std::vector<Character*>& characters)
 {
+	//===========================================================================
+	// 床合すり抜け対策
+	//===========================================================================
+
 	// 簡易的な仮実装
 	// キャラクターが床にめり込んでいる場合、床の高さに修正する
 	for(auto* character : characters)
@@ -20,8 +24,6 @@ void CollisionManager::Update(const std::vector<Character*>& characters)
 		if(!character) { continue; }
 		ResolveCharacterFloorPenetration(character);
 	}
-
-
 
 	//===========================================================================
 	// キャラクター同士の当たり判定
@@ -175,12 +177,6 @@ bool CollisionManager::CheckHitAttack(Character* attacker, Character* defender)
 	return HitCheck::CapsuleToCapsule(attackCapsule.value(), defCapsule.value()).isHit;
 }
 
-
-
-#include "Server/SoundServer.h"
-
-
-
 void CollisionManager::HitAttackProcess(Character* attacker, Character* defender)
 {
 	// 攻撃者の攻撃コンポーネントを取得する
@@ -217,14 +213,9 @@ void CollisionManager::HitAttackProcess(Character* attacker, Character* defender
 	dir.SetY(0.0f);
 	DamageInfo damageInfo = DamageConverter::ConvertAttackDataToDamageInfo(attackData, dir.Normalize());
 
-
-
-
+	// 攻撃ヒット時のサウンドを再生する
 	auto ss = SoundServer::GetInstance();
 	ss->Play(attackData.soundData.name2, DX_PLAYTYPE_BACK);
-
-
-
 
 	// 変換したダメージ情報をダメージコンポーネントに設定
 	damageComp->SetDamageInfo(damageInfo);

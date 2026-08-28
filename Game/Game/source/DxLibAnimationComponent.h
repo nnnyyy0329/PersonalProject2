@@ -142,7 +142,6 @@ public:
 		{
 			// 再生速度だけ更新して終了する
 			m_playSpeed = params.playSpeed;
-
 			return;
 		}
 

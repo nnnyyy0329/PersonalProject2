@@ -4,7 +4,7 @@
 
 class Enemy;	/// 敵クラス
 
-/// @brief 敵の行動を管理するビヘイビアツリークラス
+/// @brief 敵をどの状態にするかを決定するクラス
 class EnemyBehaviorTree
 {
 public:
