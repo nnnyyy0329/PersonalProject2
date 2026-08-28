@@ -12,6 +12,7 @@
 #include "EnemyIdleState.h"
 #include "EnemyRotComponent.h"
 #include "GravityComponent.h"
+#include "EnemyDetectionComponent.h"
 
 bool Enemy::Initialize()
 {
@@ -63,6 +64,8 @@ void Enemy::Update(const GameContext& gameContext)
 
 
 
+	Character::UpdateComponents(gameContext);
+
 	// 次に行うステートを決定する
 	m_behaviorTree.Think(*this);
 
@@ -70,7 +73,7 @@ void Enemy::Update(const GameContext& gameContext)
 	m_stateMachine.Update(*this);
 
 	// 基底クラスの更新処理を呼び出す
-	Character::Update(gameContext);
+	Character::UpdateActions();
 }
 
 void Enemy::SetUpComponents()
@@ -104,6 +107,9 @@ void Enemy::SetUpComponents()
 
 	// 重力コンポーネントを追加
 	AddComponent(std::make_unique<GravityComponent<Character>>(0.25f));
+
+	// 敵の検知管理コンポーネントを追加
+	AddComponent(std::make_unique<EnemyDetectionComponent>());
 }
 
 void Enemy::SetUpActions()

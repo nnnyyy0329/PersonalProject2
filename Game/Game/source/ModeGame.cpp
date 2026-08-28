@@ -139,6 +139,9 @@ void ModeGame::CreateCamera()
 
 void ModeGame::InitializeGameContext()
 {
+	// オブジェクトマネージャーを設定
+	m_gameContext.SetObjectManager(m_objectManager.get());
+
 	// カメラマネージャーを設定
 	m_gameContext.SetCameraManager(m_cameraManager.get());
 }

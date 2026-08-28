@@ -4,6 +4,7 @@
 #include "EnemyMoveState.h"
 #include "EnemyMoveComponent.h"
 #include "EnemyDamageState.h"
+#include "EnemyDetectionComponent.h"
 #include "ActionDamage.h"
 
 void EnemyBehaviorTree::Think(Enemy& owner)
@@ -33,21 +34,35 @@ void EnemyBehaviorTree::Think(Enemy& owner)
 
 void EnemyBehaviorTree::ThinkMove(Enemy& owner)
 {
+	// 敵の検知コンポーネントと移動コンポーネントを取得
+	auto* detection = owner.GetComponent<EnemyDetectionComponent>();
+	auto* moveComp = owner.GetComponent<EnemyMoveComponent>();
+	if(!detection || !moveComp){ return; }
+
+	auto* target = detection->GetTarget();
+	if(target)
+	{
+		// ターゲットがいる場合はターゲットの位置に移動する
+		moveComp->MoveToTarget(target->GetObjectData().pos);
+	}
+	else
+	{
+		// ターゲットがいない場合は移動ベクトルを0にする
+		moveComp->MoveToTarget(owner.GetObjectData().pos);
+	}
+
 	// ステートマシンを取得
 	auto& stateMachine = owner.GetStateMachine();
 
-	// 移動コンポーネントを取得して移動中かどうかを判定する
-	auto* moveComp = owner.GetComponent<EnemyMoveComponent>();
-	if(moveComp && moveComp->IsMoving())
+	// 移動している場合
+	if(moveComp->IsMoving())
 	{
 		if(stateMachine.IsCurrentState<EnemyMoveState>()) { return; }
 
 		// 移動できる場合は移動ステートに遷移する
 		stateMachine.ChangeState(owner, std::make_unique<EnemyMoveState>());
-
-		return;
 	}
-	// 遷移しない場合
+	// 移動していない場合
 	else
 	{
 		if(stateMachine.IsCurrentState<EnemyIdleState>()) { return; }
@@ -62,20 +77,10 @@ void EnemyBehaviorTree::ThinkDamage(Enemy& owner)
 	// ステートマシンを取得
 	auto& stateMachine = owner.GetStateMachine();
 
-	// 現在のアクションがダメージアクションの場合
-	if(owner.IsCurrentAction<ActionDamage>())
+	// 現在のステートがダメージステートでない場合
+	if(!stateMachine.IsCurrentState<EnemyDamageState>())
 	{
-		if(stateMachine.IsCurrentState<EnemyDamageState>()) { return; }
-
 		// ダメージステートに遷移する
 		stateMachine.ChangeState(owner, std::make_unique<EnemyDamageState>());
-	}
-	// 遷移しない場合
-	else
-	{
-		if(stateMachine.IsCurrentState<EnemyIdleState>()) { return; }
-
-		// ダメージステートからアイドルステートに遷移する
-		stateMachine.ChangeState(owner, std::make_unique<EnemyIdleState>());
 	}
 }

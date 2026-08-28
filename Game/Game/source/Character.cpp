@@ -41,6 +41,33 @@ void Character::Update(const GameContext& gameContext)
 		}
 	}
 }
+void Character::UpdateActions()
+{
+	if(m_currentAction)
+	{
+		// アクションの実行関数を呼び出す
+		m_currentAction->Update(*this);
+
+		// アクションが終了しているなら
+		if(m_currentAction->IsFinished())
+		{
+			// 現在のアクションをリセットする
+			//m_currentAction.reset();
+			
+			// デフォルトのアクションを作成して設定する
+			m_currentAction = CreateDefaultAction();
+		}
+	}
+}
+
+void Character::UpdateComponents(const GameContext& gameContext)
+{
+	for(auto& component : m_components)
+	{
+		// コンポーネントの更新関数を呼び出す
+		component->Update(*this, gameContext);
+	}
+}
 
 void Character::SetAction(std::unique_ptr<ICharacterAction> newAction)
 {

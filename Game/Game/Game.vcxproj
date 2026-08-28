@@ -181,6 +181,7 @@
     <ClCompile Include="source\EnemyDamageState.cpp" />
     <ClCompile Include="source\EnemyDebugColComponent.cpp" />
     <ClCompile Include="source\EnemyDebugParamCompnent.cpp" />
+    <ClCompile Include="source\EnemyDetectionComponent.cpp" />
     <ClCompile Include="source\EnemyIdleState.cpp" />
     <ClCompile Include="source\EnemyMoveComponent.cpp" />
     <ClCompile Include="source\EnemyMoveState.cpp" />
@@ -253,8 +254,10 @@
     <ClInclude Include="source\CollisionShapeBuilder.h" />
     <ClInclude Include="source\DamageComponent.h" />
     <ClInclude Include="source\DamageConverter.h" />
+    <ClInclude Include="source\EnemyDetectionComponent.h" />
     <ClInclude Include="source\GameContext.h" />
     <ClInclude Include="source\GravityComponent.h" />
+    <ClInclude Include="source\JudgementMath.h" />
     <ClInclude Include="source\KnockbackData.h" />
     <ClInclude Include="source\DamageInfo.h" />
     <ClInclude Include="source\DeathComponent.h" />

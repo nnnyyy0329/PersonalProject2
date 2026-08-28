@@ -32,5 +32,10 @@ private:
 	/// @param owner デバッグ表示を行うキャラクター
 	void DrawEnemyCollision(const Character& owner);
 
+	/// @brief 敵の検知範囲をデバッグ表示する関数
+	///
+	/// @param owner デバッグ表示を行うキャラクター
+	void DrawEnemyDetectionRange(Character& owner);
+
 };
 
