@@ -40,13 +40,13 @@ namespace GeometryUtility
 	/// @param yaw Yaw角度（ラジアン）
 	/// 
 	/// @return 前方向ベクトル
-	Vec3::Vector3 GetForwardVec(float yaw) { return Vec3::Vector3(sinf(yaw), 0.0f, cosf(yaw)); }
+	inline Vec3::Vector3 GetForwardVec(float yaw) { return Vec3::Vector3(sinf(yaw), 0.0f, cosf(yaw)); }
 	
 	/// @brief 右方向ベクトルを取得する関数
 	///
 	/// @param yaw Yaw角度（ラジアン）
 	/// 
 	/// @return 右方向ベクトル
-	Vec3::Vector3 GetRightVec(float yaw) { return Vec3::Vector3(cosf(yaw), 0.0f, -sinf(yaw)); }
+	inline Vec3::Vector3 GetRightVec(float yaw) { return Vec3::Vector3(cosf(yaw), 0.0f, -sinf(yaw)); }
 
 }
