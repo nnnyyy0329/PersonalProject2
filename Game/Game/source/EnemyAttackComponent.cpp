@@ -16,7 +16,7 @@ EnemyAttackComponent::EnemyAttackComponent()
 	step1.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
 	step1.colData.bottomOffset				= Vec3::Vector3(0.0f, 0.0f, -80.0f);
 	step1.colData.radius					= 50.0f;
-	step1.damageData.damage					= 0.1f;
+	step1.damageData.damage					= 15.0f;
 	step1.damageData.hitStunTime			= 0.0f;
 	step1.damageData.damageInvincibeTime	= 0.0f;
 	step1.knockbackData.moveDirection		= { 0.0f, 0.0f, 0.0f };

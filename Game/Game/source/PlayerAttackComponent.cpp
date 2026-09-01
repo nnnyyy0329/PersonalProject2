@@ -16,7 +16,7 @@ PlayerAttackComponent::PlayerAttackComponent()
 	step1.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
 	step1.colData.bottomOffset				= Vec3::Vector3(0.0f, 0.0f, -80.0f);
 	step1.colData.radius					= 50.0f;
-	step1.damageData.damage					= 0.1f;
+	step1.damageData.damage					= 30.0f;
 	step1.damageData.hitStunTime			= 0.0f;
 	step1.damageData.damageInvincibeTime	= 0.0f;
 	step1.knockbackData.moveDirection		= { 0.0f, 0.0f, 0.0f };
@@ -43,7 +43,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     step2.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
     step2.colData.bottomOffset				= Vec3::Vector3(0.0f, 0.0f, -80.0f);
     step2.colData.radius					= 50.0f;
-	step2.damageData.damage					= 0.2f;
+	step2.damageData.damage					= 30.0f;
 	step2.damageData.hitStunTime			= 0.0f;
 	step2.damageData.damageInvincibeTime	= 0.0f;
 	step2.knockbackData.moveDirection		= { 0.0f, 0.0f, 0.0f };
@@ -70,7 +70,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     step3.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
     step3.colData.bottomOffset				= Vec3::Vector3(0.0f, 0.0f, -80.0f);
     step3.colData.radius					= 50.0f;
-	step3.damageData.damage					= 0.3f;
+	step3.damageData.damage					= 45.0f;
 	step3.damageData.hitStunTime			= 0.0f;
 	step3.damageData.damageInvincibeTime	= 0.0f;
 	step3.knockbackData.moveDirection		= { 0.0f, 1.0f, 0.0f };
@@ -97,7 +97,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     step4.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
     step4.colData.bottomOffset				= Vec3::Vector3(0.0f, 0.0f, -80.0f);
     step4.colData.radius					= 50.0f;
-	step4.damageData.damage					= 0.4f;
+	step4.damageData.damage					= 55.0f;
 	step4.damageData.hitStunTime			= 0.0f;
 	step4.damageData.damageInvincibeTime	= 0.0f;
 	step4.knockbackData.moveDirection		= { 0.0f, -2.0f, 0.0f };
@@ -124,7 +124,7 @@ PlayerAttackComponent::PlayerAttackComponent()
     step5.colData.topOffset					= Vec3::Vector3(0.0f, 100.0f, -80.0f);
     step5.colData.bottomOffset				= Vec3::Vector3(0.0f, 0.0f, -80.0f);
     step5.colData.radius					= 50.0f;
-	step5.damageData.damage					= 0.5f;
+	step5.damageData.damage					= 100.0f;
 	step5.damageData.hitStunTime			= 0.0f;
 	step5.damageData.damageInvincibeTime	= 0.0f;
 	step5.knockbackData.moveDirection		= { 0.0f, 0.0f, 0.0f };
