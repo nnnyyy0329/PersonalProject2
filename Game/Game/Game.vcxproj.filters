@@ -89,7 +89,7 @@
       <Filter>Character\Player\Action</Filter>
     </ClCompile>
     <ClCompile Include="source\PlayerAnimationComponent.cpp">
-      <Filter>Character\Player\Function\Animation</Filter>
+      <Filter>Character\Player\Animation</Filter>
     </ClCompile>
     <ClCompile Include="source\ActionDamage.cpp">
       <Filter>Action</Filter>
@@ -174,6 +174,15 @@
     </ClCompile>
     <ClCompile Include="source\EnemyDetectionComponent.cpp">
       <Filter>Character\Enemy\Detection</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EnemyAttackComponent.cpp">
+      <Filter>Character\Enemy\Action</Filter>
+    </ClCompile>
+    <ClCompile Include="source\EnemyAttackState.cpp">
+      <Filter>Character\Enemy\State</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PlayerDamageComponent.cpp">
+      <Filter>Character\Player\Action</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -298,7 +307,7 @@
       <Filter>Component\Collision</Filter>
     </ClInclude>
     <ClInclude Include="source\PlayerAnimationComponent.h">
-      <Filter>Character\Player\Function\Animation</Filter>
+      <Filter>Character\Player\Animation</Filter>
     </ClInclude>
     <ClInclude Include="source\ActionDamage.h">
       <Filter>Action</Filter>
@@ -468,6 +477,15 @@
     <ClInclude Include="source\EnemyDetectionComponent.h">
       <Filter>Character\Enemy\Detection</Filter>
     </ClInclude>
+    <ClInclude Include="source\EnemyAttackComponent.h">
+      <Filter>Character\Enemy\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="source\EnemyAttackState.h">
+      <Filter>Character\Enemy\State</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerDamageComponent.h">
+      <Filter>Character\Player\Action</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -590,12 +608,6 @@
     <Filter Include="Character\Player\Action">
       <UniqueIdentifier>{70666eff-4fb6-40c5-b0b9-11e1cb2b9969}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Character\Player\Function">
-      <UniqueIdentifier>{4a0018f8-ad98-4439-9f34-22e539cf7715}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="Character\Player\Function\Animation">
-      <UniqueIdentifier>{016a0288-719c-4866-9773-38d4c43b4fdc}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Character\Player\Debug">
       <UniqueIdentifier>{1b390ee8-0a9c-421b-9ce5-8e03f6f8be37}</UniqueIdentifier>
     </Filter>
@@ -628,6 +640,9 @@
     </Filter>
     <Filter Include="Character\Enemy\Detection">
       <UniqueIdentifier>{40d7ab18-1a41-48ba-b977-6dd9c43eff98}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Character\Player\Animation">
+      <UniqueIdentifier>{016a0288-719c-4866-9773-38d4c43b4fdc}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

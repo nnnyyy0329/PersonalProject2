@@ -5,8 +5,8 @@
 void EnemyDamageState::Enter(Enemy& owner)
 {
 	// ダメージアニメーションを再生
-	auto* animComp = owner.GetComponent<EnemyAnimationComponent>();
-	if(animComp) { animComp->PlayAnimDamage(); }
+	auto* enemyAnimComp = owner.GetComponent<EnemyAnimationComponent>();
+	if(enemyAnimComp) { enemyAnimComp->PlayAnimDamage(); }
 }
 
 void EnemyDamageState::Update(Enemy& owner)

@@ -1,12 +1,15 @@
 #pragma once
 #include "IComponent.h"
+#include "math/Math.h"
+#include <cmath>
 
 /// 敵の検知範囲関連の名前空間
 namespace Detection
 {
-	constexpr float DELETE_RANGE = 350.0f;	// 未発見から発見までの索敵範囲
-	constexpr float LOSE_RANGE = 500.0f;	// 発見から見失うまでの範囲
-	constexpr float ATTACK_RANGE = 150.0f;	// 攻撃範囲
+	constexpr float DETECT_RANGE		= 350.0f;	// 未発見から発見までの索敵範囲
+	constexpr float LOSE_RANGE			= 500.0f;	// 発見から見失うまでの範囲
+	constexpr float ATTACK_START_RANGE	= 150.0f;	// 攻撃範囲
+	const float ThresholdAngle			= std::cos(15.0f * Math::PI / 180.0f);	// 攻撃範囲の前方向の角度
 }
 
 class Character;	/// キャラクタークラス
@@ -44,13 +47,24 @@ public:
 	bool HasTarget() const { return m_target != nullptr; }
 
 	//===========================================================================
+	// 攻撃関連関数
+	//===========================================================================
+
+	/// @brief ターゲットが攻撃開始範囲内にいて、攻撃を開始できるか
+	///
+	/// @param owner 攻撃を開始する敵
+	/// 
+	/// @return 開始できるならtrue、開始できないならfalse
+	bool CanStartAttack(const Character& owner) const;
+
+	//===========================================================================
 	// ゲッター
 	//===========================================================================
 
 	/// @brief 検知範囲の取得関数
 	///
 	/// @return 検知範囲の値
-	float GetDeleteRange() const { return Detection::DELETE_RANGE; }
+	float GetDetectRange() const { return Detection::DETECT_RANGE; }
 
 	/// @brief 見失う範囲の取得関数
 	///
@@ -60,7 +74,7 @@ public:
 	/// @brief 攻撃範囲の取得関数
 	///
 	/// @return 攻撃範囲の値
-	float GetAttackRange() const { return Detection::ATTACK_RANGE; }
+	float GetAttackRange() const { return Detection::ATTACK_START_RANGE; }
 
 private:
 
@@ -86,6 +100,13 @@ private:
 	/// 
 	/// @return 攻撃範囲内にいるならtrue、範囲外ならfalse
 	bool IsTargetInAttackRange(const Character& owner, const Character& target) const;
+
+	/// @brief 攻撃対象のキャラクターが指定の攻撃範囲内にいて、かつ敵の前方向にいるかどうかを判定する関数
+	///
+	/// @param owner 攻撃処理を行う敵
+	/// 
+	/// @return 攻撃範囲内にいて、かつ敵の前方向にいるならtrue、そうでないならfalse
+	bool IsTargetInFacingRange(const Character& owner, const Character& target) const;
 
 	//===========================================================================
 	// メンバ変数

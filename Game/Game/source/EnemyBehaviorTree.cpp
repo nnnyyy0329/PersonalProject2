@@ -5,7 +5,10 @@
 #include "EnemyMoveComponent.h"
 #include "EnemyDamageState.h"
 #include "EnemyDetectionComponent.h"
+#include "EnemyAttackComponent.h"
 #include "ActionDamage.h"
+#include "EnemyAttackState.h"
+#include "ActionAttack.h"
 
 void EnemyBehaviorTree::Think(Enemy& owner)
 {
@@ -28,7 +31,13 @@ void EnemyBehaviorTree::Think(Enemy& owner)
 		return;
 	}
 
-	// 移動を考える
+	// 現在のアクションが攻撃の場合は移動をしない
+	if(owner.IsCurrentAction<ActionAttack>())
+	{
+		return;
+	}
+
+	// 移動できるか考える
 	ThinkMove(owner);
 }
 
@@ -37,38 +46,52 @@ void EnemyBehaviorTree::ThinkMove(Enemy& owner)
 	// 敵の検知コンポーネントと移動コンポーネントを取得
 	auto* detection = owner.GetComponent<EnemyDetectionComponent>();
 	auto* moveComp = owner.GetComponent<EnemyMoveComponent>();
-	if(!detection || !moveComp){ return; }
-
-	auto* target = detection->GetTarget();
-	if(target)
-	{
-		// ターゲットがいる場合はターゲットの位置に移動する
-		moveComp->MoveToTarget(target->GetObjectData().pos);
-	}
-	else
-	{
-		// ターゲットがいない場合は移動ベクトルを0にする
-		moveComp->MoveToTarget(owner.GetObjectData().pos);
-	}
+	auto* attackComp = owner.GetComponent<EnemyAttackComponent>();
+	if(!detection || !moveComp || !attackComp){ return; }
 
 	// ステートマシンを取得
 	auto& stateMachine = owner.GetStateMachine();
 
-	// 移動している場合
-	if(moveComp->IsMoving())
+	auto* target = detection->GetTarget();
+	if(!target)
 	{
-		if(stateMachine.IsCurrentState<EnemyMoveState>()) { return; }
+		// ターゲットがいない場合は移動ベクトルを0にする
+		moveComp->MoveToTarget(owner.GetObjectData().pos);
 
-		// 移動できる場合は移動ステートに遷移する
-		stateMachine.ChangeState(owner, std::make_unique<EnemyMoveState>());
+		if(!stateMachine.IsCurrentState<EnemyIdleState>())
+		{
+			// アイドルステートに遷移する
+			stateMachine.ChangeState(owner, std::make_unique<EnemyIdleState>());
+		}
+
+		return;
 	}
-	// 移動していない場合
-	else
-	{
-		if(stateMachine.IsCurrentState<EnemyIdleState>()) { return; }
 
-		// アイドルステートに遷移する
-		stateMachine.ChangeState(owner, std::make_unique<EnemyIdleState>());
+	// 距離内かつ敵の前方にいる場合だけ攻撃する
+	if(detection->CanStartAttack(owner))
+	{
+		// 攻撃を行うために移動ベクトルを0にする
+		moveComp->MoveToTarget(owner.GetObjectData().pos);
+
+		if(attackComp->TryAttack(owner))
+		{
+			if(!stateMachine.IsCurrentState<EnemyAttackState>())
+			{
+				// 攻撃ステートに遷移する
+				stateMachine.ChangeState(owner, std::make_unique<EnemyAttackState>());
+			}
+		}
+
+		return;
+	}
+
+	// 攻撃範囲内でも、背後にいる場合はターゲットへ向かうことによって向きを変える
+	moveComp->MoveToTarget(target->GetObjectData().pos);
+
+	if(!stateMachine.IsCurrentState<EnemyMoveState>())
+	{
+		// 移動ステートに遷移する
+		stateMachine.ChangeState(owner, std::make_unique<EnemyMoveState>());
 	}
 }
 

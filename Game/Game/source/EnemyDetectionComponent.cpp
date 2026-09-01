@@ -4,6 +4,7 @@
 #include "ObjectManager.h"
 #include "Player.h"
 #include "JudgementMath.h"
+#include "GeometryUtility/GeometryUtility.h"
 
 void EnemyDetectionComponent::Update(Character& owner, const GameContext& gameContext)
 {
@@ -37,8 +38,8 @@ void EnemyDetectionComponent::UpdateTarget(Character& owner, const GameContext& 
 
 bool EnemyDetectionComponent::IsTargetInDetectionRange(const Character& owner, const Character& target) const
 {
-	// 検知対象がすでにいる場合は、LOSE_RANGEを使用し、いない場合はDELETE_RANGEを使用
-	float range = m_target ? Detection::LOSE_RANGE : Detection::DELETE_RANGE;
+	// 検知対象がすでにいる場合は、LOSE_RANGEを使用し、いない場合はDETECT_RANGEを使用
+	float range = m_target ? Detection::LOSE_RANGE : Detection::DETECT_RANGE;
 
 	// 2人のキャラクター間の距離が指定の範囲内にあるかどうかを判定
 	return JudgementMath::IsCharacterInRange(owner, target, range);
@@ -47,5 +48,28 @@ bool EnemyDetectionComponent::IsTargetInDetectionRange(const Character& owner, c
 bool EnemyDetectionComponent::IsTargetInAttackRange(const Character& owner, const Character& target) const
 {
 	// 2人のキャラクター間の距離が攻撃範囲内にあるかどうかを判定
-	return JudgementMath::IsCharacterInRange(owner, target, Detection::ATTACK_RANGE);
+	return JudgementMath::IsCharacterInRange(owner, target, Detection::ATTACK_START_RANGE);
+}
+
+bool EnemyDetectionComponent::CanStartAttack(const Character& owner) const
+{
+	if(!m_target){ return false; }
+
+	// ターゲットが攻撃範囲内にいるかどうかを判定
+	bool inAttackRange = IsTargetInAttackRange(owner, *m_target);
+
+	// ターゲットが前方にいるかどうかを判定
+	bool inFacingRange = IsTargetInFacingRange(owner, *m_target);
+
+	return inAttackRange && inFacingRange;
+}
+
+bool EnemyDetectionComponent::IsTargetInFacingRange(const Character& owner, const Character& target) const
+{
+	// ターゲットが前方にいるかどうかを判定
+	return GeometryUtility::IsFacing(
+		owner.GetObjectData().pos, 
+		owner.GetForward(),
+		target.GetObjectData().pos, 
+		Detection::ThresholdAngle);
 }

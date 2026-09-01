@@ -176,6 +176,8 @@
     <ClCompile Include="source\DebugParameter.cpp" />
     <ClCompile Include="source\Enemy.cpp" />
     <ClCompile Include="source\EnemyAnimationComponent.cpp" />
+    <ClCompile Include="source\EnemyAttackComponent.cpp" />
+    <ClCompile Include="source\EnemyAttackState.cpp" />
     <ClCompile Include="source\EnemyBehaviorTree.cpp" />
     <ClCompile Include="source\EnemyDamageComponent.cpp" />
     <ClCompile Include="source\EnemyDamageState.cpp" />
@@ -203,6 +205,7 @@
     <ClCompile Include="source\PlayerAttackCommand.cpp" />
     <ClCompile Include="source\PlayerAttackComponent.cpp" />
     <ClCompile Include="source\PlayerAttackState.cpp" />
+    <ClCompile Include="source\PlayerDamageComponent.cpp" />
     <ClCompile Include="source\PlayerDebugColComponent.cpp" />
     <ClCompile Include="source\PlayerDebugParamComponent.cpp" />
     <ClCompile Include="source\PlayerIdleState.cpp" />
@@ -254,6 +257,8 @@
     <ClInclude Include="source\CollisionShapeBuilder.h" />
     <ClInclude Include="source\DamageComponent.h" />
     <ClInclude Include="source\DamageConverter.h" />
+    <ClInclude Include="source\EnemyAttackComponent.h" />
+    <ClInclude Include="source\EnemyAttackState.h" />
     <ClInclude Include="source\EnemyDetectionComponent.h" />
     <ClInclude Include="source\GameContext.h" />
     <ClInclude Include="source\GravityComponent.h" />
@@ -306,6 +311,7 @@
     <ClInclude Include="source\PlayerAttackCommand.h" />
     <ClInclude Include="source\PlayerAttackComponent.h" />
     <ClInclude Include="source\PlayerAttackState.h" />
+    <ClInclude Include="source\PlayerDamageComponent.h" />
     <ClInclude Include="source\PlayerDebugColComponent.h" />
     <ClInclude Include="source\PlayerDebugParamComponent.h" />
     <ClInclude Include="source\PlayerIdleState.h" />

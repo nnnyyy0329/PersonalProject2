@@ -37,5 +37,10 @@ private:
 	/// @param owner デバッグ表示を行うキャラクター
 	void DrawEnemyDetectionRange(Character& owner);
 
+	/// @brief 敵の攻撃範囲をデバッグ表示する関数
+	///
+	/// @param owner デバッグ表示を行うキャラクター
+	void DrawEnemyAttackRange(Character& owner);
+
 };
 

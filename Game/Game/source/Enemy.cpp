@@ -13,6 +13,7 @@
 #include "EnemyRotComponent.h"
 #include "GravityComponent.h"
 #include "EnemyDetectionComponent.h"
+#include "EnemyAttackComponent.h"
 
 bool Enemy::Initialize()
 {
@@ -110,6 +111,9 @@ void Enemy::SetUpComponents()
 
 	// 敵の検知管理コンポーネントを追加
 	AddComponent(std::make_unique<EnemyDetectionComponent>());
+
+	// 敵の攻撃管理コンポーネントを追加
+	AddComponent(std::make_unique<EnemyAttackComponent>());
 }
 
 void Enemy::SetUpActions()
