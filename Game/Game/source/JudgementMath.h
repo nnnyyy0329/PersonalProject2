@@ -30,4 +30,5 @@ namespace JudgementMath
 	{
 		return DistanceToCharacters(character1, character2) <= range;
 	}
+
 }
