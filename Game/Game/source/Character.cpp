@@ -1,4 +1,5 @@
 #include "Character.h"
+#include "GravityComponent.h"
 
 bool Character::Initialize()
 {
@@ -40,6 +41,9 @@ void Character::Update(const GameContext& gameContext)
 			m_currentAction = CreateDefaultAction();
 		}
 	}
+
+	// 重力を適用する
+	ApplyGravity();
 }
 void Character::UpdateActions()
 {
@@ -58,6 +62,9 @@ void Character::UpdateActions()
 			m_currentAction = CreateDefaultAction();
 		}
 	}
+
+	// 重力を適用する
+	ApplyGravity();
 }
 
 void Character::UpdateComponents(const GameContext& gameContext)
@@ -79,6 +86,22 @@ void Character::AddComponent(std::unique_ptr<ComponentBase> component)
 {
 	// 新しいコンポーネントをベクターに追加する
 	m_components.push_back(std::move(component));
+}
+
+void Character::ApplyGravity()
+{
+	// キャラクターの重力コンポーネントを取得
+	auto* gravityComponent = GetComponent<GravityComponent<Character>>();
+	if(!gravityComponent){ return; }
+
+	// キャラクターのオブジェクトデータを取得
+	ObjectData data = GetObjectData();
+
+	// Y方向の速度をキャラクターの位置に加算
+	data.pos.SetY(data.pos.GetY() + gravityComponent->GetVelocityY());
+
+	// 更新されたオブジェクトデータをキャラクターに設定
+	SetObjectData(data);
 }
 
 Vec3::Vector3 Character::GetForward() const

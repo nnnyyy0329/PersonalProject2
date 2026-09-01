@@ -91,6 +91,9 @@ void CollisionManager::ResolveCharacterFloorPenetration(Character* character)
 {
 	if(!character) { return; }
 
+	auto gravityComp = character->GetComponent<GravityComponent<Character>>();
+	if(!gravityComp) { return; }
+
 	// キャラクターのオブジェクトデータを取得
 	ObjectData data = character->GetObjectData();
 
@@ -100,13 +103,8 @@ void CollisionManager::ResolveCharacterFloorPenetration(Character* character)
 		// キャラクターのY座標を床合すり抜け対策の高さに修正
 		data.pos.SetY(0.0f);
 
-		// キャラクターの重力コンポーネントを取得
-		auto gravityComp = character->GetComponent<GravityComponent<Character>>();
-		if(gravityComp)
-		{
-			// Y方向の速度を0に設定
-			gravityComp->SetVelocityY(0.0f);
-		}
+		// Y方向の速度を0に設定
+		gravityComp->SetVelocityY(0.0f);
 
 		// 修正したオブジェクトデータをキャラクターに設定
 		character->SetObjectData(data);

@@ -19,27 +19,17 @@ void ActionDamage::Update(Character& character)
 
 void ActionDamage::UpdateKnockback(Character& character)
 {
-	// キャラクターのオブジェクトデータを取得する
 	ObjectData data = character.GetObjectData();
 
-	// 水平方向のノックバックを適用する
+	// ノックバックのベクトルを取得し、Y方向の成分を0にして水平移動のみを適用する
 	Vec3::Vector3 knockback = m_knockBackVelocity;
 	knockback.SetY(0.0f);
 
-	// ノックバック方向にキャラクターを移動させる
 	data.pos += knockback;
 
-	auto  gravityComp = character.GetComponent<GravityComponent<Character>>();
-	if(gravityComp)
-	{
-		// Y方向の速度をノックバックのY成分に設定する
-		data.pos.SetY(data.pos.GetY() + gravityComp->GetVelocityY());
-	}
-
-	// 更新されたオブジェクトデータをキャラクターに設定する
 	character.SetObjectData(data);
 
-	// 減衰させる
+	// ノックバックのベクトルを減衰させる
 	m_knockBackVelocity = m_knockBackVelocity * KNOCKBACK_DECAY_RATE;
 }
 

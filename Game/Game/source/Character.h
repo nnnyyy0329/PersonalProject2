@@ -3,6 +3,7 @@
 #include "CharacterData.h"
 #include "ICharacterAction.h"
 #include "IComponent.h"
+
 #include <memory>
 #include <vector>
 #include <cmath>
@@ -116,6 +117,9 @@ public:
 	//===========================================================================
 	// 内部関数
 	//===========================================================================
+
+	/// @brief 重力を適用する関数
+	void ApplyGravity();
 
 	/// @brief キャラクターの前方向ベクトルを取得する関数
 	///

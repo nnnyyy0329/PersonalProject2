@@ -49,6 +49,11 @@ public:
 	/// @return Y方向の速度
 	float GetVelocityY() const { return m_velocityY; }
 
+	/// @brief 地面のY座標を取得する関数
+	///
+	/// @return 地面のY座標
+	float GetGroundY() const { return m_groundY; }
+
 private:
 
 	//===========================================================================
@@ -60,4 +65,7 @@ private:
 
 	/// Y方向の速度
 	float m_velocityY = 0.0f;
+
+	/// 地面のY座標
+	float m_groundY = 0.0f;
 };
