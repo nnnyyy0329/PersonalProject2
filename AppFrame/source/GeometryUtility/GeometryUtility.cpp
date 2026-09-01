@@ -6,22 +6,23 @@ namespace GeometryUtility
 	{
 		// 判定対象へのベクトルを計算
 		Vec3::Vector3 toTarget = targetPos - fromPos;
-		toTarget.SetY(0.0f);	// Y軸を無視
+		toTarget.SetY(0.0f);
 
 		// ベクトルの長さがほぼ0の場合は判定不可
-		if(toTarget.Length() < 0.001f) return false;
-		toTarget.Normalize();	// 正規化
+		if(toTarget.Length() < 0.001f) { return false; }
+		toTarget = toTarget.Normalize();
 
 		// 判定元の前方向ベクトルを正規化
 		Vec3::Vector3 forwardDir = fromDir;
 		forwardDir.SetY(0.0f);
-		forwardDir.Normalize();
+		if(forwardDir.Length() < 0.001f) { return false; }
+		forwardDir = forwardDir.Normalize();
 		
 		// 判定対象へのベクトルと前方向ベクトルの内積を計算
 		float dot = forwardDir.Dot(toTarget);
 
 		// 内積が閾値以上なら前方にあると判定
-		return dot > dotThreshold;
+		return dot >= dotThreshold;
 	}
 
 	Vec3::Vector3 ConvertLocalToWorld(const Vec3::Vector3& localDir, const Vec3::Vector3& forwardDir)
