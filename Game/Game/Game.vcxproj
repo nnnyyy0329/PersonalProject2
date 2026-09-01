@@ -206,6 +206,7 @@
     <ClCompile Include="source\PlayerAttackComponent.cpp" />
     <ClCompile Include="source\PlayerAttackState.cpp" />
     <ClCompile Include="source\PlayerDamageComponent.cpp" />
+    <ClCompile Include="source\PlayerDamageState.cpp" />
     <ClCompile Include="source\PlayerDebugColComponent.cpp" />
     <ClCompile Include="source\PlayerDebugParamComponent.cpp" />
     <ClCompile Include="source\PlayerIdleState.cpp" />
@@ -312,6 +313,7 @@
     <ClInclude Include="source\PlayerAttackComponent.h" />
     <ClInclude Include="source\PlayerAttackState.h" />
     <ClInclude Include="source\PlayerDamageComponent.h" />
+    <ClInclude Include="source\PlayerDamageState.h" />
     <ClInclude Include="source\PlayerDebugColComponent.h" />
     <ClInclude Include="source\PlayerDebugParamComponent.h" />
     <ClInclude Include="source\PlayerIdleState.h" />

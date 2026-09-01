@@ -184,6 +184,9 @@
     <ClCompile Include="source\PlayerDamageComponent.cpp">
       <Filter>Character\Player\Action</Filter>
     </ClCompile>
+    <ClCompile Include="source\PlayerDamageState.cpp">
+      <Filter>Character\Player\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -485,6 +488,9 @@
     </ClInclude>
     <ClInclude Include="source\PlayerDamageComponent.h">
       <Filter>Character\Player\Action</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerDamageState.h">
+      <Filter>Character\Player\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

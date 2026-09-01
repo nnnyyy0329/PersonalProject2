@@ -60,6 +60,8 @@ void PlayerAnimationComponent::RegisterPlayerAnimations(Character& owner)
 	m_animationComponent->RegisterAnimation("player_idle_01", owner.GetModelHandle());
 	m_animationComponent->RegisterAnimation("player_walk_01", owner.GetModelHandle());
 	m_animationComponent->RegisterAnimation("player_jog_01", owner.GetModelHandle());
+	m_animationComponent->RegisterAnimation("player_cancell_00", owner.GetModelHandle());
+	m_animationComponent->RegisterAnimation("player_damage_01", owner.GetModelHandle());
 }
 
 void PlayerAnimationComponent::PlayAnimIdle()
@@ -139,4 +141,15 @@ void PlayerAnimationComponent::PlayAnimAttack(int comboIndex)
 			break;
 		}
 	}
+}
+
+void PlayerAnimationComponent::PlayAnimDamage()
+{
+	if(!m_animationComponent) { return; }
+
+	// ダメージアニメーションを再生
+	m_animationComponent->PlayAnimation("player_damage_01", {});
+
+	// 攻撃中のアニメーションをキャンセルする
+	//m_animationComponent->PlayAnimation("player_cancell_00", {});
 }

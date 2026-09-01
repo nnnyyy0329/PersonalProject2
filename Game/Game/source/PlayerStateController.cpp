@@ -6,9 +6,18 @@
 #include "PlayerAttackComponent.h"
 #include "PlayerAttackState.h"
 #include "ActionAttack.h"
+#include "PlayerDamageState.h"
+#include "ActionDamage.h"
 
 void PlayerStateController::Update(Player& player)
 {
+	// プレイヤーのダメージステートを切り替える
+	if(player.IsCurrentAction<ActionDamage>())
+	{
+		ChangeDamageState(player);
+		return;
+	}
+
 	// プレイヤーの攻撃ステートを切り替える
 	if(player.IsCurrentAction<ActionAttack>())
 	{
@@ -66,6 +75,29 @@ void PlayerStateController::ChangeAttackState(Player& player)
 		if(stateMachine.IsCurrentState<PlayerIdleState>()) { return; }
 
 		// 攻撃ステートからアイドルステートに遷移する
+		stateMachine.ChangeState(player, std::make_unique<PlayerIdleState>());
+	}
+}
+
+void PlayerStateController::ChangeDamageState(Player& player)
+{
+	// プレイヤーのステートマシンを取得
+	auto& stateMachine = player.GetStateMachine();
+
+	// ダメージ中なら
+	if(player.IsCurrentAction<ActionDamage>())
+	{
+		if(stateMachine.IsCurrentState<PlayerDamageState>()) { return; }
+
+		// ダメージ中の場合はダメージステートに遷移する
+		stateMachine.ChangeState(player, std::make_unique<PlayerDamageState>());
+	}
+	// ダメージ中でない場合
+	else
+	{
+		if(stateMachine.IsCurrentState<PlayerIdleState>()) { return; }
+
+		// ダメージステートからアイドルステートに遷移する
 		stateMachine.ChangeState(player, std::make_unique<PlayerIdleState>());
 	}
 }

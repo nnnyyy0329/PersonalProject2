@@ -46,6 +46,9 @@ public:
 	/// @param comboI 攻撃のコンボインデックス
 	void PlayAnimAttack(int comboIndex);
 
+	/// @brief ダメージアニメーションを再生する関数
+	void PlayAnimDamage();
+
 private:
 	
 	//===========================================================================

@@ -13,6 +13,7 @@
 #include "PlayerInputComponent.h"
 #include "PlayerIdleState.h"
 #include "GravityComponent.h"
+#include "PlayerDamageComponent.h"
 
 bool Player::Initialize()
 {
@@ -110,6 +111,9 @@ void Player::SetUpComponents()
 
 	// 重力コンポーネントを追加
 	AddComponent(std::make_unique<GravityComponent<Character>>(0.25f));
+
+	// ダメージコンポーネントを追加
+	AddComponent(std::make_unique<PlayerDamageComponent>());
 }
 
 void Player::SetUpActions()
