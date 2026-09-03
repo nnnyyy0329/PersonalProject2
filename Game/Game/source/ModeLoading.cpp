@@ -12,6 +12,7 @@ bool ModeLoading::Initialize()
 	/* ロードするリソースを登録 */
 
 	rs->Register("CubeTexture", "res/Texture/Groundplants1_D.jpg", RESOURCE_TYPE::Graph, 1.0f);
+	rs->Register("PlaneTexture", "res/Texture/Groundplants1_D.jpg", RESOURCE_TYPE::Graph, 1.0f);
 
 	rs->Register("Map", "res/Dungeon/Dungeon.mv1", RESOURCE_TYPE::Model, 1.0f);
 

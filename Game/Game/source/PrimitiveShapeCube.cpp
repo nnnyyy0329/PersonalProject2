@@ -53,7 +53,7 @@ void PrimitiveShapeCube::AddCube(const Vec3::Vector3& origin, float size)
 void PrimitiveShapeCube::CreateCubeVertices(const Vec3::Vector3& origin, float size)
 {
 	// インデックスの最大値を取得
-	const std::size_t maxIndex = (std::numeric_limits<unsigned short>::max)();
+	constexpr std::size_t maxIndex = (std::numeric_limits<unsigned short>::max)();
 
 	// 立方体の面の数と面ごとの頂点数から必要な頂点数を計算
 	const std::size_t requiredVertexCount = CUBE_FACE_COUNT * VERTICES_PER_FACE;
@@ -65,7 +65,7 @@ void PrimitiveShapeCube::CreateCubeVertices(const Vec3::Vector3& origin, float s
 	if(m_vertices.size() + requiredVertexCount > maxVertexCount) { return; }
 
 	// 立方体のサイズの半分を計算
-	const float halfSize = size * 0.5f;
+	float halfSize = size * 0.5f;
 
 	// キューブの基本8頂点
 	const Vec3::Vector3 position0(-halfSize, halfSize, -halfSize);
@@ -171,7 +171,7 @@ void PrimitiveShapeCube::CreateCubeVertices(const Vec3::Vector3& origin, float s
 		}
 
 		// 2枚の三角形を形成するためのインデックスを作成
-		const unsigned short faceOffset =
+		const unsigned short faceOffset = 
 			static_cast<unsigned short>(vertexOffset + face * VERTICES_PER_FACE);
 
 		// 1枚目の三角形

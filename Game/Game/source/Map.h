@@ -1,6 +1,7 @@
 #pragma once
 #include "MapData.h""
 #include "PrimitiveShapeCube.h"
+#include "PrimitiveShapePlane.h"
 
 /// @brief マップクラス
 class Map
@@ -39,7 +40,20 @@ public:
 	/// @return マップデータ
 	const MapData& GetMapData() const { return m_mapData; }
 
-protected:
+private:
+
+	//========================================================================
+	// 内部関数
+	//========================================================================
+
+	/// @brief ハンドルの初期設定関数
+	void InitializeHandle();
+
+	/// @brief 立方体マップを作成する関数
+	void CreateCubeMap();
+
+	/// @brief 平面マップを作成する関数
+	void CreatePlaneMap();
 
 	//=======================================================================
 	// メンバ変数
@@ -51,11 +65,14 @@ protected:
 	/// 立方体の形状を表すクラス
 	PrimitiveShapeCube m_primitiveShapeCube;
 
+	/// 平面の形状を表すクラス
+	PrimitiveShapePlane m_primitiveShapePlane;
+
 	/// ステージBGM
-	int m_stageBgm;
+	int m_stageBgm = -1;
 
 	/// マップのコリジョンハンドル
-	int m_mapCollisionHandle;
+	int m_mapCollisionHandle = -1;
 
 };
 

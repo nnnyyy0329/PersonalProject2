@@ -211,7 +211,9 @@
     <ClCompile Include="source\PrimitiveShapeCube.cpp">
       <Filter>Primitive</Filter>
     </ClCompile>
-    <ClCompile Include="source\PrimitiveShapePlane.cpp" />
+    <ClCompile Include="source\PrimitiveShapePlane.cpp">
+      <Filter>Primitive</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -538,7 +540,9 @@
     <ClInclude Include="source\PrimitiveShapeCube.h">
       <Filter>Primitive</Filter>
     </ClInclude>
-    <ClInclude Include="source\PrimitiveShapePlane.h" />
+    <ClInclude Include="source\PrimitiveShapePlane.h">
+      <Filter>Primitive</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">

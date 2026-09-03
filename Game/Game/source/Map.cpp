@@ -6,27 +6,14 @@
 
 bool Map::Initialize()
 {
-	// リソースサーバーのインスタンスを取得
-	auto rs = ResourceServer::GetInstance();
+	// ハンドルの初期設定
+	InitializeHandle();
 
-	// マップのグラフィックハンドル取得
-	m_mapData.mapHandle = rs->GetHandle("Map");
-	m_mapData.skyHandle = rs->GetHandle("Sky");
+	// 立方体マップを作成
+	CreateCubeMap();
 
-	// マップのコリジョンハンドル取得
-	m_mapCollisionHandle = MV1SearchFrame(m_mapData.mapHandle, "dungeon_collision");
-
-	// ステージBGMのハンドル取得、再生
-	m_stageBgm = SoundServer::GetInstance()->Play("BGM_Stage", DX_PLAYTYPE_BACK);
-
-	// 立方体のテクスチャハンドルを立方体形状クラスに設定
-	int mapCubeTextureHandle = rs->GetHandle("CubeTexture");
-	if(mapCubeTextureHandle != -1)
-	{
-		m_primitiveShapeCube.SetTextureHandle(mapCubeTextureHandle);
-		m_primitiveShapeCube.CreateCube(Vec3::Vector3(0.0f, 50.0f, 0.0f), 100.0f);
-		m_primitiveShapeCube.AddCube(Vec3::Vector3(100.0f, 50.0f, 0.0f), 100.0f);
-	}
+	// 平面マップを作成
+	CreatePlaneMap();
 
 	return true;
 }
@@ -73,4 +60,50 @@ void Map::Render()
 {
 	// 立方体の描画
 	m_primitiveShapeCube.Render();
+
+	// 平面の描画
+	m_primitiveShapePlane.Render();
+}
+
+void Map::InitializeHandle()
+{
+	// リソースサーバーのインスタンスを取得
+	auto rs = ResourceServer::GetInstance();
+
+	// マップのグラフィックハンドル取得
+	m_mapData.mapHandle = rs->GetHandle("Map");
+	m_mapData.skyHandle = rs->GetHandle("Sky");
+	if(m_mapData.mapHandle == -1 || m_mapData.skyHandle == -1) { return; }
+
+	// マップのコリジョンハンドル取得
+	m_mapCollisionHandle = MV1SearchFrame(m_mapData.mapHandle, "dungeon_collision");
+	if(m_mapCollisionHandle == -1) { return; }
+
+	// ステージBGMのハンドル取得、再生
+	m_stageBgm = SoundServer::GetInstance()->Play("BGM_Stage", DX_PLAYTYPE_BACK);
+	if(m_stageBgm == -1) { return; }
+}
+
+void Map::CreateCubeMap()
+{
+	// 立方体のテクスチャハンドルを立方体形状クラスに設定
+	int mapCubeTextureHandle = ResourceServer::GetInstance()->GetHandle("CubeTexture");
+	if(mapCubeTextureHandle != -1)
+	{
+		m_primitiveShapeCube.SetTextureHandle(mapCubeTextureHandle);
+		m_primitiveShapeCube.CreateCube(Vec3::Vector3(0.0f, 50.0f, 0.0f), 100.0f);
+		m_primitiveShapeCube.AddCube(Vec3::Vector3(100.0f, 50.0f, 0.0f), 100.0f);
+	}
+}
+
+void Map::CreatePlaneMap()
+{
+	// 平面のテクスチャハンドルを平面形状クラスに設定
+	int mapPlaneTextureHandle = ResourceServer::GetInstance()->GetHandle("PlaneTexture");
+	if(mapPlaneTextureHandle != -1)
+	{
+		m_primitiveShapePlane.SetTextureHandle(mapPlaneTextureHandle);
+		m_primitiveShapePlane.CreatePlane(Vec3::Vector3(200.0f, 100.0f, 0.0f), 100.0f);
+		m_primitiveShapePlane.AddPlane(Vec3::Vector3(300.0f, 50.0f, 0.0f), 100.0f);
+	}
 }
