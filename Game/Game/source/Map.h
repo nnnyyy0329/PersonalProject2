@@ -1,5 +1,6 @@
 #pragma once
 #include "MapData.h""
+#include "PrimitiveShapeCube.h"
 
 /// @brief マップクラス
 class Map
@@ -26,6 +27,9 @@ public:
 	/// @brief 更新関数
 	void Update();
 
+	/// @brief 描画関数
+	void Render();
+
 	//=======================================================================
 	// ゲッター
 	//=======================================================================
@@ -43,6 +47,9 @@ protected:
 
 	/// マップデータ
 	MapData m_mapData;
+
+	/// 立方体の形状を表すクラス
+	PrimitiveShapeCube m_primitiveShapeCube;
 
 	/// ステージBGM
 	int m_stageBgm;

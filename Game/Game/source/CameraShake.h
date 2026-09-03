@@ -53,13 +53,13 @@ protected:
 	//========================================================================
 
 	/// 振動のタイマー
-	float m_shakeTimer		= 0.0f;
+	float m_shakeTimer	= 0.0f;
 
 	/// 振動の継続時間
-	float m_duration		= 0.0f;
+	float m_duration	= 0.0f;
 
 	/// 振動の強さ
-	float m_magnitude		= 0.0f;
+	float m_magnitude	= 0.0f;
 
 	/// 振動のオフセット
 	Vec3::Vector3 m_shakeOffset	= { 0.0f, 0.0f, 0.0f };

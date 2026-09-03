@@ -1,4 +1,5 @@
 #include "Map.h"
+
 #include "Server/ResourceServer.h"
 #include "Server/SoundServer.h"
 #include "DebugManager.h"
@@ -17,6 +18,15 @@ bool Map::Initialize()
 
 	// ステージBGMのハンドル取得、再生
 	m_stageBgm = SoundServer::GetInstance()->Play("BGM_Stage", DX_PLAYTYPE_BACK);
+
+	// 立方体のテクスチャハンドルを立方体形状クラスに設定
+	int mapCubeTextureHandle = rs->GetHandle("CubeTexture");
+	if(mapCubeTextureHandle != -1)
+	{
+		m_primitiveShapeCube.SetTextureHandle(mapCubeTextureHandle);
+		m_primitiveShapeCube.CreateCube(Vec3::Vector3(0.0f, 50.0f, 0.0f), 100.0f);
+		m_primitiveShapeCube.AddCube(Vec3::Vector3(100.0f, 50.0f, 0.0f), 100.0f);
+	}
 
 	return true;
 }
@@ -54,7 +64,13 @@ void Map::Update()
 		// コリジョンを非表示
 		debugCollision.AddColItem([this]()
 			{
-				MV1SetFrameVisible(m_mapData.mapHandle, m_mapCollisionHandle, TRUE);
+				MV1SetFrameVisible(m_mapData.mapHandle, m_mapCollisionHandle, FALSE);
 			});
 	}
+}
+
+void Map::Render()
+{
+	// 立方体の描画
+	m_primitiveShapeCube.Render();
 }

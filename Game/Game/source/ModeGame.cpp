@@ -24,7 +24,7 @@ bool ModeGame::Initialize()
 	CreateCamera();
 
 	// マップの初期化
-	m_map.Initialize();
+	if(!m_map.Initialize()) { return false; }
 
 	return true;
 }
@@ -100,12 +100,15 @@ bool ModeGame::Render()
 		// マップの描画
 		m_objectRender.MapRender(m_map);
 
+		// マップの描画
+		m_map.Render();
+
 		// オブジェクトの描画
 		m_objectManager->ObjectRender(m_objectRender);
 
 		// 描画終了
 		m_objectRender.EndRender();
-	}	
+	}
 
 	// デバッグ表示
 	DebugManager::GetInstance().Render();

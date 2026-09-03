@@ -59,10 +59,10 @@
       <Filter>ObjectBase</Filter>
     </ClCompile>
     <ClCompile Include="source\Pad.cpp">
-      <Filter>input</Filter>
+      <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="source\InputManager.cpp">
-      <Filter>input</Filter>
+      <Filter>Input</Filter>
     </ClCompile>
     <ClCompile Include="source\Enemy.cpp">
       <Filter>Character\Enemy</Filter>
@@ -187,6 +187,31 @@
     <ClCompile Include="source\PlayerDamageState.cpp">
       <Filter>Character\Player\State</Filter>
     </ClCompile>
+    <ClCompile Include="gaki_primitive\cube.cpp">
+      <Filter>gaki_primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="gaki_primitive\map.cpp">
+      <Filter>gaki_primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="gaki_primitive\modegamecollision.cpp">
+      <Filter>gaki_primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="gaki_primitive\PrimitiveBase.cpp">
+      <Filter>gaki_primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="gaki_primitive\PrimitiveCube.cpp">
+      <Filter>gaki_primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="gaki_primitive\PrimitivePlane.cpp">
+      <Filter>gaki_primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PrimitiveShapeBase.cpp">
+      <Filter>Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PrimitiveShapeCube.cpp">
+      <Filter>Primitive</Filter>
+    </ClCompile>
+    <ClCompile Include="source\PrimitiveShapePlane.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -253,10 +278,10 @@
       <Filter>ObjectBase</Filter>
     </ClInclude>
     <ClInclude Include="source\Pad.h">
-      <Filter>input</Filter>
+      <Filter>Input</Filter>
     </ClInclude>
     <ClInclude Include="source\InputManager.h">
-      <Filter>input</Filter>
+      <Filter>Input</Filter>
     </ClInclude>
     <ClInclude Include="source\ActionMove.h">
       <Filter>Action</Filter>
@@ -492,6 +517,28 @@
     <ClInclude Include="source\PlayerDamageState.h">
       <Filter>Character\Player\State</Filter>
     </ClInclude>
+    <ClInclude Include="gaki_primitive\cube.h">
+      <Filter>gaki_primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="gaki_primitive\map.h">
+      <Filter>gaki_primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="gaki_primitive\PrimitiveBase.h">
+      <Filter>gaki_primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="gaki_primitive\PrimitiveCube.h">
+      <Filter>gaki_primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="gaki_primitive\PrimitivePlane.h">
+      <Filter>gaki_primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PrimitiveShapeBase.h">
+      <Filter>Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PrimitiveShapeCube.h">
+      <Filter>Primitive</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PrimitiveShapePlane.h" />
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -517,9 +564,6 @@
     </Filter>
     <Filter Include="ObjectBase">
       <UniqueIdentifier>{a678d3ba-d371-44f5-a5b7-9c1c624cc2bf}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="input">
-      <UniqueIdentifier>{7fe9eb86-b37a-4f2e-844a-d42b99744f19}</UniqueIdentifier>
     </Filter>
     <Filter Include="Component">
       <UniqueIdentifier>{acbfcb25-6735-4a27-912c-16eace56eb6d}</UniqueIdentifier>
@@ -649,6 +693,15 @@
     </Filter>
     <Filter Include="Character\Player\Animation">
       <UniqueIdentifier>{016a0288-719c-4866-9773-38d4c43b4fdc}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="gaki_primitive">
+      <UniqueIdentifier>{7e9209f8-617f-45ac-a792-c242fac17643}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Primitive">
+      <UniqueIdentifier>{e30eb589-a2eb-40e2-8e27-25b92c759e45}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{7fe9eb86-b37a-4f2e-844a-d42b99744f19}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>
