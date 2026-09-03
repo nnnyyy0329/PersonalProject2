@@ -35,7 +35,7 @@ void PrimitiveShapeCube::Render()
 	PrimitiveShapeBase::Render();
 }
 
-void PrimitiveShapeCube::CreateCube(const Vec3::Vector3& origin, float size)
+void PrimitiveShapeCube::CreateCube(const Vec3::Vector3& origin, const Vec3::Vector3& size)
 {
 	// 既存のプリミティブデータをクリア
 	ClearPrimitiveData();
@@ -44,13 +44,13 @@ void PrimitiveShapeCube::CreateCube(const Vec3::Vector3& origin, float size)
 	CreateCubeVertices(origin, size);
 }
 
-void PrimitiveShapeCube::AddCube(const Vec3::Vector3& origin, float size)
+void PrimitiveShapeCube::AddCube(const Vec3::Vector3& origin, const Vec3::Vector3& size)
 {
 	// 立方体の頂点を作成
 	CreateCubeVertices(origin, size);
 }
 
-void PrimitiveShapeCube::CreateCubeVertices(const Vec3::Vector3& origin, float size)
+void PrimitiveShapeCube::CreateCubeVertices(const Vec3::Vector3& origin, const Vec3::Vector3& size)
 {
 	// インデックスの最大値を取得
 	constexpr std::size_t maxIndex = (std::numeric_limits<unsigned short>::max)();
@@ -65,17 +65,17 @@ void PrimitiveShapeCube::CreateCubeVertices(const Vec3::Vector3& origin, float s
 	if(m_vertices.size() + requiredVertexCount > maxVertexCount) { return; }
 
 	// 立方体のサイズの半分を計算
-	float halfSize = size * 0.5f;
+	const Vec3::Vector3 halfSize = size * 0.5f;
 
 	// キューブの基本8頂点
-	const Vec3::Vector3 position0(-halfSize, halfSize, -halfSize);
-	const Vec3::Vector3 position1(-halfSize, halfSize, halfSize);
-	const Vec3::Vector3 position2(halfSize, halfSize, -halfSize);
-	const Vec3::Vector3 position3(halfSize, halfSize, halfSize);
-	const Vec3::Vector3 position4(-halfSize, -halfSize, -halfSize);
-	const Vec3::Vector3 position5(-halfSize, -halfSize, halfSize);
-	const Vec3::Vector3 position6(halfSize, -halfSize, -halfSize);
-	const Vec3::Vector3 position7(halfSize, -halfSize, halfSize);
+	const Vec3::Vector3 position0(-halfSize.GetX(), halfSize.GetY(), -halfSize.GetZ());
+	const Vec3::Vector3 position1(-halfSize.GetX(), halfSize.GetY(), halfSize.GetZ());
+	const Vec3::Vector3 position2(halfSize.GetX(), halfSize.GetY(), -halfSize.GetZ());
+	const Vec3::Vector3 position3(halfSize.GetX(), halfSize.GetY(), halfSize.GetZ());
+	const Vec3::Vector3 position4(-halfSize.GetX(), -halfSize.GetY(), -halfSize.GetZ());
+	const Vec3::Vector3 position5(-halfSize.GetX(), -halfSize.GetY(), halfSize.GetZ());
+	const Vec3::Vector3 position6(halfSize.GetX(), -halfSize.GetY(), -halfSize.GetZ());
+	const Vec3::Vector3 position7(halfSize.GetX(), -halfSize.GetY(), halfSize.GetZ());
 
 	// 各面の頂点（6面分）
 	const std::array<std::array<Vec3::Vector3, VERTICES_PER_FACE>, CUBE_FACE_COUNT> faceList =
@@ -145,7 +145,7 @@ void PrimitiveShapeCube::CreateCubeVertices(const Vec3::Vector3& origin, float s
 
 			VERTEX3D vertex{};
 
-			// プロジェクト独自のVector3からDxLibのVECTORへ変換
+			// Vector3からDxLibのVECTORへ変換
 
 			// 頂点座標を設定
 			vertex.pos = VGet(

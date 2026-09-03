@@ -25,13 +25,13 @@ public:
 	///
 	/// @param origin 立方体の原点座標
 	/// @param size 立方体のサイズ
-	void CreateCube(const Vec3::Vector3& origin, float size = 100.0f);
+	void CreateCube(const Vec3::Vector3& origin, const Vec3::Vector3& size = Vec3::Vector3(100.0f, 100.0f, 100.0f));
 
 	/// @brief 立方体を追加する関数
 	///
 	/// @param origin 立方体の原点座標
 	/// @param size 立方体のサイズ
-	void AddCube(const Vec3::Vector3& origin, float size = 100.0f);
+	void AddCube(const Vec3::Vector3& origin, const Vec3::Vector3& size = Vec3::Vector3(100.0f, 100.0f, 100.0f));
 
 private:
 
@@ -43,7 +43,7 @@ private:
 	///
 	/// @param origin 立方体の原点座標
 	/// @param size 立方体のサイズ
-	void CreateCubeVertices(const Vec3::Vector3& origin, float size);
+	void CreateCubeVertices(const Vec3::Vector3& origin, const Vec3::Vector3& size);
 
 };
 
