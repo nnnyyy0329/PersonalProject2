@@ -4,7 +4,7 @@
 
 namespace
 {
-	constexpr float MOVE_SPEED = 1.5f;	// 移動速度
+	constexpr float MOVE_SPEED = 1.9f;	// 移動速度
 }
 
 void EnemyMoveComponent::MoveToTarget(const Vec3::Vector3& targetPos)

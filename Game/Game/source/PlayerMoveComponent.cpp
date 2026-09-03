@@ -7,7 +7,7 @@
 
 namespace
 {
-	constexpr float MOVE_SPEED = 5.0f;	// 移動速度
+	constexpr float MOVE_SPEED = 10.0f;	// 移動速度
 }
 
 void PlayerMoveComponent::Update(Character& character, const GameContext& gameContext)

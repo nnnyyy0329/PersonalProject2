@@ -4,7 +4,7 @@
 namespace Math
 {
 	// 円周率
-	constexpr float PI = 3.14159265358979323846f;
+	constexpr float PI_VALUE = 3.14159265358979323846f;
 
 	// 0に近い値を比較するための定数
 	constexpr float EPSILON = 0.00001f;

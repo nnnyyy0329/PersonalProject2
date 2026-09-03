@@ -55,7 +55,7 @@ void ObjectRenderSystem::ObjectRender(const ObjectData& data)
 void ObjectRenderSystem::MapRender(const Map& map)
 {
 	// マップデータ取得
-	const MapData& mapData = map.GetMapData();
+	const MapData::Data& mapData = map.GetMapData();
 
 	// マップ位置設定 & 描画
 	if(mapData.mapHandle != -1)
@@ -122,7 +122,7 @@ void ObjectRenderSystem::ObjectShadowRender(const ObjectData& data)
 void ObjectRenderSystem::MapShadowRender(const Map& map)
 {
 	// マップデータ取得
-	const MapData& mapData = map.GetMapData();
+	const MapData::Data& mapData = map.GetMapData();
 
 	// マップ位置設定 & 描画
 	if(mapData.mapHandle != -1)

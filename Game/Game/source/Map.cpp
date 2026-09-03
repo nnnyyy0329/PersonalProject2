@@ -4,13 +4,6 @@
 #include "Server/SoundServer.h"
 #include "DebugManager.h"
 
-namespace 
-{
-	constexpr int PLANE_SIZE = 100;
-	constexpr int PLANE_TILE_X = 75;
-	constexpr int PLANE_TILE_Z = 75;
-}
-
 bool Map::Initialize()
 {
 	// ハンドルの初期設定
@@ -113,5 +106,5 @@ void Map::CreatePlaneMap()
 
 	// グリッド平面を作成
 	m_primitiveShapePlane.CreateGridPlane(
-		Vec3::Vector3(0.0f, 0.0f, 0.0f), PLANE_SIZE, PLANE_TILE_X, PLANE_TILE_Z);
+		MapData::MAP_ORIGIN, MapData::PLANE_SIZE, MapData::PLANE_TILE_X, MapData::PLANE_TILE_Z);
 }

@@ -38,7 +38,7 @@ public:
 	/// @brief マップデータ取得
 	/// 
 	/// @return マップデータ
-	const MapData& GetMapData() const { return m_mapData; }
+	const MapData::Data& GetMapData() const { return m_mapData; }
 
 private:
 
@@ -60,7 +60,7 @@ private:
 	//=======================================================================
 
 	/// マップデータ
-	MapData m_mapData;
+	MapData::Data m_mapData;
 
 	/// 立方体の形状を表すクラス
 	PrimitiveShapeCube m_primitiveShapeCube;

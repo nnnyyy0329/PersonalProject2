@@ -59,8 +59,8 @@ void Enemy::Update(const GameContext& gameContext)
 
 
 	m_charColData.capsule.start		= GetObjectData().pos + Vec3::Vector3(0.0f, 80.0f, 0.0f);
-	m_charColData.capsule.end		= GetObjectData().pos;
-	m_charColData.capsule.radius	= 30.0f;
+	m_charColData.capsule.end		= GetObjectData().pos + Vec3::Vector3(0.0f, 30.0f, 0.0f);
+	//m_charColData.capsule.radius	= 30.0f;
 
 
 
