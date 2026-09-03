@@ -61,7 +61,7 @@ void ObjectRenderSystem::MapRender(const Map& map)
 	if(mapData.mapHandle != -1)
 	{
 		MV1SetPosition(mapData.mapHandle, Vec::ToDxVec(mapData.pos));
-		MV1DrawModel(mapData.mapHandle);
+		//MV1DrawModel(mapData.mapHandle);
 	}
 
 	// スカイ位置設定 & 描画
@@ -128,7 +128,7 @@ void ObjectRenderSystem::MapShadowRender(const Map& map)
 	if(mapData.mapHandle != -1)
 	{
 		MV1SetPosition(mapData.mapHandle, Vec::ToDxVec(mapData.pos));
-		MV1DrawModel(mapData.mapHandle);
+		//MV1DrawModel(mapData.mapHandle);
 	}
 }
 

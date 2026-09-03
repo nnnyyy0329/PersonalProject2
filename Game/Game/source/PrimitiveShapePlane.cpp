@@ -41,6 +41,40 @@ void PrimitiveShapePlane::AddPlane(const Vec3::Vector3& origin, float size)
 	CreatePlaneVertices(origin, size);
 }
 
+void PrimitiveShapePlane::CreateGridPlane(const Vec3::Vector3& origin, float tileSize, int tileX, int tileZ)
+{
+	if(tileSize <= 0.0f || tileX <= 0 || tileZ <= 0) { return; }
+
+	// 既存のプリミティブデータをクリア
+	ClearPrimitiveData();
+
+	// 頂点数とインデックス数を事前に予約
+	m_vertices.reserve(tileX * tileZ * VERTICES_PER_PLANE);
+	m_indices.reserve(tileX * tileZ * INDICES_PER_PLANE);
+
+	// グリッド全体の幅と奥行きを計算
+	float totalWidth = tileSize * static_cast<float>(tileX);
+	float totalDepth = tileSize * static_cast<float>(tileZ);
+
+	// グリッドの原点は、全体の幅と奥行きの半分を引いた位置に設定
+	float startX = origin.GetX() - totalWidth * 0.5f + tileSize * 0.5f;
+	float startZ = origin.GetZ() - totalDepth * 0.5f + tileSize * 0.5f;
+
+	for(int z = 0; z < tileZ; ++z)
+	{
+		for(int x = 0; x < tileX; ++x)
+		{
+			// 各タイルの中心座標を計算
+			float centerX = startX + tileSize * static_cast<float>(x);
+			float centerZ = startZ + tileSize * static_cast<float>(z);
+			const  Vec3::Vector3 tileCenter(centerX, origin.GetY(), centerZ);
+
+			// 平面を追加
+			AddPlane(tileCenter, tileSize);
+		}
+	}
+}
+
 void PrimitiveShapePlane::CreatePlaneVertices(const Vec3::Vector3& origin, float size)
 {
 	// インデックスの最大値を取得

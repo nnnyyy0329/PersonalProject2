@@ -4,13 +4,20 @@
 #include "Server/SoundServer.h"
 #include "DebugManager.h"
 
+namespace 
+{
+	constexpr int PLANE_SIZE = 100;
+	constexpr int PLANE_TILE_X = 75;
+	constexpr int PLANE_TILE_Z = 75;
+}
+
 bool Map::Initialize()
 {
 	// ハンドルの初期設定
 	InitializeHandle();
 
 	// 立方体マップを作成
-	CreateCubeMap();
+	//CreateCubeMap();
 
 	// 平面マップを作成
 	CreatePlaneMap();
@@ -88,22 +95,23 @@ void Map::CreateCubeMap()
 {
 	// 立方体のテクスチャハンドルを立方体形状クラスに設定
 	int mapCubeTextureHandle = ResourceServer::GetInstance()->GetHandle("CubeTexture");
-	if(mapCubeTextureHandle != -1)
-	{
-		m_primitiveShapeCube.SetTextureHandle(mapCubeTextureHandle);
-		m_primitiveShapeCube.CreateCube(Vec3::Vector3(0.0f, 50.0f, 0.0f), 100.0f);
-		m_primitiveShapeCube.AddCube(Vec3::Vector3(100.0f, 50.0f, 0.0f), 100.0f);
-	}
+	if(mapCubeTextureHandle == -1) { return; }
+
+	m_primitiveShapeCube.SetTextureHandle(mapCubeTextureHandle);
+	m_primitiveShapeCube.CreateCube(Vec3::Vector3(0.0f, 50.0f, 0.0f), Vec3::Vector3(100.0f, 100.0f, 100.0f));
+	m_primitiveShapeCube.AddCube(Vec3::Vector3(100.0f, 50.0f, 0.0f), Vec3::Vector3(100.0f, 100.0f, 100.0f));
 }
 
 void Map::CreatePlaneMap()
 {
 	// 平面のテクスチャハンドルを平面形状クラスに設定
 	int mapPlaneTextureHandle = ResourceServer::GetInstance()->GetHandle("PlaneTexture");
-	if(mapPlaneTextureHandle != -1)
-	{
-		m_primitiveShapePlane.SetTextureHandle(mapPlaneTextureHandle);
-		m_primitiveShapePlane.CreatePlane(Vec3::Vector3(200.0f, 100.0f, 0.0f), 100.0f);
-		m_primitiveShapePlane.AddPlane(Vec3::Vector3(300.0f, 50.0f, 0.0f), 100.0f);
-	}
+	if(mapPlaneTextureHandle == -1) { return; }
+
+	// 平面形状クラスにテクスチャハンドルを設定
+	m_primitiveShapePlane.SetTextureHandle(mapPlaneTextureHandle);
+
+	// グリッド平面を作成
+	m_primitiveShapePlane.CreateGridPlane(
+		Vec3::Vector3(0.0f, 0.0f, 0.0f), PLANE_SIZE, PLANE_TILE_X, PLANE_TILE_Z);
 }
