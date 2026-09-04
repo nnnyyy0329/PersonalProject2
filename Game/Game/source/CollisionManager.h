@@ -27,14 +27,15 @@ private:
 	// 内部関数
 	//===========================================================================
 
-
-
-	/// @brief 簡易的なキャラの床合すり抜け対策関数（仮実装）
+	/// @brief 簡易的なキャラの床合すり抜け対策関数
 	///
 	/// @param character 床合すり抜け対策を行うキャラクター
 	void ResolveCharacterFloorPenetration(Character* character);
 
-
+	/// @brief キャラクターを床の範囲内に制限する関数
+	///
+	/// @param character 床の範囲内に制限するキャラクター
+	void ClampCharacterToFloor(Character* character);
 
 	/// @brief キャラクター同士がヒットしたかどうかを判定する関数
 	///

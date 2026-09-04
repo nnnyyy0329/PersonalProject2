@@ -10,19 +10,25 @@
 #include "DamageConverter.h"
 #include "Collision/HitCollision.h"
 #include "Server/SoundServer.h"
+#include "math/Math.h"
+#include "MapData.h"
 
 void CollisionManager::Update(const std::vector<Character*>& characters)
 {
 	//===========================================================================
-	// 床合すり抜け対策
+	// マップとキャラの判定
 	//===========================================================================
 
-	// 簡易的な仮実装
-	// キャラクターが床にめり込んでいる場合、床の高さに修正する
 	for(auto* character : characters)
 	{
 		if(!character) { continue; }
+
+		// 簡易的な実装
+		// キャラクターが床にめり込んでいる場合、床の高さに修正する
 		ResolveCharacterFloorPenetration(character);
+
+		// キャラクターが床の範囲外に出ないように制限する
+		ClampCharacterToFloor(character);
 	}
 
 	//===========================================================================
@@ -94,19 +100,76 @@ void CollisionManager::ResolveCharacterFloorPenetration(Character* character)
 	auto gravityComp = character->GetComponent<GravityComponent<Character>>();
 	if(!gravityComp) { return; }
 
-	// キャラクターのオブジェクトデータを取得
+	// キャラクターのカプセルを作成
+	auto capsule = CollisionShapeBuilder::CreateCharacterCapsule(*character);
+	if(!capsule.has_value()) { return; }
+
+	// キャラクターのカプセルを取得
+	auto& charCapsule = capsule.value();
+
+	// 床の高さを定数として定義
+	constexpr float floorY = 0.0f;
+
+	// カプセルの一番下のY座標
+	float capsuleBottom =
+		Math::Min(charCapsule.start.GetY(), charCapsule.end.GetY()) - charCapsule.radius;
+
+	// 床より下にめり込んでいなければ何もしない
+	if(capsuleBottom >= floorY) { return; }
+
+	// 床まで押し上げる量
+	float correction = floorY - capsuleBottom;
+
+	ObjectData correctedData = character->GetObjectData();
+
+	// キャラクターを上方向へ押し出す
+	correctedData.pos.SetY(correctedData.pos.GetY() + correction);
+
+	character->SetObjectData(correctedData);
+
+	// 落下速度を止める
+	gravityComp->SetVelocityY(0.0f);
+}
+
+void CollisionManager::ClampCharacterToFloor(Character* character)
+{
+	if(!character) { return; }
+
+	// キャラクターのカプセルを作成
+	auto capsule = CollisionShapeBuilder::CreateCharacterCapsule(*character);
+	if(!capsule.has_value()) { return; }
+
+	// キャラクターのカプセルを取得
+	auto& charCapsule = capsule.value();
+
+	// X軸方向とZ軸方向の床の範囲を計算
+	constexpr float floorWidth =
+		static_cast<float>(MapData::PLANE_SIZE) * static_cast<float>(MapData::PLANE_TILE_X);
+	constexpr float floorDepth =
+		static_cast<float>(MapData::PLANE_SIZE) * static_cast<float>(MapData::PLANE_TILE_Z);
+
+	// 床の半分の幅と奥行きを計算
+	constexpr float floorHalfWidth = floorWidth * 0.5f;
+	constexpr float floorHalfDepth = floorDepth * 0.5f;
+
+	// キャラのカプセルが、床内に収まる範囲の計算
+	float minX = -floorHalfWidth + charCapsule.radius;
+	float maxX =  floorHalfWidth - charCapsule.radius;
+	float minZ = -floorHalfDepth + charCapsule.radius;
+	float maxZ =  floorHalfDepth - charCapsule.radius;
+
 	ObjectData data = character->GetObjectData();
 
-	// キャラクターのY座標が床合すり抜け対策の高さより下にある場合
-	if(data.pos.GetY() < 0.0f)
+	// X軸方向とZ軸方向を床の範囲内に収まるように補正
+	float correctedX = Math::Clamp(data.pos.GetX(), minX, maxX);
+	float correctedZ = Math::Clamp(data.pos.GetZ(), minZ, maxZ);
+
+	// 座標が変わったときだけ反映
+	if(data.pos.GetX() != correctedX || data.pos.GetZ() != correctedZ)
 	{
-		// キャラクターのY座標を床合すり抜け対策の高さに修正
-		data.pos.SetY(0.0f);
-
-		// Y方向の速度を0に設定
-		gravityComp->SetVelocityY(0.0f);
-
-		// 修正したオブジェクトデータをキャラクターに設定
+		// 座標を補正してキャラクターに設定
+		data.pos.SetX(correctedX);
+		data.pos.SetZ(correctedZ);
 		character->SetObjectData(data);
 	}
 }
