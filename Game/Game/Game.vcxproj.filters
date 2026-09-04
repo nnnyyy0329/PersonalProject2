@@ -196,6 +196,9 @@
     <ClCompile Include="source\PrimitiveShapePlane.cpp">
       <Filter>Primitive</Filter>
     </ClCompile>
+    <ClCompile Include="source\NavigationGrid.cpp">
+      <Filter>Nav</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -510,6 +513,12 @@
     <ClInclude Include="source\PrimitiveShapePlane.h">
       <Filter>Primitive</Filter>
     </ClInclude>
+    <ClInclude Include="source\NavNode.h">
+      <Filter>Nav</Filter>
+    </ClInclude>
+    <ClInclude Include="source\NavigationGrid.h">
+      <Filter>Nav</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <Filter Include="Bullet">
@@ -670,6 +679,9 @@
     </Filter>
     <Filter Include="Collision">
       <UniqueIdentifier>{7ee94531-4c82-41d9-8339-338d11e00362}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nav">
+      <UniqueIdentifier>{c428a7e1-b649-4b34-a4db-d77a68458a38}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

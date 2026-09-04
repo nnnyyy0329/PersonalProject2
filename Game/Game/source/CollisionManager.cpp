@@ -138,27 +138,64 @@ void CollisionManager::ResolveCharacterFloorPenetration(Character* character)
 void CollisionManager::ResolveCharacterWallCollision(
 	Character* character, const std::vector<Math::AABB>& wallColliders)
 {
-	if(!character) { return; }
-
-	// キャラクターのカプセルを作成
-	auto capsule = CollisionShapeBuilder::CreateCharacterCapsule(*character);
-	if(!capsule.has_value()) { return; }
-
-	for(auto& wall : wallColliders)
+	if(!character)
 	{
-		// キャラクターのカプセルと壁のAABBの衝突判定を行う
-		auto collision = HitCheck::CapsuleToAABB(capsule.value(), wall);
+		return;
+	}
 
-		// 衝突していない場合はスキップ
-		if(!collision.isHit || collision.penetration <= 0.0f) { continue; }
+	for(const auto& wall : wallColliders)
+	{
+		auto capsule =
+			CollisionShapeBuilder::CreateCharacterCapsule(
+				*character);
 
-		ObjectData data = character->GetObjectData();
+		if(!capsule.has_value())
+		{
+			continue;
+		}
 
-		// キャラクターを押し出す
-		data.pos += collision.normal * collision.penetration;
+		auto collision =
+			HitCheck::CapsuleToAABB(
+				capsule.value(),
+				wall);
+
+		if(!collision.isHit ||
+		   collision.penetration <= 0.0f)
+		{
+			continue;
+		}
+
+		ObjectData data =
+			character->GetObjectData();
+
+		data.pos +=
+			collision.normal * collision.penetration;
 
 		character->SetObjectData(data);
 	}
+
+
+	//if(!character) { return; }
+
+	//// キャラクターのカプセルを作成
+	//auto capsule = CollisionShapeBuilder::CreateCharacterCapsule(*character);
+	//if(!capsule.has_value()) { return; }
+
+	//for(auto& wall : wallColliders)
+	//{
+	//	// キャラクターのカプセルと壁のAABBの衝突判定を行う
+	//	auto collision = HitCheck::CapsuleToAABB(capsule.value(), wall);
+
+	//	// 衝突していない場合はスキップ
+	//	if(!collision.isHit || collision.penetration <= 0.0f) { continue; }
+
+	//	ObjectData data = character->GetObjectData();
+
+	//	// キャラクターを押し出す
+	//	data.pos += collision.normal * collision.penetration;
+
+	//	character->SetObjectData(data);
+	//}
 }
 
 void CollisionManager::ClampCharacterToFloor(Character* character)

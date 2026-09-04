@@ -191,6 +191,7 @@
     <ClCompile Include="source\FollowCamera.cpp" />
     <ClCompile Include="source\GameContext.cpp" />
     <ClCompile Include="source\InputManager.cpp" />
+    <ClCompile Include="source\NavigationGrid.cpp" />
     <ClCompile Include="source\Pad.cpp" />
     <ClCompile Include="source\Light.cpp" />
     <ClCompile Include="source\Map.cpp" />
@@ -306,6 +307,8 @@
     <ClInclude Include="source\LightData.h" />
     <ClInclude Include="source\MapData.h" />
     <ClInclude Include="source\MoveStrategy.h" />
+    <ClInclude Include="source\NavigationGrid.h" />
+    <ClInclude Include="source\NavNode.h" />
     <ClInclude Include="source\Pad.h" />
     <ClInclude Include="source\Light.h" />
     <ClInclude Include="source\Map.h" />

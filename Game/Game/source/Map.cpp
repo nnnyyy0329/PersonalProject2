@@ -12,6 +12,9 @@ bool Map::Initialize()
 	// 立方体マップを作成
 	CreateCubeMap();
 
+	// ナビゲーショングリッドを構築
+	m_navigationGrid.Build(m_wallColliders);
+
 	// 平面マップを作成
 	CreatePlaneMap();
 

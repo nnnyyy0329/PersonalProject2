@@ -1,7 +1,8 @@
 #pragma once
-#include "MapData.h""
+#include "MapData.h"
 #include "PrimitiveShapeCube.h"
 #include "PrimitiveShapePlane.h"
+#include "NavigationGrid.h"
 #include "math/Math.h"
 #include <array>
 
@@ -47,6 +48,16 @@ public:
 	/// @return 壁のコリジョン情報vectorの配列
 	const std::vector<Math::AABB>& GetWallColliders() const { return m_wallColliders; }
 
+	/// @brief ナビゲーショングリッドの取得関数（const版）
+	///
+	/// @return ナビゲーショングリッドの参照
+	const NavigationGrid& GetNavigationGrid() const { return m_navigationGrid; }
+
+	/// @brief ナビゲーショングリッドの取得関数
+	///
+	/// @return ナビゲーショングリッドの参照
+	NavigationGrid& GetNavigationGrid() { return m_navigationGrid; }
+
 private:
 
 	//========================================================================
@@ -74,6 +85,9 @@ private:
 
 	/// 平面の形状を表すクラス
 	PrimitiveShapePlane m_primitiveShapePlane;
+
+	/// ナビゲーショングリッド
+	NavigationGrid m_navigationGrid;
 
 	/// 壁のコリジョン情報
 	std::vector<Math::AABB> m_wallColliders;
