@@ -65,6 +65,9 @@ void Enemy::Update(const GameContext& gameContext)
 
 
 
+	auto healthComp = GetComponent<HealthComponent<Character>>();
+	if(healthComp && healthComp->IsDead()) { return; }
+
 	Character::UpdateComponents(gameContext);
 
 	// 次に行うステートを決定する
@@ -80,7 +83,7 @@ void Enemy::Update(const GameContext& gameContext)
 void Enemy::SetUpComponents()
 {
 	// 体力コンポーネントを追加
-	AddComponent(std::make_unique<HealthComponent<Character>>(200.0f));
+	AddComponent(std::make_unique<HealthComponent<Character>>(9000.0f));
 
 	// アニメーション管理コンポーネントを追加
 	AddComponent(std::make_unique<DxLibAnimationComponent<Character>>());

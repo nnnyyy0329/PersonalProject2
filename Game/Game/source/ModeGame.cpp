@@ -53,7 +53,7 @@ bool ModeGame::Process()
 	m_objectManager->Update(m_gameContext);
 	
 	// 当たり判定の更新
-	m_collisionManager->Update(m_objectManager->GetCharacters());
+	m_collisionManager->Update(m_objectManager->GetCharacters(), m_map.GetWallColliders());
 
 	// カメラマネージャーの更新
 	m_cameraManager->Update();

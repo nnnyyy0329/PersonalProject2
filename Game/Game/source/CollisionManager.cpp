@@ -13,7 +13,8 @@
 #include "math/Math.h"
 #include "MapData.h"
 
-void CollisionManager::Update(const std::vector<Character*>& characters)
+void CollisionManager::Update(
+	const std::vector<Character*>& characters, const std::vector<Math::AABB>& wallColliders)
 {
 	//===========================================================================
 	// マップとキャラの判定
@@ -29,6 +30,9 @@ void CollisionManager::Update(const std::vector<Character*>& characters)
 
 		// キャラクターが床の範囲外に出ないように制限する
 		ClampCharacterToFloor(character);
+
+		// キャラクターと壁の衝突判定を行う
+		ResolveCharacterWallCollision(character, wallColliders);
 	}
 
 	//===========================================================================
@@ -129,6 +133,32 @@ void CollisionManager::ResolveCharacterFloorPenetration(Character* character)
 
 	// 落下速度を止める
 	gravityComp->SetVelocityY(0.0f);
+}
+
+void CollisionManager::ResolveCharacterWallCollision(
+	Character* character, const std::vector<Math::AABB>& wallColliders)
+{
+	if(!character) { return; }
+
+	// キャラクターのカプセルを作成
+	auto capsule = CollisionShapeBuilder::CreateCharacterCapsule(*character);
+	if(!capsule.has_value()) { return; }
+
+	for(auto& wall : wallColliders)
+	{
+		// キャラクターのカプセルと壁のAABBの衝突判定を行う
+		auto collision = HitCheck::CapsuleToAABB(capsule.value(), wall);
+
+		// 衝突していない場合はスキップ
+		if(!collision.isHit || collision.penetration <= 0.0f) { continue; }
+
+		ObjectData data = character->GetObjectData();
+
+		// キャラクターを押し出す
+		data.pos += collision.normal * collision.penetration;
+
+		character->SetObjectData(data);
+	}
 }
 
 void CollisionManager::ClampCharacterToFloor(Character* character)

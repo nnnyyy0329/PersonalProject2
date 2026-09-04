@@ -1,5 +1,6 @@
 #pragma once
 #include "Collision/HitCollision.h"
+#include "math/Math.h"
 #include <vector>
 
 class Character;	/// キャラクタークラス
@@ -19,7 +20,8 @@ public:
 	/// @brief 当たり判定の更新関数
 	///
 	/// @param characters 当たり判定を更新するキャラクターのリスト
-	void Update(const std::vector<Character*>& characters);
+	/// @param wallColliders 壁の当たり判定用のAABBリスト
+	void Update(const std::vector<Character*>& characters, const std::vector<Math::AABB>& wallColliders);
 
 private:
 
@@ -31,6 +33,13 @@ private:
 	///
 	/// @param character 床合すり抜け対策を行うキャラクター
 	void ResolveCharacterFloorPenetration(Character* character);
+
+	/// @brief キャラクターと壁の衝突判定を行う関数
+	///
+	/// @param character 衝突判定を行うキャラクター
+	/// @param wallColliders 壁の当たり判定用のAABBリスト
+	void ResolveCharacterWallCollision(
+		Character* character, const std::vector<Math::AABB>& wallColliders);
 
 	/// @brief キャラクターを床の範囲内に制限する関数
 	///

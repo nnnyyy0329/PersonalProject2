@@ -563,9 +563,6 @@
     <Filter Include="Component\Collision">
       <UniqueIdentifier>{e1a1d5b5-bc8f-4978-ad21-81e242c93ae5}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Collision">
-      <UniqueIdentifier>{7ee94531-4c82-41d9-8339-338d11e00362}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Observer">
       <UniqueIdentifier>{780a0f99-e3b5-4f2f-9faa-b7a642ad8b9c}</UniqueIdentifier>
     </Filter>
@@ -670,6 +667,9 @@
     </Filter>
     <Filter Include="Input">
       <UniqueIdentifier>{7fe9eb86-b37a-4f2e-844a-d42b99744f19}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Collision">
+      <UniqueIdentifier>{7ee94531-4c82-41d9-8339-338d11e00362}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

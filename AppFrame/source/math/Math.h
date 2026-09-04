@@ -23,6 +23,18 @@ namespace Math
 			distanceSq	= 0.0f;
 		}
 	};
+	
+	/// @brief 軸平行境界ボックス(Axis-Aligned Bounding Box)を表す構造体
+	struct AABB
+	{
+		Vec3::Vector3 min;	// AABBの最小座標
+		Vec3::Vector3 max;	// AABBの最大座標
+		AABB()
+		{
+			min = { 0.0f, 0.0f, 0.0f };
+			max = { 0.0f, 0.0f, 0.0f };
+		}
+	};
 
 	/// @brief クランプ関数
 	///
@@ -135,5 +147,20 @@ namespace Math
 		const Vec3::Vector3& segmentStart,
 		const Vec3::Vector3& segmentEnd);
 
-	
+	/// @brief 中心座標とサイズからAABBを作成する関数
+	///
+	/// @param center AABBの中心座標
+	/// @param size AABBのサイズ
+	/// 
+	/// @return 作成されたAABB
+	inline AABB CreateAABB(const Vec3::Vector3& center, const Vec3::Vector3& size)
+	{
+		const Vec3::Vector3 halfSize = size * 0.5f;
+
+		AABB result;
+		result.min = center - halfSize;
+		result.max = center + halfSize;
+
+		return result;
+	};
 }

@@ -2,6 +2,8 @@
 #include "MapData.h""
 #include "PrimitiveShapeCube.h"
 #include "PrimitiveShapePlane.h"
+#include "math/Math.h"
+#include <array>
 
 /// @brief マップクラス
 class Map
@@ -40,6 +42,11 @@ public:
 	/// @return マップデータ
 	const MapData::Data& GetMapData() const { return m_mapData; }
 
+	/// @brief 壁のコリジョン情報のvector配列取得
+	///
+	/// @return 壁のコリジョン情報vectorの配列
+	const std::vector<Math::AABB>& GetWallColliders() const { return m_wallColliders; }
+
 private:
 
 	//========================================================================
@@ -67,6 +74,9 @@ private:
 
 	/// 平面の形状を表すクラス
 	PrimitiveShapePlane m_primitiveShapePlane;
+
+	/// 壁のコリジョン情報
+	std::vector<Math::AABB> m_wallColliders;
 
 	/// ステージBGM
 	int m_stageBgm = -1;

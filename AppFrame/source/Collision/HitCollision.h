@@ -1,6 +1,7 @@
 #pragma once
 #include "../Collision/Shape/Capsule.h"
 #include "../Collision/Shape/Sphere.h"
+#include "../math/Math.h"
 
 namespace HitCheck
 {
@@ -13,9 +14,24 @@ namespace HitCheck
 
 		CapsuleCollisionResult()
 		{
-			normal		= Vec3::Vector3(0.0f, 0.0f, 0.0f);
+			normal = Vec3::Vector3(0.0f, 0.0f, 0.0f);
 			penetration = 0.0f;
-			isHit		= false;
+			isHit = false;
+		}
+	};
+
+	/// @brief カプセルとAABBの衝突結果
+	struct CapsuleAABBCollisionResult
+	{
+		Vec3::Vector3 normal;	// 衝突面の法線ベクトル
+		float penetration;		// 衝突の貫通深さ
+		bool isHit;				// 衝突しているかどうか
+
+		CapsuleAABBCollisionResult()
+		{
+			normal = Vec3::Vector3(0.0f, 0.0f, 0.0f);
+			penetration = 0.0f;
+			isHit = false;
 		}
 	};
 
@@ -48,4 +64,14 @@ namespace HitCheck
 	CapsuleCollisionResult CapsuleToCapsule(
 		const Collision::Shape::Capsule& a,
 		const Collision::Shape::Capsule& b);
+
+	/// @brief カプセルとAABBの衝突判定の計算関数
+	///
+	/// @param capsule カプセルのデータ
+	/// @param aabb AABBのデータ
+	/// 
+	/// @return ヒット結果を含む構造体
+	CapsuleAABBCollisionResult CapsuleToAABB(
+		const Collision::Shape::Capsule& capsule,
+		const Math::AABB& aabb);
 }

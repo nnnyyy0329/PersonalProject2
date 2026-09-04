@@ -1,5 +1,6 @@
 #pragma once
 #include "Vector/Vector3.h"
+#include <vector>
 
 namespace MapData
 {
@@ -17,9 +18,65 @@ namespace MapData
 
 		Data()
 		{
-			pos = Vec3::Vector3(0.0f, 0.0f, 0.0f);
-			mapHandle = -1;
-			skyHandle = -1;
+			pos			= Vec3::Vector3(0.0f, 0.0f, 0.0f);
+			mapHandle	= -1;
+			skyHandle	= -1;
 		}
 	};
+
+	/// @brief 壁のデータ構造体
+	struct WallData
+	{
+		Vec3::Vector3 position;	// 壁の位置
+		Vec3::Vector3 size;		// 壁のサイズ
+
+		WallData(const Vec3::Vector3& wallPosition, const Vec3::Vector3& wallSize)
+			: position(wallPosition), size(wallSize)
+		{
+		}
+	};
+}
+
+namespace WallData
+{
+	/// @brief 初期状態の壁データを取得する
+	inline std::vector<MapData::WallData> DefaultWalls()
+	{
+		return
+		{
+			MapData::WallData
+			{
+				Vec3::Vector3(-500.0f, 50.0f, -300.0f),
+				Vec3::Vector3(10.0f, 100.0f, 400.0f)
+			},
+			MapData::WallData
+			{
+				Vec3::Vector3(-500.0f, 50.0f, 300.0f),
+				Vec3::Vector3(10.0f, 100.0f, 400.0f)
+			},
+
+			MapData::WallData
+			{
+				Vec3::Vector3(500.0f, 50.0f, -300.0f),
+				Vec3::Vector3(10.0f, 100.0f, 400.0f)
+			},
+			MapData::WallData
+			{
+				Vec3::Vector3(500.0f, 50.0f, 300.0f),
+				Vec3::Vector3(10.0f, 100.0f, 400.0f)
+			},
+
+			MapData::WallData
+			{
+				Vec3::Vector3(0.0f, 50.0f, -500.0f),
+				Vec3::Vector3(1000.0f, 100.0f, 10.0f)
+			},
+
+			MapData::WallData
+			{
+				Vec3::Vector3(0.0f, 50.0f, 500.0f),
+				Vec3::Vector3(1000.0f, 100.0f, 10.0f)
+			}
+		};
+	}
 }

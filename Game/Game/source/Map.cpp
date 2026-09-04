@@ -10,7 +10,7 @@ bool Map::Initialize()
 	InitializeHandle();
 
 	// 立方体マップを作成
-	//CreateCubeMap();
+	CreateCubeMap();
 
 	// 平面マップを作成
 	CreatePlaneMap();
@@ -91,8 +91,35 @@ void Map::CreateCubeMap()
 	if(mapCubeTextureHandle == -1) { return; }
 
 	m_primitiveShapeCube.SetTextureHandle(mapCubeTextureHandle);
-	m_primitiveShapeCube.CreateCube(Vec3::Vector3(0.0f, 50.0f, 0.0f), Vec3::Vector3(100.0f, 100.0f, 100.0f));
-	m_primitiveShapeCube.AddCube(Vec3::Vector3(100.0f, 50.0f, 0.0f), Vec3::Vector3(100.0f, 100.0f, 100.0f));
+
+	// WallData名前空間から初期壁データを取得
+	const std::vector<MapData::WallData> walls = WallData::DefaultWalls();
+	if(walls.empty()) { return; }
+
+	// 再生成に備えて衝突データをクリア
+	m_wallColliders.clear();
+	m_wallColliders.reserve(walls.size());
+
+	// 壁を生成
+	for(std::size_t i = 0; i < walls.size(); ++i)
+	{
+		const MapData::WallData& wall = walls[i];
+
+		// 1個目はCreateCubeで生成
+		if(i == 0)
+		{
+			m_primitiveShapeCube.CreateCube(wall.position, wall.size);
+		}
+		// 2個目以降はAddCubeで追加
+		else
+		{
+			m_primitiveShapeCube.AddCube(wall.position, wall.size);
+		}
+
+		// 描画用キューブと同じ位置・サイズから
+		// 衝突用AABBを作成
+		m_wallColliders.emplace_back(Math::CreateAABB(wall.position, wall.size));
+	}
 }
 
 void Map::CreatePlaneMap()
