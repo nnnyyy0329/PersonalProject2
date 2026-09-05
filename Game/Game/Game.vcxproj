@@ -173,6 +173,7 @@
     <ClCompile Include="source\DebugCollision.cpp" />
     <ClCompile Include="source\DebugFps.cpp" />
     <ClCompile Include="source\DebugManager.cpp" />
+    <ClCompile Include="source\DebugNavigationGrid.cpp" />
     <ClCompile Include="source\DebugParameter.cpp" />
     <ClCompile Include="source\Enemy.cpp" />
     <ClCompile Include="source\EnemyAnimationComponent.cpp" />
@@ -268,6 +269,7 @@
     <ClInclude Include="source\CollisionShapeBuilder.h" />
     <ClInclude Include="source\DamageComponent.h" />
     <ClInclude Include="source\DamageConverter.h" />
+    <ClInclude Include="source\DebugNavigationGrid.h" />
     <ClInclude Include="source\EnemyAttackComponent.h" />
     <ClInclude Include="source\EnemyAttackState.h" />
     <ClInclude Include="source\EnemyDetectionComponent.h" />
@@ -308,7 +310,7 @@
     <ClInclude Include="source\MapData.h" />
     <ClInclude Include="source\MoveStrategy.h" />
     <ClInclude Include="source\NavigationGrid.h" />
-    <ClInclude Include="source\NavNode.h" />
+    <ClInclude Include="source\NavNodeData.h" />
     <ClInclude Include="source\Pad.h" />
     <ClInclude Include="source\Light.h" />
     <ClInclude Include="source\Map.h" />

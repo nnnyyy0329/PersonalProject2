@@ -32,7 +32,7 @@ void NavigationGrid::Build(const std::vector<Math::AABB>& wallColliders)
 	{
 		for(int x = 0; x < GRID_WIDTH; ++x)
 		{
-			NavNode& node = m_nodes[z * GRID_WIDTH + x];
+			NavNodeData& node = m_nodes[z * GRID_WIDTH + x];
 
 			// ノードの座標を設定
 			node.x			= x;
@@ -62,8 +62,8 @@ std::vector<Vec3::Vector3> NavigationGrid::FindPath(
 	std::vector<Vec3::Vector3> result;
 
 	// ワールド座標をノードに変換
-	NavNode* startNode = WorldToNode(startWorldPos);
-	NavNode* goalNode = WorldToNode(goalWorldPos);
+	NavNodeData* startNode = WorldToNode(startWorldPos);
+	NavNodeData* goalNode = WorldToNode(goalWorldPos);
 	if(!startNode || !goalNode) { return result; }
 
 	// スタート地点またはゴール地点が壁の中の場合
@@ -73,8 +73,8 @@ std::vector<Vec3::Vector3> NavigationGrid::FindPath(
 	ResetSearchData();
 
 	// オープンリストとクローズドリストを用意
-	std::vector<NavNode*> openList;
-	std::vector<NavNode*> closedList;
+	std::vector<NavNodeData*> openList;
+	std::vector<NavNodeData*> closedList;
 
 	// スタートノードの初期化
 	startNode->gCost = 0.0f;
@@ -89,7 +89,7 @@ std::vector<Vec3::Vector3> NavigationGrid::FindPath(
 	{
 		// Fコストが最小のノードを取得
 		auto currentIt =
-			std::min_element(openList.begin(), openList.end(), [](const NavNode* a, const NavNode* b)
+			std::min_element(openList.begin(), openList.end(), [](const NavNodeData* a, const NavNodeData* b)
 		{
 			// Fコストが同じ場合はHコストで比較
 			if(a->GetFCost() == b->GetFCost())
@@ -102,14 +102,14 @@ std::vector<Vec3::Vector3> NavigationGrid::FindPath(
 		});
 
 		// 現在のノードをオープンリストから削除し、クローズドリストに追加
-		NavNode* current = *currentIt;
+		NavNodeData* current = *currentIt;
 		openList.erase(currentIt);
 		closedList.push_back(current);
 
 		// ゴールに到達
 		if(current == goalNode)
 		{
-			NavNode* pathNode = goalNode;
+			NavNodeData* pathNode = goalNode;
 
 			// ゴールからスタートまでの経路を逆順で取得
 			while(pathNode)
@@ -136,7 +136,7 @@ std::vector<Vec3::Vector3> NavigationGrid::FindPath(
 			int nextZ = current->z + direction[1];
 
 			// 隣接ノードを取得
-			NavNode* neighbor = GetNode(nextX, nextZ);
+			NavNodeData* neighbor = GetNode(nextX, nextZ);
 
 			if(!neighbor || !neighbor->isWalkable) { continue; }
 
@@ -172,7 +172,7 @@ std::vector<Vec3::Vector3> NavigationGrid::FindPath(
 	return result;
 }
 
-NavNode* NavigationGrid::WorldToNode(const Vec3::Vector3& worldPos)
+NavNodeData* NavigationGrid::WorldToNode(const Vec3::Vector3& worldPos)
 {
 	// ワールド座標をナビゲーショングリッドのノード座標に変換
 	int x = static_cast<int>((worldPos.GetX() - MIN_X) / CELL_SIZE);
@@ -185,7 +185,7 @@ NavNode* NavigationGrid::WorldToNode(const Vec3::Vector3& worldPos)
 	return GetNode(x, z);
 }
 
-Vec3::Vector3 NavigationGrid::NodeToWorld(const NavNode& node) const
+Vec3::Vector3 NavigationGrid::NodeToWorld(const NavNodeData& node) const
 {
 	// ノード座標をワールド座標に変換
 	float x = MIN_X + (static_cast<float>(node.x) + 0.5f) * CELL_SIZE;
@@ -202,7 +202,7 @@ bool NavigationGrid::IsInside(int x, int z) const
 		z >= 0 && z < GRID_HEIGHT;
 }
 
-NavNode* NavigationGrid::GetNode(int x, int z)
+NavNodeData* NavigationGrid::GetNode(int x, int z)
 {
 	// 指定された座標がナビゲーショングリッドの範囲内にない場合はnullptrを返す
 	if(!IsInside(x, z)) { return nullptr; }
@@ -211,7 +211,7 @@ NavNode* NavigationGrid::GetNode(int x, int z)
 	return &m_nodes[z * GRID_WIDTH + x];
 }
 
-const NavNode* NavigationGrid::GetNode(int x, int z) const
+const NavNodeData* NavigationGrid::GetNode(int x, int z) const
 {
 	// 指定された座標がナビゲーショングリッドの範囲内にない場合はnullptrを返す
 	if(!IsInside(x, z)) { return nullptr; }
@@ -256,7 +256,7 @@ bool NavigationGrid::IsCellOverlappingWall(int x, int z, const Math::AABB& wall)
 		cellMaxZ >= wallMinZ;
 }
 
-float NavigationGrid::CalculateHeuristic(const NavNode& from, const NavNode& to) const
+float NavigationGrid::CalculateHeuristic(const NavNodeData& from, const NavNodeData& to) const
 {
 	// ノード間の距離を計算
 	float distanceX = static_cast<float>(std::abs(from.x - to.x));

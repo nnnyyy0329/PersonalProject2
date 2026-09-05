@@ -138,38 +138,22 @@ void CollisionManager::ResolveCharacterFloorPenetration(Character* character)
 void CollisionManager::ResolveCharacterWallCollision(
 	Character* character, const std::vector<Math::AABB>& wallColliders)
 {
-	if(!character)
-	{
-		return;
-	}
+	if(!character) { return; }
 
 	for(const auto& wall : wallColliders)
 	{
-		auto capsule =
-			CollisionShapeBuilder::CreateCharacterCapsule(
-				*character);
+		// キャラクターのカプセルを作成
+		auto capsule = CollisionShapeBuilder::CreateCharacterCapsule(*character);
+		if(!capsule.has_value()) { continue; }
 
-		if(!capsule.has_value())
-		{
-			continue;
-		}
+		// キャラのカプセルと壁のAABBの衝突判定を行う
+		auto collision = HitCheck::CapsuleToAABB(capsule.value(), wall);
+		if(!collision.isHit || collision.penetration <= 0.0f) { continue; }
 
-		auto collision =
-			HitCheck::CapsuleToAABB(
-				capsule.value(),
-				wall);
+		ObjectData data =	character->GetObjectData();
 
-		if(!collision.isHit ||
-		   collision.penetration <= 0.0f)
-		{
-			continue;
-		}
-
-		ObjectData data =
-			character->GetObjectData();
-
-		data.pos +=
-			collision.normal * collision.penetration;
+		// キャラクターを押し出す
+		data.pos +=	collision.normal * collision.penetration;
 
 		character->SetObjectData(data);
 	}

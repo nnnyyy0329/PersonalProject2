@@ -1,8 +1,7 @@
 #pragma once
+#include "ObjectFactory.h"
 #include <vector>
 #include <memory>
-#include "appframe.h"
-#include "ObjectFactory.h"
 
 class ObjectLogic;			/// オブジェクトのロジッククラス
 class ObjectRenderSystem;	/// オブジェクトの描画クラス

@@ -1,6 +1,7 @@
 #pragma once
-#include "NavNode.h"
+#include "NavNodeData.h"
 #include "math/Math.h"
+#include "MapData.h"
 #include <vector>
 
 /// @brief ナビゲーショングリッドクラス
@@ -32,31 +33,33 @@ public:
 	/// @param worldPos ワールド座標
 	/// 
 	/// @return ノードのポインタ。存在しない場合はnullptr
-	NavNode* WorldToNode(const Vec3::Vector3& worldPos);
+	NavNodeData* WorldToNode(const Vec3::Vector3& worldPos);
 
 	/// @brief ノードからワールド座標を取得する関数
 	///
 	/// @param node ノード
 	/// 
 	/// @return ワールド座標
-	Vec3::Vector3 NodeToWorld(const NavNode& node) const;
+	Vec3::Vector3 NodeToWorld(const NavNodeData& node) const;
 
+	//===========================================================================
+	// ゲッター
+	//===========================================================================
 
-
-	// デバッグ表示用
-	const std::vector<NavNode>& GetNodes() const { return m_nodes; }
-
-
+	/// @brief グリッドの幅を取得する関数
+	const std::vector<NavNodeData>& GetNodes() const { return m_nodes; }
 	
 	//===========================================================================
 	// メンバ変数
 	//===========================================================================
 
-	/// ナビゲーショングリッドの範囲とセルサイズの定数
-	static constexpr float MIN_X		= -500.0f;
-	static constexpr float MAX_X		=  500.0f;
-	static constexpr float MIN_Z		= -500.0f;
-	static constexpr float MAX_Z		=  500.0f;
+	/// ナビゲーショングリッドの範囲の定数
+	static constexpr float MIN_X		= MapData::GRID_MIN_X;
+	static constexpr float MAX_X		= MapData::GRID_MAX_X;
+	static constexpr float MIN_Z		= MapData::GRID_MIN_Z;
+	static constexpr float MAX_Z		= MapData::GRID_MAX_Z;
+
+	/// ナビゲーショングリッドのセルサイズの定数
 	static constexpr float CELL_SIZE	=  50.0f;
 
 	/// ナビゲーショングリッドの幅と高さを計算する定数
@@ -83,7 +86,7 @@ private:
 	/// @param z ノードのZ座標
 	/// 
 	/// @return ノードのポインタ。存在しない場合はnullptr
-	NavNode* GetNode(int x, int z);
+	NavNodeData* GetNode(int x, int z);
 
 	/// @brief ノードの取得関数（const版）
 	///
@@ -91,7 +94,7 @@ private:
 	/// @param z ノードのZ座標
 	/// 
 	/// @return ノードのポインタ。存在しない場合はnullptr
-	const NavNode* GetNode(int x, int z) const;
+	const NavNodeData* GetNode(int x, int z) const;
 
 	/// @brief 経路探索のデータをリセットする関数
 	void ResetSearchData();
@@ -111,15 +114,13 @@ private:
 	/// @param to 目標ノード
 	/// 
 	/// @return ヒューリスティックコストの値
-	float CalculateHeuristic(const NavNode& from, const NavNode& to) const;
+	float CalculateHeuristic(const NavNodeData& from, const NavNodeData& to) const;
 
 	//===========================================================================
 	// メンバ変数
 	//===========================================================================
 
 	/// ナビゲーショングリッドのノード配列
-	std::vector<NavNode> m_nodes;
-	std::vector<PathNode> m_pathNodes;
-
+	std::vector<NavNodeData> m_nodes;
 };
 

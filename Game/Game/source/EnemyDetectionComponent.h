@@ -6,8 +6,8 @@
 /// 敵の検知範囲関連の名前空間
 namespace Detection
 {
-	constexpr float DETECT_RANGE		= 350.0f;	// 未発見から発見までの索敵範囲
-	constexpr float LOSE_RANGE			= 500.0f;	// 発見から見失うまでの範囲
+	constexpr float DETECT_RANGE		= 650.0f;	// 未発見から発見までの索敵範囲
+	constexpr float LOSE_RANGE			= 900.0f;	// 発見から見失うまでの範囲
 	constexpr float ATTACK_START_RANGE	= 150.0f;	// 攻撃範囲
 	const float ThresholdAngle			= std::cos(15.0f * Math::PI_VALUE / 180.0f);	// 攻撃範囲の前方向の角度
 }

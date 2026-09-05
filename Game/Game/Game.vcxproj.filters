@@ -199,6 +199,9 @@
     <ClCompile Include="source\NavigationGrid.cpp">
       <Filter>Nav</Filter>
     </ClCompile>
+    <ClCompile Include="source\DebugNavigationGrid.cpp">
+      <Filter>Nav\Debug</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -513,11 +516,14 @@
     <ClInclude Include="source\PrimitiveShapePlane.h">
       <Filter>Primitive</Filter>
     </ClInclude>
-    <ClInclude Include="source\NavNode.h">
+    <ClInclude Include="source\NavNodeData.h">
       <Filter>Nav</Filter>
     </ClInclude>
     <ClInclude Include="source\NavigationGrid.h">
       <Filter>Nav</Filter>
+    </ClInclude>
+    <ClInclude Include="source\DebugNavigationGrid.h">
+      <Filter>Nav\Debug</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -682,6 +688,9 @@
     </Filter>
     <Filter Include="Nav">
       <UniqueIdentifier>{c428a7e1-b649-4b34-a4db-d77a68458a38}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Nav\Debug">
+      <UniqueIdentifier>{abd48114-f483-4b6f-8942-3fd886236814}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
 </Project>

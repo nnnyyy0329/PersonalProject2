@@ -85,35 +85,27 @@ void EnemyBehaviorTree::ThinkMove(Enemy& owner)
 		return;
 	}
 
-	const Vec3::Vector3 enemyPos =
-		owner.GetObjectData().pos;
-
-	const Vec3::Vector3 targetPos =
-		target->GetObjectData().pos;
+	// ターゲットの位置を取得
+	const Vec3::Vector3 enemyPos = owner.GetObjectData().pos;
+	const Vec3::Vector3 targetPos = target->GetObjectData().pos;
 
 	// A*経路を更新する
-	const bool hasPath =
-		moveComp->UpdatePath(
-			enemyPos,
-			targetPos);
-
+	bool hasPath = moveComp->UpdatePath(enemyPos, targetPos);
 	if(hasPath)
 	{
-		// プレイヤーではなく、経路上の次の地点へ移動する
-		moveComp->MoveToTarget(
-			moveComp->GetNextPathPoint());
+		// 経路上の次の地点へ移動する
+		moveComp->MoveToTarget(moveComp->GetNextPathPoint());
 	}
 	else
 	{
-		// 経路がない場合の保険
+		// 経路がない場合はターゲットの位置に直接移動する
 		moveComp->MoveToTarget(targetPos);
 	}
 
 	if(!stateMachine.IsCurrentState<EnemyMoveState>())
 	{
-		stateMachine.ChangeState(
-			owner,
-			std::make_unique<EnemyMoveState>());
+		// 移動ステートに遷移する
+		stateMachine.ChangeState(owner, std::make_unique<EnemyMoveState>());
 	}
 
 	//// 攻撃範囲内でも、背後にいる場合はターゲットへ向かうことによって向きを変える

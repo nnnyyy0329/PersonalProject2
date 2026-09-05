@@ -4,10 +4,19 @@
 
 namespace MapData
 {
+	// 
 	const Vec3::Vector3 MAP_ORIGIN = Vec3::Vector3(0.0f, 0.0f, 0.0f);
+	
+	/// 平面のサイズと配置枚数
 	constexpr int PLANE_SIZE = 100;
 	constexpr int PLANE_TILE_X = 14;
 	constexpr int PLANE_TILE_Z = 14;
+
+	/// グリッドの範囲
+	constexpr int GRID_MIN_X = PLANE_SIZE * -PLANE_TILE_X / 2;
+	constexpr int GRID_MIN_Z = PLANE_SIZE * -PLANE_TILE_Z / 2;
+	constexpr int GRID_MAX_X = PLANE_SIZE * PLANE_TILE_X / 2;
+	constexpr int GRID_MAX_Z = PLANE_SIZE * PLANE_TILE_Z / 2;
 
 	/// @brief マップデータ構造体
 	struct Data

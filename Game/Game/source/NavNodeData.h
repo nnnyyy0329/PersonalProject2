@@ -1,16 +1,16 @@
 #pragma once
 
-/// @brief ナビゲーションノード構造体
-struct NavNode
+/// @brief ナビゲーションノードのデータ構造体
+struct NavNodeData
 {
-	int x;				// ノードのX座標
-	int z;				// ノードのZ座標
-	float gCost;		// スタートノードからの移動コスト
-	float hCost;		// ゴールノードまでの推定コスト
-	bool isWalkable;	// 歩行可能かどうか
-	NavNode* parent;	// 親ノードへのポインタ
+	int x;					// ノードのX座標
+	int z;					// ノードのZ座標
+	float gCost;			// スタートノードからの移動コスト
+	float hCost;			// ゴールノードまでの推定コスト
+	bool isWalkable;		// 歩行可能かどうか
+	NavNodeData* parent;	// 親ノードへのポインタ
 
-	NavNode()
+	NavNodeData()
 	{
 		x			= 0;
 		z			= 0;

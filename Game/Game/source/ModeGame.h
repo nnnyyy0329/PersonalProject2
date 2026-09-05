@@ -9,6 +9,8 @@
 #include "ObjectManager.h"
 #include "CollisionManager.h"
 
+#include "DebugNavigationGrid.h"
+
 class Player;	/// プレイヤークラス
 
 /// @brief ゲームモードクラス
@@ -82,5 +84,8 @@ private:
 
 	/// ゲームのコンテキストクラス
 	GameContext							m_gameContext;
+
+	/// デバッグ用ナビゲーショングリッドクラス
+	DebugNavigationGrid					m_debugNavigationGrid;
 
 }; 

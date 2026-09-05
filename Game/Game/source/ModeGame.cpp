@@ -17,6 +17,9 @@ bool ModeGame::Initialize()
 	// オブジェクトの初期化
 	if(!m_objectManager->Initialize()) { return false; }
 
+	// オブジェクト生成後にコンテキストにナビゲーショングリッドを設定
+	m_gameContext.SetNavigationGrid(&m_map.GetNavigationGrid());
+
 	// オブジェクト描画システムの初期化
 	if(!m_objectRender.Initialize()) { return false; }
 
@@ -105,6 +108,9 @@ bool ModeGame::Render()
 
 		// オブジェクトの描画
 		m_objectManager->ObjectRender(m_objectRender);
+
+		// デバッグ用ナビゲーショングリッドの描画
+		m_debugNavigationGrid.Render(m_map.GetNavigationGrid());
 
 		// 描画終了
 		m_objectRender.EndRender();

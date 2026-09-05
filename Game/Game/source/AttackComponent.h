@@ -2,7 +2,6 @@
 #include "IComponent.h"
 #include "AttackData.h"
 #include <vector>
-#include <stdexcept>
 
 /// @brief 攻撃を管理するコンポーネントクラス
 ///
