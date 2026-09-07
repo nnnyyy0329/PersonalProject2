@@ -4,6 +4,7 @@
 #include "CameraManager.h"
 #include "CameraBase.h"
 #include "GameContext.h"
+#include "HealthComponent.h"
 
 namespace
 {
@@ -12,6 +13,17 @@ namespace
 
 void PlayerMoveComponent::Update(Character& character, const GameContext& gameContext)
 {
+	auto healthComp = character.GetComponent<HealthComponent<Character>>();
+	if(!healthComp) { return; }
+
+	// 体力が0以下の場合
+	if(healthComp->IsDead())
+	{
+		// 移動を停止する
+		m_moveVector = Vec3::Vector3(0.0f, 0.0f, 0.0f);
+		return;
+	}
+
 	// 1Pのパッド情報取得
 	const auto& pad_1 = InputManager::GetInstance().GetPad(0);
 
