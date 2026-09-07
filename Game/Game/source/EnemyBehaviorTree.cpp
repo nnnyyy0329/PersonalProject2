@@ -9,6 +9,8 @@
 #include "ActionDamage.h"
 #include "EnemyAttackState.h"
 #include "ActionAttack.h"
+#include "EnemyDeathState.h"
+#include "HealthComponent.h"
 
 void EnemyBehaviorTree::Think(Enemy& owner)
 {
@@ -23,10 +25,23 @@ void EnemyBehaviorTree::Think(Enemy& owner)
 		return;
 	}
 
+	// 体力が0以下になったなら
+	auto healthComp = owner.GetComponent<HealthComponent<Character>>();
+	if(!healthComp) { return; }
+
+	// 体力が0以下の場合は死亡ステートに遷移する
+	bool isDead = healthComp->IsDead();
+	if(isDead)
+	{
+		// 死亡ステートに遷移する
+		ThinkDeath(owner);
+		return;
+	}
+
 	// ダメージを考える
 	if(owner.IsCurrentAction<ActionDamage>())
 	{
-		// ダメージを考える
+		// ダメージステートに遷移する
 		ThinkDamage(owner);
 		return;
 	}
@@ -44,9 +59,9 @@ void EnemyBehaviorTree::Think(Enemy& owner)
 void EnemyBehaviorTree::ThinkMove(Enemy& owner)
 {
 	// 敵の検知コンポーネントと移動コンポーネントを取得
-	auto* detection = owner.GetComponent<EnemyDetectionComponent>();
-	auto* moveComp = owner.GetComponent<EnemyMoveComponent>();
-	auto* attackComp = owner.GetComponent<EnemyAttackComponent>();
+	auto detection = owner.GetComponent<EnemyDetectionComponent>();
+	auto moveComp = owner.GetComponent<EnemyMoveComponent>();
+	auto attackComp = owner.GetComponent<EnemyAttackComponent>();
 	if(!detection || !moveComp || !attackComp){ return; }
 
 	// ステートマシンを取得
@@ -128,5 +143,18 @@ void EnemyBehaviorTree::ThinkDamage(Enemy& owner)
 	{
 		// ダメージステートに遷移する
 		stateMachine.ChangeState(owner, std::make_unique<EnemyDamageState>());
+	}
+}
+
+void EnemyBehaviorTree::ThinkDeath(Enemy& owner)
+{
+	// ステートマシンを取得
+	auto& stateMachine = owner.GetStateMachine();
+
+	// 現在のステートが死亡ステートでない場合
+	if(!stateMachine.IsCurrentState<EnemyDeathState>())
+	{
+		// 死亡ステートに遷移する
+		stateMachine.ChangeState(owner, std::make_unique<EnemyDeathState>());
 	}
 }

@@ -74,5 +74,11 @@ void EnemyAnimationComponent::PlayAnimAttack()
 void EnemyAnimationComponent::PlayAnimDeath()
 {
 	// 死亡アニメーションを再生
-	m_animationComponent->PlayAnimation("enemy_dead_00", {});
+	m_animationComponent->PlayAnimation("enemy_dead_00", {1});
+}
+
+bool EnemyAnimationComponent::IsFinishedAnim() const
+{
+	// 現在のアニメーションが再生し終わっているかどうかを判定
+	return m_animationComponent->IsAnimationFinished();
 }

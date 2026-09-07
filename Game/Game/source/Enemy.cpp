@@ -14,6 +14,19 @@
 #include "GravityComponent.h"
 #include "EnemyDetectionComponent.h"
 #include "EnemyAttackComponent.h"
+#include "EnemyDeathState.h"
+
+namespace
+{
+	// カプセルの上端のオフセット
+	const Vec3::Vector3 CAPSULE_TOP_OFFSET = { 0.0f, 80.0f, 0.0f };
+
+	// カプセルの下端のオフセット
+	const Vec3::Vector3 CAPSULE_BOTTOM_OFFSET = { 0.0f, 30.0f, 0.0f };
+
+	// カプセルの半径
+	constexpr float CAPSULE_RADIUS = 30.0f;
+}
 
 bool Enemy::Initialize()
 {
@@ -33,14 +46,9 @@ bool Enemy::Initialize()
 
 	// アクションの設定
 	SetUpActions();
-
-
-
-
-	m_charColData.capsule.radius = 30.0f;
-
-
-
+	
+	// 初期カプセルコリジョン半径
+	m_charColData.capsule.radius = CAPSULE_RADIUS;
 
 	// 基底クラスの初期化処理を呼び、全てのコンポーネントを初期化する
 	Character::Initialize();
@@ -65,19 +73,16 @@ bool Enemy::Terminate()
 
 void Enemy::Update(const GameContext& gameContext)
 {
+	// カプセルコリジョンの位置を更新
+	m_charColData.capsule.start = GetObjectData().pos + CAPSULE_TOP_OFFSET;
+	m_charColData.capsule.end = GetObjectData().pos + CAPSULE_BOTTOM_OFFSET;
 
+	auto animComp = GetComponent<EnemyAnimationComponent>();
+	if(!animComp) { return; }
 
-
-	m_charColData.capsule.start		= GetObjectData().pos + Vec3::Vector3(0.0f, 80.0f, 0.0f);
-	m_charColData.capsule.end		= GetObjectData().pos + Vec3::Vector3(0.0f, 30.0f, 0.0f);
-	//m_charColData.capsule.radius	= 30.0f;
-
-
-
-
-	// 体力が0以下の場合は処理をスキップ
-	auto healthComp = GetComponent<HealthComponent<Character>>();
-	if(healthComp && healthComp->IsDead()) { return; }
+	// 死亡ステートかつ、死亡アニメーションの再生が終了したなら、すべての更新処理を止める
+	bool isDeadState = m_stateMachine.IsCurrentState<EnemyDeathState>();
+	if(isDeadState && animComp->IsFinishedAnim()) { return; }
 
 	Character::UpdateComponents(gameContext);
 

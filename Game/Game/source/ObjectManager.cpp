@@ -134,12 +134,12 @@ void ObjectManager::EnemyCreate()
 
 		data.pos =
 		{
-			static_cast<float>((i - 1) * 240),
+			ENEMY_DEFAULT_SPAWN_X,
 			0.0f,
-			300.0f
+			ENEMY_DEFAULT_SPAWN_X + (i * ENEMY_DEFAULT_SPAWN_Z),
 		};
 
-		data.rot = { 0.0f, 0.0f, 0.0f };
+		data.rot = ENEMY_SPAWN_ROT;
 
 		enemy->SetObjectData(data);
 

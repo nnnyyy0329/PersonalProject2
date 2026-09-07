@@ -2,6 +2,7 @@
 #include "Character.h"
 #include "MoveComponent.h"
 #include "RotationComponent.h"
+#include "HealthComponent.h"
 #include "Vector/Vector3.h"
 
 namespace
@@ -21,6 +22,9 @@ namespace
 
 void ActionMove::Update(Character& character)
 {
+	// 体力が0以下の場合は移動しない
+	if(character.GetComponent<HealthComponent<Character>>()->IsDead()) { return; }
+
 	// キャラクターを移動させる
 	Move(character);
 

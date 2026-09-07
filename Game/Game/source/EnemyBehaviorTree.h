@@ -37,5 +37,10 @@ private:
 	/// @param owner ダメージを考える敵
 	void ThinkDamage(Enemy& owner);
 
+	/// @brief 敵の死亡を考える関数
+	///
+	/// @param owner 死亡を考える敵
+	void ThinkDeath(Enemy& owner);
+
 };
 

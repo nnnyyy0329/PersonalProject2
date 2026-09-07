@@ -16,6 +16,15 @@ namespace
 {
 	// 敵の総数
 	constexpr int ENEMY_ALL_NUM = 5;
+
+	// 敵の初期スポーン位置X
+	constexpr float ENEMY_DEFAULT_SPAWN_X = -600.0f;
+
+	// 敵の初期スポーン位置Z
+	constexpr float ENEMY_DEFAULT_SPAWN_Z = 300.0f;
+
+	// 敵のスポーン時の回転量
+	const Vec3::Vector3 ENEMY_SPAWN_ROT = { 0.0f, 4.7f, 0.0f };
 }
 
 /// @brief オブジェクトを管理するクラス

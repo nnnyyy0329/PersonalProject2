@@ -2,6 +2,7 @@
 #include "Character.h"
 #include "NavigationGrid.h"
 #include "GameContext.h"
+#include "HealthComponent.h"
 
 namespace
 {
@@ -20,6 +21,7 @@ namespace
 
 void EnemyMoveComponent::Update(Character& owner, const GameContext& gameContext)
 {
+	// ナビゲーショングリッドを取得
 	auto& navigationGrid = gameContext.GetNavigationGrid();
 	m_navigationGrid = &navigationGrid;
 }
