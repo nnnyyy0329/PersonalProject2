@@ -12,6 +12,12 @@ class Character;			/// キャラクタークラス
 class Player;				/// プレイヤークラス
 class Enemy;				/// 敵クラス
 
+namespace
+{
+	// 敵の総数
+	constexpr int ENEMY_ALL_NUM = 5;
+}
+
 /// @brief オブジェクトを管理するクラス
 class ObjectManager
 {
@@ -74,6 +80,9 @@ private:
 
 	/// @brief プレイヤー専用のオブジェクト生成関数を登録
 	void PlayerCreate();
+
+	/// @brief 敵専用のオブジェクト生成関数
+	void EnemyCreate();
 
 	//===========================================================================
 	// メンバ変数

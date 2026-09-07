@@ -10,7 +10,7 @@ namespace
 	constexpr float PI = 3.1415926535f;
 
 	// カメラの回転速度
-	constexpr float ROTATE_SPEED = 0.02f;
+	constexpr float ROTATE_SPEED = 0.08f;
 
 	// カメラのピッチ角の最大値
 	constexpr float MAX_PITCH = PI * 0.45f;
@@ -22,13 +22,14 @@ namespace
 	constexpr float CAMERA_DISTANCE = 330.0f;
 
 	// 追従するオブジェクトからカメラへのオフセット
-	const Vec3::Vector3 POS_OFFSET = { 0.0f, 300.0f, -150.0f };
+	const Vec3::Vector3 POS_OFFSET = { 0.0f, 300.0f, 150.0f };
 
 	// 追従するオブジェクトへのオフセット
 	const Vec3::Vector3 TARGET_OFFSET = { 0.0f, 100.0f, 0.0f };
 
 	// カメラの初期ピッチ角を計算
 	const float INITIAL_PITCH = std::atan2(POS_OFFSET.GetY(), -POS_OFFSET.GetZ());
+
 }
 
 FollowCamera::FollowCamera(const ObjectData& target)
@@ -36,7 +37,10 @@ FollowCamera::FollowCamera(const ObjectData& target)
 	, m_posOffset(POS_OFFSET)
 	, m_targetOffset(TARGET_OFFSET)
 {
+	m_cameraData.pos = m_targetObject.pos + m_posOffset;
+	m_cameraData.target = m_targetObject.pos + m_targetOffset;
 	m_cameraData.upVec = { 0.0f, 1.0f, 0.0f };
+	m_yaw = 4.7f;
 }
 
 void FollowCamera::Update()
@@ -141,5 +145,5 @@ void FollowCamera::UpdateCameraRotation()
 	m_yaw -= m_cameraInput.GetRotateX() * ROTATE_SPEED;
 
 	// カメラのピッチ角を更新
-	m_pitch -= m_cameraInput.GetRotateY() * ROTATE_SPEED;
+	//m_pitch -= m_cameraInput.GetRotateY() * ROTATE_SPEED;
 }

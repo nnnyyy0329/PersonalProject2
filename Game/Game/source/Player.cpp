@@ -30,6 +30,8 @@ bool Player::Initialize()
 
 
 
+	m_data.pos = { 600.0f, 0.0f, 0.0f };
+	m_data.rot = { 0.0f, 1.7f, 0.0f };
 	m_charColData.capsule.radius = 30.0f;
 
 

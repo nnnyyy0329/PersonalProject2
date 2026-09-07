@@ -13,6 +13,9 @@ bool ObjectManager::Initialize()
 	// プレイヤーオブジェクトの生成
 	PlayerCreate();
 
+	// 敵オブジェクトの生成
+	EnemyCreate();
+
 	// オブジェクトの初期化
 	for(auto& obj : m_objects) { obj->Initialize(); }
 
@@ -78,13 +81,7 @@ void ObjectManager::RegisterCreators()
 
 	// 敵の生成関数を登録
 	m_objectFactory.RegisterObject("Enemy", []() -> std::unique_ptr<ObjectLogic> { return std::make_unique<Enemy>(); });
-	m_objects.emplace_back(m_objectFactory.CreateObject("Enemy"));
-
-	/*for(int i = 0; i < 3; ++i)
-	{
-		m_objectFactory.RegisterObject("Enemy", []() -> std::unique_ptr<ObjectLogic> { return std::make_unique<Enemy>(); });
-		m_objects.emplace_back(m_objectFactory.CreateObject("Enemy"));
-	}*/
+	//m_objects.emplace_back(m_objectFactory.CreateObject("Enemy"));
 }
 
 const std::vector<Character*>& ObjectManager::GetCharacters()
@@ -122,5 +119,31 @@ void ObjectManager::PlayerCreate()
 
 		// プレイヤーのユニークポインタに所有権を移動
 		m_player.reset(player);	
+	}
+}
+
+void ObjectManager::EnemyCreate()
+{
+	for(int i = 0; i < ENEMY_ALL_NUM; ++i)
+	{
+		auto enemy = m_objectFactory.CreateObject("Enemy");
+		if(!enemy) { continue; }
+
+		// 敵ごとに初期位置を設定
+		ObjectData data = enemy->GetObjectData();
+
+		data.pos =
+		{
+			static_cast<float>((i - 1) * 240),
+			0.0f,
+			300.0f
+		};
+
+		data.rot = { 0.0f, 0.0f, 0.0f };
+
+		enemy->SetObjectData(data);
+
+		// m_objects が所有権を取得
+		m_objects.emplace_back(std::move(enemy));
 	}
 }

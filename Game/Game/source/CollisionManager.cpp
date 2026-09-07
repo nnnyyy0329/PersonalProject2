@@ -12,6 +12,7 @@
 #include "Server/SoundServer.h"
 #include "math/Math.h"
 #include "MapData.h"
+#include "Enemy.h"
 
 void CollisionManager::Update(
 	const std::vector<Character*>& characters, const std::vector<Math::AABB>& wallColliders)
@@ -157,29 +158,6 @@ void CollisionManager::ResolveCharacterWallCollision(
 
 		character->SetObjectData(data);
 	}
-
-
-	//if(!character) { return; }
-
-	//// キャラクターのカプセルを作成
-	//auto capsule = CollisionShapeBuilder::CreateCharacterCapsule(*character);
-	//if(!capsule.has_value()) { return; }
-
-	//for(auto& wall : wallColliders)
-	//{
-	//	// キャラクターのカプセルと壁のAABBの衝突判定を行う
-	//	auto collision = HitCheck::CapsuleToAABB(capsule.value(), wall);
-
-	//	// 衝突していない場合はスキップ
-	//	if(!collision.isHit || collision.penetration <= 0.0f) { continue; }
-
-	//	ObjectData data = character->GetObjectData();
-
-	//	// キャラクターを押し出す
-	//	data.pos += collision.normal * collision.penetration;
-
-	//	character->SetObjectData(data);
-	//}
 }
 
 void CollisionManager::ClampCharacterToFloor(Character* character)
@@ -268,11 +246,18 @@ void  CollisionManager::ResolveCharacterCollision(
 
 void CollisionManager::HitCharacterProcess(Character* character1, Character* character2)
 {
-	printfDx("キャラクター同士がヒットしました！\n");
+
 }
 
 bool CollisionManager::CheckHitAttack(Character* attacker, Character* defender)
 {
+	if(!attacker || !defender || attacker == defender) { return false; }
+
+	// 敵同士の攻撃を無効化
+	const bool attackerIsEnemy = dynamic_cast<Enemy*>(attacker) != nullptr;
+	const bool defenderIsEnemy = dynamic_cast<Enemy*>(defender) != nullptr;
+	if(attackerIsEnemy && defenderIsEnemy) { return false; }
+
 	// 攻撃者の当たり判定コンポーネントを取得
 	auto* attackCol = attacker->GetComponent<CollisionComponent<Character>>();
 	if(!attackCol || !attackCol->IsActive()) { return false; }
@@ -312,7 +297,8 @@ void CollisionManager::HitAttackProcess(Character* attacker, Character* defender
 
 
 
-	printfDx("攻撃がヒットしました！\n");
+	//printfDx("攻撃がヒットしました！\n");
+	
 
 
 

@@ -83,7 +83,7 @@ void Map::InitializeHandle()
 	if(m_mapCollisionHandle == -1) { return; }
 
 	// ステージBGMのハンドル取得、再生
-	m_stageBgm = SoundServer::GetInstance()->Play("BGM_Stage", DX_PLAYTYPE_BACK);
+	m_stageBgm = SoundServer::GetInstance()->Play("BGM_Stage", DX_PLAYTYPE_LOOP);
 	if(m_stageBgm == -1) { return; }
 }
 

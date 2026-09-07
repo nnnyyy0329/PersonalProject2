@@ -19,7 +19,14 @@ bool Enemy::Initialize()
 {
 	// リソースサーバーのインスタンスを取得
 	auto rs = ResourceServer::GetInstance();
-	m_data.handle = rs->GetHandle("Enemy");
+	if(!rs) { return false; }
+
+	const int enemyHandle = rs->GetHandle("Enemy");
+	if(enemyHandle == -1) { return false; }
+
+	// 敵モデルの設定
+	m_data.handle = MV1DuplicateModel(enemyHandle);
+	if(m_data.handle == -1) { return false; }
 
 	// コンポーネントの設定
 	SetUpComponents();
@@ -47,8 +54,11 @@ bool Enemy::Initialize()
 
 bool Enemy::Terminate()
 {
-	// 敵のグラフィックハンドル解放
-	MV1DeleteModel(m_data.handle);
+	if(m_data.handle != -1)
+	{
+		MV1DeleteModel(m_data.handle);
+		m_data.handle = -1;
+	}
 
 	return true;
 }
@@ -65,6 +75,7 @@ void Enemy::Update(const GameContext& gameContext)
 
 
 
+	// 体力が0以下の場合は処理をスキップ
 	auto healthComp = GetComponent<HealthComponent<Character>>();
 	if(healthComp && healthComp->IsDead()) { return; }
 
@@ -83,7 +94,7 @@ void Enemy::Update(const GameContext& gameContext)
 void Enemy::SetUpComponents()
 {
 	// 体力コンポーネントを追加
-	AddComponent(std::make_unique<HealthComponent<Character>>(9000.0f));
+	AddComponent(std::make_unique<HealthComponent<Character>>(300.0f));
 
 	// アニメーション管理コンポーネントを追加
 	AddComponent(std::make_unique<DxLibAnimationComponent<Character>>());
