@@ -62,6 +62,7 @@ void PlayerAnimationComponent::RegisterPlayerAnimations(Character& owner)
 	m_animationComponent->RegisterAnimation("player_jog_01", owner.GetModelHandle());
 	m_animationComponent->RegisterAnimation("player_cancell_00", owner.GetModelHandle());
 	m_animationComponent->RegisterAnimation("player_damage_01", owner.GetModelHandle());
+	m_animationComponent->RegisterAnimation("player_dead_01", owner.GetModelHandle());
 }
 
 void PlayerAnimationComponent::PlayAnimIdle()
@@ -152,4 +153,20 @@ void PlayerAnimationComponent::PlayAnimDamage()
 
 	// 攻撃中のアニメーションをキャンセルする
 	//m_animationComponent->PlayAnimation("player_cancell_00", {});
+}
+
+void PlayerAnimationComponent::PlayAnimDeath()
+{
+	if(!m_animationComponent) { return; }
+
+	// 死亡アニメーションを再生
+	m_animationComponent->PlayAnimation("player_dead_01", {1});
+}
+
+bool PlayerAnimationComponent::IsFinishedAnim() const
+{
+	if(!m_animationComponent) { return false; }
+
+	// アニメーションが終了しているかを返す
+	return m_animationComponent->IsAnimationFinished();
 }

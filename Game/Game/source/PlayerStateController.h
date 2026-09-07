@@ -39,5 +39,9 @@ private:
 	/// @param player ステートを切り替えるプレイヤー
 	void ChangeDamageState(Player& player);
 
+	/// @brief プレイヤーの死亡ステートを切り替える関数
+	///
+	/// @param player ステートを切り替えるプレイヤー
+	void ChangeDeathState(Player& player);
 };
 

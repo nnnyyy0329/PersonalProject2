@@ -49,6 +49,14 @@ public:
 	/// @brief ダメージアニメーションを再生する関数
 	void PlayAnimDamage();
 
+	/// @brief 死亡アニメーションを再生する関数
+	void PlayAnimDeath();
+
+	/// @brief アニメションの再生が終了しているかを返す関数
+	///
+	/// @return アニメーションの再生が終了しているならtrue、終了していないならfalse
+	bool IsFinishedAnim() const;
+
 private:
 	
 	//===========================================================================

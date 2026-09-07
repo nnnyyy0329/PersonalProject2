@@ -205,6 +205,9 @@
     <ClCompile Include="source\EnemyDeathState.cpp">
       <Filter>Character\Enemy\State</Filter>
     </ClCompile>
+    <ClCompile Include="source\PlayerDeathState.cpp">
+      <Filter>Character\Player\State</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="source\Bullet.h">
@@ -530,6 +533,9 @@
     </ClInclude>
     <ClInclude Include="source\EnemyDeathState.h">
       <Filter>Character\Enemy\State</Filter>
+    </ClInclude>
+    <ClInclude Include="source\PlayerDeathState.h">
+      <Filter>Character\Player\State</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

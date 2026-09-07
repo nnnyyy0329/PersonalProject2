@@ -3,14 +3,18 @@
 #include "PlayerMoveComponent.h"
 #include "PlayerMoveState.h"
 #include "PlayerIdleState.h"
-#include "PlayerAttackComponent.h"
 #include "PlayerAttackState.h"
 #include "ActionAttack.h"
 #include "PlayerDamageState.h"
 #include "ActionDamage.h"
+#include "PlayerDeathState.h"
+#include "HealthComponent.h"
 
 void PlayerStateController::Update(Player& player)
 {
+	// プレイヤーの死亡ステートを切り替える
+	ChangeDeathState(player);
+
 	// プレイヤーのダメージステートを切り替える
 	if(player.IsCurrentAction<ActionDamage>())
 	{
@@ -99,5 +103,25 @@ void PlayerStateController::ChangeDamageState(Player& player)
 
 		// ダメージステートからアイドルステートに遷移する
 		stateMachine.ChangeState(player, std::make_unique<PlayerIdleState>());
+	}
+}
+
+void PlayerStateController::ChangeDeathState(Player& player)
+{
+	// プレイヤーのステートマシンを取得
+	auto& stateMachine = player.GetStateMachine();
+
+	// 体力コンポーネントを取得
+	auto healthComp = player.GetComponent<HealthComponent<Character>>();
+	if(!healthComp) { return; }
+
+	// 体力が0以下の場合は死亡ステートに遷移する
+	bool isDead = healthComp->IsDead();
+	if(isDead)
+	{
+		if(stateMachine.IsCurrentState<PlayerDeathState>()) { return; }
+
+		// 死亡ステートに遷移する
+		stateMachine.ChangeState(player, std::make_unique<PlayerDeathState>());
 	}
 }
