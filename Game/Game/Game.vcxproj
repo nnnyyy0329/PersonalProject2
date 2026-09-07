@@ -182,6 +182,7 @@
     <ClCompile Include="source\EnemyBehaviorTree.cpp" />
     <ClCompile Include="source\EnemyDamageComponent.cpp" />
     <ClCompile Include="source\EnemyDamageState.cpp" />
+    <ClCompile Include="source\EnemyDeathState.cpp" />
     <ClCompile Include="source\EnemyDebugColComponent.cpp" />
     <ClCompile Include="source\EnemyDebugParamCompnent.cpp" />
     <ClCompile Include="source\EnemyDetectionComponent.cpp" />
@@ -272,6 +273,7 @@
     <ClInclude Include="source\DebugNavigationGrid.h" />
     <ClInclude Include="source\EnemyAttackComponent.h" />
     <ClInclude Include="source\EnemyAttackState.h" />
+    <ClInclude Include="source\EnemyDeathState.h" />
     <ClInclude Include="source\EnemyDetectionComponent.h" />
     <ClInclude Include="source\GameContext.h" />
     <ClInclude Include="source\GravityComponent.h" />

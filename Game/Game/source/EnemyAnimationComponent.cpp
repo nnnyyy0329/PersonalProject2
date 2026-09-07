@@ -34,6 +34,7 @@ void EnemyAnimationComponent::RegisterEnemyAnimations(Character& owner)
 	m_animationComponent->RegisterAnimation("enemy_walk_01", owner.GetModelHandle());
 	m_animationComponent->RegisterAnimation("enemy_damage_00", owner.GetModelHandle());
 	m_animationComponent->RegisterAnimation("enemy_attack_00", owner.GetModelHandle());
+	m_animationComponent->RegisterAnimation("enemy_dead_00", owner.GetModelHandle());
 }
 
 void EnemyAnimationComponent::AnimationChangeByDamage(Character& owner)
@@ -68,4 +69,10 @@ void EnemyAnimationComponent::PlayAnimAttack()
 {
 	// 攻撃アニメーションを再生
 	m_animationComponent->PlayAnimation("enemy_attack_00", {});
+}
+
+void EnemyAnimationComponent::PlayAnimDeath()
+{
+	// 死亡アニメーションを再生
+	m_animationComponent->PlayAnimation("enemy_dead_00", {});
 }
