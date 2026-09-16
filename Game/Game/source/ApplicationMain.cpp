@@ -3,6 +3,8 @@
 #include "ApplicationMain.h"
 #include "ApplicationGlobal.h"
 #include "ModeLoading.h"
+#include "ModeGame.h"
+#include "ModeGameTitle.h"
 
 // ŽÀ‘Ì
 ApplicationMain				g_oApplicationMain;
@@ -14,7 +16,10 @@ bool ApplicationMain::Initialize(HINSTANCE hInstance) {
 	gGlobal.Init();
 
 	// ƒ‚[ƒh‚Ì“o˜^
-	ModeServer::GetInstance()->Add(new ModeLoading(), 1, "loading");
+	ModeServer::GetInstance()->Add(new ModeGameTitle(), 1, "title");
+	//ModeServer::GetInstance()->Add(new ModeLoading(), 5, "loading");
+	//ModeServer::GetInstance()->Add(new ModeGame(), 10, "game");
+	
 
 	return true;
 }

@@ -5,9 +5,7 @@
 
 class ObjectLogic;			/// オブジェクトのロジッククラス
 class ObjectRenderSystem;	/// オブジェクトの描画クラス
-
 class GameContext;			/// ゲームのコンテキストクラス
-
 class Character;			/// キャラクタークラス
 class Player;				/// プレイヤークラス
 class Enemy;				/// 敵クラス
@@ -65,6 +63,20 @@ public:
 	///
 	/// @param renderSystem 描画システム	
 	void ShadowRender(ObjectRenderSystem& renderSystem);
+
+	//===========================================================================
+	// 内部関数
+	//===========================================================================
+
+	/// @brief 全ての敵が死亡しているかを判定する関数
+	///
+	/// @return 全ての敵が死亡しているならtrue、そうでないならfalse
+	bool IsDeadAllEnemy() const;
+
+	/// @brief プレイヤーが死亡しているかを判定する関数
+	///
+	/// @return プレイヤーが死亡しているならtrue、そうでないならfalse
+	bool IsDeadPlayer() const;
 
 	//===========================================================================
 	// ゲッター

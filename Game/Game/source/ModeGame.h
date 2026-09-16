@@ -42,9 +42,6 @@ public:
 	/// @brief 描画関数
 	virtual bool Render() override;
 
-protected:
-
-
 private:
 
 	//===========================================================================
@@ -59,6 +56,12 @@ private:
 
 	/// @brief ゲームコンテキストの初期化関数
 	void InitializeGameContext();
+
+	/// @brief ゲームクリア処理関数
+	void GameClearProcess();
+
+	/// @brief ゲームオーバー処理関数
+	void GameOverProcess();
 
 	//===========================================================================
 	// メンバ変数

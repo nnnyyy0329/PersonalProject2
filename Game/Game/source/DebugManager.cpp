@@ -1,5 +1,5 @@
 #include "DebugManager.h"
-#include "InputManager.h"
+#include "Input/InputManager.h"
 
 DebugManager& DebugManager::GetInstance()
 {

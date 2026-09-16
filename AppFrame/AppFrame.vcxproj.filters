@@ -52,6 +52,9 @@
     <Filter Include="Collision\Shape">
       <UniqueIdentifier>{423674c7-d84c-4972-ac8e-c2c567d21ac5}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Input">
+      <UniqueIdentifier>{14192134-a327-4ebb-897c-c6761605d49f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="source\CFile\CFile.cpp">
@@ -125,6 +128,12 @@
     </ClCompile>
     <ClCompile Include="source\math\Math.cpp">
       <Filter>math</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Input\InputManager.cpp">
+      <Filter>Input</Filter>
+    </ClCompile>
+    <ClCompile Include="source\Input\Pad.cpp">
+      <Filter>Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -218,6 +227,12 @@
     </ClInclude>
     <ClInclude Include="source\math\Math.h">
       <Filter>math</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Input\InputManager.h">
+      <Filter>Input</Filter>
+    </ClInclude>
+    <ClInclude Include="source\Input\Pad.h">
+      <Filter>Input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

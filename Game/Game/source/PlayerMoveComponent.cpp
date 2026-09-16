@@ -1,6 +1,6 @@
 #include "PlayerMoveComponent.h"
 #include "Character.h"
-#include "InputManager.h"
+#include "Input/InputManager.h"
 #include "CameraManager.h"
 #include "CameraBase.h"
 #include "GameContext.h"

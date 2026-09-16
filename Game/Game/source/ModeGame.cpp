@@ -1,8 +1,10 @@
 #include "ModeGame.h"
 #include "FollowCamera.h"
 #include "Player.h"
-#include "InputManager.h"
+#include "Input/InputManager.h"
 #include "DebugManager.h"
+#include "ModeGameClear.h"
+#include "ModeGameOver.h"
 
 bool ModeGame::Initialize()
 {
@@ -50,7 +52,7 @@ bool ModeGame::Process()
 	base::Process();
 
 	// 入力の更新
-	InputManager::GetInstance().Update();
+	//InputManager::GetInstance().Update();
 
 	// オブジェクトの更新処理
 	m_objectManager->Update(m_gameContext);
@@ -63,6 +65,12 @@ bool ModeGame::Process()
 
 	// マップの更新
 	m_map.Update();
+
+	// ゲームクリア処理
+	GameClearProcess();
+
+	// ゲームオーバー処理
+	GameOverProcess();
 
 	// デバッグ表示の更新
 	DebugManager::GetInstance().Update();
@@ -153,4 +161,46 @@ void ModeGame::InitializeGameContext()
 
 	// カメラマネージャーを設定
 	m_gameContext.SetCameraManager(m_cameraManager.get());
+}
+
+void ModeGame::GameClearProcess()
+{
+	// 1Pのパッド情報取得
+	const auto& pad_1 = InputManager::GetInstance().GetPad(0);
+	if(!pad_1.IsConnected()) { return; }
+	bool button = pad_1.isTrigger(PadButton::X);
+
+	// 敵が全滅したなら
+	if(m_objectManager->IsDeadAllEnemy()/* || button*/)
+	{
+		// このモードを削除予約
+		ModeServer::GetInstance()->Del(this);
+
+		// ゲームオーバーモードを追加
+		ModeServer::GetInstance()->Add(new ModeGameClear(), 10, "game");
+
+		// ゲームメインを作成
+		//ModeServer::GetInstance()->Add(new ModeGame(), 0, "gamemain");
+	}
+}
+
+void ModeGame::GameOverProcess()
+{
+	// 1Pのパッド情報取得
+	const auto& pad_1 = InputManager::GetInstance().GetPad(0);
+	if(!pad_1.IsConnected()) { return; }
+	bool button = pad_1.isTrigger(PadButton::Y);
+
+	// プレイヤーが死亡したなら
+	if(m_objectManager->IsDeadPlayer() || button)
+	{
+		// このモードを削除予約
+		ModeServer::GetInstance()->Del(this);
+
+		// ゲームオーバーモードを追加
+		ModeServer::GetInstance()->Add(new ModeGameOver(), 10, "game");
+
+		// ゲームメインを作成
+		//ModeServer::GetInstance()->Add(new ModeGame(), 0, "gamemain");
+	}
 }

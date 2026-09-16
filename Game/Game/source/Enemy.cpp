@@ -146,3 +146,26 @@ std::unique_ptr<ICharacterAction> Enemy::CreateDefaultAction()
 	// デフォルトのアクションとして移動を返す
 	return std::make_unique<ActionMove>();
 }
+
+bool Enemy::IsDead() const
+{
+	// 体力コンポーネントを取得
+	auto healthComp = GetComponent<HealthComponent<Character>>();
+	if(!healthComp) { return true; }
+
+	// 死亡判定を行う
+	bool isDead = healthComp->IsDead();
+	bool isDeadState = m_stateMachine.IsCurrentState<EnemyDeathState>();
+	bool isFinishedDeadAnim = false;
+	if(isDeadState)
+	{
+		auto animComp = GetComponent<EnemyAnimationComponent>();
+		if(!animComp) { return false; }
+		
+		// 死亡アニメーションの再生が終了しているかを判定する
+		isFinishedDeadAnim = animComp->IsFinishedAnim();
+	}
+
+	// 体力が0以下かつ、死亡アニメーションの再生が終了している場合のみ死亡と判定する
+	return isDead && isFinishedDeadAnim;
+}

@@ -1,6 +1,6 @@
 #include "PlayerAttackCommand.h"
 #include "Character.h"
-#include "InputManager.h"
+#include "Input/InputManager.h"
 #include "ActionAttack.h"
 #include "PlayerAttackComponent.h"
 

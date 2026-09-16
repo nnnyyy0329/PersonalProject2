@@ -1,6 +1,6 @@
 ﻿#include "PlayerAttackComponent.h"
 #include "Character.h"
-#include "InputManager.h"
+#include "Input/InputManager.h"
 #include "ActionAttack.h"
 
 PlayerAttackComponent::PlayerAttackComponent()
@@ -184,7 +184,7 @@ bool PlayerAttackComponent::TryAttack(Character& owner)
 			m_comboIndex++;
 
 
-			printfDx("攻撃入力が処理されました\n");
+			//printfDx("攻撃入力が処理されました\n");
 
 
 			return true;
@@ -203,7 +203,7 @@ bool PlayerAttackComponent::TryAttack(Character& owner)
 			m_comboIndex++;
 
 
-			printfDx("コンボ攻撃入力が処理されました\n");
+			//printfDx("コンボ攻撃入力が処理されました\n");
 
 
 			return true;
@@ -222,7 +222,7 @@ void PlayerAttackComponent::AutoCombo(Character& owner)
 		owner.SetAction(std::make_unique<ActionAttack>(m_attackDataList[m_comboIndex]));
 		m_comboIndex++;
 
-		printfDx("自動コンボが発動しました\n");
+		//printfDx("自動コンボが発動しました\n");
 	}
 }
 

@@ -15,6 +15,10 @@ void PlayerStateController::Update(Player& player)
 	// プレイヤーの死亡ステートを切り替える
 	ChangeDeathState(player);
 
+	// 死亡中は他のステートへ遷移させない
+	auto& stateMachine = player.GetStateMachine();
+	if(stateMachine.IsCurrentState<PlayerDeathState>()) { return; }
+
 	// プレイヤーのダメージステートを切り替える
 	if(player.IsCurrentAction<ActionDamage>())
 	{

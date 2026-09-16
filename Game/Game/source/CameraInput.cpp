@@ -1,5 +1,5 @@
 #include "CameraInput.h"
-#include "InputManager.h"
+#include "Input/InputManager.h"
 
 void CameraInput::Update()
 {

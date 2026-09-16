@@ -1,4 +1,5 @@
 ﻿#include "ApplicationBase.h"
+#include "../Input/InputManager.h"
 
 ApplicationBase	*ApplicationBase::_lpInstance = NULL;
 
@@ -78,7 +79,7 @@ bool ApplicationBase::Terminate()
 bool ApplicationBase::Input()
 {
 	// InputManagerに入力処理を任せる
-	//InputManager::GetInstance().Update();
+	InputManager::GetInstance().Update();
 
 	return true;
 }

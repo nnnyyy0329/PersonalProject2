@@ -69,7 +69,7 @@ bool ModeLoading::Process()
 	if(ResourceServer::GetInstance()->IsLoadComplete())	// ロード完了している場合
 	{
 		// ロード完了したらゲームモードに遷移
-		ModeServer::GetInstance()->Add(new ModeGame(), 10, "game");
+		ModeServer::GetInstance()->Add(new ModeGame(), 15, "game");
 		ModeServer::GetInstance()->Del(this);
 	}
 

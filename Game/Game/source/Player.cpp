@@ -14,6 +14,7 @@
 #include "PlayerIdleState.h"
 #include "GravityComponent.h"
 #include "PlayerDamageComponent.h"
+#include "PlayerDeathState.h"
 
 namespace
 {
@@ -37,7 +38,12 @@ bool Player::Initialize()
 {
 	// リソースサーバーのインスタンスを取得
 	auto rs = ResourceServer::GetInstance();
-	m_data.handle = rs->GetHandle("Player");
+	int playerHandle = rs->GetHandle("Player");
+	if(playerHandle == -1) { return false; }
+
+	// リソースサーバーのモデルを複製する
+	m_data.handle = MV1DuplicateModel(playerHandle);
+	if(m_data.handle == -1) { return false; }
 
 	// コンポーネントの設定
 	SetUpComponents();
@@ -63,7 +69,11 @@ bool Player::Initialize()
 bool Player::Terminate()
 {
 	// プレイヤーのグラフィックハンドル解放
-	MV1DeleteModel(m_data.handle);
+	if(m_data.handle != -1)
+	{
+		MV1DeleteModel(m_data.handle);
+		m_data.handle = -1;
+	}
 
 	return true;
 }
@@ -133,4 +143,27 @@ std::unique_ptr<ICharacterAction> Player::CreateDefaultAction()
 {
 	// デフォルトのアクションは移動アクション
 	return std::make_unique<ActionMove>();
+}
+
+bool Player::IsDead() const
+{
+	// HPコンポーネントの取得
+	auto healthComp = GetComponent<HealthComponent<Character>>();
+	if(!healthComp) { return true; }
+
+	// 死亡判定を行う
+	bool isDead = healthComp->IsDead();
+	bool isDeadState = m_stateMachine.IsCurrentState<PlayerDeathState>();
+	bool isFinishedDeadAnim = false;
+	if(isDeadState)
+	{
+		auto animComp = GetComponent<PlayerAnimationComponent>();
+		if(!animComp) { return false; }
+
+		// 死亡アニメーションの再生が終了しているかを判定する
+		isFinishedDeadAnim = animComp->IsFinishedAnim();
+	}
+
+	// 体力が0以下かつ、死亡アニメーションの再生が終了している場合のみ死亡と判定する
+	return isDead && isFinishedDeadAnim;
 }

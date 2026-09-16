@@ -114,6 +114,27 @@ public:
 		return nullptr;
 	}
 
+	/// @brief コンポーネントの取得関数（const版）
+	///
+	/// @tparam TComponent 取得したいコンポーネントの型
+	/// 
+	/// @return 取得したいコンポーネントのポインタ。見つからない場合はnullptr
+	template<typename TComponent>
+	const TComponent* GetComponent() const
+	{
+		for(const auto& component : m_components)
+		{
+			// 型変換(dynamic_cast)を試みる
+			const TComponent* target = dynamic_cast<const TComponent*>(component.get());
+
+			// 目的の型のコンポーネントが見つかった場合、変換したポインタを返す
+			if(target) { return target; }
+		}
+
+		// 目的の型のコンポーネントが見つからなかった場合、nullptrを返す
+		return nullptr;
+	}
+
 	//===========================================================================
 	// 内部関数
 	//===========================================================================

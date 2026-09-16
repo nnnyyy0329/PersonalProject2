@@ -1,9 +1,9 @@
 ﻿#include "ObjectManager.h"
 #include "ObjectLogic.h"
 #include "ObjectRenderSystem.h"
-//#include "GameContext.h"
 #include "Player.h"
 #include "Enemy.h"
+#include "HealthComponent.h"
 
 bool ObjectManager::Initialize()
 {
@@ -71,6 +71,28 @@ void ObjectManager::ShadowRender(ObjectRenderSystem& renderSystem)
 		// シャドウマップ描画処理
 		renderSystem.ObjectShadowRender(character->GetObjectData());
 	}
+}
+
+bool ObjectManager::IsDeadAllEnemy() const
+{
+	for(const auto& obj : m_objects)
+	{
+		if(!obj) { continue; }
+
+		// 敵へのダウンキャスト
+		const Enemy* enemy = dynamic_cast<const Enemy*>(obj.get());
+		if(!enemy) { continue; }
+
+		if(!enemy->IsDead()) { return false; }
+	}
+
+	return true;
+}
+
+bool ObjectManager::IsDeadPlayer() const
+{
+	if(!m_player) { return true; }
+	return m_player->IsDead();
 }
 
 void ObjectManager::RegisterCreators()

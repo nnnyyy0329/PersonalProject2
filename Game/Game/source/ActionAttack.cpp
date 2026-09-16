@@ -69,7 +69,7 @@ void ActionAttack::UpdateAttackPhase(Character& character)
 
 
 
-				printf("攻撃が開始されました\n");
+				//printf("攻撃が開始されました\n");
 			}
 
 			break;
@@ -83,7 +83,7 @@ void ActionAttack::UpdateAttackPhase(Character& character)
 				m_currentPhase = AttackPhase::RECOVERY;
 				m_stateTime = 0.0f;
 
-				printf("攻撃が有効になりました\n");
+				//printf("攻撃が有効になりました\n");
 			}
 
 			break;
@@ -98,7 +98,7 @@ void ActionAttack::UpdateAttackPhase(Character& character)
 				m_stateTime = 0.0f;
 				m_isFinished = true;
 
-				printf("攻撃が無効になりました\n");
+				//printf("攻撃が無効になりました\n");
 			}
 
 			break;
